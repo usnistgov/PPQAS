@@ -1,0 +1,37 @@
+Hacking
+*******
+
+After installing papo, you can run the test suite by running 'python setup.py test'.
+
+The test suite is also compatible with pytest and can also run with the py.test 'command'.
+
+Modules
+=======
+The papofeed directory is the main package for the software, containing the following modules:
+
+elements
+--------
+Structures for all the xml elements understood by the Password Policy Taxonomy Software.
+
+extractor
+---------
+Module to extract data from docx files
+
+feed
+----
+Uses data obtained by the extractor module to create objects for the classes in the 'elements' module.
+
+toxml
+-----
+Generates the xml output file based in all the 'elements' objects in memory.
+
+Testing
+=======
+Whenever possible, write tests for your changes in the 'test' sub-package.
+
+All the development was based in the following files
+====================================================
+:download:`questionnaire tag description</_static/questionnaire_tag_description.docx>` by Celia Paulsen in 03/27/2014, which is outdated.
+
+:download:`password policy template</_static/password_policy_template.xsd>` by Celia Paulsen in 03/18/2014, which is outdated.
+

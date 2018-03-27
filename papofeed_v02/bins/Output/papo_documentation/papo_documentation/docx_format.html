@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Writing the docx questionnaire &mdash; papofeed 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="papofeed 0.1 documentation" href="index.html" />
+    <link rel="next" title="Hacking" href="hacking.html" />
+    <link rel="prev" title="PaPo - PAssword POlicy Feed" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="hacking.html" title="Hacking"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="PaPo - PAssword POlicy Feed"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">papofeed 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="writing-the-docx-questionnaire">
+<h1>Writing the docx questionnaire<a class="headerlink" href="#writing-the-docx-questionnaire" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-information">
+<h2>GENERAL INFORMATION<a class="headerlink" href="#general-information" title="Permalink to this headline">¶</a></h2>
+<p>This file describes how the docx file should be written in order to be parsed by
+papo to generate a proper xml file for the Password Policy Taxonomy software.</p>
+<p>The structure must always nest questions inside pages, which should be inside
+groups.</p>
+<p>All the IDs should always be unique. Not following this will not cause an
+interruption nor a warning in papo, but will lead the Web based software to
+interruption.</p>
+<p>ID must be a number optionally followed by a point and another
+number and so on (&#8216;2&#8217;, &#8216;2.1&#8217;, &#8216;2.1.1.1.1&#8217;, &#8216;100.123.1000.1&#8217;)</p>
+<p>The parser is not sensitive to the number sequence, so IDs can appear in any
+order, as long as they are unique.</p>
+<p>Each line in the following descriptions should be a paragraph(new line) in the
+docx file. Spaces and tabs in the beginning of a line will be ignored.</p>
+<p>Bold, italics and underlines will always be directly translated into their HTML
+forms, this may cause problems in some cases (e.g. page titles are translated
+into links localhost/&lt;b&gt;page_1&lt;/b&gt;.html).</p>
+<p>The parser is, for now, extremely sensitive to the format.</p>
+<p>Comments and any other kind of text in the document should not affect
+the parser.</p>
+<p>Tables insert new paragraphs between all lines and columns in the
+document, which can affect the parser if used to format the question.</p>
+</div>
+<div class="section" id="how-to-build-groups">
+<h2>HOW TO BUILD GROUPS<a class="headerlink" href="#how-to-build-groups" title="Permalink to this headline">¶</a></h2>
+<p>Use docx heading styles.</p>
+<p>A docx heading level n will be translated into a level n group.</p>
+<p>The text in the Heading is the Group Title.</p>
+<p>Optionally, a line following the Heading (Group title) may be present and its
+content will be the current group instructions.</p>
+</div>
+<div class="section" id="how-to-build-pages">
+<h2>HOW TO BUILD PAGES<a class="headerlink" href="#how-to-build-pages" title="Permalink to this headline">¶</a></h2>
+<p>Use docx Strong style (do not use the Bold font attribute&#8211;only the Strong style
+must be used here).</p>
+<p>The text in the Strong style is the Page Title.</p>
+</div>
+<div class="section" id="how-to-build-questions">
+<h2>HOW TO BUILD QUESTIONS<a class="headerlink" href="#how-to-build-questions" title="Permalink to this headline">¶</a></h2>
+<p>A question starts with a line beginning with &#8216;ID:&#8217; and ends with a blank line.</p>
+<div class="section" id="format">
+<h3>format:<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<p>ID: &lt;question id&gt;</p>
+<p>TITLE: &lt;question title&gt;</p>
+<p>TEXT: &lt;question text&gt;</p>
+<p>NOTE: &lt;question notes&gt;</p>
+<p>DISPLAY_WHEN: &lt;display_when attribute&gt;</p>
+<p>DISPLAY_WHERE: &lt;display_where attribute&gt;</p>
+<p>OPTION or TEXT (this line can be repeated as many times as wanted)</p>
+<p>COMMENT: &lt;additional comment question text&gt;</p>
+<p>OPTION or TEXT (this line can be repeated as many times as wanted)</p>
+<p>&lt;Blank line&gt; #Marks end of question</p>
+</div>
+</div>
+<div class="section" id="notes-about-building-questions">
+<h2>NOTES ABOUT BUILDING QUESTIONS<a class="headerlink" href="#notes-about-building-questions" title="Permalink to this headline">¶</a></h2>
+<p>DISPLAY_WHEN is used if the current question is to be displayed only when a
+particular OPTION has been selected in another question. Indicate the ID of that
+other question and its OPTION, using the SPECIAL FIELDS IDs described below.</p>
+<p>COMMENT only applies for the last question of a page, otherwise, this label
+should not be present.</p>
+</div>
+<div class="section" id="option-and-text">
+<h2>OPTION and TEXT<a class="headerlink" href="#option-and-text" title="Permalink to this headline">¶</a></h2>
+<p>OPTION must always start with () meaning it is a radio button or [] meaning it
+is a select box (multiple selections).</p>
+<p>TEXT and the text on an option line following the () or [] may be anything in
+the utf-8 range but the reserved strings and cannot be line breaks. MS Word
+understands a line break every time you press &lt;ENTER&gt; or start a new paragraph,
+it means that whenever your text reaches the end of the page and skips to the
+next line, there are no line breaks.</p>
+</div>
+<div class="section" id="how-to-build-bnf-mappings">
+<h2>HOW TO BUILD BNF MAPPINGS<a class="headerlink" href="#how-to-build-bnf-mappings" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="optionally-each-option-line-may-be-followed-by-a-line">
+<h3>Optionally, each OPTION line may be followed by a line:<a class="headerlink" href="#optionally-each-option-line-may-be-followed-by-a-line" title="Permalink to this headline">¶</a></h3>
+<p>BNF: &lt;bnf mapping statement&gt;</p>
+<p>This BNF will be associated to the OPTION.</p>
+</div>
+<div class="section" id="optionally-each-text-line-may-be-followed-by-a-line">
+<h3>Optionally, each TEXT line may be followed by a line:<a class="headerlink" href="#optionally-each-text-line-may-be-followed-by-a-line" title="Permalink to this headline">¶</a></h3>
+<p>BNF: &lt;bnf mapping statement&gt;</p>
+<p>this BNF will be associated to the current question.</p>
+</div>
+</div>
+<div class="section" id="special-fields">
+<h2>SPECIAL FIELDS<a class="headerlink" href="#special-fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="in-the-option-and-text-lines-the-following-notation-is-accepted">
+<h3>In the OPTION and TEXT lines, the following notation is accepted:<a class="headerlink" href="#in-the-option-and-text-lines-the-following-notation-is-accepted" title="Permalink to this headline">¶</a></h3>
+<p>[BIG_TEXT_FIELD]</p>
+<p>Translated in text fields.</p>
+<p>[SMALL_TEXT_FIELD]</p>
+<p>Translated in input fields.</p>
+<p>[NUMERICAL_FIELD]</p>
+<p>Translated in numerical input fields.</p>
+<p>[|option_1|option_2|option_3|]</p>
+<p>Translated in drop down menus, accepts any number of options.</p>
+<p>Numerical fields may optionally be followed by brackets with validations:</p>
+<p>[NUMERICAL_FIELD]{&lt;validations&gt;}</p>
+<p>Each validation must be separated by &#8216;;&#8217; and should be key value pairs
+separated by &#8216;:&#8217;</p>
+<p>[NUMERICAL_FIELD]{min:1}</p>
+<p>[NUMERICAL_FIELD]{min:1;max:10}</p>
+<p>The accepted validations are: min, max, text, list, length.</p>
+</div>
+<div class="section" id="in-the-bnf-lines-the-following-notation-is-accepted">
+<h3>In the BNF lines, the following notation is accepted:<a class="headerlink" href="#in-the-bnf-lines-the-following-notation-is-accepted" title="Permalink to this headline">¶</a></h3>
+<p>[REF: &lt;field_id&gt;]</p>
+<p>{[REF: &lt;field_id&gt;]+1}</p>
+<p>This would add 1 to a user input in a numerical field.</p>
+<p>Field_id is the ID of any special field described above</p>
+<p>Ex: Users must not create passwords with more than [REF: 2.1.A.a] characters.</p>
+</div>
+</div>
+<div class="section" id="about-special-fields-ids">
+<h2>About SPECIAL FIELDS IDs<a class="headerlink" href="#about-special-fields-ids" title="Permalink to this headline">¶</a></h2>
+<p>Each option receives an ID, which is the question ID followed by &#8216;.&#8217; and a capital letter starting with A.</p>
+<p>Each Special field receives an ID which is its option ID followed by &#8216;.&#8217; and a lower case letter starting with a.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Writing the docx questionnaire</a><ul>
+<li><a class="reference internal" href="#general-information">GENERAL INFORMATION</a></li>
+<li><a class="reference internal" href="#how-to-build-groups">HOW TO BUILD GROUPS</a></li>
+<li><a class="reference internal" href="#how-to-build-pages">HOW TO BUILD PAGES</a></li>
+<li><a class="reference internal" href="#how-to-build-questions">HOW TO BUILD QUESTIONS</a><ul>
+<li><a class="reference internal" href="#format">format:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#notes-about-building-questions">NOTES ABOUT BUILDING QUESTIONS</a></li>
+<li><a class="reference internal" href="#option-and-text">OPTION and TEXT</a></li>
+<li><a class="reference internal" href="#how-to-build-bnf-mappings">HOW TO BUILD BNF MAPPINGS</a><ul>
+<li><a class="reference internal" href="#optionally-each-option-line-may-be-followed-by-a-line">Optionally, each OPTION line may be followed by a line:</a></li>
+<li><a class="reference internal" href="#optionally-each-text-line-may-be-followed-by-a-line">Optionally, each TEXT line may be followed by a line:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#special-fields">SPECIAL FIELDS</a><ul>
+<li><a class="reference internal" href="#in-the-option-and-text-lines-the-following-notation-is-accepted">In the OPTION and TEXT lines, the following notation is accepted:</a></li>
+<li><a class="reference internal" href="#in-the-bnf-lines-the-following-notation-is-accepted">In the BNF lines, the following notation is accepted:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#about-special-fields-ids">About SPECIAL FIELDS IDs</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">PaPo - PAssword POlicy Feed</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="hacking.html"
+                        title="next chapter">Hacking</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/docx_format.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="hacking.html" title="Hacking"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="PaPo - PAssword POlicy Feed"
+             >previous</a> |</li>
+        <li><a href="index.html">papofeed 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Athos Ribeiro.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

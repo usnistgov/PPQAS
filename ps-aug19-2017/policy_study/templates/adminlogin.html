@@ -1,0 +1,21 @@
+{% extends "common.html" %}
+
+{% block page %}
+<form method="post" action="" name="adminlogin">
+  {{ form.hidden_tag() }}
+  <div class=label> {{ form.password.label }} </div>
+  <div class=field> {{ form.password }} </div>
+
+  <input type="submit" value="Submit">
+</form>
+{% endblock %}
+
+
+{% block endscripts %}
+<script>
+ window.onload = function () {
+ var text_input = document.getElementById('password');
+ text_input.focus();
+ }
+</script>
+{% endblock %}

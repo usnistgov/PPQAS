@@ -1,0 +1,1240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- encoded html tags or cdata tag may be used in the "instructions" or any text-type element-->
+
+<questionnaire xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="ppt password%20policy%20template%20031814.xsd"
+    xmlns="ppt">
+    <title>Password Policy Questionnaire</title>
+    <xmlversion>031114</xmlversion>
+    <qaversion>Nov2014v1</qaversion>
+    <BNFversion>kevinV1</BNFversion>
+    <!--version numbering system to be sorted out later-->
+    <indent_px>20</indent_px>
+	<default_insert_text> DEPENDS ON USER INPUT </default_insert_text>
+
+
+<!-- Index, questions and in-page questions-->
+
+
+    <!-- Index-->
+
+    <index grouping="page" interweave_next_level="true">
+
+        <group level="1" title="Group 1" comment_ref="c.1">
+      <instructions>Group 1 instructions</instructions>
+      <text>Group 1 text</text>
+      <page title="Page 1.1 title" comment_ref="c.2">
+        <instructions>INSTRUCTIONS: page 1.1 instructions</instructions>
+        <text>page 1.1 text</text>
+        <include qref="q.1.1"/>
+        <include qref="q.1.2"/>
+        <include qref="q.1.3"/>
+        <include qref="q.1.4"/>
+        <include qref="q.1.5"/>
+      </page>
+    </group>
+    <group level="1" title="group 2" comment_ref="c.3">
+      <instructions>Group 2 instructions</instructions>
+      <text>group 2 text</text>
+      <page title="page 2.1 title" comment_ref="c.4">
+        <instructions>page 2.1 instructions</instructions>
+        <text>page 2.1 text</text>
+        <include qref="q.2.1"/>
+        <include qref="q.2.2"/>
+        <include qref="q.2.3"/>
+        <include qref="q.2.4"/>
+      </page>
+    </group>
+    <group level="1" title="group 3" comment_ref="c.5">
+      <instructions>Group 3 instructions</instructions>
+      <text>group 3 text</text>
+      <group level="2" title="Group 3.1" comment_ref="c.6">
+        <instructions>Group 3.1 instructions</instructions>
+        <text>Group 3.1 text</text>
+        <group level="3" title="Group 3.1.1" comment_ref="c.7">
+          <instructions>Group 3.1.1 instructions</instructions>
+          <text>Group 3.1.1 text </text>
+          <page title="page 3.1.1.1" comment_ref="c.8">
+            <instructions>page 3.1.1.1 instructions</instructions>
+            <text>page 3.1.1.1 Text</text>
+            <include qref="q.3.1.1.1"/>
+            <include qref="q.3.1.1.2"/>
+          </page>
+          <page title="page 3.1.2.1" comment_ref="c.9">
+            <instructions>page 3.1.2.1 instructions</instructions>
+            <text>page 3.1.2.1 text</text>
+            <include qref="q.3.1.2.1"/>
+            <include qref="q.3.1.2.2"/>
+          </page>
+        </group>
+        <group level="3" title="Group 3.1.3" comment_ref="c.10">
+          <instructions type="json">Group 3.1.3 instructions - insert text from q.3.1.2.1: {"insert": {"qref": "q.3.1.2.1"}}</instructions>
+          <text type="json">Group 3.1.3 text - insert text from q.3.1.2.1: {"insert": {"qref": "q.3.1.2.1"}}</text>
+          <page title="page 3.1.3.1" comment_ref="c.11">
+            <instructions type="json">Page 3.1.3.1 instructions - insert text from q.3.1.2.1:  {"insert": {"qref": "q.3.1.2.1"}}</instructions>
+            <include qref="q.3.1.3.1"/>
+            <include qref="q.3.1.3.2"/>
+          </page>
+        </group>
+      </group>
+    </group>
+    <group level="1" title="Round 2 tests" comment_ref="c.12">
+      <group level="2" title="Title redundancy 2" comment_ref="c.13">
+        <instructions>FIRST question checks group title &amp; question title redundancy when grouping=2; SECOND question checks page title and group title redundancy</instructions>
+        <page title="Group title redundancy lvl 2" comment_ref="c.14">
+          <include qref="q.4.1.1"/>
+          <include qref="q.4.1.1.1"/>
+        </page>
+        <page title="Page title redundancy 2" comment_ref="c.15">
+          <include qref="q.4.1.2"/>
+          <include qref="q.4.1.2.1"/>
+        </page>
+      </group>
+      <group level="2" title="Logical titles for pages" comment_ref="c.16">
+        <group level="3" title="Topic A (gr)" comment_ref="c.17">
+          <instructions>When &lt;b&gt;group level = 3&lt;/b&gt;, we want to see the &lt;b&gt;&lt;u&gt;Topic A (gr)&lt;/b&gt;&lt;/u&gt; in the navigation bar and the breadcrumb. This is the current behavior and what is desired.</instructions>
+          <page title="Topic A (PG)" comment_ref="c.18">
+            <instructions>When &lt;b&gt;group level = page&lt;/b&gt;, we don't want to see the &lt;b&gt;&lt;u&gt;Topic A (gr)&lt;/b&gt;&lt;/u&gt; in the navigation bar and the breadcrumb.  The last level of group title, e.g., Topic A (gr), is redundant. To achieve this will necessitate a change in what is displayed.</instructions>
+            <include qref="q.4.2.1"/>
+          </page>
+        </group>
+        <group level="3" title="Topic B (gr)" comment_ref="c.19">
+          <instructions>When &lt;b&gt;group level = 3&lt;/b&gt;, we want to see the &lt;b&gt;&lt;u&gt;Topic B&lt;/b&gt;&lt;/u&gt;&lt;b&gt;&lt;u&gt; (gr)&lt;/b&gt;&lt;/u&gt; in the navigation bar and the breadcrumb. This is the current behavior and what is desired.</instructions>
+          <page title="Topic B (pg)" comment_ref="c.20">
+            <instructions>When &lt;b&gt;group level = page&lt;/b&gt;, we don't want to see the &lt;b&gt;&lt;u&gt;Topic &lt;/b&gt;&lt;/u&gt;&lt;b&gt;&lt;u&gt;B&lt;/b&gt;&lt;/u&gt;&lt;b&gt;&lt;u&gt; (gr)&lt;/b&gt;&lt;/u&gt; in the navigation bar and the breadcrumb. The last level of group title, e.g., Topic B (gr), is redundant. To achieve this will necessitate a change in what is displayed.</instructions>
+            <include qref="q.4.2.2"/>
+          </page>
+        </group>
+      </group>
+      <group level="2" title="Indenting" comment_ref="c.21">
+        <instructions>Testing indenting</instructions>
+        <page title="Indenting (pg)" comment_ref="c.22">
+          <instructions>Testing indenting</instructions>
+          <include qref="q.4.3"/>
+          <include qref="q.4.3.1"/>
+          <include qref="q.4.3.2"/>
+        </page>
+      </group>
+      <group level="2" title="Display-when, clone and their interplay check" comment_ref="c.23">
+        <instructions>Checking an issue seen with display when and clones, might be a refresh issue</instructions>
+        <page title="Display-when check" comment_ref="c.24">
+          <instructions>Check display-when</instructions>
+          <include qref="q.4.4.1"/>
+          <include qref="q.4.4.1.1"/>
+        </page>
+        <page title="Check clones" comment_ref="c.25">
+          <include qref="q.4.4.2"/>
+        </page>
+        <page title="Display-when and clone check (PG)" comment_ref="c.26">
+          <instructions>Checking an issue seen with display when and clones, might be a refresh issue</instructions>
+          <include qref="q.4.4.3"/>
+          <include qref="q.4.4.3.1"/>
+          <include qref="q.4.4.3.2"/>
+        </page>
+      </group>
+      <group level="2" title="CDATA checks" comment_ref="c.27">
+        <page title="Checks for CDATA rendering in text-type elements" comment_ref="c.28">
+          <include qref="q.4.5"/>
+        </page>
+      </group>
+    </group>
+  </index>
+  <questions>
+    <question id="q.1.1">
+      <title>Question 1.1 Title - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</title>
+      <text>Question 1.1 Text - "Select One", 3 options; all fields; fonts; - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+      <note>Question 1.1 Note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</note>
+      <instructions>Question 1.1 Instructions - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</instructions>
+      <response type="select one">
+        <option id="q.1.1.A">
+          <text>Option q.1.1.A Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+          <BNF_mapping id="b.1">BNF for option q.1.1.A</BNF_mapping>
+          <note>Option q.1.1.A note - &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text</note>
+        </option>
+        <option id="q.1.1.B">
+          <text>Option q.1.1.B Text - &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text </text>
+          <BNF_mapping id="b.2">BNF for option q.1.1.B</BNF_mapping>
+          <note>Option q.1.1.B note - &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text</note>
+        </option>
+        <option id="q.1.1.C" clone="q.1.1">
+          <text>Option q.1.1.C Text - &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text and clone of this full question q.1.1 </text>
+          <BNF_mapping id="b.3">BNF for option q.1.1.C</BNF_mapping>
+          <note>Option q.1.1.C note - &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text</note>
+        </option>
+      </response>
+    </question>
+    <question id="q.1.2">
+      <title>Question 1.2 Title</title>
+      <text>Question 1.2 Text - "Select Multi", 3 options; all fields;</text>
+      <note>question-level note for q.1.2</note>
+      <instructions type="json">Question 1.2 Instructions {"insert": {"qref": "q.1.2", "mod": {"q.1.2.A": "This is A{'insert':{'qref': 'q.1.3'}}"}}}</instructions>
+      <response type="select multi">
+        <option id="q.1.2.A">
+          <text>Option q.1.2.A Text</text>
+          <BNF_mapping id="b.4">BNF for option q.1.2.A</BNF_mapping>
+          <note>Option q.1.2.A Note </note>
+        </option>
+        <option id="q.1.2.B">
+          <text>Option q.1.2.B Text</text>
+          <BNF_mapping id="b.5">BNF for option q.1.2.B</BNF_mapping>
+          <note>Option q.1.2.B Note</note>
+        </option>
+        <option id="q.1.2.C">
+          <text>Option q.1.2.C Text</text>
+          <BNF_mapping id="b.6">BNF for option q.1.2.C</BNF_mapping>
+          <note>Option q.1.2.C Note</note>
+        </option>
+      </response>
+    </question>
+    <question id="q.1.3">
+      <title>Question 1.3 Title</title>
+      <text>Question 1.3 Text - "textbox"; all fields; bnf json= insert</text>
+      <note>Question 1.3 Note</note>
+      <instructions>Question 1.3 Instructions</instructions>
+      <response type="textbox">
+        <BNF_mapping id="b.7">BNF for option q.1.3; insert textbox text: {"insert":{"qref":"q.1.3"}}</BNF_mapping>
+        <note>Option 1.3 note: provide text for bnf insert</note>
+      </response>
+    </question>
+    <question id="q.1.4">
+      <title>Question 1.4 Title</title>
+      <text>Question 1.4 Text - "memo"; all fields; bnf json= insert</text>
+      <note>Question 1.4 Note</note>
+      <instructions>Question 1.4 Instructions</instructions>
+      <response type="memo">
+        <BNF_mapping id="b.8">BNF for option q.1.4; insert memo text: {"insert":{"qref":"q.1.4"}}</BNF_mapping>
+      </response>
+    </question>
+    <question id="q.1.5">
+      <title>Question 1.5 Title</title>
+      <text>Question 1.5 Text - "cloze"; all fields; bnf json= insert</text>
+      <note>Question 1.5 Note</note>
+      <instructions>Question 1.5 Instructions</instructions>
+      <response type="cloze">
+        <text type="json">Question 1.5 response text {"cloze": {"type": "numerical", "id": "q.1.5.a"}} {"cloze": {"type": "textbox", "id": "q.1.5.b"}} {"cloze": {"default": "option (single) list", "type": "select one", "id": "q.1.5.c", "options": ["option 1", "option2", "option 3"]}}{"cloze": {"default": "option (multi) list", "type": "select multi", "id": "q.1.5.d", "options": ["option 1", "option2", "option 3"]}}{"cloze": {"validation": {"required": "required", "invalid_text": "enter something"}, "type": "memo", "id": "q.1.5.e"}}</text>
+        <BNF_mapping id="b.9" type="json">BNF for option q.1.5; insert cloze: {"insert": {"qref": "q.1.5.a"}} {"insert": {"qref": "q.1.5.b"}} {"insert": {"qref": "q.1.5.c"}} {"insert": {"qref": "q.1.5.d", "separator": ","}} {"insert": {"qref": "q.1.5.e"}}</BNF_mapping>
+        <note>1.5 option-level note</note>
+      </response>
+    </question>
+    <question id="q.2.1">
+      <title>Question 2.1 Title</title>
+      <text>Question 2.1 Text - "select multi"; no question or response-level note; validation= required</text>
+      <instructions>Question 2.1 Instructions</instructions>
+      <response type="select multi">
+        <validation>
+          <required>required</required>
+          <invalid_text>At least one must be selected</invalid_text>
+        </validation>
+        <option id="q.2.1.A">
+          <text>Option Q.2.1.A Text</text>
+          <BNF_mapping id="b.10">BNF for option q.2.1.A</BNF_mapping>
+          <note>Option Q.2.1.A Note</note>
+        </option>
+        <option id="q.2.1.B">
+          <text>Option Q.2.1.B Text</text>
+          <BNF_mapping id="b.11">BNF for option q.2.1.B</BNF_mapping>
+          <note>Option Q.2.1.B Note</note>
+        </option>
+        <option id="q.2.1.C">
+          <text>Option Q.2.1.C Text</text>
+          <BNF_mapping id="b.12">BNF for option q.2.1.C</BNF_mapping>
+          <note>Option Q.2.1.C Note - invalid_text is set to: "At least one must be selected" for this option </note>
+        </option>
+      </response>
+    </question>
+    <question id="q.2.2">
+      <title>Question 2.2 Title</title>
+      <text>Question 2.2 Text - "textbox"; no instructions; validation= required, no spaces</text>
+      <note>Question 2.2 Note</note>
+      <response type="textbox">
+        <validation>
+          <pattern>[^\s]*</pattern>
+          <required>required</required>
+        </validation>
+        <BNF_mapping id="b.13" type="json">BNF for option q.2.2; insert textbox text: {"insert": {"qref": "q.2.2"}}</BNF_mapping>
+      </response>
+    </question>
+    <question id="q.2.3">
+      <title>Question 2.3 Title</title>
+      <instructions>Question 2.3 Instructions - "cloze"; no text; no bnf; validations</instructions>
+      <response type="cloze">
+        <text type="json">{"cloze": {"validation": {"max": "5", "invalid_text": "invalid value, must be between 3-5, inclusive", "min": "3"}, "type": "numerical", "id": "q.2.3.a"}}&lt;br&gt;{"cloze": {"validation": {"pattern": "[^a-zA-Z0-9 ]*", "invalid_text": "invalid text, max length 3, only special characters, no spaces", "maxlength": "3"}, "type": "textbox", "id": "q.2.3.b"}}</text>
+      </response>
+    </question>
+    <question id="q.2.4">
+      <title>Question 2.4 Title</title>
+      <text>Provide the number of widgits, whatchamacallits and/or leave a comment</text>
+      <instructions>Question 2.4 Instructions - "cloze"; no validations</instructions>
+      <response type="select multi">
+        <option id="q.2.4.A">
+          <text type="json">Number of widgits: {"cloze": {"type": "numerical", "id": "q.2.4.A.a"}}</text>
+        </option>
+        <option id="q.2.4.B">
+          <text type="json">Number of whatchamacallits: {"cloze": {"type": "numerical", "id": "q.2.4.B.a"}}</text>
+        </option>
+        <option id="q.2.4.C">
+          <text type="json">Or, provide a comment: {"cloze": {"type": "memo", "id": "q.2.4.C.a"}}</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.3.1.1.1">
+      <title>Question q.3.1.1.1 title</title>
+      <text>Question q.3.1.1.1 text - "select one", NO BNF MAPPED-sets up DISPLAY_WHEN</text>
+      <instructions>Question q.3.1.1.1 instructions: select an option to display another question</instructions>
+      <response type="select one">
+        <option id="q.3.1.1.1.A">
+          <text>Option q.3.1.1.1.A</text>
+        </option>
+        <option id="q.3.1.1.1.B">
+          <text>Option q.3.1.1.1.B</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.3.1.1.2" display_when="q.3.1.1.1.A,q.3.1.1.1.B">
+      <title>Question q.3.1.1.2 title</title>
+      <text>Question q.3.1.1.2 text - "select one", complex bnf</text>
+      <response type="select one">
+        <option id="q.3.1.1.2.A">
+          <text>Option q.3.1.1.2.A</text>
+          <BNF_mapping id="b.14" when="q.3.1.1.1.A">BNF text when options q.3.1.1.1.A and q.3.1.1.2.A are selected </BNF_mapping>
+          <BNF_mapping id="b.15" when="q.3.1.1.1.B">BNF text when options q.3.1.1.1.B and q.3.1.1.2.A are selected</BNF_mapping>
+        </option>
+        <option id="q.3.1.1.2.B">
+          <text>Option q.3.1.1.2.B</text>
+          <BNF_mapping id="b.16" when="q.3.1.1.1.A">BNF text when options q.3.1.1.1.A and q.3.1.1.2.B are selected </BNF_mapping>
+          <BNF_mapping id="b.17" when="q.3.1.1.1.B">BNF text when options q.3.1.1.1.B and q.3.1.1.2.B are selected</BNF_mapping>
+        </option>
+      </response>
+    </question>
+    <question id="q.3.1.2.1">
+      <title>Question q.3.1.2.1 title</title>
+      <text>question q.3.1.2.1 text - textbox response, no instructions or note; BNF pulls from future question; mod and count used (**this text pulled to other elements**)</text>
+      <response type="cloze">
+        <text type="json">Question text q.3.1.2.1 to modify: {"cloze": {"type": "textbox", "id": "q.3.1.2.1.a"}}</text>
+        <BNF_mapping id="b.18" type="json">BNF mapping for question q.3.1.2.1 - count how many from question q.3.1.2.2: {"insert": {"qref": "q.3.1.2.2", "count": "true"}}; then insert and modify the options selected in q.3.1.1.2.2: {"insert": {"qref": "q.3.1.2.2, mod"}}.</BNF_mapping>
+      </response>
+    </question>
+    <question id="q.3.1.2.2">
+      <title>Question q.3.1.2.2 title</title>
+      <text>question q.3.1.2.2 text - select multi</text>
+      <response type="select multi">
+        <option id="q.3.1.2.2.A">
+          <text>option q.3.1.2.2.A - modify text to "A"</text>
+        </option>
+        <option id="q.3.1.2.2.B">
+          <text>option q.3.1.2.2.B - modify text to "B"</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.3.1.3.1">
+      <title>Question q.3.1.3.1 title</title>
+      <text>Question q.3.1.3.1 text - numerical cloze with BNF math</text>
+      <response type="cloze">
+        <text type="json">Question q.3.1.3.1 numerical cloze: {"cloze": {"type": "numerical", "id": "q.3.1.3.1.a"}}</text>
+        <BNF_mapping id="b.19" type="json">BNF for question q.3.1.3.1 with math - {"insert": {"qref": "q.3.1.3.1.a", "math": "1"}}</BNF_mapping>
+      </response>
+    </question>
+    <question id="q.3.1.3.2">
+      <title>Question q.3.1.3.2 title</title>
+      <text type="json">Question q.3.1.3.2 text - select multi cloze with BNF mod and count - insert text from q.3.1.3.1 {"insert": {"qref": "q.3.1.3.1.a"}}</text>
+      <note type="json">question q.3.1.3.2 note - insert text from q.3.1.3.1 {"insert": {"qref": "q.3.1.3.1.a"}}</note>
+      <response type="cloze">
+        <text type="json">Question q.3.1.3.2 select one cloze: {"cloze": {"default": "option (single) list", "type": "select multi", "id": "q.3.1.3.2.a", "options": ["option 1", "option2", "option 3"]}}; insert text from q.3.1.3.1 {"insert": {"qref": "q.3.1.3.1.a"}}</text>
+        <BNF_mapping id="b.20" type="json">BNF for question q.3.1.3.2 with mod - {"insert": {"qref": "q.3.1.3.2.a", "mod": {"option 3": "3", "option 2": "2", "option 1": "1"}}} count:{"insert": {"qref": "q.3.1.3.2.a", "count": "true"}}.</BNF_mapping>
+      </response>
+    </question>
+    <question id="q.4.1.1">
+      <title>Title redundancy lvl 2</title>
+      <text>Is the grouping = 2?</text>
+      <instructions>INSTRUCTIONS: check for group title &amp; question title redundancy - &lt;b&gt;test is applicable&lt;/b&gt; when grouping=2</instructions>
+      <response type="select one">
+        <option id="q.4.1.1.A">
+          <text>Yes</text>
+        </option>
+        <option id="q.4.1.1.B">
+          <text>No</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.1.1.1" display_when="q.4.1.1.A">
+      <text>Are both the level 2 group title and the question title displayed?</text>
+      <response type="select one">
+        <option id="q.4.1.1.1.A">
+          <text>Yes - this is a code bug</text>
+        </option>
+        <option id="q.4.1.1.1.B">
+          <text>No - this is the desired behavior</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.1.2" display_when="q.4.1.1.B">
+      <title>Page title redundancy 2</title>
+      <text>Is the grouping = page?</text>
+      <instructions>INSTRUCTIONS: check for page title and question title redundancy - &lt;b&gt;test is applicable&lt;/b&gt; when grouping=page</instructions>
+      <response type="select one">
+        <option id="q.4.1.2.A">
+          <text>Yes</text>
+        </option>
+        <option id="q.4.1.2.B">
+          <text>No</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.1.2.1" display_when="q.4.1.2.A">
+      <text>Are both the page title and the question title displayed?</text>
+      <response type="select one">
+        <option id="q.4.1.2.1.A">
+          <text>Yes - this is a code bug</text>
+        </option>
+        <option id="q.4.1.2.1.B">
+          <text>No - this is the desired behavior</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.2.1">
+      <title>question 4.2.1</title>
+      <text>question for 4.2.1</text>
+      <response type="select one">
+        <option id="q.4.2.1.A">
+          <text>option A</text>
+        </option>
+        <option id="q.4.2.1.B">
+          <text>option B</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.2.2">
+      <title>topic b question 1.1</title>
+      <text>some question on topic b, 1.1</text>
+      <response type="select one">
+        <option id="q.4.2.2.A">
+          <text>option 1</text>
+        </option>
+        <option id="q.4.2.2.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.3">
+      <text>Do you want to test indenting?</text>
+      <note>for now, need to manually edit xml to add indent attribute</note>
+      <response type="select one">
+        <option id="q.4.3.A">
+          <text>Yes</text>
+        </option>
+        <option id="q.4.3.B">
+          <text>No</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.3.1" indent="2" display_when="q.4.3.A">
+      <text>Is this indented +2?</text>
+      <note>for now, need to manually edit xml to add indent attribute</note>
+      <response type="select one">
+        <option id="q.4.3.1.A">
+          <text>Yes (excellent)</text>
+        </option>
+        <option id="q.4.3.1.B">
+          <text>No (drat - why not?)</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.3.2" indent="3" display_when="q.4.3.A">
+      <text>Is this indented +3?</text>
+      <indent>3</indent>
+      <note>for now, need to manually edit xml to add indent attribute</note>
+      <response type="select one">
+        <option id="q.4.3.2.A">
+          <text>Yes (excellent)</text>
+        </option>
+        <option id="q.4.3.2.B">
+          <text>No (drat - why not?)</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.4.1">
+      <text>check display-when?</text>
+      <response type="select one">
+        <option id="q.4.4.1.A">
+          <text>Yes</text>
+        </option>
+        <option id="q.4.4.1.B">
+          <text>No</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.4.1.1" display_when="q.4.4.1.A">
+      <text>question to display when checking display-when.. did it appear?</text>
+      <response type="select one">
+        <option id="q.4.4.1.1.A">
+          <text>Yes, cool</text>
+        </option>
+        <option id="q.4.4.1.1.B">
+          <text>No, drat</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.4.2">
+      <text>Want to check clones?</text>
+      <note>Each option will also generate a bnf statement that should be checked</note>
+      <response type="select one">
+        <option id="q.4.4.2.A" clone="q.4.4.2">
+          <text>Yes</text>
+          <BNF_mapping id="b.21">Simple bnf statement to test cloned statements</BNF_mapping>
+        </option>
+        <option id="q.4.4.2.B">
+          <text>No</text>
+          <BNF_mapping id="b.22">Simple bnf statement for non-cloned question</BNF_mapping>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.4.3">
+      <text>Do you want to check the interaction of display when and cloning?</text>
+      <response type="select one">
+        <option id="q.4.4.3.A">
+          <text>Yes</text>
+        </option>
+        <option id="q.4.4.3.B">
+          <text>No</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.4.3.1" display_when="q.4.4.3.A">
+      <text>This is the question that should be displayed when checking the interaction of display_when and cloning</text>
+      <response type="select multi">
+        <option id="q.4.4.3.1.A">
+          <text>option 1</text>
+        </option>
+        <option id="q.4.4.3.1.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.4.3.2" display_when="q.4.4.3.A">
+      <text>Do you want to see these last two questions again?</text>
+      <response type="select one">
+        <option id="q.4.4.3.2.A" clone="q.4.4.3.1,q.4.4.3.2">
+          <text>Yes</text>
+        </option>
+        <option id="q.4.4.3.2.B">
+          <text>No</text>
+        </option>
+      </response>
+    </question>
+    <question id="q.4.5">
+      <title>CDATA check </title>
+      <text>simple question format</text>
+      <note>&lt;![CDATA[ &lt;p&gt; Especially, please enable &lt;br&gt; javascript to answer this question.&lt;/p&gt; ]]&gt;</note>
+      <instructions>INSTRUCTION: &lt;![CDATA[ &lt;p&gt; Shows that the instructions can have embedded &lt;br&gt; html and stuff.&lt;/p&gt; ]]&gt;</instructions>
+      <response type="select multi">
+        <option id="q.4.5.A">
+          <text>Instructions were formatted</text>
+        </option>
+        <option id="q.4.5.B">
+          <text>Question was formatted</text>
+        </option>
+        <option id="q.4.5.C">
+          <text>Note was formatted</text>
+        </option>
+      </response>
+    </question>
+  </questions>
+  <additional_comments>
+    <comments id="c.1">
+      <text>comment c.1 Text - "Select One", 3 options; all fields; fonts; - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+      <title>comment c.1 Title - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</title>
+      <note>comment c.1 Comment Note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</note>
+      <instructions>INSTRUCTIONS: comment c.1 Instructions &lt;b&gt;&lt;i&gt;&lt;u&gt;-&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;&lt;b&gt;&lt;i&gt;&lt;u&gt; &lt;/b&gt;&lt;/i&gt;&lt;/u&gt;&lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</instructions>
+      <response type="select one">
+        <option id="c.1.A">
+          <text>Option c.1.A Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+          <note>Option c.1.A note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</note>
+        </option>
+        <option id="c.1.B">
+          <text>Option c.1.B Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+          <note>Option c.1.B note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</note>
+        </option>
+        <option id="c.1.C">
+          <text>Option c.1.C Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+          <note>Option c.1.C note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</note>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.2">
+      <text>comment 1.1 Text - "Select Multi", 3 options; all fields;</text>
+      <instructions>INSTRUCTIONS: comment 1.1 Instructions</instructions>
+      <instructions>Option c.1.1.B Text</instructions>
+      <response type="select multi">
+        <option id="c.2.A">
+          <text>Option c.1.1.A Text</text>
+          <note>Option c.1.1.A Text</note>
+        </option>
+        <option id="c.2.B">
+          <text>Option c.1.1.B Text</text>
+        </option>
+        <option id="c.2.C">
+          <text>Option c.1.1.C Text</text>
+          <note>Option c.1.1.C Text</note>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.3">
+      <text>comment 2 Text - "textbox"; </text>
+      <title>comment 2 Title (will be ignored at ingest to application - default comments title used</title>
+      <note>comment 2 Note</note>
+      <instructions>INSTRUCTIONS comment 2 Instructions</instructions>
+      <response type="textbox"/>
+    </comments>
+    <comments id="c.4">
+      <text>comment 2.1 Text - "memo"; </text>
+      <title>comment 2.1 Title (ignored at ingest)</title>
+      <note>comment 2.1 Note</note>
+      <instructions>INSTRUCTIONS comment 2.1 Instructions</instructions>
+      <response type="memo">
+        <note>comment 2.1 response-level note</note>
+      </response>
+    </comments>
+    <comments id="c.5">
+      <text>comments 3 Text - "cloze"; all fields;  4 + last on separate line</text>
+      <note>comments 3 Note</note>
+      <instructions>comments 3 Instructions</instructions>
+      <response type="cloze">
+        <text type="json">Comments 3 response text Line 1 {"cloze": {"type": "numerical", "id": "c.5.a"}} {"cloze": {"type": "textbox", "id": "c.5.b"}} {"cloze": {"default": "option (single) list", "type": "select one", "id": "c.5.c", "options": ["option 1", "option2", "option 3"]}}{"cloze": {"default": "option (multi) list", "type": "select multi", "id": "c.5.d", "options": ["option 1", "option2", "option 3"]}}</text>
+        <note type="json">Option level note, Required memo input: {"insert": {"qref": "c.3.e"}}; more note text</note>
+      </response>
+    </comments>
+    <comments id="c.6">
+      <text>comments 3.1 Text - "select multi"; no note; validation= required</text>
+      <instructions>comments 3.1 Instructions</instructions>
+      <response type="select multi">
+        <validation>
+          <required>required</required>
+          <invalid_text>At least one must be selected</invalid_text>
+        </validation>
+        <option id="c.6.A">
+          <text>Option c.3.1.A Text</text>
+          <note>Option c.3.1.A Note</note>
+        </option>
+        <option id="c.6.B">
+          <text>Option c.3.1.B Text</text>
+          <note>Option c.3.1.B Note</note>
+        </option>
+        <option id="c.6.C">
+          <text>Option c.3.1.C Text</text>
+          <note>Option c.3.1.C Note</note>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.7">
+      <text>comment 3.1.1 Text - "textbox"</text>
+      <note>comment 3.1.1 Note</note>
+      <instructions>comment 3.1.1 Instructions</instructions>
+      <response type="textbox">
+        <note>comment 3.1.1 option-level note</note>
+      </response>
+    </comments>
+    <comments id="c.8">
+      <text>comment 3.1.1.1 Text - "textbox"</text>
+      <note>comment-level 3.1.1.1 Note</note>
+      <instructions>comment 3.1.1.1 Instructions</instructions>
+      <response type="textbox">
+        <note>comment 3.1.1.1 option-level note</note>
+      </response>
+    </comments>
+    <comments id="c.9">
+      <text>comment 3.1.2.1 Text - "textbox"</text>
+      <note>comment 3.1.2.1 Note</note>
+      <instructions>comment 3.1.2.1 Instructions</instructions>
+      <response type="textbox"/>
+    </comments>
+    <comments id="c.10">
+      <text>Group 3.1.3 text - comment 3.1.3 Text - "textbox"</text>
+      <note type="json">comment-level 3.1.3 Note - insert text from q.3.1.2.1: {"insert": {"qref": "q.3.1.2.1"}}</note>
+      <instructions type="json">Group 3.1.3 instructions - insert text from q.3.1.2.1: {"insert": {"qref": "q.3.1.2.1"}}</instructions>
+      <response type="textbox">
+        <note type="json">comment 3.1.3 option-level note - insert text from q.3.1.2.1: {"insert": {"qref": "q.3.1.2.1"}}</note>
+      </response>
+    </comments>
+    <comments id="c.11">
+      <text>comment 3.1.3.1 Text - "textbox"</text>
+      <note type="json">comment-level 3.1.3.1 Note - insert text from q.3.1.2.1: {"insert": {"qref": "q.3.1.2.1"}}</note>
+      <instructions type="json">comment 3.1.3.1 Instructions - insert text from q.3.1.2.1: {"insert": {"qref": "q.3.1.2.1"}}</instructions>
+      <response type="textbox">
+        <note type="json">comment 3.1.3.1 option-level note - insert text from q.3.1.2.1: {"insert": {"qref": "q.3.1.2.1"}}</note>
+      </response>
+    </comments>
+    <comments id="c.12">
+      <text>comment 2 Text - "memo":</text>
+      <note>Round 2 tests Note</note>
+      <instructions>comment 2 Instructions</instructions>
+      <response type="memo"/>
+    </comments>
+    <comments id="c.13">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.13.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.13.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.14">
+      <text>basic comment, no options</text>
+      <response type="select one">
+        <option id="c.14.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.14.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.15">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.15.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.15.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.16">
+      <text>basic comment </text>
+      <response type="select one">
+        <option id="c.16.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.16.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.17">
+      <text>basic comment </text>
+      <response type="select one">
+        <option id="c.17.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.17.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.18">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.18.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.18.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.19">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.19.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.19.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.20">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.20.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.20.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.21">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.21.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.21.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.22">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.22.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.22.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.23">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.23.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.23.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.24">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.24.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.24.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.25">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.25.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.25.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.26">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.26.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.26.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.27">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.27.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.27.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.28">
+      <text>basic comment</text>
+      <response type="select one">
+        <option id="c.28.A">
+          <text>option 1</text>
+        </option>
+        <option id="c.28.B">
+          <text>option 2</text>
+        </option>
+      </response>
+    </comments>
+  </additional_comments>
+
+<!-- static text -->
+
+    <static_text>
+        <enable_flashed_messages></enable_flashed_messages> <!-- leave blank to disable, otherwise 'True' -->
+        <enable_logged_in_message></enable_logged_in_message> <!-- leave blank to disable -->
+        <enable_question_ids></enable_question_ids> <!-- leave blank to disable, otherwise 'Yes' -->
+        <email_sent_text> The comment was successfully sent </email_sent_text>
+        <email_error_text> Sending the message failed! Call Micky!</email_error_text>
+        <email_ok> OK </email_ok>
+        <email_title> Notice! </email_title>
+
+      <title>Password Policy Formalization Study</title>
+        <!-- Title of the web page (usually appears in the browser tab, or at the top of the browser) -->
+
+        <help_text>help text</help_text>
+
+        <nojs_message> <![CDATA[ <p> Please enable javascript to use this application.</p> ]]> </nojs_message>
+        <nopopups_message> <![CDATA[ <p> Please enable popups to use this application.</p> ]]> </nopopups_message>
+
+        <sign_in>
+          <pgtitle>Login to the Password Policy Formalization Study</pgtitle>
+            <username>Username:</username>
+            <no_account> <![CDATA[ Please enter your username below. If you are a new user, please <b><a href="/signup">create a new account.</a></b> ]]></no_account>
+            <intro_text></intro_text>
+            <instructions></instructions>
+          <error_text>That username does not exist. Please re-enter your username.</error_text>
+          <error_title_text>Nonexistent!</error_title_text>
+        </sign_in>
+
+        <sign_up>
+          <pgtitle>Create a New Account</pgtitle>
+          <has_account>Already have an account?</has_account>
+          <name_taken>This name is not available  - please choose a different name.</name_taken>
+          <name_taken_title>Name is taken!</name_taken_title>
+          <name_invalid>Name must be only letters and numbers</name_invalid>
+          <name_invalid_title>Name is invalid!</name_invalid_title>
+          <intro_text><![CDATA[ <b>Account information</b>]]></intro_text>
+          <instructions><![CDATA[ A username must consist of <b>only</b> letters and numbers. <br>If you forget this username, your account and any saved responses cannot be recovered. Only a scrambled version is ever stored in order to protect your identity.<br>This application does not use passwords.  ]]></instructions>
+          <success>New user created successfully</success>
+          <user_created_text> Your user id can NOT be recovered if you forget or lose it. Please keep it safe. </user_created_text>
+          <user_created_ok> I understand </user_created_ok>
+          <user_created_title> Attention! </user_created_title>
+        </sign_up>
+
+        <policies_for_review>
+          <pgtitle> Password Policies </pgtitle>
+		    <preinstructions> These come before the instructions! </preinstructions>
+            <instructions>Please select a policy from below. An image of the policy will open in a separate window; the questionnaire for this study will be displayed in the this window. Your responses are automatically saved.
+            </instructions>
+            <new_and_draft_text>
+                Policies For Review
+            </new_and_draft_text>
+            <new_text>
+                New
+            </new_text>
+            <draft_text>
+                In-progress
+            </draft_text>
+            <completed_text>
+                Completed
+            </completed_text>
+        </policies_for_review>
+
+        <questionnaire>
+          <back_text> Policies For Review </back_text> <!-- No HTML... full text is a link back -->
+            <finish_text> Review &amp; Submit </finish_text> <!-- Text for sidebar and bottom of page links -->
+            <continue_label> Move on </continue_label>
+            <cancel_label> Fix </cancel_label>
+
+			<invalid_popup_title>Missing responses</invalid_popup_title>
+			<invalid_popup_text>Complete responses now? Select 'Fix' to complete your responses. Select 'Move on' to leave this page.</invalid_popup_text>
+			<logout_title>Logout </logout_title>
+			<logout_text>Confirm logout?</logout_text>
+			<logout_continue>Bye-bye</logout_continue>
+			<logout_cancel>Cancel </logout_cancel>
+			<clone_warning_title>Warning</clone_warning_title>
+			<clone_warning_text>The option you just selected will remove all subsequent repeated statements with associated responses. Are you sure you want to remove these?</clone_warning_text>
+			<clone_warning_continue>Remove</clone_warning_continue>
+			<clone_warning_cancel>Cancel</clone_warning_cancel>
+
+			<empty_page_message> Congratulations... you don't have to answer any questions on this page! </empty_page_message>
+
+        </questionnaire>
+
+        <help>
+            <pgtitle> Help! </pgtitle>
+            <html>
+                <![CDATA[
+Information
+on frequently asked questions is provided below. To leave a comment
+about this application or request someone contact you, please leave
+a&nbsp;<a href="/general_comments">General Comment</a>.<br>
+<br>
+<big><big>Help topics</big></big><br>
+<ul>
+  <li><a href="#What_will_I_be_doing">What will I be
+doing?</a></li>
+  <ul>
+    <li>What is a policy statement?</li>
+    <li>Out-of-scope topics</li>
+  </ul>
+  <li>Tell us what you see</li>
+  <li><a href="#What_is_the_objective_of_this_work">What
+is the objective of this work</a>?</li>
+  <li><a href="#Pop-ups_and_javascript">Pop-ups and
+javascript</a></li>
+  <li>Supported browsers</li>
+  <li>Recommended equipment</li>
+</ul>
+<br>
+<br>
+<big><big>Information</big></big><br>
+<ul>
+  <li><a name="What_will_I_be_doing"></a><span
+ style="font-style: italic;">What will I be doing?</span></li>
+</ul>
+<div style="margin-left: 40px;">You will be asked a series
+of questions about each of several real-world password policies.<br>
+<ol>
+  <li>For each question, try to identify the corresponding
+statement(s) in the password policy that addresses that question.</li>
+  <li>Select
+the responses that most closely reflect your understanding of what the
+policy is stating. Some questions may not be applicable for a
+particular policy, so select the most appropriate response.</li>
+</ol>
+What is a password policy statement?<br>
+<div style="margin-left: 40px;">Password policy statements
+typically refer to&nbsp;directions for users about creating,
+communicating, storing and changing passwords, in addition to the
+consequences of failing to authenticate. There are typically four types
+of &nbsp;statements that direct the user how to comply with the
+policy: <br>
+<ul>
+  <li>what the user "must" do</li>
+  <li>what the user "must not" do</li>
+  <li>what the user "should" do</li>
+  <li>what the user "should not" do</li>
+</ul>
+This effort is directed towards password policy statements for <span
+ style="font-weight: bold;">general</span>
+(non-privileged) user accounts.<br>
+</div>
+There are a number of topics that are out of scope for
+this&nbsp;effort and&nbsp;questions are not included to
+inquire about these types of statements:<br>
+<div style="margin-left: 40px;">
+<ul>
+  <li>Passphrases and SSH keys</li>
+  <li>Password guidelines for administrators, privileged accounts
+and superusers</li>
+  <li>Vague
+statements, such as 'Passwords should be memorable',&nbsp;are out
+of
+scope of the current effort </li>
+</ul>
+</div>
+<br>
+</div>
+<ul style="font-style: italic;">
+  <li>Tell us what you see..</li>
+</ul>
+<div style="margin-left: 40px;">In a policy..<br>
+<div style="margin-left: 40px;">Each
+page of questions contains one or more questions for a given topic.
+Each page also contains a comments section at the bottom for any
+additional information that may be pertinent to the topic(s) addressed
+on that page.<br>
+</div>
+<br>
+More generally...<br>
+<div style="margin-left: 40px;">For a comment about this
+application, a technical issue, or other observation, please leave us a
+<a href="/general_comments">General Comment</a>.
+Your feedback will be emailed to a member of this research project. If
+you want a response and you provide your contact information, you will
+be contacted.</div>
+</div>
+<ul>
+  <li><a name="What_is_the_objective_of_this_work"></a><span
+ style="font-style: italic;">What is the objective of this
+work?</span></li>
+</ul>
+<div style="margin-left: 40px;">NIST
+will compile participants' responses and use them to discern how users
+interpret password policy statements.&nbsp;By analyzing the
+responses
+of numerous participants, NIST intends to identify policy statement
+wording that is clear and unambiguous and that which is not. NIST
+intends to use the results to develop a password "grammar" that
+organizations could use to write clearer password policies. Further,
+single and combinations of policy statements can then be isolated and
+analyzed for usability and security characteristics. The ultimate goal
+is to provide policy developers with guidelines to&nbsp;reduce user
+frustration and improve compliance&nbsp;while improving system
+security.&nbsp;</div>
+<ul>
+  <li><a name="Pop-ups_and_javascript"></a><span
+ style="font-style: italic;">Pop-ups and javascript</span></li>
+</ul>
+<div style="margin-left: 40px;">To operate effectively,
+this application requires that your browser have pop-ups and javascript
+enabled for this site. See the next section for information on enabling
+these features for each supported browser.</div>
+<ul>
+  <li><a name="_Supported_browsers_and_javascript"></a><span
+ style="font-style: italic;">These browsers are supported by
+this application</span>.&nbsp;</li>
+</ul>
+<div style="margin-left: 40px;">(Please report technical
+issues through the <a href="/general_comments">General
+Comment</a> page.)</div>
+<ul>
+  <ul>
+    <li>Internet Explorer</li>
+    <li>Firefox</li>
+    <li>Chrome</li>
+    <li>Safari</li>
+  </ul>
+</ul>
+<br>
+<br>
+
+	]]>
+            </html>
+        </help>
+
+
+        <demographics_survey>
+          <submit_text>Please fill out all the data - to make changes, select 'Go Back', to proceed to the study click OK</submit_text>
+            <submit_text_title>Incomplete entry</submit_text_title>
+            <submit_continue>OK</submit_continue>
+            <submit_cancel>Go Back</submit_cancel>
+            <indent_px>11</indent_px>
+        </demographics_survey>
+
+        <admin_configure>
+            <pgtitle>Configure Study</pgtitle>
+        </admin_configure>
+
+        <admin_testing_setup>
+            <pgtitle> Testing Setup </pgtitle>
+        </admin_testing_setup>
+
+        <admin_reporting>
+            <pgtitle>Reporting</pgtitle>
+        </admin_reporting>
+
+        <general_comments>
+            <pgtitle> Comments </pgtitle>
+        </general_comments>
+
+        <completion_page>
+ <!--           <pgtitle> Complete Study? </pgtitle>
+            <description> If you click 'Complete' you will no longer be able to edit your responses to this questionnaire. Click 'Go Back' to return to the questionnaire. </description>
+            <invalid_text> <![CDATA[ <p> You have not completed every question in the study - you are free to submit the questionnaire without completing it, but please do try to complete all questions. <p> The questions that are incomplete will be highlighted in the sidebar of the study to aid in locating them. <p> If you leave the questionnaire before completing it, you can re-produce the highlights for missing responses by re-visiting this page. ]]></invalid_text>
+ -->
+            <complete_text> Complete </complete_text>
+            <go_back_text> Go Back </go_back_text>
+            <review_all_completed> All policy review questions have been completed. You may review and edit any responses, including any comments before submission. Please use the 'Go Back' button or the navigation menu to the left to return to the questions. </review_all_completed>
+            <submit_all_completed> You may submit your review of this policy at any time by selecting the 'Submit' button, however, once you submit a review, you will no longer be able to modify your responses.</submit_all_completed>
+            <review_need_responses> <![CDATA[ You <b><mark> have not completed every question</mark></b> in the review. Sections containing incomplete responses are shown in the <b><mark>red font</mark></b> in the left navigation menu. Please use the 'Go Back' button or the left navigation menu to return to the sections that need responses. ]]></review_need_responses>
+            <submit_need_responses> You may submit your review of this policy at any time, however, once submitted you will no longer be able to edit or modify your responses. </submit_need_responses>
+        </completion_page>
+    </static_text>
+
+
+
+    <general_comments>
+        <intro_text></intro_text>
+        <question id="g.1">
+          <text>What is the nature of your comment?</text>
+          <note>Please submit separate comments for each issue</note>
+          <instructions><![CDATA[ Your comment will be emailed to a memeber of this research project. <p> Your comments are anonymous unless you choose to identify yourself. If you want someone to contact you, please provide your contact information. <p> ]]></instructions>
+            <response type="select one">
+                <validation>
+                    <required>required</required>
+                    <invalid_text>Please select one</invalid_text>
+                </validation>
+                <option id="g.1.A">
+                    <text>Question</text>
+                </option>
+                <option id="g.1.B">
+                    <text>Feedback</text>
+                </option>
+                <option id="g.1.C">
+                    <text>Technical Problem</text>
+                </option>
+            </response>
+        </question>
+        <question id="g.1.1" display_when="g.1.A">
+            <text>What is your question?</text>
+            <response type="memo"></response>
+        </question>
+        <question id="g.1.2" display_when="g.1.B">
+            <text>Your feedback is welcome:</text>
+            <response type="memo"></response>
+        </question>
+        <question id="g.1.3" display_when="g.1.C">
+            <text>Please describe the problem:</text>
+            <response type="memo"></response>
+        </question>
+    </general_comments>
+
+
+    <demographics_survey>
+        <pgtitle>Demographic information</pgtitle>
+        <intro_text>This information is collected for demographic purposes only.</intro_text>
+        <instructions>These questions are only shown for new accounts - please complete all information you are comfortable giving.</instructions>
+        <question id="d.1">
+            <text>What is your gender?</text>
+            <response type="select one">
+                <option id="d.1.A">
+                    <text>Male</text>
+                </option>
+                <option id="d.1.B">
+                    <text>Female</text>
+                </option>
+                <option id="d.1.C">
+                    <text>Other identification</text>
+                </option>
+                <option id="d.1.D">
+                    <text>Prefer not to answer</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.2">
+            <text>What is you age?</text>
+            <response type="select one">
+                <option id="d.2.A">
+                    <text>less than 20</text></option>
+                <option id="d.2.B">
+                    <text>20-29</text>
+                </option>
+                <option id="d.2.C">
+                    <text>30-39</text>
+                </option>
+                <option id="d.2.D">
+                    <text>40-49</text>
+                </option>
+                <option id="d.2.E">
+                    <text>50-59</text>
+                </option><option id="d.2.F">
+                    <text>60-69</text>
+                </option>
+                <option id="d.2.G">
+                    <text>70+</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.3">
+            <text>What is your highest completed level of education?</text>
+            <response type="select one">
+                <option id="d.3.A">
+                    <text>High school/GED</text>
+                </option>
+                <option id="d.3.B">
+                    <text>Associate's degree</text>
+                </option>
+                <option id="d.3.C">
+                    <text>Bachelor's degree</text>
+                </option>
+                <option id="d.3.D">
+                    <text>Master's degree</text>
+                </option>
+                <option id="d.3.E">
+                    <text>Doctorate degree</text>
+                </option>
+                <option id="d.3.F">
+                    <text>None</text>
+                </option>
+                <option id="d.3.G">
+                    <text type="json">Other - if selected, please describe: {"cloze":{"id":"d.3.G.a", "type":"memo"}}</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.4">
+            <text>What is your job title?</text>
+            <response type="memo">
+                <validation>
+                    <pattern>.*</pattern>
+                    <invalid_text>This field must contain a job title</invalid_text>
+                </validation>
+            </response>
+        </question>
+    </demographics_survey>
+
+
+</questionnaire>

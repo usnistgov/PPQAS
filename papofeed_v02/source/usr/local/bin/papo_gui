@@ -1,0 +1,10 @@
+#!/usr/bin/python
+# EASY-INSTALL-ENTRY-SCRIPT: 'papofeed==0.2','console_scripts','papo_gui'
+__requires__ = 'papofeed==0.2'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('papofeed==0.2', 'console_scripts', 'papo_gui')()
+    )

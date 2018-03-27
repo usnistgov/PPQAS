@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questionnaire xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="ppt password%20policy%20template%20031814.xsd"
+    xmlns="ppt">
+    <questions>
+        <question id="q.1.1">
+            <title>Question 1.1 Title - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</title>
+            <instructions>Question 1.1 Instructions - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</instructions>
+            <text>Question 1.1 Text - "Select One", 3 options; all fields; fonts; - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+            <note>Question 1.1 Note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+            <response type="select one">
+                <option id="q.1.1.A">
+                    <text>Option q.1.1.A Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+                    <note>Option q.1.1.A note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+                    <BNF_mapping id="b.1.1.A">BNF for option q.1.1.A</BNF_mapping>
+                </option>
+                <option id="q.1.1.C" clone="q.1.1">
+                    <text>Option q.1.1.C Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+                    <note>Option q.1.1.C note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+                    <BNF_mapping id="b.1.1.C">BNF for option q.1.1.C</BNF_mapping>
+                </option>
+                <note>Question 1.1 Response-level note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+            </response>
+        </question>
+
+        <question id="q.1.5">
+            <title>Question 1.5 Title</title>
+            <instructions>Question 1.5 Instructions</instructions>
+            <text>Question 1.5 Text - "cloze"; all fields; bnf json= insert</text>
+            <note>Question 1.5 Note</note>
+            <response type="cloze">
+                <text type="json">Question 1.5 response text
+                    cloze numerical: {"cloze":{"id":"q.1.5.a", "type":"numerical", "validation": {"gt": "q.2.3.a", "lt": "q.3.1.3.1.a", "invalid_text": "needs to be larger than response to q.2.3.a, and smaller than q.3.1.3.1.a"}}};
+                    cloze text: {"cloze":{"id":"q.1.5.b", "type":"textbox"}};
+                    cloze select-one: {"cloze":{"id":"q.1.5.c" , "type":"select one" , "options":["option 1" , "option 2", "option 3"] , "default":"option list"}}
+                    cloze select-multi: {"cloze":{"id":"q.1.5.d", "type":"select multi", "options":["option 1", "option 2", "option 3"], "default":"option list", "validation": {"eq": "q.1.5.j", "invalid_text":"select number of options equal to 1.5.j"}}}
+                    cloze memo: {"cloze":{"id":"q.1.5.e", "type":"memo", "validation": {"required": "required", "invalid_text":"woot needs to be at leat 5 chars", "minlength": 5}}}
+		    numerical eq q.1.5.a: {"cloze":{"id":"q.1.5.f", "type":"numerical", "validation": {"eq": "q.1.5.a", "invalid_text": "needs to be equal to q.1.5.a"}}}
+		    numerical gt q.1.5.a: {"cloze":{"id":"q.1.5.k", "type":"numerical", "validation": {"gt": "q.1.5.a", "invalid_text": "needs to be gt q.1.5.a"}}}
+		    numerical lte q.1.5.a: {"cloze":{"id":"q.1.5.h", "type":"numerical", "validation": {"lte": "q.1.5.a", "invalid_text": "needs to be less than or equal to q.1.5.a"}}}
+		    numerical gte q.1.5.a: {"cloze":{"id":"q.1.5.g", "type":"numerical", "validation": {"gte": "q.1.5.a", "invalid_text": "needs to be greater than or equal to q.1.5.a"}}}
+		    numerical compared to select multi eq q.1.5.: {"cloze":{"id":"q.1.5.i", "type":"numerical", "validation": {"eq": "q.1.5.d", "invalid_text": "needs to be equal to number selected in q.1.5.d"}}}
+		    numerical select multi compares to: {"cloze":{"id":"q.1.5.j", "type":"numerical"}}
+                </text>
+                <BNF_mapping id="b.1.5" type="json">BNF for option q.1.5; insert cloze: {"insert":{"cref":"q.1.5.a"}}, {"insert":{"cref":"q.1.5.b"}}, {"insert":{"cref":"q.1.5.c"}}, {"insert":{"cref":"q.1.5.d", "separator":", "}}, {"insert":{"cref":"q.1.5.e"}}.</BNF_mapping>
+                <note>Question 1.5 response-level note</note>
+            </response>
+        </question>
+
+
+	<question id="q.1.6">
+	  <title>Question 1.6 Title</title>
+	  <instructions>Question 1.6 Instructions</instructions>
+	  <text>Question 1.6 text</text>
+	  <note>Question 1.6 note</note>
+	  <response type="select one">
+	    <option id="q.1.6.A">
+	      <text type="json"> Greater than 1.5.a {"cloze": {"type": "numerical", "id": "q.1.6.A.a", "validation": {"gt": "q.1.5.a", "invalid_text": "must be greater than 1.5.a"}}} </text>
+	    </option>
+	    <option id="q.1.6.B">
+	      <text type="json"> Equal to select multi 1.5.d {"cloze": {"type": "numerical", "id": "q.1.6.B.a", "validation": {"eq": "q.1.5.d", "invalid_text": "must be equal to 1.5.d"}}} </text>
+	    </option>
+	  </response>
+	</question>
+
+    </questions>
+
+    <demographics_survey>
+        <pgtitle>Demographic information</pgtitle>
+        <intro_text>This information is collected for demographic purposes only.</intro_text>
+        <instructions>These questions are only shown for new accounts - please complete all information you are comfortable giving.</instructions>
+        <question id="d.1">
+            <text>What is your gender?</text>
+            <response type="select one">
+                <option id="d.1.A">
+                    <text>Male</text>
+                </option>
+                <option id="d.1.B">
+                    <text>Female</text>
+                </option>
+                <option id="d.1.C">
+                    <text>Other identification</text>
+                </option>
+                <option id="d.1.D">
+                    <text>Prefer not to answer</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.2">
+            <text>What is you age?</text>
+            <response type="select one">
+                <option id="d.2.A">
+                    <text>less than 20</text></option>
+                <option id="d.2.B">
+                    <text>20-29</text>
+                </option>
+                <option id="d.2.C">
+                    <text>30-39</text>
+                </option>
+                <option id="d.2.D">
+                    <text>40-49</text>
+                </option>
+                <option id="d.2.E">
+                    <text>50-59</text>
+                </option><option id="d.2.F">
+                    <text>60-69</text>
+                </option>
+                <option id="d.2.G">
+                    <text>70+</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.3">
+            <text>What is your highest completed level of education?</text>
+            <response type="select one">
+                <option id="d.3.A">
+                    <text>High school/GED</text>
+                </option>
+                <option id="d.3.B">
+                    <text>Associate's degree</text>
+                </option>
+                <option id="d.3.C">
+                    <text>Bachelor's degree</text>
+                </option>
+                <option id="d.3.D">
+                    <text>Master's degree</text>
+                </option>
+                <option id="d.3.E">
+                    <text>Doctorate degree</text>
+                </option>
+                <option id="d.3.F">
+                    <text>None</text>
+                </option>
+                <option id="d.3.G">
+                    <text type="json">Other - if selected, please describe: {"cloze":{"id":"d.3.G.a", "type":"memo"}}</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.4">
+            <text>What is your job title?</text>
+            <response id="d.4.A" type="memo">
+                <validation>
+                    <pattern>.+</pattern>
+                    <invalid_text>This field must contain a job title</invalid_text>
+                </validation>
+            </response>
+        </question>
+    </demographics_survey>
+
+
+</questionnaire>

@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- encoded html tags or cdata tag may be used in the "instructions" or any text-type element-->
+
+<questionnaire xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="ppt password%20policy%20template%20031814.xsd"
+    xmlns="ppt">
+    <title>Password Policy Questionnaire</title>
+    <xmlversion>031114</xmlversion>
+    <qaversion>Nov2014v1</qaversion>
+    <BNFversion>kevinV1</BNFversion>
+    <!--version numbering system to be sorted out later-->
+    <indent_px>20</indent_px>
+	<default_insert_text> DEPENDS ON USER INPUT </default_insert_text>
+
+
+<!-- Index, questions and in-page questions-->
+
+
+    <!-- Index-->
+
+    <index grouping="page" interweave_next_level="true">
+
+        <group level="1" title="Group 1" comment_ref="c.1">
+      <instructions> Group 1 instructions</instructions>
+      <text>Group 1 text</text>
+      <page title="Page 1.1 title" comment_ref="c.2">
+        <instructions> &lt;b&gt;&lt;i&gt;&lt;u&gt;page 1.1 instructions&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;&lt;b&gt;&lt;i&gt;&lt;u&gt; (bold, italic, and underlined text)&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</instructions>
+        <text>page 1.1 text - &lt;b&gt;&lt;i&gt;&lt;u&gt;(bold, italic, and underlined text)&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+        <include qref="q.1.1"/>
+        <include qref="q.1.2"/>
+        <include qref="q.1.3"/>
+        <include qref="q.1.4"/>
+        <include qref="q.1.5"/>
+      </page>
+    </group>
+  </index>
+  <questions>
+    <question id="q.1.1">
+      <title>Question 1.1 Title - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</title>
+      <text>Question 1.1 Text - "Select One", 3 options; all fields; fonts; - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+      <note>Question 1.1 Note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</note>
+      <instructions> Question 1.1 Instructions - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</instructions>
+      <response type="select one">
+        <option id="q.1.1.A">
+          <text>Option q.1.1.A Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+          <BNF_mapping id="b.1">BNF for option q.1.1.A</BNF_mapping>
+          <note>Option q.1.1.A note - &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text</note>
+        </option>
+        <option id="q.1.1.B">
+          <text>Option q.1.1.B Text - &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text </text>
+          <BNF_mapping id="b.2">BNF for option q.1.1.B</BNF_mapping>
+          <note>Option q.1.1.B note - &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text</note>
+        </option>
+        <option id="q.1.1.C" clone="q.1.1">
+          <text>Option q.1.1.C Text - &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text and clone of this full question q.1.1 </text>
+          <BNF_mapping id="b.3">BNF for option q.1.1.C</BNF_mapping>
+          <note>Option q.1.1.C note - &lt;b&gt;bold&lt;/b&gt;, &lt;i&gt;italic&lt;/i&gt;, and &lt;u&gt;underlined&lt;/u&gt; text</note>
+        </option>
+      </response>
+    </question>
+    <question id="q.1.2">
+      <title>Question 1.2 Title</title>
+      <text>Question 1.2 Text - "Select Multi", 3 options; all fields;</text>
+      <note>question-level note for q.1.2</note>
+      <instructions> Question 1.2 Instructions</instructions>
+      <response type="select multi">
+        <validation>
+          <required>required</required>
+        </validation>
+        <option id="q.1.2.A">
+          <text>Option q.1.2.A Text</text>
+          <BNF_mapping id="b.4">BNF for option q.1.2.A</BNF_mapping>
+          <note>Option q.1.2.A Note </note>
+        </option>
+        <option id="q.1.2.B">
+          <text>Option q.1.2.B Text</text>
+          <BNF_mapping id="b.5">BNF for option q.1.2.B</BNF_mapping>
+          <note>Option q.1.2.B Note</note>
+        </option>
+        <option id="q.1.2.C">
+          <text>Option q.1.2.C Text</text>
+          <BNF_mapping id="b.6">BNF for option q.1.2.C</BNF_mapping>
+          <note>Option q.1.2.C Note</note>
+        </option>
+      </response>
+    </question>
+    <question id="q.1.3">
+      <title>Question 1.3 Title</title>
+      <text>Question 1.3 Text - "textbox"; all fields; bnf json= insert</text>
+      <note>Question 1.3 Note</note>
+      <instructions> Question 1.3 Instructions</instructions>
+      <response type="textbox">
+        <BNF_mapping id="b.7" type="json">BNF for option q.1.3; insert textbox text: {"insert": {"qref": "q.1.3"}}</BNF_mapping>
+        <note>Option 1.3 note: provide text for bnf insert</note>
+      </response>
+    </question>
+    <question id="q.1.4">
+      <title>Question 1.4 Title</title>
+      <text>Question 1.4 Text - "memo"; all fields; bnf json= insert</text>
+      <note>Question 1.4 Note</note>
+      <instructions> Question 1.4 Instructions</instructions>
+      <response type="memo">
+        <BNF_mapping id="b.8" type="json">BNF for option q.1.4; insert memo text: {"insert": {"qref": "q.1.4"}}</BNF_mapping>
+      </response>
+    </question>
+    <question id="q.1.5">
+      <title>Question 1.5 Title</title>
+      <text>Question 1.5 Text - "cloze"; all fields; bnf json= insert</text>
+      <note type="json">Question 1.5 Note: check insert separator in multi-select 1.5.d -- {"insert": {"qref": "q.1.5.d", "separator": "pop"}} </note>
+      <instructions> Question 1.5 Instructions</instructions>
+      <response type="cloze">
+        <text type="json">Question 1.5 response text {"cloze": {"type": "numerical", "id": "q.1.5.a"}} {"cloze": {"type": "textbox", "id": "q.1.5.b"}} {"cloze": {"default": "option (single) list", "type": "select one", "id": "q.1.5.c", "options": ["option 1", "option2", "option 3"]}}{"cloze": {"default": "option (multi) list", "validation": {"required": "required", "invalid_text": "pick one"}, "type": "select multi", "id": "q.1.5.d", "options": ["option 1", "option2", "option 3"]}}{"cloze": {"validation": {"required": "required", "invalid_text": "enter something"}, "type": "memo", "id": "q.1.5.e"}}</text>
+        <BNF_mapping id="b.9" type="json">BNF for option q.1.5; insert cloze: {"insert": {"qref": "q.1.5.a"}} {"insert": {"qref": "q.1.5.b"}} {"insert": {"qref": "q.1.5.c"}} {"insert": {"qref": "q.1.5.d", "separator": ","}} {"insert": {"qref": "q.1.5.e"}}</BNF_mapping>
+        <note>1.5 Response-level note</note>
+      </response>
+    </question>
+  </questions>
+  <additional_comments>
+    <comments id="c.1">
+      <text>comment c.1 Text - "Select One", 3 options; all fields; fonts; - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+      <title>comment c.1 Title - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</title>
+      <note>comment c.1 Comment Note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</note>
+      <instructions> comment c.1 Instructions &lt;b&gt;&lt;i&gt;&lt;u&gt;- bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</instructions>
+      <response type="select one">
+        <option id="c.1.A">
+          <text>Option c.1.A Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+          <note>Option c.1.A note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</note>
+        </option>
+        <option id="c.1.B">
+          <text>Option c.1.B Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+          <note>Option c.1.B note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</note>
+        </option>
+        <option id="c.1.C">
+          <text>Option c.1.C Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</text>
+          <note>Option c.1.C note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/b&gt;&lt;/i&gt;&lt;/u&gt;</note>
+        </option>
+      </response>
+    </comments>
+    <comments id="c.2">
+      <text>comment 1.1 Text - "Select Multi", 3 options; all fields;</text>
+      <instructions> comment 1.1 Instructions</instructions>
+      <response type="select multi">
+        <option id="c.2.A">
+          <text>Option c.1.1.A Text</text>
+          <note>Option c.1.1.A Text</note>
+        </option>
+        <option id="c.2.B">
+          <text>Option c.1.1.B Text</text>
+        </option>
+        <option id="c.2.C">
+          <text>Option c.1.1.C Text</text>
+          <note>Option c.1.1.C Text</note>
+        </option>
+      </response>
+    </comments>
+  </additional_comments>
+
+<!-- static text -->
+
+    <static_text>
+        <enable_flashed_messages></enable_flashed_messages> <!-- leave blank to disable, otherwise 'True' -->
+        <enable_logged_in_message></enable_logged_in_message> <!-- leave blank to disable -->
+        <enable_question_ids></enable_question_ids> <!-- leave blank to disable, otherwise 'Yes' -->
+        <email_sent_text> The comment was successfully sent </email_sent_text>
+        <email_error_text> Sending the message failed! Call Micky!</email_error_text>
+        <email_ok> OK </email_ok>
+        <email_title> Notice! </email_title>
+        
+      <title>Password Policy Formalization Study</title>
+        <!-- Title of the web page (usually appears in the browser tab, or at the top of the browser) -->
+
+        <help_text>help text</help_text>
+
+        <nojs_message> <![CDATA[ <p> Please enable javascript to use this application.</p> ]]> </nojs_message>
+        <nopopups_message> <![CDATA[ <p> Please enable popups to use this application.</p> ]]> </nopopups_message>
+
+        <sign_in>
+          <pgtitle>Login to the Password Policy Formalization Study</pgtitle>
+            <username>Username:</username>
+            <no_account> <![CDATA[ Please enter your username below. If you are a new user, please <b><a href="/signup">create a new account.</a></b> ]]></no_account>
+            <intro_text></intro_text>
+            <instructions></instructions>
+          <error_text>That username does not exist. Please re-enter your username.</error_text>
+          <error_title_text>Nonexistent!</error_title_text>
+        </sign_in>
+
+        <sign_up>
+          <pgtitle>Create a New Account</pgtitle>
+          <has_account>Already have an account?</has_account>
+          <name_taken>This name is not available  - please choose a different name.</name_taken>
+          <name_taken_title>Name is taken!</name_taken_title>
+          <name_invalid>Name must be only letters and numbers</name_invalid>
+          <name_invalid_title>Name is invalid!</name_invalid_title>
+          <intro_text><![CDATA[ <b>Account information</b>]]></intro_text>
+          <instructions><![CDATA[ A username must consist of <b>only</b> letters and numbers. <br>If you forget this username, your account and any saved responses cannot be recovered. Only a scrambled version is ever stored in order to protect your identity.<br>This application does not use passwords.  ]]></instructions>
+          <success>New user created successfully</success>
+          <user_created_text> Your user id can NOT be recovered if you forget or lose it. Please keep it safe. </user_created_text>
+          <user_created_ok> I understand </user_created_ok>
+          <user_created_title> Attention! </user_created_title>
+        </sign_up>
+
+        <policies_for_review>
+          <pgtitle> Password Policy Formalization Tool </pgtitle>
+            <preinstructions>
+                <![CDATA[ <h1>Introduction</h1> 
+                <b>About the Application</b>
+                <br>The Password Policy Formalization application provides a way for users to provide password policy researchers with their interpretation of the rules contained in real-world password policies using a question-answer format. 
+                <p> Because any one policy may contain a variety of rules, the set of questions asked during each policy review covers the entire password policy rule set identified by the research team. Some statements that direct user behavior are advice rather than rules. The statement, "Passwords should be memorable," is a good example of this and the questions do not cover topics such as advice. However, ample opportunity is given throughout the policy review process for users to relate any policy statements they see in the policy being reviewed.   More information on rule scope is provided in Help (found in the upper right corner of each page).
+                <p> The application will present the user with a set of polices to review and will help the user track what has been reviewed. All responses to questions and comments are automatically saved, even partial responses.
+                <p><b>Your Role as a User</b>
+                <br>For each policy that you review, the application will present you with a copy of the policy in one browser window and the questions in another browser window. The language used in the questions and responses has been generalized to represent concepts found in multiple policies. Your task is to match the specific rules in the real world policy with the generalized responses in the question set. 
+                <p><b>Required Questions</b>
+                <br>Although none of the questions are required, please select all of the appropriate matches whenever possible to provide a complete representation of the policy&#39;s rules. If you are confused or don&#39;t think that the available answers are sufficient, then let us know through the optiona comment area provided on each page. There is also a general comment link (top right of each page) for any feedback or comments you may want to provide.
+                <br><br>
+                ]]>
+            </preinstructions>
+            <instructions>Please select a policy from below. An image of the policy will open in a separate window; the questionnaire for this study will be displayed in the this window. Your responses are automatically saved.
+            </instructions>
+            <new_and_draft_text>
+                Policies For Review
+            </new_and_draft_text>
+            <new_text>
+                New
+            </new_text>
+            <draft_text>
+                In-progress
+            </draft_text>
+            <completed_text>
+                Completed
+            </completed_text>
+        </policies_for_review>
+
+        <questionnaire>
+          <back_text> Policies For Review </back_text> <!-- No HTML... full text is a link back -->
+            <finish_text> Review &amp; Submit </finish_text> <!-- Text for sidebar and bottom of page links -->
+            <continue_label> Move on </continue_label>
+            <cancel_label> Fix </cancel_label>
+
+			<invalid_popup_title>Missing responses</invalid_popup_title>
+			<invalid_popup_text>Complete responses now? Select 'Fix' to complete your responses. Select 'Move on' to leave this page.</invalid_popup_text>
+			<logout_title>Logout </logout_title>
+			<logout_text>Confirm logout?</logout_text>
+			<logout_continue>Bye-bye</logout_continue>
+			<logout_cancel>Cancel </logout_cancel>
+			<clone_warning_title>Warning</clone_warning_title>
+			<clone_warning_text>The option you just selected will remove all subsequent repeated statements with associated responses. Are you sure you want to remove these?</clone_warning_text>
+			<clone_warning_continue>Remove</clone_warning_continue>
+			<clone_warning_cancel>Cancel</clone_warning_cancel>
+
+			<empty_page_message> Congratulations... you don't have to answer any questions on this page! </empty_page_message>
+
+        </questionnaire>
+
+        <help>
+            <pgtitle> Help </pgtitle>
+            <html>
+                <![CDATA[
+Help is provided in the form of potential questions that users may ask.
+Select a link from the <span style="font-weight: bold;">Help
+Topics on This Page</span> to view that topic. To leave a comment
+concerning help or to request that someone contact you, please use the
+General Comment function.<br>
+<br>
+<big style="font-weight: bold;"><a name="Top"></a>Help
+Topics on This Page</big><br>
+<br>
+Topic A<br>
+Topic B<br>
+Topic C<br>
+<br>
+<hr style="width: 100%; height: 2px;"><br>
+Topic A<br>
+<br>
+AAAA stuff<br>
+<br>
+<br>
+Topic B<br>
+<br>
+BBBB stuff<br>
+<br>
+<br>
+Topic C<br>
+<br>
+CCCC stuff<br>
+<br>
+<a href="#Top">Back to top</a>
+
+	]]>
+            </html>
+        </help>
+
+
+        <demographics_survey>
+          <submit_text>Please fill out all the data - to make changes, select 'Go Back', to proceed to the study click OK</submit_text>
+            <submit_text_title>Incomplete entry</submit_text_title>
+            <submit_continue>OK</submit_continue>
+            <submit_cancel>Go Back</submit_cancel>
+            <indent_px>11</indent_px>
+        </demographics_survey>
+
+        <admin_configure>
+            <pgtitle>Configure Study</pgtitle>
+        </admin_configure>
+
+        <admin_testing_setup>
+            <pgtitle> Testing Setup </pgtitle>
+        </admin_testing_setup>
+
+        <admin_reporting>
+            <pgtitle>Reporting</pgtitle>
+        </admin_reporting>
+
+        <general_comments>
+            <pgtitle> Comments </pgtitle>
+        </general_comments>
+
+        <completion_page>
+ <!--           <pgtitle> Complete Study? </pgtitle>
+            <description> If you click 'Complete' you will no longer be able to edit your responses to this questionnaire. Click 'Go Back' to return to the questionnaire. </description>
+            <invalid_text> <![CDATA[ <p> You have not completed every question in the study - you are free to submit the questionnaire without completing it, but please do try to complete all questions. <p> The questions that are incomplete will be highlighted in the sidebar of the study to aid in locating them. <p> If you leave the questionnaire before completing it, you can re-produce the highlights for missing responses by re-visiting this page. ]]></invalid_text>
+ -->
+            <complete_text> Submit </complete_text>
+            <go_back_text> Go Back </go_back_text>
+            <review_all_completed> All policy review questions have been completed. You may review and edit any responses, including any comments before submission. Please use the 'Go Back' button or the navigation menu to the left to return to the questions. </review_all_completed>
+            <submit_all_completed> You may submit your review of this policy at any time by selecting the 'Submit' button, however, once you submit a review, you will no longer be able to modify your responses.</submit_all_completed>
+            <review_need_responses> <![CDATA[ You <b><mark> have not completed every question</mark></b> in the review. Sections containing incomplete responses are shown in the <b><mark>red font</mark></b> in the left navigation menu. Please use the 'Go Back' button or the left navigation menu to return to the sections that need responses. ]]></review_need_responses>
+            <submit_need_responses> You may submit your review of this policy at any time, however, once submitted you will no longer be able to edit or modify your responses. </submit_need_responses>
+        </completion_page>
+    </static_text>
+
+    <general_comments>
+        <intro_text></intro_text>
+        <question id="g.1">
+          <text>What is the nature of your comment?</text>
+          <note>Please submit separate comments for each issue</note>
+          <instructions><![CDATA[ Your comment will be emailed to a memeber of this research project. <p> Your comments are anonymous unless you choose to identify yourself. If you want someone to contact you, please provide your contact information. <p> ]]></instructions>
+            <response type="select one">
+                <validation>
+                    <invalid_text>Please select an option or Go Back</invalid_text>
+                </validation>
+                <option id="g.1.A">
+                    <text>Question</text>
+                </option>
+                <option id="g.1.B">
+                    <text>Feedback</text>
+                </option>
+                <option id="g.1.C">
+                    <text>Technical Problem</text>
+                </option>
+            </response>
+        </question>
+        <question id="g.1.1" display_when="g.1.A" indent="2">
+            <text>What is your question?</text>
+            <response type="memo">
+                <validation>
+                    <invalid_text>Please provide a description or Go Back</invalid_text>
+                </validation>
+            </response>
+        </question>
+        <question id="g.1.2" display_when="g.1.B" indent="2">
+            <text>Your feedback:</text>
+            <response type="memo">
+                <validation>
+                    <invalid_text>Please provide a description or Go Back</invalid_text>
+                </validation>
+            </response>
+        </question>
+        <question id="g.1.3" display_when="g.1.C" indent="2">
+            <text>Description of the technical problem:</text>
+            <response type="memo">
+                <validation>
+                    <invalid_text>Please provide a description or Go Back</invalid_text>
+                </validation>
+            </response>
+        </question>
+        <question id="g.2" indent="4">
+            <response type="cloze">
+                <text type="json">dummy question to test display_where.. option response for option A should fall after this question placeholder</text>
+            </response>
+        </question>
+    </general_comments>
+
+    <demographics_survey>
+        <pgtitle>Demographic information</pgtitle>
+        <intro_text>This information is collected for demographic purposes only.</intro_text>
+        <instructions>These questions are only shown for new accounts - please complete all information you are comfortable giving.</instructions>
+        <question id="d.0">
+            <text>Test text to be inserted:</text>
+            <response type="cloze">
+                <text type="json">Add this text {"cloze": {"type": "textbox", "id": "d.0.a", "validation": {"required": "required", "invalid_text": "supply text"}}} below</text>
+            </response>
+        </question>
+        <question id="d.1">
+            <text type="json">What is your gender? [{"insert": {"qref": "d.0.a"}}]</text>
+            <response type="select one">
+                <validation>
+                    <invalid_text>Select a response</invalid_text>
+                </validation>
+                <option id="d.1.A">
+                    <text>Male</text>
+                </option>
+                <option id="d.1.B">
+                    <text>Female</text>
+                </option>
+                <option id="d.1.C">
+                    <text>Other identification</text>
+                </option>
+                <option id="d.1.D">
+                    <text>Prefer not to answer</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.2">
+            <text>What is you age?</text>
+            <response type="select one">
+                <validation>
+                    <invalid_text>Select a response</invalid_text>
+                </validation>
+                <option id="d.2.A">
+                    <text>less than 20</text></option>
+                <option id="d.2.B">
+                    <text>20-29</text>
+                </option>
+                <option id="d.2.C">
+                    <text>30-39</text>
+                </option>
+                <option id="d.2.D">
+                    <text>40-49</text>
+                </option>
+                <option id="d.2.E">
+                    <text>50-59</text>
+                </option><option id="d.2.F">
+                    <text>60-69</text>
+                </option>
+                <option id="d.2.G">
+                    <text>70+</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.3">
+            <text>What is your highest completed level of education?</text>
+            <response type="select one">
+                <validation>
+                    <invalid_text>Select a response</invalid_text>
+                </validation>
+                <option id="d.3.A">
+                    <text>High school/GED</text>
+                </option>
+                <option id="d.3.B">
+                    <text>Associate's degree</text>
+                </option>
+                <option id="d.3.C">
+                    <text>Bachelor's degree</text>
+                </option>
+                <option id="d.3.D">
+                    <text>Master's degree</text>
+                </option>
+                <option id="d.3.E">
+                    <text>Doctorate degree</text>
+                </option>
+                <option id="d.3.F">
+                    <text>None</text>
+                </option>
+                <option id="d.3.G">
+ <!--                   <text type="json">Other - if selected, please describe: {"cloze":{"id":"d.3.G.a", "type":"memo"}}</text>  -->
+                    <text>Other, please describe</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.3.5" display_when="d.3.G" indent="4">
+            <response type="memo"> 
+            </response>
+        </question>
+        <question id="d.4">
+            <text>What is your job title?</text>
+            <response type="memo">
+                <validation>
+                    <pattern>.*</pattern>
+                    <invalid_text>This field must contain a job title</invalid_text>
+                </validation>
+            </response>
+        </question>
+    </demographics_survey>
+
+
+</questionnaire>

@@ -1,0 +1,57 @@
+{% extends "common.html" %}
+
+
+{% block page %}
+
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+
+<div class="policy-links">
+  <div id="preinstructions">
+	{{ preinstructions|safe }}
+  </div>
+    <h1> {{ new_and_draft_text|safe }} </h1>
+    <div id="instructions" class=PFRInstructionsLineHeight>
+      {{ instructions|safe }}
+    </div>
+	{% if draft_pols %}
+	
+      <h2 id=PFRTextSafe> {{ draft_text|safe }} </h2>
+	  
+      {% for pol in draft_pols %}
+		<a id=PFRPolicyLinks href="{{ url_for('policy_questionnaire', policy_name=pol)}}">
+		  <img src="{{ url_for('static', filename='pdficon_small.png') }}"/>
+		  {{ pol }}
+		</a> <br>
+	  {% endfor %}
+    {% endif %}
+	
+    <h2 id=PFRTextSafe> {{ new_text|safe }} </h2>
+	
+	{% if new_pols %}
+		{% for pol in new_pols %}
+			<a id=PFRPolicyLinks href="{{ url_for('policy_questionnaire', policy_name=pol)}}">
+			<img src="{{ url_for('static', filename='pdficon_small.png') }}"/>
+			{{ pol }}</a> <br>
+		{% endfor %}
+	{% else %}
+		<div id=noNewPoliciesText class=PFRNoNewPoliciesText>No new policies to review.</div>
+	{% endif %}
+	
+    
+	
+    {% if completed_qs %}
+	  <br>
+      <h1 id=PFRCompletedPoliciesHeader> {{ completed_text|safe }} </h1>
+      {% for q in completed_qs %}
+	<!--<span style="padding-left:40px; font-size:1em;"> &#10004;</span> -->
+	<span id=PFRCompletedPolicies> {{ q.date_completed|replace("T", " ")|regexreplace("\:\w\w.[0-9]*$", "") }} {{ q.policy_name }}  </span> <br>
+      {% endfor %}
+    {% endif %}
+  </div>
+{% endblock %}
+
+
+
+

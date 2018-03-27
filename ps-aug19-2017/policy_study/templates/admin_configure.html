@@ -1,0 +1,67 @@
+{% extends "admin_common.html" %}
+{% from 'helpers.html' import formerrors %}
+
+
+{% block flashed_messages %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+	<div class="flashes">
+	    {{ messages[-1] }}<br>
+	</div>
+      {% endif %}
+    {% endwith %}
+{% endblock %}
+
+
+{% block page %}
+
+<div class=vert-group>
+  {{ formerrors(policiesper_form) }}
+  <form method="post" action="{{ url_for('admin_policies_per_user') }}">
+    {{ policiesper_form.hidden_tag() }}
+    <div class=label>
+      Policies per User:
+    </div>
+    <div class=field>
+      {{ policiesper_form.policies_per_user() }}
+    </div>
+    <input type="submit"
+	   value="Submit"
+	   formaction="{{ url_for('admin_policies_per_user') }}"/>
+  </form>
+</div>
+
+<form method="post" action="{{ url_for('admin_delete_email')}}">
+  {{ comments_form.hidden_tag() }}
+  <div class=vert-group>
+  {{ formerrors(comments_form) }}
+    <div class=label>
+      Comments/Help Email Addresses:
+    </div>
+    <div class=field>
+      {{ comments_form.comments_emails () }}
+    </div>
+    <input type="submit" value="Delete Selected Address"
+	   formaction="{{ url_for('admin_delete_email')}}"/>
+  </div>
+</form>
+
+<form method="post" action="{{ url_for('admin_add_email') }}">
+  {{ add_email_form.hidden_tag() }}
+  <div class=vert-group>
+    {{ formerrors(add_email_form) }}
+    <div class=label>
+      Address to add:
+    </div>
+    <div class=field>
+      {{ add_email_form.add_address }}
+    </div>
+    <input type="submit" value="Add address" formaction="{{ url_for('admin_add_email') }}">
+  </div>
+</form>
+</div>
+
+
+
+
+{% endblock %}

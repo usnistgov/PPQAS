@@ -1,0 +1,28 @@
+# {u'_id': ObjectId('577f29bae1382363b4655996'),
+#  u'bnf_statements': [u'BNF for option q.1.5; insert cloze: A(numeral): 5; B(text): question3; C(select_one):option 3; D(select_multi):option 1,option2 E(memo):q3 memo',
+#                      u'BNF for option q.1.5; insert cloze: A(numeral): 4; B(text): question2; C(select_one):option2; D(select_multi):option 1,option 3 E(memo):question 2 memo',
+#                      u'BNF for option q.1.5; insert cloze: A(numeral): 3; B(text): question1; C(select_one):option 1; D(select_multi):option 1,option2,option 3 E(memo):question 1 memo checking sorting'],
+#  u'policy_name': u'MHPCC Policy',
+#  u'questions': {u'q.1.5>q.1.5.a': u'3',
+#                 u'q.1.5>q.1.5.b': u'question1',
+#                 u'q.1.5>q.1.5.c': u'option 1',
+#                 u'q.1.5>q.1.5.d': [u'option 1', u'option2', u'option 3'],
+#                 u'q.1.5>q.1.5.e': u'question 1 memo checking sorting',
+#                 u'q.1.5clone1>q.1.5.aclone1': u'4',
+#                 u'q.1.5clone1>q.1.5.bclone1': u'question2',
+#                 u'q.1.5clone1>q.1.5.cclone1': u'option2',
+#                 u'q.1.5clone1>q.1.5.dclone1': [u'option 1', u'option 3'],
+#                 u'q.1.5clone1>q.1.5.eclone1': u'question 2 memo',
+#                 u'q.1.5clone2>q.1.5.aclone2': u'5',
+#                 u'q.1.5clone2>q.1.5.bclone2': u'question3',
+#                 u'q.1.5clone2>q.1.5.cclone2': u'option 3',
+#                 u'q.1.5clone2>q.1.5.dclone2': [u'option 1', u'option2'],
+#                 u'q.1.5clone2>q.1.5.eclone2': u'q3 memo',
+#                 u'q.1.6': u'q.1.6.B',
+#                 u'q.1.6clone1': u'q.1.6.Bclone1',
+#                 u'q.1.6clone2': u'q.1.6.Aclone2'},
+#  u'state': u'draft',
+#  u'username': u'e3c0921411ef75027dd552786c9424e9ae2122029cf9c8a20dbb7058670b8055000747eb084f6738a67e70fc32748275bdc23ea009666f59a55b02dedd6cdea1'}
+BNF for option q.1.5; insert cloze: A(numeral): 5; B(text): question3; C(select_one):option 3; D(select_multi):option 1,option2 E(memo):q3 memo
+BNF for option q.1.5; insert cloze: A(numeral): 4; B(text): question2; C(select_one):option2; D(select_multi):option 1,option 3 E(memo):question 2 memo
+BNF for option q.1.5; insert cloze: A(numeral): 3; B(text): question1; C(select_one):option 1; D(select_multi):option 1,option2,option 3 E(memo):question 1 memo checking sorting

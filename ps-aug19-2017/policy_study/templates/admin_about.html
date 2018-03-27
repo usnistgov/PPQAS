@@ -1,0 +1,14 @@
+{% extends "admin_common.html" %}
+
+{% block page %}
+  <h1> Config </h1>
+  {% for k,v in config.items() %}
+    {{ k }} : {{ v }} <br>
+  {% endfor %}
+
+  <h1> Users </h1>
+  {% for u in users %}
+    {{ u }} <br> <br>
+  {% endfor %}
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends "admin_common.html" %}
+{% from 'helpers.html' import formerrors %}
+
+
+{% block flashed_messages %}
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+	<div class="flashes">
+	    {{ messages[-1] }}<br>
+	</div>
+      {% endif %}
+    {% endwith %}
+{% endblock %}
+
+
+{% block page %}
+<div class=side>
+  <div class=pgtitle>
+    Admin Accounts
+  </div>
+  <form method="post">
+  {{ formerrors(account_del_form) }}
+    {{ account_del_form.hidden_tag() }}
+    <div class="account_list">
+    {{ account_del_form.accounts() }}
+    </div>
+    <input id="accdelsubmit"
+	   type="submit"
+	   value="Delete Selected Account"
+	   formaction="{{ url_for('admin_del') }}"/>
+  </form>
+</div>
+
+<div class=side>
+  <div class=pgtitle>
+    Create Admin Account
+  </div>
+  <form method="post" action="{{ url_for('admin_create') }}">
+    {{ account_create_form.hidden_tag() }}
+    <div class=bounding-container>
+      {{ formerrors(account_create_form) }}
+    {% for field in account_create_form %}
+      {% if "Csrf Token" not in field.label~"" %}
+      <div class=label>{{ field.label }}: </div>
+      <div class=field>{{ field }}</div>
+      {% endif %}
+    {% endfor %}
+      <input type="submit" value="Submit" formaction="{{ url_for('admin_create') }}">
+    </div>
+
+  </form>
+
+  <div class=pgtitle>
+    Change Admin Password
+  </div>
+
+  <form method="post" action="{{ url_for('admin_pwchange') }}">
+    {{ account_pwchange_form.hidden_tag() }}
+    <div class=bounding-container>
+    {{ formerrors(account_pwchange_form) }}
+    {% for field in account_pwchange_form %}
+      {% if "Csrf Token" not in field.label~"" %}
+      <div class=label>{{ field.label }}: </div>
+      <div class=field>{{ field }}</div>
+      {% endif %}
+    {% endfor %}
+      <input type="submit" value="Submit" formaction="{{ url_for('admin_pwchange') }}">
+    </div>
+
+  </form>
+
+
+</div>
+{% endblock %}

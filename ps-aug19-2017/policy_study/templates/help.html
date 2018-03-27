@@ -1,0 +1,949 @@
+{% extends "common.html" %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}" ></script>
+  <script src="{{ url_for('static', filename='number-polyfill.min.js') }}"></script>
+{% endblock %}
+{% block page %}
+
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+<script src="{{ url_for('static', filename='CollapsibleLists.src.js') }}"></script>
+		
+		<script>var runOnLoad=function(c,o,d,e){function x(){for(e=1;c.length;)c.shift()()}o[d]?(document[d]('DOMContentLoaded',x,0),o[d]('load',x,0)):o.attachEvent('onload',x);return function(t){e?o.setTimeout(t,0):c.push(t)}}([],window,'addEventListener');</script>
+		<script type="text/javascript">
+			runOnLoad(function(){ CollapsibleLists.apply(); });
+		</script>
+</head>
+
+<body onload="openRelevantSettings()"> 
+<div class="HelpSidebar">
+<div class="HelpSidebarTitle">Help Topics</div><hr>
+<input id="beforeButton" type="button" class="HelpAsText" value="Before You Start" onclick="toggleBefore()" />
+<input id="hiddenCreateAccount" type="button" class="HelpAsTextInner" value="Create an Account" onclick="toggleCreateAccount()" />
+<input id="BrowserSettingsButton" type="button" class="HelpAsTextInner" value="Browser Settings" onclick="toggleBrowser()"/>
+<input id="hiddenDemographics" type="button" class="HelpAsTextInner" value="Demographics" onclick="toggleDemographics()"/>
+<input id="UsingButton" type="button" class="HelpAsText" value="Using this Tool" onclick="toggleUsing()"/><br>
+</div>
+	<div class="HelpFrames">	
+		
+		<div id="instructionsText" class="HelpInstructionsText">
+			<p class="HelpSelectCategoryText">Select a category from the left menu.</p>
+			<br><br><br><br><br><br><br><br><br>
+			<a onclick="goBack()" class="HelpBackButton" onmouseover="">
+			<img class="HelpImage" src="/static/back_arrow.jpg" alt="left pointing arrow"/>
+			Previous Page
+			</a>
+		</div>
+		
+		<div id="CreateAccountText" class="HelpCreateAccountText">
+			<div class="HelpPageTitle">Create an Account</div>
+			<div class="HelpSection"><span class="HelpLiTitles">User ID Creation Rules</span><br>
+			<span class="HelpLiText">A User ID must consist of <span class="HelpBold">only</span> letters and numbers.</span></div><br>
+			<div class="HelpSection"><span class="HelpLiTitles">Recover Your User ID</span><br>
+			<span class="HelpLiText">Please keep your User ID safe. If you forget your user ID, we <span class="HelpBold">cannot</span> recover it for you. We are only allowed to store a scrambled version to preserve your anonymity and protect your identity. <br><br>
+			Unfortunately, if you cannot remember your User ID, you will need to create a new one for continued use of the application. <br><br>
+			Since each policy review is associated with an individual User ID, any previous review effort continues to be associated with your former User ID and you will lose access to it.</span><br><br>
+			<div class="HelpSection"><span class="HelpLiTitles">Other</span></div>
+			<span class="HelpLiText">If you have other account related issues, contact the session administrator.</span></div><br><br>
+			<a onclick="goBack()" onmouseover="" class="HelpBackButton">
+			<img class="HelpImage" src="/static/back_arrow.jpg" alt="left pointing arrow"/>
+				Previous Page
+			</a>
+		</div>
+		
+		<div id="BrowserSettingsText" class="HelpBrowserSettingsText">
+			<p class="HelpPageTitle">Browser Settings</p>
+				<p class="HelpLiTitles">NOTE: Only Firefox and Chrome are supported by this application.</p>
+				<span class="HelpLiTitles">Turning on JavaScript</span><br>
+					<span class="HelpJavaScriptText">
+					<div class="HelpFireFoxJavaScriptText"><span class="HelpLiSubTitles">Firefox</span>
+					<ol class="HelpOl">
+						<li class="HelpLi">In the address bar, type "about:config" (with no quotes), and click Enter.</li>
+						<li class="HelpLi">Click <span class="HelpBold">"I accept the risk!"</li></span>
+						<li class="HelpLi">In the search bar, search for <span class="HelpBold">"javascript.enabled"</span> (with no quotes).</li>
+						<li class="HelpLi">If the value field is set to true for the result named <span class="HelpBold">"javascript.enabled", right click it and click "Toggle". </span></li>
+						&nbsp;<img class="HelpJavascriptFireFoxImage" src="/static/javascriptFirefox.png" alt="javascriptFirefox">
+						<li class="HelpLi">JavaScript is now enabled.</li>
+						<li class="HelpLi">To disable JavaScript, <span class="HelpBold">repeat these steps and toggle the value field for "javascript.enabled" to false.</span></li>
+					</ol></div>
+					<div class="HelpChromeJavaScriptText"><span class="HelpLiSubTitles">Chrome</span>
+					<ol class="HelpOl">
+						<li class="HelpLi">Click the Chrome menu icon <img class="HelpChromeSettingsImage" width=10px src="/static/chromeSettings.png" alt="Chrome Setting Button Image"/> on the browser toolbar.</li>
+						<li class="HelpLi">Select <span class="HelpBold">Settings.</span></li>
+						<li class="HelpLi">On the "Settings" page, click the <span class="HelpBold">Show advanced settings...</span> link.</li>
+						<li class="HelpLi">In the "Privacy" section, click <span class="HelpBold">Content settings...</span></li>
+						&nbsp;<img class="HelpJavascriptChromeImg1" src="/static/javascriptChrome1.png" alt="javascriptChrome1">
+						<li class="HelpLi">Select <span class="HelpBold">Allow all sites to run JavaScript (recommended)</span> in the "JavaScript" section.</li>
+						&nbsp;<img class="HelpJavascriptChromeImg2" src="/static/javascriptChrome2.png" alt="javascriptChrome2">
+						<li class="HelpLi">Click <span class="HelpBold">Done.</span></li>
+					</ol></div>
+					</span>
+				<br>
+				<span class="HelpLiTitles">Turning on Popups</span><br>
+					<span class="HelpPopupText">
+					<div class="HelpFireFoxPopupText"><span class="HelpLiSubTitles">Firefox</span>
+					<ol class="HelpOl">
+						<li class="HelpLi">Click the <img class="HelpImage" width=15px src="/static/firefoxSettings.png" alt="Chrome Setting Button Image" /> menu icon to open the Firefox menu.</li>
+						<li class="HelpLi">Click <span class="HelpBold">Options.</span></li>
+						<li class="HelpLi">Click <span class="HelpBold">Contents</span> located on the left hand sidebar.</li>
+						&nbsp;<img class="HelpPopupFireFoxImage" src="/static/popupFirefox1.png" alt="popupFirefox">
+						<li class="HelpLi"><span class="HelpBold">Uncheck</span> the "Block pop-up windows" box.</li>
+					</ol>
+					</div>
+					<div class="HelpChromePopupText"><span class="HelpLiSubTitles">Chrome</span>
+					<ol class="HelpOl">
+						<li class="HelpLi">At the top right, click <img class="HelpImage" width=10px src="/static/chromeSettings.png" alt="Chrome Setting Button Image" style="border-style: solid; border-width: 1px;"/></li>
+						<li class="HelpLi">Click <span class="HelpBold">Settings.</span></li>
+						<li class="HelpLi">At the bottom, click <span class="HelpBold">Show advanced settings.</span></li>
+						<li class="HelpLi">Under "Privacy," click <span class="HelpBold">Content settings.</span></li>
+						<li class="HelpLi">Under "Pop-ups," select <span class="HelpBold">Allow all sites to show pop-ups</span></li>
+						&nbsp;<img class="HelpChromePopupImage" src="/static/popupChrome1.png" alt="popupChrome">
+					</ol></div>
+					</span>
+		<br>
+		<a onclick="goBack()" onmouseover="" class="HelpBackButton">
+		<img class="HelpImage" src="/static/back_arrow.jpg" alt="left pointing arrow"/>
+			Previous Page
+		</a>
+		</div>
+		
+		<div id="DemographicsText" class="HelpDemographicsText">
+			<p class="HelpPageTitle">Demographics</p>
+			<div class="HelpSection"><span class="HelpLiTitles">Do I have to answer all of the questions?</span><br>
+			<span class="HelpLiText">You are not required to answer any of the questions - there are no required fields.  
+			However, we request you provide answers to each question presented to you if possible. 
+			If you are confused or do not think that the available answers are appropriate, then please let us know in the Optional Comment section at the bottom of the question page. 
+			We have also provided a general comment link (located at the top right hand corner of the page) for any feedback, comments, or problems. </span></div><br>
+			<div class="HelpSection"><span class="HelpLiTitles">What is this information used for?</span><br>
+			<span class="HelpLiText">We will only use this information to compare results across various demographic areas.</span></div><br>
+			<div class="HelpSection"><span class="HelpLiTitles">Is my information confidential?</span><br>
+			<span class="HelpLiText">Your answers are completely confidential and will not be used outside of this study. No personally identifiable data will be tied your answers.</span></div><br>
+			<a onclick="goBack()" onmouseover="" class="HelpBackButton">
+			<img class="HelpImage" src="/static/back_arrow.jpg" alt="left pointing arrow"/>
+				Previous Page
+			</a>
+		</div>
+		
+		<div id="UsingText" class="HelpUsingText">
+		<p class="HelpPageTitle">Using this Tool to Identify Password Rules</p>
+		<!--Tip box-->
+		<div class="HelpUsingTextTipBox"> 
+			<p class="HelpTipsHeader">Tips</p>
+			<ul class="HelpUsingTextTipBoxContents">
+				<li class="HelpLi">Remember your User ID and keep it safe. If you forget it, you cannot recover it and you cannot go back to your previous answers. To review any policies, you'll have to create a new account and start all over again.</li>
+				<li class="HelpLi">The tool tracks and saves your responses as you go. As long as you don't submit your responses, you can go back and change them, if you want.</li>
+				<li class="HelpLi">Confused or concerned about a question or topic? Tell us in the comments at the end of each page.</li>
+				<li class="HelpLi">To tell us about a more general concern, at the top of the page, click General Comment.</li>
+			</ul>
+		</div>
+		<!--Rest of the page-->
+		<div class="HelpTextWidth">
+		<ul class="HelpUlfonts">
+			<li class="HelpLi">Some password policies do not present their rules clearly. At times the rules can be hard to understand. <span class="HelpBold">We want to know the rules you find stated in the policies you review. </span></li>
+			<li class="HelpLi"><span class="HelpBold">The tool will show you 3 policies to review.</span> Pick a policy to begin. You should probably work through each policy one at a time; but, you don’t have to submit your answers on one review before you start another.</li>
+			<li class="HelpLi">For each policy you review, <span class="HelpBold">the tool will show you a series of questions about password rules.</span> Your responses to the questions help identify each rule in the policy to us. 
+				<p class="HelpMiscSpacing">
+				The questions cover topics in 5 broad categories. Most topics are expandable. See what we ask about.</li>
+				
+				<ul class="collapsibleList">
+					<li><span class="HelpBold">Communicating</span> passwords: sharing and sending passwords
+						<ul class="collapsibleList">
+							<li class="lastChild">Sharing with others</li>
+							<li class="lastChild">Sharing during emergencies</li>
+							<li>Using these methods	
+								<ul class="collapsibleList">
+									<li class="lastChild">Any method</li>
+									<li class="lastChild">Any network</li>
+									<li class="lastChild">Internet or wide area network</li>
+									<li class="lastChild">Local area network</li>
+									<li class="lastChild">Email</li>
+									<li class="lastChild">Postal mail</li>
+									<li class="lastChild">Phone and voicemail</li>
+								</ul>
+							</li>
+						</ul>				
+					</li>
+					<li><span class="HelpBold">Creating</span> passwords: length and composition
+						<ul class="collapsibleList">
+							<li>Length
+								<ul class="collapsibleList">
+									<li class="lastChild">Minimum length</li>
+									<li class="lastChild">Maximum length</li>
+								</ul>
+							</li>
+							<li> Character types
+								<ul class="collapsibleList">
+									<li>One type of character
+										<ul class="collapsibleList">
+											<li class="lastChild">One type: must use</li>
+											<li class="lastChild">One type: should use</li>
+											<li class="lastChild">One type: must not use</li>
+											<li class="lastChild">One type: should not use</li>
+										</ul>
+									</li>								
+									<li>Multiple types of characters
+										<ul class="collapsibleList">
+											<li class="lastChild">Multiple type: must use</li>
+											<li class="lastChild">Multiple type: should use</li>
+											<li class="lastChild">Multiple type: must not use</li>
+											<li class="lastChild">Multiple type: should not use</li>
+										</ul>									
+									</li>
+									<li class="lastChild">"At least X" character types</li>
+									<li>From the previous password
+										<ul class="collapsibleList">
+											<li class="lastChild">Limiting those from the previous password</li>
+											<li class="lastChild">Including those <i>not used</i> in the previous password</li>
+										</ul>
+									</li>	
+									<li>Character positions: first, last, etc.
+										<ul class="collapsibleList">
+											<li class="lastChild">Certain character types for the first or last positions</li>
+											<li class="lastChild">Certain character types for internal positions, those between the first or last positions</li>
+											<li class="lastChild">Certain character types for positions near the beginning</li>
+										</ul>
+									</li>
+								</ul>
+							</li>
+							<li>Character occurrence, sequences and patters
+								<ul class="collapsibleList">
+									<li> Using the same character
+										<ul class="collapsibleList">
+											<li class="lastChild">More than once</li>
+											<li class="lastChild">More than once in a row</li>
+										</ul>
+									</li>
+									<li> Using the different characters
+										<ul class="collapsibleList">
+											<li class="lastChild">Different characters</li>
+											<li class="lastChild">In a sequence</li>
+											<li class="lastChild">In a pattern</li>
+										</ul>
+									</li>
+								</ul>	
+							</li>
+							<li>Identifying information and dates
+								<ul class="collapsibleList">
+									<li class="lastChild">Account ID</li>
+									<li class="lastChild">The user's name</li>
+									<li class="lastChild">Personally Identifying Information (PII)</li>
+									<li class="lastChild">Dates</li>
+								</ul>	
+							</li>					
+							<li>Addresses and proper nouns
+								<ul class="collapsibleList">
+									<li class="lastChild">Addresses</li>
+									<li class="lastChild">Proper nouns</li>
+								</ul>	
+							</li>					
+							<li>Words and their variants
+								<ul class="collapsibleList">
+									<li class="lastChild">Words</li>
+									<li class="lastChild">Words followed by a number</li>
+									<li class="lastChild">Words spelled backwards</li>
+									<li class="lastChild">A word with numbers replacing some of the letters</li>
+								</ul>	
+							</li>					
+							<li>Password re-use and modification
+								<ul class="collapsibleList">
+									<li> Passwords from other systems
+										<ul class="collapsibleList">
+											<li class="lastChild">From an outside system</li>
+											<li class="lastChild">From any other system</li>
+										</ul>
+									</li>
+									<li> Existing or default passwords
+										<ul class="collapsibleList">
+											<li class="lastChild">Incremental changes to existing passwords</li>
+											<li class="lastChild">Default passwords</li>
+										</ul>
+									</li>
+									<li> Previously used passwords
+										<ul class="collapsibleList">
+											<li class="lastChild">Number of previous passwords</li>
+											<li class="lastChild">Number of previous years</li>
+											<li class="lastChild">Repeated use over a number of previous years</li>
+										</ul>
+									</li>
+									<li> Variations of prohibited passwords
+										<ul class="collapsibleList">
+											<li class="lastChild">Joining prohibited passwords</li>
+											<li class="lastChild">Reversing prohibited passwords</li>
+											<li class="lastChild">Prohibited passwords preceded or followed by a number</li>
+										</ul>
+									</li>
+								</ul>	
+							</li>			
+						</ul>
+					</li>
+					<li><span class="HelpBold">Storing</span> passwords: where and how
+						<ul class="collapsibleList">
+							<li>As hardopy
+								<ul class="collapsibleList">
+									<li class="lastChild">Anywhere</li>
+									<li class="lastChild">In a secure location</li>
+									<li class="lastChild">In an unsecure location</li>
+									<li class="lastChild">In plain text</li>
+									<li class="lastChild">In plain text in an unsecure location</li>
+								</ul>
+							</li>
+							<li>Digitally
+								<ul class="collapsibleList">
+									<li class="lastChild">Anywhere</li>
+									<li class="lastChild">In a secure location</li>
+									<li class="lastChild">In an unsecure location</li>
+									<li class="lastChild">In automated scripts</li>
+									<li class="lastChild">Unencrpyted or weakly encrypted</li>
+									<li class="lastChild">Unencrypted in an unsecure location</li>
+									<li class="lastChild">On an outside system</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li><span class="HelpBold">Changing</span> passwords: when and how often
+						<ul class="collapsibleList">
+							<li>Timeline for changing passwords
+								<ul class="collapsibleList">
+									<li class="lastChild">Maximum number of days</li>
+									<li class="lastChild">Minimum number of days</li>
+								</ul>
+							</li>
+							<li>Conditions for changing passwords
+								<ul class="collapsibleList">
+									<li class="lastChild">When compromised</li>
+									<li class="lastChild">When found to be non-compliant with the policy</li>
+									<li class="lastChild">When sent unencrypted</li>
+									<li class="lastChild">When shared</li>
+									<li class="lastChild">When directed by management</li>
+								</ul>
+							</li>
+						</ul>
+					</li>
+					<li class="lastChild"><span class="HelpBold">Entering passwords incorrectly</span></li><p>
+				</ul>
+				
+			<li class="HelpLi"><span class="HelpBold">This is not a memory test.</span> These instructions and the policy you are working from are always available.</li>
+		</ul>
+		<br>
+		<p class="HelpUsingHeader">What's your job?</p>
+		<ul class="HelpUlfonts">
+		<li class="HelpLi"><span class="HelpBold">Identify each password rule in the policy.</span> </li>
+			<ul class="HelpJobInstructions">
+				<li class="HelpLi"><span class="HelpBold">Decide if there is a match </span> between what each question in the application is asking and a stated rule in the policy.</li>
+				<li class="HelpLi"><span class="HelpBold">When there is a match, </span>additional response options open so you can tell us more about what the rule says.</li>
+				<li class="HelpLi"><span class="HelpBold">Don't infer additional rules. </span>Match questions only to rules actually stated in the policy.
+				<br><p class="HelpMiscSpacing"><span color="gray">For example: <br>If the policy contains a rule requiring a password <span class="HelpBold"><i>change</i></span> if the password is sent unencrypted, <br>DO NOT INFER there is a rule that passwords must not be <span class="HelpBold"><i>sent</i></span> unencrypted.</span>
+			</ul>
+			
+			<li class="HelpLi"><span class="HelpBold">What a rule means is sometimes difficult to uncover.</span> Look at each rule carefully. </li>
+				<ol class="HelpLookRulesList">
+					<li>Determine the main category {Communicating, Creating, Storing, Changing, Failing to Authenticate} </li>
+					<li>Then look for a close match with the subtopics for that category. </li>
+					<li>Once you find a subtopic match, determine if the rule states a requirement, prohibition, recommendation for or against. </li>
+				</ol>
+			<p class="HelpMiscSpacing">Use the following equivalencies:
+			<br>
+			<ul class="HelpJobInstructions">
+			<li class="HelpLi"><span class="HelpBold">Requirement</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&ensp;The password <span class="HelpBold">must…</span></li>
+			<li class="HelpLi"><span class="HelpBold">Recommendation</span> &emsp;&emsp;&emsp;&emsp;&nbsp;The password <span class="HelpBold">should…</span></li>
+			<li class="HelpLi"><span class="HelpBold">Prohibition</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;The password <span class="HelpBold">must not…</span></li>
+			<li class="HelpLi"><span class="HelpBold">Recommendation against</span> &ensp;&nbsp;The password <span class="HelpBold">should not…</span></li>
+			</ul>
+			</li>
+			<p><p class="HelpMiscSpacing">
+			
+
+
+			<li class="HelpLi"><span class="HelpBold">Policies vary.</span> Each policy you review will not have a rule for every topic we ask about, so don't worry. Just tell us that the category isn't mentioned and move on.</li>
+			<li class="HelpLi"><span class="HelpBold">Ignore rules intended for accounts with special privileges or other authentication factors.</span>	
+			<br><p class="HelpMiscSpacing">We did not include questions about administrator account passwords or other authentication factors such as passphrases and SSH keys.<p></li>
+			</ul>
+		<br>
+
+		
+		<p class="HelpUsingHeader">What else do you need to know?</p>
+		<ul class="HelpUlfonts">
+<!--			<li class="HelpLi">We know this is a lot to absorb. <span style="font-weight:bold;">This help is always available within the applicaiton. Click the help link to see it again.</span> </li>  -->
+			<li class="HelpLi"><span style="font-weight:bold;">You don’t have to answer every question,</span> but we ask you to answer as much as you can. Write in comments if you want; we like details.</li>
+			<li class="HelpLi"><span style="font-weight:bold;">The browser's 'back' button may not work as expected on every page;</span> the links and buttons within the application do.</li>
+			<li class="HelpLi"><span style="font-weight:bold;">At the end of a page, when you click Next, if you have missed a question or entered an invalid response, you’ll see <img class=HelpImage width=15px src="/static/exclam.png" alt="Instructions Exclam Image" />.</span> You may choose to answer the question, change your response, or move on.</li>
+			<li class="HelpLi"><span style="font-weight:bold;">When you get to the end of all of the questions, the tool will <div class="HelpHighlight">highlight</div> the questions you haven’t answered.</span> It will suggest that you go back and complete them. At this point, you can either choose to go back or submit your answers.</li>
+			<li class="HelpLi"><span style="font-weight:bold;">Once you submit your answers, the tool marks your answers as complete and you cannot return to that policy.</span></li>
+		</ul>
+		</div>
+		<br>
+		<a onclick="goBack()" onmouseover="" class="HelpBackButton">
+		  <img class="HelpImage" src="/static/back_arrow.jpg" alt="left pointing arrow"/>
+		  Previous Page
+		</a>
+		</div>
+	</div>
+
+<!--<div>
+  {{ html|safe }}
+  <form id="helpbackform" action="{{ request.args.next }}" method="GET"> <input type="submit" value="Previous Page"> </form>
+</div>-->
+
+  
+  <script type="text/javascript">
+  function goBack() {
+	//by default, go back 1 page.
+	//if coming back from general comments, go back 3 - avoids the previous page loop.
+	var previousPage = document.referrer
+	var previousPageGeneralComment = previousPage.search("general_comments")
+	if(previousPageGeneralComment > -1){
+		window.history.go(-3);
+	}
+    else{
+		window.history.back();
+	}
+  }
+  </script>
+  
+  
+  <script type="text/javascript">
+  //open relevant help page based on previous page
+  function openRelevantSettings() {
+	var previousPage = document.referrer;
+	var previousPageGeneralComment = previousPage.search("general_comments");
+	var previousPageLogin = previousPage.search("login");
+	var previousPageDemo = previousPage.search("demosurvey");
+	var previousPagePolicies = previousPage.search("policies");
+	var previousPageDInstructions = previousPage.search("detailedInstructions");
+	var previousPageSurvey = previousPage.search("Policy");
+	
+	if(previousPageGeneralComment > -1){
+		
+		var beforeButton = document.getElementById("beforeButton");
+		beforeButton.style.display = "block";
+		beforeButton.style.fontWeight = "bold";
+		
+		var createButton=document.getElementById("hiddenCreateAccount");
+		createButton.style.display = "block";
+		createButton.style.fontWeight = "normal";
+		
+		var browserButton=document.getElementById("BrowserSettingsButton");
+		browserButton.style.display = "block";
+		browserButton.style.fontWeight = "normal";
+		
+		var demoButton=document.getElementById("hiddenDemographics");
+		demoButton.style.display = "block";
+		demoButton.style.fontWeight = "normal";
+		
+		var usingButton=document.getElementById("UsingButton");
+		usingButton.style.display = "block";
+		usingButton.style.fontWeight = "normal";
+		
+		var instructionsText = document.getElementById("instructionsText");
+		instructionsText.style.display = "block";
+		instructionsText.style.fontWeight = "normal";
+		
+		var createAccountText = document.getElementById("CreateAccountText");
+		createAccountText.style.display = "none";
+		createAccountText.style.fontWeight = "normal"
+		
+		var browserSettingsText = document.getElementById("BrowserSettingsText");
+		browserSettingsText.style.display = "none";
+		browserSettingsText.style.fontWeight = "normal";
+		
+		var demoText = document.getElementById("DemographicsText");
+		demoText.style.display = "none";
+		demoText.style.fontWeight = "normal";
+		
+		var usingText = document.getElementById("UsingText");
+		usingText.style.display = "none";
+		usingText.style.fontWeight = "normal";
+		
+	}
+	
+	else if(previousPageLogin > -1){
+		var beforeButton = document.getElementById("beforeButton");
+		beforeButton.style.display = "block";
+		beforeButton.style.fontWeight = "bold";
+		
+		var createButton=document.getElementById("hiddenCreateAccount");
+		createButton.style.display = "block";
+		createButton.style.fontWeight = "normal";
+		
+		var browserButton=document.getElementById("BrowserSettingsButton");
+		browserButton.style.display = "block";
+		browserButton.style.fontWeight = "normal";
+		
+		var demoButton=document.getElementById("hiddenDemographics");
+		demoButton.style.display = "block";
+		demoButton.style.fontWeight = "normal";
+		
+		var usingButton=document.getElementById("UsingButton");
+		usingButton.style.display = "block";
+		usingButton.style.fontWeight = "normal";
+		
+		var instructionsText = document.getElementById("instructionsText");
+		instructionsText.style.display = "block";
+		instructionsText.style.fontWeight = "normal";
+		
+		var createAccountText = document.getElementById("CreateAccountText");
+		createAccountText.style.display = "none";
+		createAccountText.style.fontWeight = "normal"
+		
+		var browserSettingsText = document.getElementById("BrowserSettingsText");
+		browserSettingsText.style.display = "none";
+		browserSettingsText.style.fontWeight = "normal";
+		
+		var demoText = document.getElementById("DemographicsText");
+		demoText.style.display = "none";
+		demoText.style.fontWeight = "normal";
+		
+		var usingText = document.getElementById("UsingText");
+		usingText.style.display = "none";
+		usingText.style.fontWeight = "normal";
+	}
+	else if(previousPageDemo > -1){
+		var beforeButton = document.getElementById("beforeButton");
+		beforeButton.style.display = "block";
+		beforeButton.style.fontWeight = "normal";
+		
+		var createButton=document.getElementById("hiddenCreateAccount");
+		createButton.style.display = "block";
+		createButton.style.fontWeight = "normal";
+		
+		var browserButton=document.getElementById("BrowserSettingsButton");
+		browserButton.style.display = "block";
+		browserButton.style.fontWeight = "normal";
+		
+		var demoButton=document.getElementById("hiddenDemographics");
+		demoButton.style.display = "block";
+		demoButton.style.fontWeight = "bold";
+		
+		var usingButton=document.getElementById("UsingButton");
+		usingButton.style.display = "block";
+		usingButton.style.fontWeight = "normal";
+		
+		var instructionsText = document.getElementById("instructionsText");
+		instructionsText.style.display = "none";
+		instructionsText.style.fontWeight = "normal";
+		
+		var createAccountText = document.getElementById("CreateAccountText");
+		createAccountText.style.display = "none";
+		createAccountText.style.fontWeight = "normal"
+		
+		var browserSettingsText = document.getElementById("BrowserSettingsText");
+		browserSettingsText.style.display = "none";
+		browserSettingsText.style.fontWeight = "normal";
+		
+		var demoText = document.getElementById("DemographicsText");
+		demoText.style.display = "block";
+		demoText.style.fontWeight = "normal";
+		
+		var usingText = document.getElementById("UsingText");
+		usingText.style.display = "none";
+		usingText.style.fontWeight = "normal";
+		
+	}
+	else if(previousPagePolicies > -1){
+		
+		var beforeButton = document.getElementById("beforeButton");
+		beforeButton.style.display = "block";
+		beforeButton.style.fontWeight = "normal";
+		
+		var createButton=document.getElementById("hiddenCreateAccount");
+		createButton.style.display = "none";
+		createButton.style.fontWeight = "normal";
+		
+		var browserButton=document.getElementById("BrowserSettingsButton");
+		browserButton.style.display = "none";
+		browserButton.style.fontWeight = "normal";
+		
+		var demoButton=document.getElementById("hiddenDemographics");
+		demoButton.style.display = "none";
+		demoButton.style.fontWeight = "normal";
+		
+		var usingButton=document.getElementById("UsingButton");
+		usingButton.style.display = "block";
+		usingButton.style.fontWeight = "bold";
+		
+		var instructionsText = document.getElementById("instructionsText");
+		instructionsText.style.display = "none";
+		instructionsText.style.fontWeight = "normal";
+		
+		var createAccountText = document.getElementById("CreateAccountText");
+		createAccountText.style.display = "none";
+		createAccountText.style.fontWeight = "normal"
+		
+		var browserSettingsText = document.getElementById("BrowserSettingsText");
+		browserSettingsText.style.display = "none";
+		browserSettingsText.style.fontWeight = "normal";
+		
+		var demoText = document.getElementById("DemographicsText");
+		demoText.style.display = "none";
+		demoText.style.fontWeight = "normal";
+		
+		var usingText = document.getElementById("UsingText");
+		usingText.style.display = "block";
+		usingText.style.fontWeight = "normal";
+		
+	}
+	else if(previousPageDInstructions > -1){
+		var beforeButton = document.getElementById("beforeButton");
+		beforeButton.style.display = "block";
+		beforeButton.style.fontWeight = "normal";
+		
+		var createButton=document.getElementById("hiddenCreateAccount");
+		createButton.style.display = "none";
+		createButton.style.fontWeight = "normal";
+		
+		var browserButton=document.getElementById("BrowserSettingsButton");
+		browserButton.style.display = "none";
+		browserButton.style.fontWeight = "normal";
+		
+		var demoButton=document.getElementById("hiddenDemographics");
+		demoButton.style.display = "none";
+		demoButton.style.fontWeight = "normal";
+		
+		var usingButton=document.getElementById("UsingButton");
+		usingButton.style.display = "block";
+		usingButton.style.fontWeight = "bold";
+		
+		var instructionsText = document.getElementById("instructionsText");
+		instructionsText.style.display = "none";
+		instructionsText.style.fontWeight = "normal";
+		
+		var createAccountText = document.getElementById("CreateAccountText");
+		createAccountText.style.display = "none";
+		createAccountText.style.fontWeight = "normal"
+		
+		var browserSettingsText = document.getElementById("BrowserSettingsText");
+		browserSettingsText.style.display = "none";
+		browserSettingsText.style.fontWeight = "normal";
+		
+		var demoText = document.getElementById("DemographicsText");
+		demoText.style.display = "none";
+		demoText.style.fontWeight = "normal";
+		
+		var usingText = document.getElementById("UsingText");
+		usingText.style.display = "block";
+		usingText.style.fontWeight = "normal";
+
+	}
+	else if(previousPageSurvey > -1){
+		var beforeButton = document.getElementById("beforeButton");
+		beforeButton.style.display = "block";
+		beforeButton.style.fontWeight = "normal";
+		
+		var createButton=document.getElementById("hiddenCreateAccount");
+		createButton.style.display = "none";
+		createButton.style.fontWeight = "normal";
+		
+		var browserButton=document.getElementById("BrowserSettingsButton");
+		browserButton.style.display = "none";
+		browserButton.style.fontWeight = "normal";
+		
+		var demoButton=document.getElementById("hiddenDemographics");
+		demoButton.style.display = "none";
+		demoButton.style.fontWeight = "normal";
+		
+		var usingButton=document.getElementById("UsingButton");
+		usingButton.style.display = "block";
+		usingButton.style.fontWeight = "bold";
+		
+		var instructionsText = document.getElementById("instructionsText");
+		instructionsText.style.display = "none";
+		instructionsText.style.fontWeight = "normal";
+		
+		var createAccountText = document.getElementById("CreateAccountText");
+		createAccountText.style.display = "none";
+		createAccountText.style.fontWeight = "normal"
+		
+		var browserSettingsText = document.getElementById("BrowserSettingsText");
+		browserSettingsText.style.display = "none";
+		browserSettingsText.style.fontWeight = "normal";
+		
+		var demoText = document.getElementById("DemographicsText");
+		demoText.style.display = "none";
+		demoText.style.fontWeight = "normal";
+		
+		var usingText = document.getElementById("UsingText");
+		usingText.style.display = "block";
+		usingText.style.fontWeight = "normal";
+	}
+  }
+  </script>
+ 
+  <script type="text/javascript">
+  //toggle before button styling and the things that it affects
+  function toggleBefore() {
+  
+	var beforeButton=document.getElementById("beforeButton");
+	var usingButton=document.getElementById("UsingButton");
+	var createAccountButton=document.getElementById("hiddenCreateAccount");
+	var browserButton=document.getElementById("BrowserSettingsButton");
+	var demographicsButton=document.getElementById("hiddenDemographics");
+	var createAccountText = document.getElementById("CreateAccountText");
+	var browserText = document.getElementById("BrowserSettingsText");
+	var demographicsText = document.getElementById("DemographicsText");
+	var usingText = document.getElementById("UsingText")
+	var instructionsText = document.getElementById("instructionsText");
+	
+	//if the help page is currently on the using this app page
+	//the Using this text button will be bold
+	if(usingButton.style.fontWeight === "bold"){
+		
+		//unbold the using button
+		usingButton.style.fontWeight = "normal";
+		//turn off the using text
+		usingText.style.display = "none";
+		//bold the before button
+		beforeButton.style.fontWeight = "bold";
+		//show the other three buttons
+		createAccountButton.style.display = "block";
+		browserButton.style.display = "block";
+		demographicsButton.style.display = "block";
+		//turn on the instructions text
+		instructionsText.style.display = "block";
+	}
+	
+	//if its not bold when clicking the before button, this means the user is already in before or on the 1st starting page
+	else if(usingButton.style.fontWeight === "normal"){
+	
+		//check if any of the inner buttons are bold, or if beforeButton is bold
+		//if so, close everything, unbold the beforeButton
+		if (beforeButton.style.fontWeight === "bold" || createAccountButton.style.fontWeight === "bold" || browserButton.style.fontWeight === "bold" || demographicsButton.style.fontWeight === "bold"){
+			//turn off all inner buttons
+			createAccountButton.style.display = "none";
+			browserButton.style.display = "none";
+			demographicsButton.style.display = "none";
+			//turn off all inner button text
+			createAccountText.style.display = "none";
+			browserText.style.display = "none";
+			demographicsText.style.display = "none";
+			//unbold all inner buttons
+			createAccountButton.style.fontWeight = "normal";
+			browserButton.style.fontWeight = "normal";
+			demographicsButton.style.fontWeight = "normal";
+			//turn on instruction text
+			instructionsText.style.display = "block";
+			//turn before button back to normal
+			beforeButton.style.fontWeight = "normal";
+		}
+		
+		//else if none of the four are bold, open the three submenus, bold the beforeButton
+		else if(beforeButton.style.fontWeight === "normal" && createAccountButton.style.fontWeight === "normal" && browserButton.style.fontWeight === "normal" || demographicsButton.style.fontWeight === "normal"){
+			//bold the before button
+			beforeButton.style.fontWeight = "bold";
+			//show the three buttons
+			createAccountButton.style.display = "block";
+			browserButton.style.display = "block";
+			demographicsButton.style.display = "block";
+			//show instructions text
+			instructionsText.style.display = "block";
+		}
+	}
+	
+  }
+  </script>
+  
+  <script>
+  //toggle using button styling and the things that it affects
+  function toggleUsing(){
+	
+	var beforeButton=document.getElementById("beforeButton");
+	var usingButton=document.getElementById("UsingButton");
+	var createAccountButton=document.getElementById("hiddenCreateAccount");
+	var browserButton=document.getElementById("BrowserSettingsButton");
+	var demographicsButton=document.getElementById("hiddenDemographics");
+	var createAccountText = document.getElementById("CreateAccountText");
+	var browserText = document.getElementById("BrowserSettingsText");
+	var demographicsText = document.getElementById("DemographicsText");
+	var usingText = document.getElementById("UsingText")
+	var instructionsText = document.getElementById("instructionsText");
+	
+	
+	//if any of the inner buttons are bold or if beforeButton is bold, then do all of this
+	//need to close all the inside text, hide all the inside buttons, unbold all the buttons, bold the using button, and show the using text.
+	if(beforeButton.style.fontWeight === "bold" || createAccountButton.style.fontWeight === "bold" || browserButton.style.fontWeight === "bold" || demographicsButton.style.fontWeight === "bold"){
+		//unbold all inner buttons
+		createAccountButton.style.fontWeight = "normal";
+		browserButton.style.fontWeight = "normal";
+		demographicsButton.style.fontWeight = "normal";
+		//hide all inner buttons
+		createAccountButton.style.display = "none";
+		browserButton.style.display = "none";
+		demographicsButton.style.display = "none";
+		//hide all inner text
+		createAccountText.style.display = "none";
+		browserText.style.display = "none";
+		demographicsText.style.display = "none";
+		//unbold before button
+		beforeButton.style.fontWeight = "normal";
+		//bold using button
+		usingButton.style.fontWeight = "bold";
+		//show using text
+		usingText.style.display = "block";
+		//turn off instructions
+		instructionsText.style.display = "none";
+	}
+	//else if none of those 4 are bold, that means using is already selected or nothing is selected.
+	else if(beforeButton.style.fontWeight === "normal" && createAccountButton.style.fontWeight === "normal" && browserButton.style.fontWeight === "normal" || demographicsButton.style.fontWeight === "normal"){
+		//if using is already bold, this means it is open. Turn off text, turn off bolding, show instructions
+		if(usingButton.style.fontWeight === "bold"){
+			//close using text
+			usingText.style.display = "none";
+			//unbold using button
+			usingButton.style.fontWeight = "normal";
+			//show instructions
+			instructionsText.style.display = "block";
+		}
+		//if not, then we're at the 1st step screen
+		else if (usingButton.style.fontWeight === "normal"){
+			//open using text
+			usingText.style.display = "block";
+			//bold using button
+			usingButton.style.fontWeight = "bold";
+			//turn off instructions
+			instructionsText.style.display = "none";
+		}
+	}
+  }
+  </script>
+  
+  <script>
+  //toggle the create account button and the things it affects
+  function toggleCreateAccount(){
+	
+	var beforeButton=document.getElementById("beforeButton");
+	var createAccountButton=document.getElementById("hiddenCreateAccount");
+	var browserButton=document.getElementById("BrowserSettingsButton");
+	var demographicsButton=document.getElementById("hiddenDemographics");
+	var createAccountText = document.getElementById("CreateAccountText");
+	var browserText = document.getElementById("BrowserSettingsText");
+	var demographicsText = document.getElementById("DemographicsText");
+	var instructionsText = document.getElementById("instructionsText");
+	
+	//if create account button is bold
+	if (createAccountButton.style.fontWeight === "bold"){
+		//unbold button
+		createAccountButton.style.fontWeight = "normal";
+		//hide text
+		createAccountText.style.display = "none";
+		//show instructions text
+		instructionsText.style.display = "block";
+		//bold beforeButton
+		beforeButton.style.fontWeight = "bold"
+	}
+	else if (createAccountButton.style.fontWeight === "normal"){
+		//unbold the other two buttons plus beforeButton
+		beforeButton.style.fontWeight = "normal"
+		browserButton.style.fontWeight = "normal";
+		demographicsButton.style.fontWeight = "normal";
+		//hide other two text
+		browserText.style.display = "none";
+		demographicsText.style.display = "none";
+		//bold the button
+		createAccountButton.style.fontWeight = "bold";
+		//show the text
+		createAccountText.style.display = "block";
+		//hide the instructions text
+		instructionsText.style.display = "none";
+	}
+  }
+  </script>
+  
+  <script>
+  function toggleBrowser(){
+	
+	var beforeButton=document.getElementById("beforeButton");
+	var createAccountButton=document.getElementById("hiddenCreateAccount");
+	var browserButton=document.getElementById("BrowserSettingsButton");
+	var demographicsButton=document.getElementById("hiddenDemographics");
+	var createAccountText = document.getElementById("CreateAccountText");
+	var browserText = document.getElementById("BrowserSettingsText");
+	var demographicsText = document.getElementById("DemographicsText");
+	var instructionsText = document.getElementById("instructionsText");
+	
+	//if browser button is bold
+	if (browserButton.style.fontWeight === "bold"){
+		//unbold button
+		browserButton.style.fontWeight = "normal";
+		//hide text
+		browserText.style.display = "none";
+		//show instructions text
+		instructionsText.style.display = "block";
+		//bold beforeButton
+		beforeButton.style.fontWeight = "bold"
+	}
+	else if (browserButton.style.fontWeight === "normal"){
+		//unbold the other two buttons plus beforeButton
+		beforeButton.style.fontWeight = "normal"
+		createAccountButton.style.fontWeight = "normal";
+		demographicsButton.style.fontWeight = "normal";
+		//hide other two text
+		createAccountText.style.display = "none";
+		demographicsText.style.display = "none";
+		//bold the button
+		browserButton.style.fontWeight = "bold";
+		//show the text
+		browserText.style.display = "block";
+		//hide the instructions text
+		instructionsText.style.display = "none";
+	}
+  }
+  </script>
+  
+  <script>
+  function toggleDemographics(){
+  
+	var beforeButton=document.getElementById("beforeButton");
+	var createAccountButton=document.getElementById("hiddenCreateAccount");
+	var browserButton=document.getElementById("BrowserSettingsButton");
+	var demographicsButton=document.getElementById("hiddenDemographics");
+	var createAccountText = document.getElementById("CreateAccountText");
+	var browserText = document.getElementById("BrowserSettingsText");
+	var demographicsText = document.getElementById("DemographicsText");
+	var instructionsText = document.getElementById("instructionsText");
+	
+	//if demographics button is bold
+	if (demographicsButton.style.fontWeight === "bold"){
+		//unbold button
+		demographicsButton.style.fontWeight = "normal";
+		//hide text
+		demographicsText.style.display = "none";
+		//show instructions text
+		instructionsText.style.display = "block";
+		//bold beforeButton
+		beforeButton.style.fontWeight = "bold"
+	}
+	else if (demographicsButton.style.fontWeight === "normal"){
+		//unbold the other two buttons plus beforeButton
+		beforeButton.style.fontWeight = "normal"
+		createAccountButton.style.fontWeight = "normal";
+		browserButton.style.fontWeight = "normal";
+		//hide other two text
+		createAccountText.style.display = "none";
+		browserText.style.display = "none";
+		//bold the button
+		demographicsButton.style.fontWeight = "bold";
+		//show the text
+		demographicsText.style.display = "block";
+		//hide the instructions text
+		instructionsText.style.display = "none";
+	}
+  }
+  </script>
+  
+  <script type="text/javascript">
+   var f = $("#helpbackform")[0];
+   var next_index = f.action.indexOf("next=");
+   var amp_index = f.action.indexOf("&", next_index);
+   if (amp_index == -1) {
+	    var arg_url = f.action.slice(next_index+5);
+   }
+   else {
+	 var arg_url = f.action.slice(next_index+5, amp_index);
+   }
+   if (next_index != -1) {
+	 $("#helpbackform").append("<input type='hidden' name='next' value='" + decodeURIComponent(arg_url) + "'>");
+   }
+  </script>
+  
+
+{% endblock %}

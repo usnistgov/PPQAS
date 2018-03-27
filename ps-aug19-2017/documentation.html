@@ -1,0 +1,1261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>Policy Study Documentation</title>
+<!-- 2014-12-02 Tue 17:54 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Matthew Jaffee" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Policy Study Documentation</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#sec-1">1. Overview</a>
+<ul>
+<li><a href="#sec-1-1">1.1. Dependencies</a></li>
+<li><a href="#sec-1-2">1.2. Datastore</a>
+<ul>
+<li><a href="#sec-1-2-1">1.2.1. user</a></li>
+<li><a href="#sec-1-2-2">1.2.2. config</a></li>
+<li><a href="#sec-1-2-3">1.2.3. questionnaire</a></li>
+<li><a href="#sec-1-2-4">1.2.4. logs</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-3">1.3. Report Formats</a>
+<ul>
+<li><a href="#sec-1-3-1">1.3.1. CSV reports</a></li>
+<li><a href="#sec-1-3-2">1.3.2. R files</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-4">1.4. Logging</a></li>
+<li><a href="#sec-1-5">1.5. Overall instruction flow</a>
+<ul>
+<li><a href="#sec-1-5-1">1.5.1. questionnaire</a></li>
+</ul>
+</li>
+<li><a href="#sec-1-6">1.6. Notable Behaviors</a>
+<ul>
+<li><a href="#sec-1-6-1">1.6.1. Demographics and General Comments</a></li>
+<li><a href="#sec-1-6-2">1.6.2. Questionnaire</a></li>
+<li><a href="#sec-1-6-3">1.6.3. Input file</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-2">2. Scripts</a>
+<ul>
+<li><a href="#sec-2-1">2.1. report.py</a>
+<ul>
+<li><a href="#sec-2-1-1">2.1.1. BNF</a></li>
+<li><a href="#sec-2-1-2">2.1.2. Report</a></li>
+<li><a href="#sec-2-1-3">2.1.3. Report per</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-2">2.2. store\<sub>admin</sub>.py</a>
+<ul>
+<li><a href="#sec-2-2-1">2.2.1. cp</a></li>
+<li><a href="#sec-2-2-2">2.2.2. rm</a></li>
+</ul>
+</li>
+<li><a href="#sec-2-3">2.3. mongodump</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. Tests</a></li>
+<li><a href="#sec-4">4. File Layout</a>
+<ul>
+<li><a href="#sec-4-1">4.1. setup.py</a></li>
+<li><a href="#sec-4-2">4.2. runserver.py</a></li>
+<li><a href="#sec-4-3">4.3. policy\<sub>study</sub>/</a>
+<ul>
+<li><a href="#sec-4-3-1">4.3.1. *.py files</a></li>
+<li><a href="#sec-4-3-2">4.3.2. test\<sub>*</sub>.py files</a></li>
+<li><a href="#sec-4-3-3">4.3.3. templates</a></li>
+<li><a href="#sec-4-3-4">4.3.4. static</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-4">4.4. documented-input.xml</a></li>
+<li><a href="#sec-4-5">4.5. resources</a>
+<ul>
+<li><a href="#sec-4-5-1">4.5.1. policies.txt</a></li>
+<li><a href="#sec-4-5-2">4.5.2. polices</a></li>
+</ul>
+</li>
+<li><a href="#sec-4-6">4.6. Input XML file</a></li>
+</ul>
+</li>
+<li><a href="#sec-5">5. Moving to production</a>
+<ul>
+<li><a href="#sec-5-1">5.1. Installing and configuring production application</a></li>
+<li><a href="#sec-5-2">5.2. Updating Production Code Base</a>
+<ul>
+<li><a href="#sec-5-2-1">5.2.1. Pull down the code</a></li>
+<li><a href="#sec-5-2-2">5.2.2. It may be necessary to restart uwsgi - depending on the code change</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-6">6. Running Multiple Instances for Testing purposes</a>
+<ul>
+<li><a href="#sec-6-1">6.1. Instructions</a>
+<ul>
+<li><a href="#sec-6-1-1">6.1.1. Check out a fresh copy of the codebase.</a></li>
+<li><a href="#sec-6-1-2">6.1.2. Edit runserver.py</a></li>
+<li><a href="#sec-6-1-3">6.1.3. Edit <code>policy_study/config.py</code></a></li>
+<li><a href="#sec-6-1-4">6.1.4. Start it up as usual</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Overview</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+This is an application for studying how users read and interpret
+password policies. It tracks users, allowing new users to be created,
+and old users to sign in.
+</p>
+
+<p>
+The purpose of the application is to have users complete a
+set of questions about a password policy using information in a
+password policy description document. Each user is assigned several
+password policies and is asked to complete the same questionnaire for
+each policy.
+</p>
+
+<p>
+When the questionnaire is complete, statements of a BNF grammar are
+generated which formally describe the password policy.
+</p>
+
+<p>
+Most aspects of the applications behavior are configurable - there is
+an administrative interface which allows several parameters to be
+changed, such as the number of policies assigned to each user, and email
+addresses which comments are sent to. It is also possible to add and
+remove admin accounts, and change their passwords.
+</p>
+
+<p>
+Other administrative functionality includes viewing raw database
+information and testing the policy questionnaire.
+</p>
+</div>
+
+
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Dependencies</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The policy study is a Flask application <a href="http://flask.pocoo.org/">http://flask.pocoo.org/</a>. It makes use
+of the Jinja2 templating engine <a href="http://jinja.pocoo.org/docs/">http://jinja.pocoo.org/docs/</a> for html
+templates, and MongoDB <a href="http://www.mongodb.org/">http://www.mongodb.org/</a> for a
+datastore. Pymongo <a href="http://api.mongodb.org/python/2.7rc0/">http://api.mongodb.org/python/2.7rc0/</a> is used for
+communicating with MongoDB.
+</p>
+
+<p>
+On start up, the policy study reads in an XML file (specified in
+config.py) and uses xmltodict <a href="https://github.com/martinblech/xmltodict">https://github.com/martinblech/xmltodict</a>
+to convert the XML to a Python dictionary for internal manipulation.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Datastore</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+There are currently 4 'collections' in the database. Their formats look like the following:
+</p>
+</div>
+
+<div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> user</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<div class="org-src-container">
+
+<pre class="src src-python">{
+"isadmin": boolean,
+"date_created": isoformat date,
+"done_demographic_survey: boolean,
+"name": string,
+"hash_name": string describing hash func for username if not admin and pass if admin,
+"password_hash": string,
+"policies": list of policies for this user,
+"demographic_survey": {"field": "value, ....},
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2-2" class="outline-4">
+<h4 id="sec-1-2-2"><span class="section-number-4">1.2.2</span> config</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<div class="org-src-container">
+
+<pre class="src src-python">{
+"policies_per_user": int,
+"comments_emails": list
+"policies": list [["title", "file"], ["title2", "file"]],
+"policies_used": {"title": int, "title2": int },
+"policy_filenames": {"AMES": "ames.pdf", "Amazon": "amazon.pdf", ...}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2-3" class="outline-4">
+<h4 id="sec-1-2-3"><span class="section-number-4">1.2.3</span> questionnaire</h4>
+<div class="outline-text-4" id="text-1-2-3">
+<div class="org-src-container">
+
+<pre class="src src-python">{
+"username": string,
+"policy_name": string,
+"date_created": isoformat date,
+"state": string ["new"|"draft"|"completed"]
+"questions": {
+  "1": "1.A", (select one question)
+  "20.1": ["20.1.A", 20.1.G"], (select multi question)
+  "13.1.A.a": 22, (numerical cloze question)
+  "13.1.B.c": "second(s)", (select one cloze / memo / text)
+}
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-2-4" class="outline-4">
+<h4 id="sec-1-2-4"><span class="section-number-4">1.2.4</span> logs</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<div class="org-src-container">
+
+<pre class="src src-python">{u'bnf_version': u'kevinV1',
+ u'policy_name': None,
+ u'xmlversion': "1.2.3",
+ u'app_version': "0.1.1",
+ u'qaversion': u'30oct2013v1',
+ u'timestamp': 1395435599.534258,
+ u'type': u'http',
+ u'user_agent_browser': u'chrome',
+ u'user_agent_language': None,
+ u'user_agent_os': u'linux',
+ u'user_agent_version': u'32.0.1700.123',
+ u'user_type': u'participant',
+ u'user_id': u'fk3jlk2j3kflkwjefiuiouslkdfjlkasjfdlkjk32lk3j4lk3kljiouo398009vlkjs9e809234jpzj',
+ u'url': 'http://localhost:5000/policies',
+ u'context': { "question:q.1.1clone2", "response:q.1.1.Aclone2" }p
+}
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Report Formats</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+Reporting scripts (described below) pull information from the database and report it in several formats.
+</p>
+</div>
+
+<div id="outline-container-sec-1-3-1" class="outline-4">
+<h4 id="sec-1-3-1"><span class="section-number-4">1.3.1</span> CSV reports</h4>
+<div class="outline-text-4" id="text-1-3-1">
+<p>
+The CSV reports take data from the 'logs' collection in the
+datastore. The keys from the log document are used as the header line
+in the CSV file, and the values from each log document make up each
+row in the file. The one exception is the context key which itself
+contains an object full of key/value pairs. This object is expanded
+into the rightmost columns and each cell will contain key: value. For
+BNF events, one cell will contain the key "new" followed by a list of
+all the BNF statements, and the next cell will contain "old" followed
+by a list of all the BNF statements just before the latest change.
+</p>
+
+<p>
+Example - The "logs" object above from the datastore documentation
+would become:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-csv">xmlversion, qaversion, bnf_version, app_version, timestamp, policy_name, user_agent_os, user_agent_browser, user_agent_version, user_agent_language, user_type, type, user_id, url
+1.2.3, 30oct2013v1, kevinV1, 0.1.1, 1395435599.534258, None, linux, chrome, 32.0.1700.123, None, participant, fk3jlk2j3kflkwjefiuiouslkdfjlkasjfdlkjk32lk3j4lk3kljiouo398009vlkjs9e809234jpzj,  http://localhost:5000/policies, question:q.1.1clone2, response:q.1.1.Aclone2
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-3-2" class="outline-4">
+<h4 id="sec-1-3-2"><span class="section-number-4">1.3.2</span> R files</h4>
+<div class="outline-text-4" id="text-1-3-2">
+<p>
+R files generated by the <code>report.py</code> script contain the BNF
+statements for a particular questionnaire, and the corresponding
+questionnaire object from the data store in comments.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Logging</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+There are seven different types of logs: http, comment, response, bnf,
+login, signup, and logout. They all carry the same metadata fields
+described under datastore and report formats, but the context fields
+may differ.
+</p>
+
+<ul class="org-ul">
+<li>response: has "question" and "response" context fields
+</li>
+<li>bnf: has "new" and "old" which contain lists of the current set of
+bnf statements and the previous set of bnf statements respectively
+</li>
+<li>comment: has all of the fields in the comment form as context
+</li>
+<li>http, login, signup, logout: login, signup and logout are just
+special cases of http logging which has no context
+</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Overall instruction flow</h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+On application start up, <code>runserver.py</code> calls <code>views.initialize</code>. The
+<code>initialize</code> function drives the functions in <code>elements.py</code>, loading the XML
+file, parsing it, and preparing it for use by the application. When
+this is complete, <code>runserver.py</code> calls <code>app.run</code> which starts the
+webserver, and then the application is listening for requests from
+user's web browsers.
+</p>
+
+<p>
+When a user requests a page, the request is routed to a particular
+function in <code>views.py</code> based on the <code>@app.route</code> decorators that you will
+see above many of the functions. Many of the functions also have an
+<code>@login_required</code> or <code>@admin_required</code> decorator which ensure that a user
+is logged in before displaying that page, or is an admin respectively.
+</p>
+
+<p>
+Once a request is routed, the logic in the view function
+executes. Most functions end with something like <code>return
+render_template('page.html', extradata=extradata)</code> This finds the
+<code>page.html</code> template file (under the <code>templates/</code> subdirectory) and
+potentially passes some extra data to it which jinja will use to fill
+out values in the template and return an actual html page to the
+user. Aside from templates, flask will also serve files from the
+<code>static/</code> subdirectory, which consists of CSS, Javascript, and the PDFs
+of password policies.
+</p>
+</div>
+
+<div id="outline-container-sec-1-5-1" class="outline-4">
+<h4 id="sec-1-5-1"><span class="section-number-4">1.5.1</span> questionnaire</h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+The most complex view/template is the policy questionnaire. Because
+of it's highly dynamic and configurable nature, the questionnaire
+page is set up as a single view and template which is flexible enough
+to display any "page" of the questionnaire.
+</p>
+
+<p>
+<code>elements.py</code> pre-processes the XML file to get it into a format which
+is easily usable by the <code>questionnaire_page</code> template. The template
+consists of a series of Jinja macros which call eachother to render
+all the main parts of the page.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-1-6" class="outline-3">
+<h3 id="sec-1-6"><span class="section-number-3">1.6</span> Notable Behaviors</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+The application as a whole is dependent upon javascript and pop-ups
+being enabled in the user's browser. There are checks for these on
+most pages. The javascript check works using a noscript tag to warn
+the user if javascript is disabled. The popup check works by trying to
+create a popup and then showing a warning if the creation failed. If
+the creation is successful, the popup is immediately closed, although
+a user might see it flicker onto their screen briefly.
+</p>
+</div>
+
+<div id="outline-container-sec-1-6-1" class="outline-4">
+<h4 id="sec-1-6-1"><span class="section-number-4">1.6.1</span> Demographics and General Comments</h4>
+<div class="outline-text-4" id="text-1-6-1">
+<p>
+The demographic survey and general comments pages have sections in the
+input file which allow their questions to be flexibly defined, just as
+in the questionnaire. There are however, a few differences:
+</p>
+<ol class="org-ol">
+<li>They do not have an index, because they are single page
+questionnaires. The questions defined in their respective sections
+will be rendered in the order they are written in the input file.
+</li>
+<li>Additionally, cloning is not supported in the demographics survey,
+or on the general comments page.
+</li>
+<li>Using "insert" in questions on the general comments page is also
+not supported since there might not be a user logged in to save
+inserted answers as.
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6-2" class="outline-4">
+<h4 id="sec-1-6-2"><span class="section-number-4">1.6.2</span> Questionnaire</h4>
+<div class="outline-text-4" id="text-1-6-2">
+<ol class="org-ol">
+<li>A given question should only be cloned from one location.
+</li>
+<li>When an answer to a question which generates clones is changed such
+that the new answer does not generate a clone that the old answer
+did, a warning is popped up prompting the user to confirm the
+action. If the user confirms the action, the generated clones will
+be removed, along with any clones which depended on their answers,
+and so on down the chain of dependency.
+</li>
+<li>For any option which triggers a question to be displayed due to a
+<code>display_when</code> attribute, any cloned question which contains that
+option will also cause the question to be displayed.
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-1-6-3" class="outline-4">
+<h4 id="sec-1-6-3"><span class="section-number-4">1.6.3</span> Input file</h4>
+<div class="outline-text-4" id="text-1-6-3">
+<ol class="org-ol">
+<li>Tags which are present but have no text will cause an empty string
+to be used as the value unless otherwise noted. (i.e. "leave blank
+to disable")
+</li>
+<li>If a <code>BNF_mapping</code> tag has a "when" attribute, all options in the
+comma separated list must be selected for the statement to be
+generated. As a debugging tool, the statement will be generated
+when any of the options are selected, but if not all are selected,
+the string "INCOMPLETE BNF (missing options)" will be prepended to
+the BNF statement.
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Scripts</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+The application comes with a set of scripts for generating reports,
+backing up the data store - switching to a clean datastore, etc.
+</p>
+
+<p>
+Call scripts by executing <code>python policy_study/script_name.py</code>
+followed by whatever commands and options are necessary. Almost all
+modes of all scripts may take an optional argument of
+&#x2013;dbname=&lt;dbname&gt;, the name of the mongo database to operate on. The
+default database name is "policydb".
+</p>
+</div>
+
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> report.py</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+The report script has 3 modes.
+</p>
+</div>
+
+<div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1"><span class="section-number-4">2.1.1</span> BNF</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+<code>bnf [options] &lt;outputdir&gt;</code>
+</p>
+
+<p>
+Writes a file per questionnaire to the output directory which contains the bnf statements for that questionnaire.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2"><span class="section-number-4">2.1.2</span> Report</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+<code>[options] &lt;outfile&gt;</code>
+</p>
+
+<p>
+Writes a single file which contains all collected log data in CSV format
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-1-3" class="outline-4">
+<h4 id="sec-2-1-3"><span class="section-number-4">2.1.3</span> Report per</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+<code>[options] &lt;field&gt; &lt;outputdir&gt;</code>
+</p>
+
+<p>
+Writes one file per unique value of <code>field</code> name to the outputdir
+containing the logs which have that field equal to that value. Writes
+logs which do not have that field to a file named <code>None</code>.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> store\<sub>admin</sub>.py</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+The store administration script has 2 modes.
+</p>
+</div>
+<div id="outline-container-sec-2-2-1" class="outline-4">
+<h4 id="sec-2-2-1"><span class="section-number-4">2.2.1</span> cp</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+<code>cp [options] &lt;target_name&gt;</code>
+</p>
+
+<p>
+Copy the given dbname, or the default database to a new name - potentially to save for later reports.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2-2" class="outline-4">
+<h4 id="sec-2-2-2"><span class="section-number-4">2.2.2</span> rm</h4>
+<div class="outline-text-4" id="text-2-2-2">
+<p>
+<code>rm &lt;db_to_remove&gt;</code>
+</p>
+
+<p>
+Drop the named database. Dropping policydb will reset the application to a clean slate.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> mongodump</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Mongodump is a script that comes with MongoDB. You should be able to
+run it simply by typing 'mongodump'. It will write the contents of
+whatever database it is given to disk. Options for controlling it are
+available by executing <code>mongodump --help</code>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Tests</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Tests can be found in the <code>test_*.py</code> files. Tests use the py.test
+framework and can be run by changing to the <code>policy_study</code> directory
+and running py.test like so:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">$ cd policy_study
+$ py.test
+================================================ test session starts =================================================
+platform linux2 -- Python 2.7.7 -- py-1.4.20 -- pytest-2.5.2
+collected 32 items
+
+test_bnf.py ....
+test_clones.py .....
+test_elements.py ..........
+test_tree.py ..
+test_utils.py .......
+test_validation.py ....
+
+============================================= 32 passed in 0.99 seconds =============================================
+</pre>
+</div>
+<p>
+Tests for a given module are in <code>test_MODULENAME.py</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> File Layout</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> setup.py</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Project file for python setuptools. Running <code>python setup.py install</code>
+will download all necessary dependencies to run the application.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> runserver.py</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+Running <code>python runserver.py</code> starts a lightweight development server for testing the application.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> policy\<sub>study</sub>/</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+The policy\<sub>study</sub> directory contains application code and tests.
+</p>
+</div>
+
+<div id="outline-container-sec-4-3-1" class="outline-4">
+<h4 id="sec-4-3-1"><span class="section-number-4">4.3.1</span> *.py files</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<p>
+All of the <code>.py</code> files that don't start with test_ are python
+application code.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3-2" class="outline-4">
+<h4 id="sec-4-3-2"><span class="section-number-4">4.3.2</span> test\<sub>*</sub>.py files</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<p>
+Files containing tests which are named after the file they are
+testing. i.e. <code>test_utils.py</code> contains tests for functions in
+<code>utils.py</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3-3" class="outline-4">
+<h4 id="sec-4-3-3"><span class="section-number-4">4.3.3</span> templates</h4>
+<div class="outline-text-4" id="text-4-3-3">
+<p>
+The templates directory contains <code>.html</code> files which are actually
+Jinja2 templates. Each of these files corresponds to a page in the
+policy except for <code>common.html</code> which contains common elements which
+most of the other pages inherit, and <code>macros.html</code> which contains
+Jinja2 macros that the other template files can use.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-3-4" class="outline-4">
+<h4 id="sec-4-3-4"><span class="section-number-4">4.3.4</span> static</h4>
+<div class="outline-text-4" id="text-4-3-4">
+<p>
+The static directory contains files which the webserver will need to
+access to serve directly. This includes stylesheets (CSS),
+Javascript, images/icons, and fonts. All CSS written for the
+application is in <code>style.css</code>. The majority of the javascript is in
+<code>questionnaire.js</code>, although there are a few page specific pieces in
+<code>demosurvey_page.js</code>, <code>general_comments_page.js</code>, and
+<code>questionnaire_page.js</code>. All other <code>.js</code> and <code>.css</code> files are
+libraries which were pulled in from outside sources.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> documented-input.xml</h3>
+<div class="outline-text-3" id="text-4-4">
+<p>
+This is an annotated version of the input xml file which explains what each element is used for.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5"><span class="section-number-3">4.5</span> resources</h3>
+<div class="outline-text-3" id="text-4-5">
+<p>
+The resources directory contains a number of non-code files used by
+the application.
+</p>
+</div>
+
+<div id="outline-container-sec-4-5-1" class="outline-4">
+<h4 id="sec-4-5-1"><span class="section-number-4">4.5.1</span> policies.txt</h4>
+<div class="outline-text-4" id="text-4-5-1">
+<p>
+A text file of the format:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-txt">Policy Name|filename.pdf
+Policy Name2|filename2.pdf
+</pre>
+</div>
+<p>
+Where <code>Policy Name</code> is the title which will be given to the policy in
+the application, and filename.pdf is the name of the file to take
+from the <code>policies</code> directory (also under <code>resources</code>).
+</p>
+
+<p>
+Each user has a list of the titles associated with them. A persistent
+mapping from title to filename is stored in the "config" collection in
+the database. When you change a title, a new entry gets added to the
+mapping with the new title and the old filename - The old title will
+continue working as it did before. If you change the filename
+associated with a particular title, then any user who has that title
+will now be served the new filename.
+</p>
+
+<p>
+To be more succint:
+Changing a title adds to the title:filename mapping, whereas changing
+a filename changes the mapping.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-5-2" class="outline-4">
+<h4 id="sec-4-5-2"><span class="section-number-4">4.5.2</span> polices</h4>
+<div class="outline-text-4" id="text-4-5-2">
+<p>
+Contains policy pdfs, which are specified in policies.txt.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6"><span class="section-number-3">4.6</span> Input XML file</h3>
+<div class="outline-text-3" id="text-4-6">
+<p>
+The input xml file (which, at the time of this writing, is set to
+<code>pp_test.xml</code> in <code>policy_study/config.py</code>. See <code>documented-input.xml</code>
+for more information.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Moving to production</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Installing and configuring production application</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Adapted from:
+<a href="http://vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/">http://vladikk.com/2013/09/12/serving-flask-with-nginx-on-ubuntu/</a>
+</p>
+
+
+<p>
+Create production directory, and chown to yourself for setup convenience
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo mkdir /var/www/policy_study
+sudo chown -R mij:mij policy_study
+</pre>
+</div>
+
+<p>
+Create the python virtualenv and point it to a python 2.7.8 executable
+you'll have to make sure this python executable is accessible by
+www-data or whatever user you end up using for uwsgi.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">cd /var/www/policy_study
+virtualenv -p /home/mij/usr/bin/python2.7 venv
+source venv/bin/activate
+</pre>
+</div>
+
+<p>
+Clone the repository
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">git clone mij@localhost:/home/mij/opt/git/policy_study.git .
+</pre>
+</div>
+
+
+<p>
+Install dependencies
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">python setup.py install
+</pre>
+</div>
+
+<p>
+Install MongoDB - consult documentation for your operating
+system. Ubuntu docs are found here:
+<a href="http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/">http://docs.mongodb.org/manual/tutorial/install-mongodb-on-ubuntu/</a>.
+For Debian based systems, something like the following will generally
+work.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo apt-get -y install mongodb-org
+</pre>
+</div>
+<p>
+If Mongo does not start automatically, you may have to start it before
+you'll be able to run the application. Consult the Mongo documentation
+for the proper way to start it on your system.
+</p>
+
+
+<p>
+Edit <code>policy_study/config.py</code> to point to the correct resource files and
+database.  I added the <code>BASE_DIR</code> line and modified the other 4 - leave
+the rest of the file the same
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">BASE_DIR="/var/www/policy_study/"
+DBNAME = "production_policydb"
+POLICY_DIR = BASE_DIR + "resources/policies/"
+POLICY_FILE = BASE_DIR + "resources/policies.txt"
+INPUT_FILE = BASE_DIR + "resources/pp_test.xml"
+</pre>
+</div>
+
+<p>
+Install uwsgi
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo apt-get install build-essential python-dev
+pip install uwsgi
+</pre>
+</div>
+
+<p>
+Install nginx
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo add-apt-repository ppa:nginx/stable
+sudo apt-get update &amp;&amp; sudo apt-get upgrade
+sudo apt-get install nginx
+sudo /etc/init.d/nginx start
+</pre>
+</div>
+
+<p>
+Configure nginx
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo rm /etc/nginx/sites-enabled/default
+</pre>
+</div>
+
+<p>
+Create nginx conf file <code>/etc/nginx/conf.d/policy_study_nginx.conf</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-conf">server {
+	listen      80;
+	server_name localhost;
+	charset     utf-8;
+	client_max_body_size 75M;
+
+	location / { try_files $uri @policy_study; }
+	location @policy_study {
+		include uwsgi_params;
+		uwsgi_pass unix:/var/www/policy_study/policy_study_uwsgi.sock;
+	}
+}
+</pre>
+</div>
+
+
+<p>
+Create uwsgi ini file <code>/var/www/policy_study_uwsgi.ini</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-conf">[uwsgi]
+#application's base folder
+base = /var/www/policy_study
+
+#python module to import
+app = policy_study
+module = %(app)
+
+home = %(base)/venv
+pythonpath = %(base)
+
+#socket file's location
+socket = /var/www/policy_study/%n.sock
+
+#permissions for the socket file
+chmod-socket    = 644
+
+#the variable that holds a flask application inside the module imported at line #6
+callable = app
+
+#location of log files
+logto = /var/log/uwsgi/%n.log
+</pre>
+</div>
+
+
+<p>
+Create and chown uwsgi log directory.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo mkdir -p /var/log/uwsgi
+sudo chown -R mij:mij /var/log/uwsgi
+</pre>
+</div>
+
+
+<p>
+Configure uwsgi to run as a background processes using uwsgi emperor.
+Edit uwsgi emperor conf <code>/etc/init/uwsgi.conf</code>
+</p>
+<div class="org-src-container">
+
+<pre class="src src-conf">description "uWSGI"
+start on runlevel [2345]
+stop on runlevel [06]
+respawn
+env UWSGI=/var/www/policy_study/venv/bin/uwsgi
+env LOGTO=/var/log/uwsgi/emperor.log
+exec $UWSGI --master --emperor /etc/uwsgi/vassals --die-on-term --uid www-data --gid www-data --logto $LOGTO
+</pre>
+</div>
+
+<p>
+Finish configuring emperor
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo mkdir /etc/uwsgi &amp;&amp; sudo mkdir /etc/uwsgi/vassals
+sudo ln -s /var/www/policy_study/policy_study_uwsgi.ini /etc/uwsgi/vassals
+sudo chown -R www-data:www-data /var/www/policy_study
+</pre>
+</div>
+
+<p>
+Start it up
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo start uwsgi
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> Updating Production Code Base</h3>
+<div class="outline-text-3" id="text-5-2">
+</div><div id="outline-container-sec-5-2-1" class="outline-4">
+<h4 id="sec-5-2-1"><span class="section-number-4">5.2.1</span> Pull down the code</h4>
+<div class="outline-text-4" id="text-5-2-1">
+<div class="org-src-container">
+
+<pre class="src src-bash">cd /var/www/policy_study
+sudo git pull
+</pre>
+</div>
+
+<p>
+If you encounter problems at this step (merge conflicts, "you must
+commit your changes", that sort of thing), it is probably because of
+the changes made to config.py (see the install instructions). You can
+do <code>git status</code> and <code>git diff</code> to see what your changes are, then:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-bash">git stash
+git pull
+# and optionally
+git stash apply
+# or you can just edit config.py and add your changes back in
+</pre>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-5-2-2" class="outline-4">
+<h4 id="sec-5-2-2"><span class="section-number-4">5.2.2</span> It may be necessary to restart uwsgi - depending on the code change</h4>
+<div class="outline-text-4" id="text-5-2-2">
+<div class="org-src-container">
+
+<pre class="src src-bash">sudo stop uwsgi
+sudo start uwsgi
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Running Multiple Instances for Testing purposes</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+You can run multiple instance of the policy study (with different input files, and data stores) simultaneously.
+</p>
+</div>
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Instructions</h3>
+<div class="outline-text-3" id="text-6-1">
+</div><div id="outline-container-sec-6-1-1" class="outline-4">
+<h4 id="sec-6-1-1"><span class="section-number-4">6.1.1</span> Check out a fresh copy of the codebase.</h4>
+</div>
+
+<div id="outline-container-sec-6-1-2" class="outline-4">
+<h4 id="sec-6-1-2"><span class="section-number-4">6.1.2</span> Edit runserver.py</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+Replace the line
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">app.run(debug=True, host='0.0.0.0')
+</pre>
+</div>
+<p>
+with a line like:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">app.run(debug=True, host='0.0.0.0', port=5001)
+</pre>
+</div>
+
+<p>
+You can replace 5001 with anything from 1000 to 65536, as long as
+it doesn't conflict with an already running service. If the server
+fails to start, try changing the number.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-3" class="outline-4">
+<h4 id="sec-6-1-3"><span class="section-number-4">6.1.3</span> Edit <code>policy_study/config.py</code></h4>
+<div class="outline-text-4" id="text-6-1-3">
+<p>
+Replace the line
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">DBNAME = "policydb"
+</pre>
+</div>
+<p>
+with a line like:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-python">DBNAME = "mickyTestingSection2"
+</pre>
+</div>
+
+<p>
+Once again, with each further instance, you just have to keep changing to a different (unique) name.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-6-1-4" class="outline-4">
+<h4 id="sec-6-1-4"><span class="section-number-4">6.1.4</span> Start it up as usual</h4>
+<div class="outline-text-4" id="text-6-1-4">
+<p>
+Just remember to navigate to the appropriate instance - if you were
+going to <a href="http://policyserver.nist.gov:5000">http://policyserver.nist.gov:5000</a> before, now you need to go
+to <a href="http://policyserver.nist.gov:5001">http://policyserver.nist.gov:5001</a>
+</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Matthew Jaffee</p>
+<p class="date">Created: 2014-12-02 Tue 17:54</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 24.4.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

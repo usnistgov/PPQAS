@@ -1,0 +1,40 @@
+{% extends "common.html" %}
+{% block pg_subtitle %}
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}" ></script>
+  <script src="{{ url_for('static', filename='jquery.validate.js')}}"></script>
+  <script src="{{ url_for('static', filename='additional-methods.js') }}"></script>
+  <script src="{{ url_for('static', filename='number-polyfill.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename="questionnaire.js") }}"></script>
+{% endblock %}
+
+{% from 'macros.html' import render_instructions, gra, render_question, render_select_one, render_select_multi, render_cloze, render_mixed_text_json, get_text, render_response, render_page, render_comment, render_select_one_cloze, render_numerical_cloze, render_textbox_cloze, render_select_multi_cloze, render_memo_cloze, render_insert with context %}
+
+{% block page %}
+
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+
+<script>
+ var API_URL = "{{ url_for('demosurvey_response') }}";
+ var POLICY_NAME = "demosurvey";
+ var INSERT_URL = "{{ url_for('resolve_insert', policy_name='demosurvey') }}";
+ var submit_text = "{{ submit_text }}"
+ var pols_for_review = "{{ url_for('policies_for_review') }}";
+ var COMPLETE_URL = "{{ url_for('demosurvey_complete') }}";
+</script>
+
+  <div id="popup_instructions">
+    <form id="theform" action=policies>
+      {{ render_page(page) }}
+	  <button onclick="goBack()">Go Back</button>
+	  <script>
+	  function goBack() {
+      window.history.back();
+	  }
+</script>
+    </form>
+  </div>
+{% endblock %}

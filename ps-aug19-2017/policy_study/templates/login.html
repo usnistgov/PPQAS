@@ -1,0 +1,208 @@
+
+{% extends "common.html" %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}" ></script>
+{% endblock %}
+
+<!-------------------------------------------------------------------->
+{% block page %}
+
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+
+<LIpageTitle>Question-Answer Tool for Usable Password Policies</LIpageTitle>
+<br><br>
+
+
+<div class=LICategoryTitle>Why this tool?</div>
+<div class=LICategoryRow>We're studying password policies to make them more usable. We made this tool to help understand how people interpret rules from real-world policies.</div>
+<br>
+<div class=LICategoryTitle>What to do?</div>
+<ul class=LIUnorderedList>
+	<li class=LIListItem>Create an account or log in.</li>
+	<li class=LIListItem>If you're creating a new account, tell us about yourself.</li>
+	<li class=LIListItem>Use the tool to answer questions about 3 policies.</li>
+</ul>
+<br>
+<br>
+
+<div class=LIFormEncapsulation>
+
+<table class=LIInputTable>
+<tr><td class=LILogInTitle>Create New Account</td></tr>
+<tr>
+<td class=LITd>
+<form id="submitForm" class=LIInputForms1; onsubmit="return myFunction(this);" action="" method="post" name="signup">
+  {{ form.hidden_tag() }}
+  <div class="wrap">
+    <p id=LIFormBox class="centered">
+      New User ID: {{ form.signupid(size=15,maxlength=40) }}
+    <br>
+    <br>
+    <div class=LIInputFormPadding><input class=LIInputButton type="submit" name="btn" onclick="storeValues(submitForm)" value="Submit"></div>
+	</p>
+  </div>
+</form>
+</td>
+</tr>
+</table>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+<table class=LIInputTable>
+<tr><td class=LILogInTitle>Log In</td></tr>
+<tr>
+<td class=LITd>
+<form id="loginForm" class=LIInputForms2; action="" method="post" name="login">
+  {{ form.hidden_tag() }}
+  <div class="wrap">
+  <p id=LIFormBox class="centered">
+  User ID: {{ form.loginid(size=19,maxlength=40) }}
+  <br>
+  <br>
+  <div class=LIInputFormPadding><input class=LIInputButton type="submit" name="btn" value="Login"></div>
+  </p>
+  </div>
+</form>
+</td>
+</tr>
+</table>
+
+</div>
+<p class=LIInstructionsUNR>
+A username must consist of <b>only</b> letters and numbers.
+</p>
+
+<p class=LIInstructionsFUS>
+Forget your username? Create a new account!
+</p>
+
+
+<!-------------------------------------------------------------------->
+
+{% endblock %}
+
+{% block endscripts %}
+
+<script type="text/javascript">
+
+  // Original JavaScript code by Chirp Internet: www.chirp.com.au
+  // Please acknowledge use of this code by including this header.
+
+  var today = new Date();
+  var expiry = new Date(today.getTime() + 30 * 24 * 3600 * 1000); // plus 30 days
+
+  function setCookie(name, value)
+  {
+    document.cookie=name + "=" + escape(value) + "; path=/; expires=" + expiry.toGMTString();
+  }
+
+</script>
+
+<script type="text/javascript">
+
+  function storeValues(form)  
+  {
+    setCookie("username", form.signupid.value);
+    return true;
+  }
+
+</script>
+
+
+
+
+<!-- Detect the browser -->
+<script type="text/javascript">
+ $( document ).ready(function () {
+   
+	// Opera 8.0+
+	var isOpera = (!!window.opr && !!opr.addons) || !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+	// At least Safari 3+: "[object HTMLElementConstructor]"
+	var isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+	// Internet Explorer 6-11
+	var isIE = /*@cc_on!@*/false || !!document.documentMode;
+	// Edge 20+
+	var isEdge = !isIE && !!window.StyleMedia;
+
+	if (isOpera || isSafari || isIE || isEdge){
+		alertify.alert("ATTENTION", "The current browser is not supported. Please use either Chrome or Firefox.", function(){});
+	}
+	
+ });
+</script>
+
+<script type="text/javascript">
+function myFunction(form) {
+
+ var user_created_text = "{{ user_created_text }}";
+ var user_created_ok = "{{ user_created_ok }}";
+ var user_created_title = "{{ user_created_title }}";
+	if(form.signupid.value.match("^[a-zA-Z0-9]+$")){
+	   //alert("Your user id can NOT be recovered if you forget or lose it. Please keep it safe.");
+	   form.submit();
+	   return true;
+	}
+   return false;
+}
+</script>
+
+<script type="text/javascript">
+ var user_created_text = "{{ user_created_text }}";
+ var user_created_ok = "{{ user_created_ok }}";
+ var user_created_title = "{{ user_created_title }}";
+
+ var do_signup_alert = function (form) {
+	 if(form.signupid.value.match("^[a-zA-Z0-9]+$") && resp == "YES"){
+   $.post("/api/checkuser", form.signupid.value, function(resp) {
+	   alertify.imgAlert(user_created_title, user_created_text, function () {
+		 form.submit()})
+			 .setting({'pinnable': false, 'modal': false, label: user_created_ok});
+	   return false;
+	 })
+	 }
+	 else {
+	   form.submit()
+	 }
+   return false;
+ }
+</script>
+
+<script type="text/javascript">
+ var text_input = document.getElementById('loginid');
+ text_input.focus ();
+  {% if loginerror %}
+    alertify.imgAlert( "{{ loginerror_title }}", "{{ loginerror }}", function () {})
+	    .setting({'pinnable': false, 'modal': false});
+  {% endif %}
+</script>
+
+<script type="text/javascript">
+ window.onload = function () {
+   var text_input = document.getElementById('signupid');
+   text_input.focus();
+ }
+ {% if signuperror %}
+   alertify.imgAlert("{{ signuperror_title }}", "{{ signuperror }}", function () {})
+	   .setting({'pinnable': false, 'modal': false});
+ {% endif %}
+</script>
+
+<!-- Detect whether popups are allowed -->
+<script type="text/javascript">
+ $( document ).ready(function () {
+   var win = window.open("{{ url_for('static', filename='empty.html' )}}", "popupWindow", "width=1,height=1,scrollbars=no");
+   if (win==null || win.closed) {
+     $("#nopopup").show();
+   }
+   else {
+     $("#nopopup").hide();
+     win.close();
+   }
+ });
+</script>
+
+{% endblock %}

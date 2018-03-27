@@ -1,0 +1,77 @@
+{% extends "common.html" %}
+
+{% block scripts %}
+    <script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}" ></script>
+{% endblock %}
+{% block pg_subtitle %}
+    <b>If you already have a username, please <a href="{{ url_for('login') }}"> sign in</a></b>.
+{% endblock %}
+{% block page %}
+<div class="introtext">
+  {{ intro_text|safe }}
+</div>
+<div class="instructions">
+  {{ instructions|safe }}
+</div>
+<br>
+<br>
+<script>
+ var user_created_text = "{{ user_created_text }}";
+ var user_created_ok = "{{ user_created_ok }}";
+ var user_created_title = "{{ user_created_title }}";
+
+ var do_signup_alert = function (form) {
+   $.post("/api/checkuser", form.userid.value, function(resp) {
+	 if(form.userid.value.match("^[a-zA-Z0-9]+$") && resp == "YES"){
+	   alertify.imgAlert(user_created_title, user_created_text, function () {
+		 form.submit()})
+			 .setting({'pinnable': false, 'modal': false, label: user_created_ok});
+	   return false;
+	 }
+	 else {
+	   form.submit()
+	 }
+   });
+   return false;
+ }
+</script>
+<form onsubmit="return do_signup_alert(this);" class="centered" action="" method="post" name="login">
+  {{ form.hidden_tag() }}
+  <div class="wrap">
+    <p class="centered">
+      New username: {{ form.userid(size=40) }}
+    </p>
+    <br>
+    <input class="centered float_right" type="submit" value="Submit">
+  </div>
+</form>
+{% endblock %}
+
+
+{% block endscripts %}
+<script>
+ window.onload = function () {
+   var text_input = document.getElementById('userid');
+   text_input.focus();
+ }
+ {% if signuperror %}
+   alertify.imgAlert("{{ signuperror_title }}", "{{ signuperror }}", function () {})
+	   .setting({'pinnable': false, 'modal': false});
+ {% endif %}
+</script>
+
+<!-- Detect whether popups are allowed -->
+<script type="text/javascript">
+ $( document ).ready(function () {
+   var win = window.open("{{ url_for('static', filename='empty.html' )}}", "popupWindow", "width=1,height=1,scrollbars=no");
+   if (win==null || win.closed) {
+     $("#nopopup").show();
+   }
+   else {
+     $("#nopopup").hide();
+     win.close();
+   }
+ });
+</script>
+
+{% endblock %}

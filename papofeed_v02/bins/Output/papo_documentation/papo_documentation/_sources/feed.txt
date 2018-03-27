@@ -1,0 +1,6 @@
+papofeed.feed
+*********************************************************
+
+.. automodule:: papofeed.feed
+   :members:
+

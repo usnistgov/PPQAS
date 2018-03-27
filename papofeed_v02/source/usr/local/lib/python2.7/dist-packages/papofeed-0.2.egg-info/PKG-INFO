@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: papofeed
+Version: 0.2
+Summary: receives a MS Word docx file with questions for password policies and converts it into a XML file to be interpreted by a web app.
+Home-page: http://nist.gov
+Author: Athos Ribeiro
+Author-email: athos.ribeiro@nist.gov
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN

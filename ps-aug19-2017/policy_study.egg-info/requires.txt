@@ -1,0 +1,10 @@
+Flask>=0.10
+xmltodict
+pymongo
+Flask-WTF
+Flask-Login
+Flask-Mail
+wtforms>=1.0.5,<2.0
+pytest
+docopt
+datadiff

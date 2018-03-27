@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- encoded html tags or cdata tag may be used in the "instructions" or any text-type element-->
+
+<questionnaire xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="ppt password%20policy%20template%20031814.xsd"
+    xmlns="ppt">
+    <title>Password Policy Questionnaire</title>
+    <xmlversion>031114</xmlversion>
+    <qaversion>30oct2013v1</qaversion>
+    <BNFversion>kevinV1</BNFversion>
+    <!--version numbering system to be sorted out later-->
+    <indent_px>20</indent_px>
+
+<!-- Index-->
+
+    <index grouping="page" interweave_next_level="true">
+        <group level="1" title="Group 1" comment_ref="c.1">
+            <instructions>Group 1 instructions</instructions>
+            <text>Group 1 text</text>
+            <page title="page 1.1 title" comment_ref="c.1.1">
+                <instructions>page 1.1 instructions</instructions>
+                <text>page 1.1 text</text>
+                <include qref="q.1.1"></include>
+                <include qref="q.1.2"></include>
+                <include qref="q.1.3"></include>
+                <include qref="q.1.4"></include>
+                <include qref="q.1.5"></include>
+                <include qref="q.1.6"></include>
+                <include qref="q.1.7"></include>
+            </page>
+	    <page title="page 1.2 clone testing title" comment_ref="c.1.2">
+	      <include qref="q.1.8"></include>
+	    </page>
+        </group>
+        <group level="1" title="group 2" comment_ref="c.2">
+            <instructions>Group 2 instructions</instructions>
+            <text>group 2 text</text>
+            <page title="page 2.1 title" comment_ref="c.2.1">
+                <instructions>page 2.1 instructions</instructions>
+                <text>page 2.1 text</text>
+                <include qref="q.2.1"></include>
+                <include qref="q.2.2"></include>
+                <include qref="q.2.3"></include>
+            </page>
+        </group>
+        <group level="1" title="group 3" comment_ref="c.3">
+            <instructions>Group 3 instructions</instructions>
+            <text>group 3 text</text>
+            <group level="2" title="group 3.1" comment_ref="c.3.1">
+                <instructions>Group 3.1 instructions</instructions>
+                <text>group 3.1 text</text>
+                <group level="3" title="group 3.1.1" comment_ref="c.3.1.1">
+                    <instructions>Group 3.1.1 instructions</instructions>
+                    <text>Group 3.1.1 text</text>
+                    <page title="page 3.1.1.1" comment_ref="c.3.1.1.1">
+                        <include qref="q.3.1.1.1"></include>
+                        <include qref="q.3.1.1.2"></include>
+                    </page>
+                    <page title="page 3.1.2.1" comment_ref="c.3.1.2.1">
+                        <include qref="q.3.1.2.1"></include>
+                        <include qref="q.3.1.2.2"></include>
+                    </page>
+                </group>
+                <group level="3" title="group 3.1.3" comment_ref="c.3.1.3">
+                    <instructions type="json">Group 3.1.3 instructions - insert text from q.3.1.2.1: {"insert":{"cref":"q.3.1.2.1"}}</instructions>
+                    <text type="json">Group 3.1.3 text - insert text from q.3.1.2.1: {"insert":{"cref":"q.3.1.2.1"}}</text>
+                    <page title="page 3.1.3.1" comment_ref="c.3.1.3.1">
+                        <instructions type="json">Page 3.1.3.1 instructions - insert text from q.3.1.2.1: {"insert":{"cref":"q.3.1.2.1"}}</instructions>
+                        <include qref="q.3.1.3.1"></include>
+                        <include qref="q.3.1.3.2"></include>
+                    </page>
+                </group>
+            </group>
+        </group>
+    </index>
+
+<!-- Questions -->
+
+    <questions>
+        <question id="q.1.1">
+            <title>Question 1.1 Title - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</title>
+            <instructions>Question 1.1 Instructions - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</instructions>
+            <text>Question 1.1 Text - "Select One", 3 options; all fields; fonts; - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+            <note>Question 1.1 Note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+            <response type="select one">
+                <option id="q.1.1.A">
+                    <text>Option q.1.1.A Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+                    <note>Option q.1.1.A note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+                    <BNF_mapping id="b.1.1.A">BNF for option q.1.1.A</BNF_mapping>
+                </option>
+                <option id="q.1.1.B">
+                    <text>Option q.1.1.B Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+                    <note>Option q.1.1.B note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+                    <BNF_mapping id="b.1.1.B">BNF for option q.1.1.B</BNF_mapping>
+                </option>
+                <option id="q.1.1.C" clone="q.1.1">
+                    <text>Option q.1.1.C Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+                    <note>Option q.1.1.C note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+                    <BNF_mapping id="b.1.1.C">BNF for option q.1.1.C</BNF_mapping>
+                </option>
+                <note>Question 1.1 Response-level note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+            </response>
+        </question>
+
+        <question id="q.1.2">
+            <title>Question 1.2 Title</title>
+            <instructions>Question 1.2 Instructions</instructions>
+            <text>Question 1.2 Text - "Select Multi", 3 options; all fields; </text>
+            <response type="select multi">
+                <option id="q.1.2.A">
+                    <text type="json">Option q.1.2.A Text number cloze: { "cloze": {"id": "q.1.2.A.a", "type": "numerical"}}</text>
+                    <note>Option q.1.2.A Note</note>
+                    <BNF_mapping id="b.1.2.A" type="json">BNF for option q.1.2.A with q.1.2 inserted {"insert": {"qref":"q.1.2", "separator":"="}}</BNF_mapping>
+                </option>
+                <option id="q.1.2.B">
+                    <text>Option q.1.2.B Text</text>
+                    <note>Option q.1.2.B note</note>
+                    <BNF_mapping id="b.1.2.B">BNF for option q.1.2.B{"insert": {"qref"</BNF_mapping>
+                </option>
+                <option id="q.1.2.C">
+                    <text>Option q.1.2.C Text</text>
+                    <note>Option q.1.2.C Text</note>
+                    <BNF_mapping id="b.1.2.C">BNF for option q.1.2.C</BNF_mapping>
+                </option>
+                <note>question 1.2 response-level note</note>
+            </response>
+        </question>
+
+        <question id="q.1.3">
+            <title>Question 1.3 Title</title>
+            <instructions type="json">Question 1.3 Instructions. Insert 1.2 separated by = with a modded: {"insert": {"qref": "q.1.2", "separator": "=", "mod": {"q.1.2.A": "Q12A"} }} </instructions>
+            <text>Question 1.3 Text - "textbox"; all fields; bnf json= insert</text>
+            <note type="json">Question 1.3 Note insert num checked in 1.2 minus 42 = {"insert": {"cref": "q.1.2", "count": "yes", "math": "-42"}}</note>
+            <response type="textbox">
+                <BNF_mapping id="b.1.3" type="json">BNF for option q.1.3; insert textbox text: {"insert":{"cref":"q.1.3"}}</BNF_mapping>
+                <note>Question 1.3 response-level note</note>
+            </response>
+        </question>
+
+        <question id="q.1.4">
+            <title>Question 1.4 Title</title>
+            <instructions>Question 1.4 Instructions</instructions>
+            <text>Question 1.4 Text - "memo"; all fields; bnf json= insert</text>
+            <note>Question 1.4 Note</note>
+            <response type="memo">
+                <BNF_mapping id="b.1.4" type="json">BNF for option q.1.4; insert memo text: {"insert":{"cref":"q.1.4"}}</BNF_mapping>
+                <note>Question 1.4 response-level note</note>
+            </response>
+        </question>
+
+        <question id="q.1.5">
+            <title>Question 1.5 Title</title>
+            <instructions>Question 1.5 Instructions</instructions>
+            <text>Question 1.5 Text - "cloze"; all fields; bnf json= insert</text>
+            <note>Question 1.5 Note</note>
+            <response type="cloze">
+                <text type="json">Question 1.5 response text
+                    cloze numerical: {"cloze":{"id":"q.1.5.a", "type":"numerical", "validation": {"gt": "q.2.3.a", "lt": "q.3.1.3.1.a", "invalid_text": "needs to be larger than response to q.2.3.a, and smaller than q.3.1.3.1.a"}}};
+                    cloze text: {"cloze":{"id":"q.1.5.b", "type":"textbox", "validation": {"invalid_text": "textbox invalid text"}}};
+                    cloze select-one: {"cloze":{"id":"q.1.5.c" , "type":"select one" , "options":["option 1" , "option 2", "option 3"] , "default":"option list", "validation": {"invalid_text": "select one invalid text" }}}
+                    cloze select-multi: {"cloze":{"id":"q.1.5.d", "type":"select multi", "options":["option 1", "option 2", "option 3"], "default":"option list", "validation": {"eq": "q.1.5.j", "invalid_text":"select number of options equal to 1.5.j"}}}
+                    cloze memo: {"cloze":{"id":"q.1.5.e", "type":"memo", "validation": {"required": "required", "invalid_text":"woot needs to be at leat 5 chars", "minlength": 5}}}
+		    numerical eq q.1.5.a: {"cloze":{"id":"q.1.5.f", "type":"numerical", "validation": {"eq": "q.1.5.a", "invalid_text": "needs to be equal to q.1.5.a"}}}
+		    numerical gt q.1.5.a: {"cloze":{"id":"q.1.5.k", "type":"numerical", "validation": {"gt": "q.1.5.a", "invalid_text": "needs to be gt q.1.5.a"}}}
+		    numerical lte q.1.5.a: {"cloze":{"id":"q.1.5.h", "type":"numerical", "validation": {"lte": "q.1.5.a", "invalid_text": "needs to be less than or equal to q.1.5.a"}}}
+		    numerical gte q.1.5.a: {"cloze":{"id":"q.1.5.g", "type":"numerical", "validation": {"gte": "q.1.5.a", "invalid_text": "needs to be greater than or equal to q.1.5.a"}}}
+		    numerical compared to select multi eq q.1.5.: {"cloze":{"id":"q.1.5.i", "type":"numerical", "validation": {"eq": "q.1.5.d", "invalid_text": "needs to be equal to number selected in q.1.5.d"}}}
+		    numerical select multi compares to: {"cloze":{"id":"q.1.5.j", "type":"numerical"}}
+                </text>
+                <BNF_mapping id="b.1.5" type="json">BNF for option q.1.5; insert cloze: {"insert":{"cref":"q.1.5.a"}}, {"insert":{"cref":"q.1.5.b"}}, {"insert":{"cref":"q.1.5.c"}}, {"insert":{"qref":"q.1.5.d", "separator":", "}}, {"insert":{"cref":"q.1.5.e"}}.</BNF_mapping>
+                <note>Question 1.5 response-level note</note>
+            </response>
+        </question>
+
+	<question id="q.1.6">
+	  <title>Question 1.6 Title</title>
+	  <instructions>Question 1.6 Instructions</instructions>
+	  <text>Question 1.6 text</text>
+	  <note>Question 1.6 note</note>
+	  <response type="select one">
+	    <option id="q.1.6.A">
+	      <text type="json"> Greater than 1.5.a {"cloze": {"type": "numerical", "id": "q.1.6.A.a", "validation": {"gt": "q.1.5.a", "invalid_text": "must be greater than 1.5.a"}}} </text>
+	    </option>
+	    <option id="q.1.6.B">
+	      <text type="json"> Equal to select multi 1.5.d {"cloze": {"type": "numerical", "id": "q.1.6.B.a", "validation": {"eq": "q.1.5.d", "invalid_text": "must be equal to 1.5.d", "required": ""}}} </text>
+	    </option>
+	  </response>
+	</question>
+
+	<question id="q.1.7">
+	  <title>Question 1.7 Title</title>
+	  <instructions>Question 1.7 Instructions</instructions>
+	  <text>Question 1.7 text</text>
+	  <note>Q1.7 note</note>
+	  <response type="select one">
+	    <option id="q.1.7.A"> option a </option>
+	    <option id="q.1.7.B"> option b </option>
+	    <validation>
+	      <required></required>
+	    </validation>
+	  </response>
+	</question>
+
+	<question id="q.1.8">
+	  <title>Question 1.8 Title</title>
+	  <instructions>This question will test complex validation inside of cloned questions</instructions>
+	  <response type="select one">
+	    <option id="q.1.8.A">
+	      <text type="json"> This is the a response numerical: {"cloze": {"type": "numerical", "id": "q.1.8.A.a", "validation": {"invalid_text": "this is needed"}}}</text>
+	    </option>
+	    <option id="q.1.8.B">
+	      <text type="json"> This is the b response textbox: {"cloze": {"type": "textbox", "id": "q.1.8.B.a", "validation": {"invalid_text": "exactly 3 chars", "pattern": "..."}}}</text>
+	    </option>
+	    <option id="q.1.8.C" clone="q.1.8">
+	      <text type="json"> This response will clone the question. Insert q.1.5.a -1 for kicks {"insert": {"cref": "q.1.5.a", "math":"-1"}} </text>
+	    </option>
+	  </response>
+	</question>
+
+        <question id="q.2.1">
+            <title>Question 2.1 Title</title>
+            <instructions>Question 2.1 Instructions</instructions>
+            <text>Question 2.1 Text - "select multi"; no note; validation= required</text>
+            <response type="select multi">
+                <validation>
+                    <required>required</required>
+                    <invalid_text>At least one must be selected</invalid_text>
+                </validation>
+                <option id="q.2.1.A">
+                    <text>Option Q.2.1.A Text</text>
+                    <note>Option Q.2.1.A Note</note>
+                    <BNF_mapping id="b.2.1.A">BNF for option q.2.1.A</BNF_mapping>
+                </option>
+                <option id="q.2.1.B">
+                    <text>Option Q.2.1.B Text</text>
+                    <note>Option Q.2.1.B note</note>
+                    <BNF_mapping id="b.2.1.B">BNF for option q.2.1.B</BNF_mapping>
+                </option>
+                <option id="q.2.1.C">
+                    <text>Option Q.2.1.C Text</text>
+                    <note>Option Q.2.1.C Text</note>
+                    <BNF_mapping id="b.2.1.C">BNF for option q.2.1.C</BNF_mapping>
+                </option>
+            </response>
+        </question>
+
+        <question id="q.2.2">
+            <title>Question 2.2 Title</title>
+            <text>Question 2.2 Text - "textbox"; no instructions; validation= required, no spaces</text>
+            <note>Question 2.2 Note</note>
+            <response type="textbox">
+                <validation>
+                    <pattern>[^\s]*</pattern>
+                    <required>required</required>
+                    <invalid_text>question 2.2 invalid text</invalid_text>
+                </validation>
+                <BNF_mapping id="b.2.2" type="json">BNF for option q.2.2; insert textbox text: {"insert":{"cref":"q.2.2"}}</BNF_mapping>
+            </response>
+        </question>
+
+        <question id="q.2.3">
+            <title>Question 2.3 Title</title>
+            <instructions>Question 2.3 Instructions - "cloze"; no text; no bnf; validations</instructions>
+            <response type="cloze">
+                <text type="json">Question 2.3 response text
+                    cloze numerical: {"cloze":{"id":"q.2.3.a", "type":"numerical", "validation":{"min":"3" , "max":"5", "invalid_text":"invalid text, must be between 3-5"}}};
+                    cloze text: {"cloze":{"id":"q.2.3.b", "type":"textbox" , "validation":{"maxlength":"3" , "pattern":"[^a-zA-Z0-9 ]*" , "invalid_text":"invalid text. max length 3, only special characters, no spaces"}}};
+                </text>
+            </response>
+        </question>
+
+        <question id="q.3.1.1.1">
+            <title>Question q.3.1.1.1 title</title>
+            <text>Question q.3.1.1.1 text - "select one", no bnf</text>
+            <response type="select one">
+                <option id="q.3.1.1.1.A">
+                    <text>Option q.3.1.1.1.A</text>
+                </option>
+                <option id="q.3.1.1.1.B">
+                    <text>Option q.3.1.1.1.B</text>
+                </option>
+            </response>
+        </question>
+
+        <question id="q.3.1.1.2" display_when="q.3.1.1.1.A,q.3.1.1.1.B">
+            <title>Question q.3.1.1.2 title</title>
+            <text>Question q.3.1.1.2 text - "select one", complex bnf</text>
+            <response type="select one">
+                <option id="q.3.1.1.2.A">
+                    <text>Option q.3.1.1.1.A</text>
+                    <BNF_mapping id="b.21" when="q.3.1.1.1.A">
+                      BNF text when options q.3.1.1.1.A and q.3.1.1.2.A are selected
+<!-- Switched this to a when attribute in the BNF_mapping tag instead of the separate when tag as was suggested -matt -->
+                    </BNF_mapping>
+                    <BNF_mapping id="b.22" when="q.3.1.1.1.B">
+                      BNF text when options q.3.1.1.1.B and q.3.1.1.2.A are selected
+<!-- Switched this to a when attribute in the BNF_mapping tag instead of the separate when tag as was suggested -matt -->
+                    </BNF_mapping>
+                </option>
+                <option id="q.3.1.1.2.B">
+                    <text>Option q.3.1.1.1.B</text>
+                    <BNF_mapping id="b.23">BNF mapping for option q.3.1.1.2.B</BNF_mapping>
+                </option>
+            </response>
+        </question>
+
+        <question id="q.3.1.2.1">
+            <title>Question q.3.1.2.1 title</title>
+            <text>question q.3.1.2.1 text - textbox; BNF pulls from future question; mod  and count used</text>
+            <response type="textbox">
+                <BNF_mapping id="b.3.1.2.1" type="json">BNF mapping for question q.3.1.2.1 - count how many from question q.3.1.2.2: {"insert":{"qref":"q.3.1.2.2" , "count":"true"}} insert and modify the options selected in q.3.1.1.2.2: {"insert":{"qref":"q.3.1.2.2" , "mod":{"q.3.1.2.2.A":"A" , "q.3.1.2.2.B":"B"} , "separator":", "}}.</BNF_mapping>
+            </response>
+        </question>
+
+        <question id="q.3.1.2.2">
+            <title>Question q.3.1.2.2 title</title>
+            <text>question q.3.1.2.2 text - select one</text>
+            <response type="select one">
+                <option id="q.3.1.2.2.A">
+                    <text>option q.3.1.2.2.A - modify text to "A"</text>
+                </option>
+                <option id="q.3.1.2.2.B">
+                    <text>option q.3.1.2.2.B - modify text to "B"</text>
+                </option>
+            </response>
+        </question>
+
+        <question id="q.3.1.3.1">
+            <title>Question q.3.1.3.1 title</title>
+            <text>Question q.3.1.3.1 text - numerical cloze with BNF math</text>
+            <response type="cloze">
+                <text type="json">
+                    Question q.3.1.3.1 numerical cloze: {"cloze":{"id":"q.3.1.3.1.a" , "type":"numerical"}}
+                </text>
+                <BNF_mapping id="b.43" type="json">BNF for question q.3.1.3.1 with math - {"insert":{"cref":"q.3.1.3.1.a" , "math": "1"}}</BNF_mapping>
+            </response>
+        </question>
+
+        <question id="q.3.1.3.2">
+            <title>Question q.3.1.3.2 title</title>
+            <text type="json">Question q.3.1.3.2 text - select multi cloze with BNF mod and count - insert text from q.3.1.3.1 {"insert":{"cref":"q.3.1.3.1.a"}}</text>
+            <note type="json">question q.3.1.3.2 note - insert text from q.3.1.3.1 {"insert":{"cref":"q.3.1.3.1.a"}}</note>
+            <response type="cloze">
+                <text type="json">
+                    Question q.3.1.3.2 select one cloze: {"cloze":{"id":"q.3.1.3.2.a" , "type":"select one" , "options":["option 1" , "option 2" , "option 3"]}}; insert text from q.3.1.3.1 -1 {"insert":{"cref":"q.3.1.3.1.a", "math": "-1"}}
+<!--[> inserting the text from previous answer not working? <]-->
+                </text>
+                <BNF_mapping id="b.44" type="json">BNF for question q.3.1.3.2 with mod - {"insert":{"cref":"q.3.1.3.2.a" , "mod":{"option 1":"1" , "option 2":"2" , "option 3":"3"}}} count: {"insert":{"cref":"q.3.1.3.2.a" , "count":"true"}}.</BNF_mapping>
+<!--[> Not sure if "count" will work. Not sure if only using "insert" now and not "ident" <]-->
+                <note type="json">question q.3.1.3.2 response-level note - insert text from q.3.1.3.1 {"insert":{"cref":"q.3.1.3.1.a"}}</note>
+            </response>
+        </question>
+    </questions>
+
+<!-- additional comments -->
+
+    <additional_comments>
+        <comments id="c.1">
+            <title>comment c.1 Title - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</title>
+            <instructions>comment c.1 Instructions - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</instructions>
+            <text>comment c.1 Text - "Select One", 3 options; all fields; fonts; - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+            <note>comment c.1 Note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+            <response type="select one">
+                <option id="c.1.A">
+                    <text>Option c.1.A Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+                    <note>Option c.1.A note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+                </option>
+                <option id="c.1.B">
+                    <text>Option c.1.B Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+                    <note>Option c.1.B note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+                </option>
+                <option id="c.1.C">
+                    <text>Option c.1.C Text - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</text>
+                    <note>Option c.1.C note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+                </option>
+                <note>Comment c.1 Response-level note - &lt;b&gt;&lt;i&gt;&lt;u&gt;bold, italic, and underlined text&lt;/u&gt;&lt;/i&gt;&lt;/b&gt;</note>
+            </response>
+        </comments>
+
+        <comments id="c.1.1">
+            <title>comment 1.1 Title</title>
+            <instructions>comment 1.1 Instructions</instructions>
+            <text>comment 1.1 Text - "Select Multi", 3 options; all fields; </text>
+            <response type="select multi">
+                <option id="c.1.1.A">
+                    <text>Option c.1.1.A Text</text>
+                    <note>Option c.1.1.A Note</note>
+                </option>
+                <option id="c.1.1.B">
+                    <text>Option c.1.1.B Text</text>
+                    <note>Option c.1.1.B note</note>
+                </option>
+                <option id="c.1.1.C">
+                    <text>Option c.1.1.C Text</text>
+                    <note>Option c.1.1.C Text</note>
+                </option>
+                <note>comment 1.1 response-level note</note>
+            </response>
+        </comments>
+
+        <comments id="c.2">
+            <title>comment 2 Title</title>
+            <instructions>comment 2 Instructions</instructions>
+            <text>comment 2 Text - "textbox"; all fields; bnf json= insert</text>
+            <note>comment 2 Note</note>
+            <response type="textbox">
+                <note>comment 2 response-level note</note>
+            </response>
+        </comments>
+
+        <comments id="c.2.1">
+            <title>comment 2.1 Title</title>
+            <instructions>Qcomment 2.1 Instructions</instructions>
+            <text>comment 2.1 Text - "memo"; all fields; bnf json= insert</text>
+            <note>Qcomment 2.1 Note</note>
+            <response type="memo">
+                <note>comment 2.1 response-level note</note>
+            </response>
+        </comments>
+
+        <comments id="c.3">
+            <title>comments 3 Title</title>
+            <instructions>comments 3 Instructions</instructions>
+            <text>comments 3 Text - "cloze"; all fields; bnf json= insert</text>
+            <note>comments 3 Note</note>
+            <response type="memo">
+                <text type="json">comments 3 response text
+                    cloze numerical: {"cloze":{"id":"c.3.a", "type":"numerical"}};
+                    cloze text: {"cloze":{"id":"c.3.b", "type":"textbox"}};
+                    cloze select-one: {"cloze":{"id":"c.3.c" , "type":"select one" , "options":["option 1" , "option 2", "option 3"] , "default":"option list"}}
+                    cloze select-multi: {"cloze":{"id":"c.3.d" , "type":"select multi" , "options":["option 1" , "option 2", "option 3"] , "default":"option list"}}
+                </text>
+                <text type="json">new line cloze memo: {"cloze":{"id":"c.3.e", "type":"memo"}}</text>
+                <note>Question 1.5 response-level note</note>
+            </response>
+        </comments>
+
+        <comments id="c.3.1">
+            <title>comments 3.1 Title</title>
+            <instructions>comments 3.1 Instructions</instructions>
+            <text>Qcomments 3.1 Text - "select multi"; no note; validation= required</text>
+            <response type="select multi">
+                <validation>
+                    <required>required</required>
+                    <invalid_text>At least one must be selected</invalid_text>
+                </validation>
+                <option id="c.3.1.A">
+                    <text>Option c.3.1.A Text</text>
+                    <note>Option c.3.1.A Note</note>
+                </option>
+                <option id="c.3.1.B">
+                    <text>Option c.3.1.B Text</text>
+                    <note>Option c.3.1.B note</note>
+                </option>
+                <option id="c.3.1.C">
+                    <text>Option c.3.1.C Text</text>
+                    <note>Option c.3.1.C Text</note>
+                </option>
+            </response>
+        </comments>
+
+        <comments id="c.3.1.1">
+            <title>comment 3.1.1 Title</title>
+            <instructions>comment 3.1.1 Instructions</instructions>
+            <text>comment 3.1.1 Text - "textbox"; all fields; bnf json= insert</text>
+            <note>comment 3.1.1 Note</note>
+            <response type="textbox">
+                <note>comment 3.1.1 response-level note</note>
+            </response>
+        </comments>
+
+        <comments id="c.3.1.1.1">
+            <title>comment 3.1.1.1 Title</title>
+            <instructions>comment 3.1.1.1 Instructions</instructions>
+            <text>comment 3.1.1.1 Text - "textbox"; all fields; bnf json= insert</text>
+            <note>comment 3.1.1.1 Note</note>
+            <response type="textbox">
+                <note>comment 3.1.1.1 response-level note</note>
+            </response>
+        </comments>
+
+        <comments id="c.3.1.2.1">
+            <title>comment 3.1.2.1 Title</title>
+            <instructions>comment 3.1.2.1 Instructions</instructions>
+            <text>comment 3.1.2.1 Text - "textbox"; all fields; bnf json= insert</text>
+            <note>comment 3.1.2.1 Note</note>
+            <response type="textbox">
+                <note>comment 3.1.2.1 response-level note</note>
+            </response>
+        </comments>
+
+        <comments id="c.3.1.3">
+            <title>comment 3.1.3 Title</title>
+            <instructions>comment 3.1.3 Instructions</instructions>
+            <text>comment 3.1.3 Text - "textbox"; all fields; bnf json= insert</text>
+            <note>comment 3.1.3 Note</note>
+            <response type="textbox">
+                <note>comment 3.1.3 response-level note</note>
+            </response>
+        </comments>
+
+        <comments id="c.3.1.3.1">
+            <title>comment 3.1.3.1 Title</title>
+            <instructions>comment 3.1.3.1 Instructions</instructions>
+            <text>comment 3.1.3.1 Text - "textbox"; all fields; bnf json= insert</text>
+            <note>comment 3.1.3.1 Note</note>
+            <response type="textbox">
+                <note>comment 3.1.3.1 response-level note</note>
+            </response>
+        </comments>
+
+    </additional_comments>
+
+<!-- static text -->
+
+    <static_text>
+        <enable_flashed_messages></enable_flashed_messages> <!-- leave blank to disable, otherwise 'True' -->
+        <enable_logged_in_message></enable_logged_in_message> <!-- leave blank to disable -->
+        <enable_question_ids></enable_question_ids> <!-- leave blank to disable, otherwise 'Yes' -->
+
+        <title>Policy Title</title>
+        <!-- Title of the web page (usually appears in the browser tab, or at the top of the browser) -->
+
+        <help_text>help text</help_text>
+
+        <nojs_message> <![CDATA[ <p> Please enable javascript to use this application.</p> ]]> </nojs_message>
+        <nopopups_message> <![CDATA[ <p> Please enable popups to use this application.</p> ]]> </nopopups_message>
+
+        <sign_in>
+            <pgtitle>Welcome page title</pgtitle>
+            <username>Username:</username>
+            <no_account> <![CDATA[ Please enter your username below. If you don't have a username, please <a href="/signup">create a new account.</a> ]]></no_account>
+            <intro_text>intro text</intro_text>
+            <instructions>instructions text</instructions>
+            <error_text>Username does not exist error text</error_text>
+            <error_title_text>Other error text</error_title_text>
+        </sign_in>
+
+        <sign_up>
+            <pgtitle>Sign up title</pgtitle>
+            <has_account>Has account text</has_account>
+            <name_taken>Name taken text</name_taken>
+            <name_taken_title>Name taken title</name_taken_title>
+            <name_invalid>Name invalid text - only letters and numbers</name_invalid>
+            <name_invalid_title>Name invalid title</name_invalid_title>
+            <intro_text><![CDATA[ <b>intro text usernames</b>]]></intro_text>
+            <instructions><![CDATA[ Username instructions: A username must consist of <b>only</b> letters and numbers. <br>If you forget this username, your account cannot be recovered. Only a scrambled version is ever stored in order to protect your identity.<br>This application does not use passwords. ]]></instructions>
+            <success>Success text: New user created successfully</success>
+        </sign_up>
+
+        <policies_for_review>
+            <pgtitle> Page title </pgtitle>
+            <instructions>Home page instructions: Please select a policy from below. The questionnaire for this study will be displayed in the main window and a pdf of the policy will open in a separate window. Your responses are automatically saved at all times.
+            </instructions>
+            <new_and_draft_text>
+                Policies For Review
+            </new_and_draft_text>
+            <new_text>
+                New
+            </new_text>
+            <draft_text>
+                Drafts
+            </draft_text>
+            <completed_text>
+                Completed
+            </completed_text>
+        </policies_for_review>
+
+        <questionnaire>
+            <back_text> Home </back_text> <!-- No HTML... full text is a link back -->
+            <finish_text> Review &amp; Submit </finish_text> <!-- Text for sidebar and bottom of page links -->
+            <continue_label> Continue </continue_label>
+            <cancel_label> Go Back </cancel_label>
+	    <invalid_popup_title> Title Set From static_text > questionnaire > invalid_popup_title </invalid_popup_title>
+	    <invalid_popup_text> Text Set From static_text > questionnaire > invalid_popup_text </invalid_popup_text>
+        </questionnaire>
+
+        <help>
+            <pgtitle> Help! </pgtitle>
+            <html>
+                <![CDATA[
+		 <p> Help topics </p>
+		 <br/>
+		 <br/>
+		 <ul>
+		 <li> Browser support: Internet Explorer, Firefox, Chrome and Safari browsers are supported by this application</li>
+		 <li> Enabling javascript and pop-ups for this site is required. Please see your browser's documentation for more information on enabling these features for this site.</li>
+		 <li> Link to comments <a href="/general_comments"> Comment? </a> </li>
+		 <a onclick="history.back(-1)" href="javascript:void(0);"> Go Back </a>
+		 </ul>
+	]]>
+            </html>
+        </help>
+
+
+        <demographics_survey>
+            <submit_text>Demographics submit text - to make changes, select 'Go Back', to proceed to the study click OK</submit_text>
+            <submit_text_title>Incomplete text</submit_text_title>
+            <indent_px>11</indent_px>
+        </demographics_survey>
+
+        <admin_configure>
+            <pgtitle>Configure Study</pgtitle>
+        </admin_configure>
+
+        <admin_testing_setup>
+            <pgtitle> Testing Setup </pgtitle>
+        </admin_testing_setup>
+
+        <admin_reporting>
+            <pgtitle>Reporting</pgtitle>
+        </admin_reporting>
+
+        <general_comments>
+            <pgtitle> Comments </pgtitle>
+        </general_comments>
+
+        <completion_page>
+            <pgtitle> Complete Study? </pgtitle>
+            <description> If you click 'Complete' you will no longer be able to edit your responses to this questionnaire. Click 'Go Back' to return to the questionnaire. </description>
+            <invalid_text> You have not completed every question in the study - you are free to submit the questionnaire without completing it, but please do try to complete all questions. The questions you have missed are highlighted in the sidebar of the study. </invalid_text>
+            <complete_text> Complete </complete_text>
+            <go_back_text> Go Back </go_back_text>
+        </completion_page>
+    </static_text>
+
+
+
+    <general_comments>
+        <intro_text>Send us a Comment</intro_text>
+        <question id="g.1">
+            <text>general comments text</text>
+            <note>general comments note - select one</note>
+            <instructions>general comments instructions</instructions>
+            <response type="select one">
+                <validation>
+                    <required>required</required>
+                    <invalid_text>Please select one</invalid_text>
+                </validation>
+                <option id="g.1.A">
+                    <text>Question</text>
+                </option>
+                <option id="g.1.B">
+                    <text>Feedback</text>
+                </option>
+                <option id="g.1.C">
+                    <text>Technical Problem</text>
+                </option>
+            </response>
+        </question>
+        <question id="g.1.1" display_when="g.1.A">
+            <text>What is your question?</text>
+            <response type="memo"></response>
+        </question>
+        <question id="g.1.2" display_when="g.1.B">
+            <response type="memo"></response>
+        </question>
+        <question id="g.1.3" display_when="g.1.C">
+            <text>Please describe the problem:</text>
+            <response type="memo"></response>
+        </question>
+    </general_comments>
+
+
+    <demographics_survey>
+        <pgtitle>Demographic information</pgtitle>
+        <intro_text>This information is collected for demographic purposes only.</intro_text>
+        <instructions>These questions are only shown for new accounts - please complete all information you are comfortable giving.</instructions>
+        <question id="d.1">
+            <text>What is your gender?</text>
+            <response type="select one">
+                <option id="d.1.A">
+                    <text>Male</text>
+                </option>
+                <option id="d.1.B">
+                    <text>Female</text>
+                </option>
+                <option id="d.1.C">
+                    <text>Other identification</text>
+                </option>
+                <option id="d.1.D">
+                    <text>Prefer not to answer</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.2">
+            <text>What is you age?</text>
+            <response type="select one">
+                <option id="d.2.A">
+                    <text>less than 20</text></option>
+                <option id="d.2.B">
+                    <text>20-29</text>
+                </option>
+                <option id="d.2.C">
+                    <text>30-39</text>
+                </option>
+                <option id="d.2.D">
+                    <text>40-49</text>
+                </option>
+                <option id="d.2.E">
+                    <text>50-59</text>
+                </option><option id="d.2.F">
+                    <text>60-69</text>
+                </option>
+                <option id="d.2.G">
+                    <text>70+</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.3">
+            <text>What is your highest completed level of education?</text>
+            <response type="select one">
+                <option id="d.3.A">
+                    <text>High school/GED</text>
+                </option>
+                <option id="d.3.B">
+                    <text>Associate's degree</text>
+                </option>
+                <option id="d.3.C">
+                    <text>Bachelor's degree</text>
+                </option>
+                <option id="d.3.D">
+                    <text>Master's degree</text>
+                </option>
+                <option id="d.3.E">
+                    <text>Doctorate degree</text>
+                </option>
+                <option id="d.3.F">
+                    <text>None</text>
+                </option>
+                <option id="d.3.G">
+                    <text type="json">Other - if selected, please describe: {"cloze":{"id":"d.3.G.a", "type":"memo"}}</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.4">
+            <text>What is your job title?</text>
+            <response id="d.4.A" type="memo">
+                <validation>
+                    <pattern>.+</pattern>
+                    <invalid_text>This field must contain a job title</invalid_text>
+                </validation>
+            </response>
+        </question>
+    </demographics_survey>
+
+
+</questionnaire>

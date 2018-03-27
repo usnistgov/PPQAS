@@ -1,0 +1,68 @@
+.. papofeed documentation master file, created by
+   sphinx-quickstart on Wed Jun  4 16:32:55 2014.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+.. toctree::
+  :hidden:
+
+  docx_format.rst
+  hacking.rst
+
+PaPo - PAssword POlicy Feed
+*********************************************************
+
+Receives a MS docx file and outputs a XML file to feed the Password Policy Taxonomy software.
+
+See :doc:`HACKING</hacking>` for development information.
+
+Installation
+============
+
+Requirements
+------------
+* Python 2.7
+* Python setuptools package installed
+
+Linux
++++++
+Inside the PaPo directory run: 'python setup.py install --user'
+
+Windows
++++++++
+Double click papo-01.win32 and follow the instructions.
+
+Usage
+=====
+1. The input file must be a MS Word docx file named questionnaire.docx
+2. Place the input file in the same path as the papo.py script shipped with the code.
+3. Run papo.py
+
+* **Linux:** 'python papo.py'
+* **windows:** double click papo.py
+
+4. the output file, papo.xml, will be saved in the same path where papo.py is located.
+
+.. NOTE:: The input file MUST follow a specific format described below.
+
+docx file format
+================
+  See :doc:`docx format</docx_format>` for the structure description
+  and :download:`docx_sample.docx</_static/docx_sample.docx>` for an example wrote by Jim Foti on 06/02/2014
+
+Authors
+=========
+  papo was mostly developed by Athos Ribeiro.
+
+  athos.ribeiro@nist.gov
+
+  x6145
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+

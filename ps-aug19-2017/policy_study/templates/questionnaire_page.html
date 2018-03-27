@@ -1,0 +1,104 @@
+{% extends "questionnaire_base.html" %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}" ></script>
+  <script src="{{ url_for('static', filename='jquery.validate.js')}}"></script>
+  <script src="{{ url_for('static', filename='number-polyfill.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='additional-methods.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename="questionnaire.js") }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename="questionnaire_page.js") }}"></script>
+{% endblock %}
+
+{% from 'macros.html' import render_instructions, gra, render_question, render_select_one, render_select_multi, render_cloze, render_mixed_text_json, get_text, render_response, render_page, render_comment, render_select_one_cloze, render_numerical_cloze, render_textbox_cloze, render_select_multi_cloze, render_memo_cloze, render_insert, render_comments_of_page with context %}
+
+{% block above_qnav %}
+  <script type="text/javascript">
+	var win;
+	var clicked_link = false;
+	var POLICY_NAME = "{{ policy_id }}";
+	var PDF_URL = "{{ url_for('serve_pdf', filename=name) }}"
+	// js access to all responses
+	var QUESTIONS = {{ strquestions|safe }};
+  </script>
+{% endblock %}
+
+{% block questionnaire_content %}
+  <div id="emptypagemessage" style="display:none;">
+	{{ empty_page_message }}
+  </div>
+
+  <form id="theform">
+	{{ render_page(page) }}
+  </form>
+  <form id="commentform">
+	{{ render_comments_of_page(page) }}
+  </form>
+  <div class="qpage_previous">
+	{% if not prev_link_name %}
+	  <span>
+		<a href="{{ url_for('policies_for_review') }}">
+		  <img src="{{ url_for('static', filename='back_arrow.jpg') }}" alt="left pointing arrow"/>
+		  {{ back_text }}
+		</a>
+	  </span>
+	{% else %}
+	  <span>
+		<a href="{{ url_for('policy_questionnaire', policy_name=policy_id, section=prev_page_name) }}">
+		  <img src="{{ url_for('static', filename='back_arrow.jpg') }}" alt="left pointing arrow"/>
+		  Preceding: {{ prev_link_name }}
+		</a>
+	  </span>
+	{% endif %}
+  </div>
+
+  <div class="qpage_next">
+	{% if next_link_name %}
+	  <span>
+		<a href="{{ url_for('policy_questionnaire', policy_name=policy_id, section=next_page_name) }}">
+		  Next: {{ next_link_name }}
+		  <img src="{{ url_for('static', filename='forward_arrow.jpg') }}" alt="right pointing arrow"/>
+		</a>
+	  </span>
+	{% else %}
+	  <span>
+		<a href="{{ url_for('trycomplete', policy_name=policy_id, section=section) }}">
+		  {{ finish_text }}
+		  <img src="{{ url_for('static', filename='forward_arrow.jpg') }}" alt="right pointing arrow"/>
+		</a>
+	  {% endif %}
+  </div>
+
+  <!-- {{ questions|safe }} -->
+
+  <script>
+	var POLICY_NAME = "{{ policy_id }}";
+	var API_URL = "{{ url_for('question_response') }}";
+	var INSERT_URL = "{{ url_for('resolve_insert', policy_name=policy_id) }}";
+	var CLEAR_RESPONSES_URL = "{{ url_for('clear_responses') }}";
+	var TRIED_COMPLETE = false;
+	var CONTINUE_LABEL = "{{ continue_label }}";
+	var CANCEL_LABEL = "{{ cancel_label }}";
+	var invalid_popup_title = "{{ invalid_popup_title }}";
+	var invalid_popup_text = "{{ invalid_popup_text }}";
+	var logout_title = "{{ logout_title }}";
+	var logout_text = "{{ logout_text }}";
+	var logout_continue = "{{ logout_continue }}";
+	var logout_cancel = "{{ logout_cancel }}";
+
+	var clone_warning_title = "{{ clone_warning_title}}";
+	var clone_warning_text = "{{ clone_warning_text}}";
+	var clone_warning_continue = "{{ clone_warning_continue }}";
+	var clone_warning_cancel = "{{ clone_warning_cancel }}";
+
+
+	{% if not questions %}
+	  var should_display_validation_popup = false;
+	{% else %}
+	  var should_display_validation_popup = true;
+	{% endif %}
+
+	{% if tried_to_complete %}
+	  TRIED_COMPLETE = true;
+	{% endif %}
+
+  </script>
+{% endblock %}

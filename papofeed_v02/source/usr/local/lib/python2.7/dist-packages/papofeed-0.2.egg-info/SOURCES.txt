@@ -1,0 +1,17 @@
+README
+setup.py
+papofeed/__init__.py
+papofeed/elements.py
+papofeed/extractor.py
+papofeed/feed.py
+papofeed/toxml.py
+papofeed.egg-info/PKG-INFO
+papofeed.egg-info/SOURCES.txt
+papofeed.egg-info/dependency_links.txt
+papofeed.egg-info/entry_points.txt
+papofeed.egg-info/requires.txt
+papofeed.egg-info/top_level.txt
+papofeed/tools/__init__.py
+papofeed/tools/docx2xml.py
+papofeed/tools/fill_template.py
+papofeed/tools/papo_interface.py

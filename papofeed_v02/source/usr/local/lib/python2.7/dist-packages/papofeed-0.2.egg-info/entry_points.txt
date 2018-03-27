@@ -1,0 +1,5 @@
+[console_scripts]
+papo_fill_template = papofeed.tools.fill_template:main
+papo_docx2xml = papofeed.tools.docx2xml:main
+papo_gui = papofeed.tools.papo_interface:main
+

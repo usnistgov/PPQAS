@@ -1,0 +1,34 @@
+# {u'_id': ObjectId('57c74c750fada62431de57f5'),
+#  u'bnf_statements': [u'BNF for option q.2.1.A',
+#                      u"q.4.10.7: 'No' to another; this one: Letters",
+#                      u"q.4.10.7: 'Yes' to another; this one: Letters",
+#                      u"q.4.10.5: 'Yes' to another; this one: Lowercase Letters, Letters",
+#                      u'BNF for option q.2.2; insert textbox text: hey'],
+#  u'policy_name': u'TD Bank Policy',
+#  u'questions': {u'c.41': u'c.41.B',
+#                 u'q.2.1': [u'q.2.1.A'],
+#                 u'q.2.2': u'hey',
+#                 u'q.2.3>q.2.3.a': u'4.5',
+#                 u'q.2.3>q.2.3.b': u'$',
+#                 u'q.4.10.3': u'q.4.10.3.C',
+#                 u'q.4.10.4': [u'q.4.10.4.C', u'q.4.10.4.B'],
+#                 u'q.4.10.4clone1': [u'q.4.10.4.Aclone1', u'q.4.10.4.Bclone1'],
+#                 u'q.4.10.4clone2': [u'q.4.10.4.Bclone2', u'q.4.10.4.Dclone2'],
+#                 u'q.4.10.4clone2>q.4.10.4.D.aclone2': u'hey',
+#                 u'q.4.10.4clone3': [u'q.4.10.4.Aclone3', u'q.4.10.4.Bclone3'],
+#                 u'q.4.10.5': u'q.4.10.5.A',
+#                 u'q.4.10.5clone1': u'q.4.10.5.Aclone1',
+#                 u'q.4.10.5clone2': u'q.4.10.5.Aclone2',
+#                 u'q.4.10.5clone3': u'q.4.10.5.Bclone3',
+#                 u'q.4.10.6': u'q.4.10.6.C',
+#                 u'q.4.10.6clone1': u'q.4.10.6.Cclone1',
+#                 u'q.4.10.7': u'q.4.10.7.A',
+#                 u'q.4.10.7clone1': u'q.4.10.7.Bclone1'},
+#  u'state': u'draft',
+#  u'tried_to_complete': True,
+#  u'username': u'e3c0921411ef75027dd552786c9424e9ae2122029cf9c8a20dbb7058670b8055000747eb084f6738a67e70fc32748275bdc23ea009666f59a55b02dedd6cdea1'}
+BNF for option q.2.1.A
+q.4.10.7: 'No' to another; this one: Letters
+q.4.10.7: 'Yes' to another; this one: Letters
+q.4.10.5: 'Yes' to another; this one: Lowercase Letters, Letters
+BNF for option q.2.2; insert textbox text: hey

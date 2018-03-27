@@ -1,0 +1,1269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- encoded html tags or cdata tag may be used in the "instructions" or any text-type element-->
+
+<questionnaire xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	       xsi:schemaLocation="ppt password%20policy%20template%20031814.xsd"
+	       xmlns="ppt">
+  <title>Password Policy Questionnaire</title>
+  <xmlversion>031114</xmlversion>
+  <qaversion>30oct2013v1</qaversion>
+  <BNFversion>kevinV1</BNFversion>
+  <!--version numbering system to be sorted out later-->
+
+  <!-- Navigation NOT CURRENTLY RENDERED-->
+
+  <navigation>
+    <next type="json">Next page - {"attribute":"title"}</next>
+    <!-- This is the default page progression text if in the index, the "next" attribute tag is not used.-->
+    <back type="json">Go back to {"attribute":"title"}</back>
+    <!-- This is the default page progression text if in the index, the "back" attribute tag is not used.-->
+  </navigation>
+
+  <!-- Index-->
+
+  <index grouping="page">
+    <group level="1" title="Communicate" comment_ref="c.1">
+      <instructions>These instrcutions flow down to sub-groups / pages</instructions>
+      <text type="json">this text should not flow down and only be visible when this level of grouping is desired</text>
+      <page title="Who" comment_ref="c.1.1">
+        <include qref="q.1.1"></include>
+        <include qref="q.1.1.1"></include>
+      </page>
+      <group  level="2" title="Communicate How" comment_ref="c.1.2">
+        <instructions>The policy may specify the method (e.g., mail, email, Internet, phone, etc.) by which passwords may or may not be communicated or shared.</instructions>
+        <page title="Any Method" comment_ref="c.1.2.1">
+          <include qref="q.1.2.1"></include>
+        </page>
+        <group  level="3" title="Specific Methods" comment_ref="c.1.2.2">
+          <instructions>Use the following questions to indicate any policy statements made about using specific methods (such as mail, email, voicemail, networks, etc.) to communicate or share passwords.</instructions>
+          <page title="Any Network" comment_ref="c.1.2.2.1">
+            <include qref="q.1.2.2.1"></include>
+          </page>
+          <page title="Internet or Wide-Area Network(WAN)" comment_ref="c.1.2.2.2">
+            <include qref="q.1.2.2.2"></include>
+          </page>
+        </group>
+        <group title="In An Emergency" level="6">
+	  <page title="In an Emergency" comment_ref="c.1.2.3">
+            <include qref="q.1.2.3"></include>
+	  </page>
+        </group>
+      </group>
+    </group>
+    <group level="1" title="Creating Passwords" comment_ref="c.2">
+      <page title="Minimum Password Length" comment_ref="c.2.1">
+        <include qref="q.2.1"></include>
+      </page>
+      <page title="Maximum Password Length" comment_ref="c.2.2">
+        <include qref="q.2.2"></include>
+      </page>
+      <group level="2" title="Password Composition" comment_ref="c.2.3">
+        <instructions>The policy may state what &lt;b&gt;characters&lt;/b&gt;, &lt;b&gt;words&lt;/b&gt;, or &lt;b&gt;pre-existing passwords&lt;/b&gt; may or may not be used when creating new passwords. </instructions>
+        <group level="3" title="Characters" comment_ref="c.2.4">
+          <page title="Instructions for Character Selection">
+            <instructions><![CDATA[The policy’s statements about the selection of individual characters are addressed in the next three subsections:
+	    <br>– <b>Character occurrence</b> asks about the use of alphanumeric and special characters;
+	    <br>– <b>Character position</b>asks about what characters may or may not be used at various locations within a password; and
+	    <br>– <b>Character combination</b> asks about specific combinations, sequences and patterns of characters.]]>
+            </instructions>
+          </page>
+          <group level="4" title="Character Occurrence" comment_ref="c.2.5">
+            <instructions>Check all of the character types (e.g., upper case, numbers, etc.) mentioned in the policy regarding password creation, and answer the relevant questions for each type. The questions will ask whether those characters are prohibited or recommended against, and if not, whether the policy sets minimums or maximums for the number of times those characters can be present in a password.</instructions>
+            <group level="5" title="Alphanumeric Characters" comment_ref="c.2.6">
+              <page title="Upper-case Letters" comment_ref="c.2.3.1">
+                <include qref="q.2.3.1"></include>
+                <include qref="q.2.3.1.1"></include>
+                <include qref="q.2.3.1.2"></include>
+                <include qref="q.2.3.1.2.1"></include>
+                <include qref="q.2.3.1.3"></include>
+                <include qref="q.2.3.1.3.1"></include>
+              </page>
+              <page title="Lower-case Letters" comment_ref="c.2.3.2">
+                <include qref="q.2.3.2"></include>
+                <include qref="q.2.3.2.1"></include>
+                <include qref="q.2.3.2.2"></include>
+                <include qref="q.2.3.2.2.1"></include>
+                <include qref="q.2.3.2.3"></include>
+                <include qref="q.2.3.2.3.1"></include>
+              </page>
+            </group>
+            <group level="5" title="Individually-Identified Characters" comment_ref="c.2.7">
+              <page title="Required" comment_ref="c.2.3.7">
+                <include qref="q.2.3.7"></include>
+                <include qref="q.2.3.7.1"></include>
+                <include qref="q.2.3.7.2"></include>
+                <include qref="q.2.3.7.3"></include>
+                <include qref="q.2.3.7.3.1"></include>
+              </page>
+              <page title="Recommended" comment_ref="c.2.3.8">
+                <include qref="q.2.3.8"></include>
+                <include qref="q.2.3.8.1"></include>
+                <include qref="q.2.3.8.2"></include>
+                <include qref="q.2.3.8.3"></include>
+                <include qref="q.2.3.8.3.1"></include>
+              </page>
+            </group>
+            <page title="All characters from a set" comment_ref="c.2.20">
+              <include qref="q.2.20"></include>
+              <include qref="q.2.20.1"></include>
+            </page>
+          </group>
+        </group>
+        <group level="3" title="Character Position" comment_ref="c.5.2.7">
+          <instructions>Policies might identify character types that may or may not be used at various positions in a password, including the &lt;b&gt;first character, last character, internal characters,&lt;/b&gt; and &lt;b&gt;first several characters&lt;/b&gt;. You will be asked to identify all of the conditions stated by the policy.</instructions>
+          <page title="First Character" comment_ref="c.5.2.7.1">
+            <include qref="q.2.7.1"></include>
+            <include qref="q.2.7.1.1"></include>
+            <include qref="q.2.7.1.1.1"></include>
+            <include clone_ref="q.2.7.1.1 q.2.7.1.1.1"></include>
+          </page>
+        </group>
+      </group>
+    </group>
+
+    <group level="1" title="Fail to Authenticate" comment_ref="c.3">
+      <page title="User Lockout" comment_ref="c.3.1">
+        <include qref="q.3.13"></include>
+        <include qref="q.3.13.1"></include>
+      </page>
+      <page title="User Lockout2" comment_ref="c.3.2">
+        <include qref="q.3.14"></include>
+        <include qref="q.3.14.1"></include>
+        <include qref="q.3.14.2"></include>
+      </page>
+    </group>
+  </index>
+
+<!-- questions - removed all hierarchies -->
+
+<questions>
+  <question id="q.1.1">
+    <text>Does the policy identify people with whom users &lt;b&gt;may not&lt;/b&gt; communicate or share passwords?</text>
+    <response type="select one">
+      <option id="q.1.1.A">
+        <text>Yes</text>
+      </option>
+      <option id="q.1.1.B">
+        <text>Maybe</text>
+      </option>
+      <option id="q.1.1.C">
+        <text>No</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.1.1.1" display_when="q.1.1.A,q.1.1.B">
+    <text>The policy states the following about not communicating or sharing passwords(select one):</text>
+    <response type="select one">
+      <option id="q.1.1.1.A">
+        <text>The policy prohibits communicating or sharing passwords with &lt;b&gt;anyone&lt;/b&gt;.</text>
+        <BNF_mapping id="b.1">Users must not communicate passwords to anyone.</BNF_mapping>
+      </option>
+      <option id="q.1.1.1.B">
+        <text>The policy prohibits communicating or sharing passwords with a &lt;b&gt;third party&lt;/b&gt;.</text>
+        <BNF_mapping id="b.2">Users must not communicate  passwords to a third party.</BNF_mapping>
+      </option>
+      <option id="q.1.1.1.C">
+        <text>The policy recommends against communicating or sharing passwords with &lt;b&gt;anyone&lt;/b&gt;.</text>
+        <BNF_mapping id="b.3">Users should not communicate passwords to anyone.</BNF_mapping>
+      </option>
+      <option id="q.1.1.1.D">
+        <text>The policy recommends against communicating or sharing passwords with &lt;b&gt;a third party&lt;/b&gt;.</text>
+        <BNF_mapping id="b.4">Users should not communicate passwords to a third party.</BNF_mapping>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.1.2"> <!-- this question is not included in the index (made into grouping) and so should not be shown -->
+    <title>Communicate How</title>
+    <text>The policy may specify the method (e.g., mail, email, Internet, phone, etc.) by which passwords may or may not be communicated or shared.</text>
+  </question>
+
+  <question id="q.1.2.1">
+    <title>Any Method</title>
+    <text>Does the policy make a general statement about communicating or sharing passwords “by any method” (or using similar words)?</text>
+    <response type="select one">
+      <option id="q.1.2.1.A">
+        <text>Yes - the policy &lt;b&gt;prohibits&lt;/b&gt; communicating or sharing passwords &lt;b&gt;by any method&lt;/b&gt;.</text>
+        <BNF_mapping id="b.5">Users must not communicate passwords by any means</BNF_mapping>
+      </option>
+      <option id="q.1.2.1.B">
+        <text>Yes - the policy &lt;b&gt;recommends against&lt;/b&gt; communicating or sharing passwords &lt;b&gt;by any method&lt;/b&gt;.</text>
+        <BNF_mapping id="b.106">Users should not communicate passwords by any means</BNF_mapping>
+      </option>
+      <option id="q.1.2.1.C">
+        <text>No - the policy &lt;b&gt;does not&lt;/b&gt; make a general statement about communicating or sharing passwords &lt;b&gt;“by any method.”&lt;/b&gt;</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.1.2.2"> <!-- this question is not in index (made into grouping) so should not be shown -->
+    <title>Communicate by specific methods</title>
+    <text>Use the following questions to indicate any policy statements made about using specific methods (such as mail, email, voicemail, networks, etc.) to communicate or share passwords.</text>
+  </question>
+
+  <question id="q.1.2.2.1">
+    <title>Communication using &lt;b&gt;&lt;u&gt;any&lt;/u&gt; network&lt;/b&gt;</title>
+    <text>Does the policy prohibit or recommend against communicating or sharing passwords on &lt;b&gt;&lt;u&gt;any&lt;/u&gt; network?&lt;/b&gt;</text>
+    <response type="select one">
+      <option id="q.1.2.2.1.A">
+        <text>Yes - the policy &lt;b&gt;prohibits&lt;/b&gt; communicating or sharing passwords on &lt;b&gt;&lt;u&gt;any&lt;/u&gt; network&lt;/b&gt;.</text>
+        <BNF_mapping id="b.50">Users must not communicate passwords by any network</BNF_mapping>
+      </option>
+      <option id="q.1.2.2.1.B">
+        <text>Yes - the policy &lt;b&gt;prohibits&lt;/b&gt; communicating or sharing &lt;b&gt;&lt;u&gt;unencrypted&lt;/u&gt;&lt;/b&gt; passwords on &lt;b&gt;&lt;u&gt;any&lt;/u&gt; network&lt;/b&gt;.</text>
+        <BNF_mapping id="b.6">Users must not communicate passwords by any network without encryption</BNF_mapping>
+      </option>
+      <option id="q.1.2.2.1.C">
+        <text>Yes - the policy &lt;b&gt;recommends against&lt;/b&gt; communicating or sharing passwords on &lt;b&gt;&lt;u&gt;any&lt;/u&gt; network&lt;/b&gt;.</text>
+        <BNF_mapping id="b.7">Users should not communicate passwords by any network</BNF_mapping>
+      </option>
+      <option id="q.1.2.2.1.D">
+        <text>Yes - the policy &lt;b&gt;recommends against&lt;/b&gt; communicating or sharing &lt;b&gt;&lt;u&gt;unencrypted&lt;/u&gt;&lt;/b&gt; passwords on &lt;b&gt;&lt;u&gt;any&lt;/u&gt; network&lt;/b&gt;.</text>
+        <BNF_mapping id="b.8">Users should not communicate passwords by any network without encryption</BNF_mapping>
+      </option>
+      <option id="q.1.2.2.1.E">
+        <text>No - the policy &lt;b&gt;does not make a statement&lt;/b&gt; about using &lt;b&gt;&lt;u&gt;any&lt;/u&gt; network&lt;/b&gt;. to communicate or share passwords.</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.1.2.2.2">
+    <title>Communication using &lt;b&gt;the Internet or a Wide Area Network (WAN)&lt;/b&gt;</title>
+    <text>Does the policy prohibit or recommend against communicating or sharing passwords using &lt;b&gt;the Internet or a Wide Area Network (WAN)&lt;/b&gt;?</text>
+    <response type="select one">
+      <option id="q.1.2.2.2.A">
+        <text>Yes - the policy &lt;b&gt;prohibits&lt;/b&gt; communicating or sharing passwords using &lt;b&gt;the Internet or a Wide Area Network (WAN)&lt;/b&gt;.</text>
+        <BNF_mapping id="b.9">Users must not communicate passwords by internet or wide area network.</BNF_mapping>
+      </option>
+      <option id="q.1.2.2.2.B">
+        <text>Yes - the policy &lt;b&gt;recommends against&lt;/b&gt; communicating or sharing passwords using &lt;b&gt;the Internet or a Wide Area Network (WAN)&lt;/b&gt;.</text>
+        <BNF_mapping id="b.10">Users should not communicate passwords by internet or wide area network.</BNF_mapping>
+      </option>
+      <option id="q.1.2.2.2.C">
+        <text>Yes - the policy &lt;b&gt;prohibits&lt;/b&gt; communicating or sharing &lt;b&gt;&lt;u&gt;unencrypted&lt;/u&gt;&lt;/b&gt; passwords using &lt;b&gt;the Internet or a Wide Area Network (WAN)&lt;/b&gt;.</text>
+        <BNF_mapping id="b.11">Users must not communicate passwords by internet or wide area network without encryption.</BNF_mapping>
+      </option>
+      <option id="q.1.2.2.2.D">
+        <text>Yes - the policy &lt;b&gt;recommends against&lt;/b&gt; communicating or sharing &lt;b&gt;&lt;u&gt;unencrypted&lt;/u&gt;&lt;/b&gt; passwords using &lt;b&gt;the Internet or a Wide Area Network (WAN)&lt;/b&gt;.</text>
+        <BNF_mapping id="b.12">Users should not communicate passwords by internet or wide area network without encryption.</BNF_mapping>
+      </option>
+      <option id="q.1.2.2.2.E">
+        <text>No - the policy &lt;b&gt;does not make a statement&lt;/b&gt; about using &lt;b&gt;the Internet or a WAN&lt;/b&gt; to communicate or share passwords.</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.1.2.3">
+    <title>Emergency Situations</title>
+    <text>Identify any exceptions that the policy makes for communicating or sharing passwords in emergency situations:</text>
+    <response type="select one">
+      <option id="q.1.2.3.A">
+        <text>The policy &lt;b&gt;prohibits&lt;/b&gt; communicating or sharing passwords, &lt;b&gt;except in emergency situations&lt;/b&gt;.</text>
+        <BNF_mapping id="b.13">Users must not communicate passwords except in an emergency.</BNF_mapping>
+      </option>
+      <option id="q.1.2.3.B">
+        <text>The policy &lt;b&gt;recommends against&lt;/b&gt; communicating or sharing passwords, &lt;b&gt;except in emergency situations&lt;/b&gt;.</text>
+        <BNF_mapping id="b.14">Users should not communicate passwords except in an emergency.</BNF_mapping>
+      </option>
+      <option id="q.1.2.3.C">
+      <text>The policy &lt;b&gt;does not make a statement&lt;/b&gt; about communicating or sharing passwords, &lt;b&gt;in emergency situations&lt;/b&gt;.</text>                </option>
+    </response>
+  </question>
+
+  <question id="q.2.1">
+    <title>Minimum Password Length</title>
+    <text>This Policy:</text>
+    <response type="select one">
+      <option id="q.2.1.A">
+        <text type="json"> {"cloze":{"id":"q.2.1.A.a" , "type":"select one" , "options":["requires" , "recommends"] , "default":"select one"}} that passwords have &lt;i&gt;at least&lt;/i&gt; {"cloze":{"id":"q.2.1.A.b" , "type":"numerical" , "validation":{"min":"1" , "max":"30", "title": "please enter a number betweeen 1 and 30"}}} characters.</text>
+        <BNF_mapping id="b.1014" type="json">Users {"ident":{"cref":"q.2.1.A.a" , "option_text":"requires" , "bnf_text":"must"}} create passwords with length greater than or equal to {"insert":{"cref":"q.2.1.A.b"}} characters.</BNF_mapping>
+        <BNF_mapping id="b.15" type="json">Users {"ident":{"cref":"q.2.1.A.a" , "option_text":"recommends" , "bnf_text":"should"}} create passwords with length greater than or equal to {"insert":{"cref":"q.2.1.A.b"}} characters.</BNF_mapping>
+      </option>
+      <option id="q.2.1.B">
+        <text type="json"> {"cloze":{"id":"q.2.1.B.a" , "type":"select one" , "options":["requires" , "recommends"]}} that passwords have a &lt;i&gt;minimum length&lt;/i&gt;, but does not specify a particular number. </text>
+      </option>
+      <option id="q.2.1.C">
+        <text> makes no statement about &lt;i&gt;minimum&lt;/i&gt; password length</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.2">
+    <title>Maximum Password Length</title>
+    <text>This Policy:</text>
+    <response type="select one">
+      <option id="q.2.2.A">
+        <text type="json">{"cloze":{"id":"q.2.2.A.a" , "type":"select one" , "options":["requires" , "recommends"] , "default":"select one"}} that passwords have &lt;i&gt;no more than&lt;/i&gt; {"cloze":{"id":"q.2.2.A.b" , "type":"numerical" , "validation":{"min":"2", "max":"100"}}} characters.</text>
+        <BNF_mapping id="b.114" type="json">Users {"ident":{"cref":"q.2.2.A.a" , "option_text":"requires" , "bnf_text":"must"}} create passwords with length greater than or equal to {"insert":{"cref":"q.2.2.A.b"}} characters.</BNF_mapping>
+        <BNF_mapping id="b.115" type="json">Users {"ident":{"cref":"q.2.2.A.a" , "option_text":"recommends" , "bnf_text":"should"}} create passwords with length greater than or equal to {"insert":{"cref":"q.2.2.A.b"}} characters.</BNF_mapping>
+      </option>
+      <option id="q.2.2.B">
+        <text type="json">{"cloze":{"id":"q.2.2.B.a", "type":"select one" , "options":["requires", "recommends"]}} that passwords have a &lt;i&gt;maximum length&lt;/i&gt;, but does not specify a particular number.  </text>
+      </option>
+      <option id="q.2.2.C">
+        <text> makes no statement about &lt;i&gt;minimum&lt;/i&gt; password length</text>
+      </option>
+    </response>
+  </question>
+
+
+  <question id="q.2.3.1">
+    <title>Upper-Case Letters</title>
+    <response type="true/false">
+      <text>&lt;b&gt;Upper case letters&lt;/b&gt; are mentioned in the policy.</text>
+    </response>
+  </question>
+
+  <question id="q.2.3.1.1" display_when="q.2.3.1">
+    <text>Does the policy prohibit (or recommend against) using upper case letters?</text>
+    <response type="select one">
+      <option id="q.2.3.1.1.A">
+        <text>Yes - they are prohibited.</text>
+        <BNF_mapping id="b.16">Users must not create passwords with a character in the set of upper-case letters.</BNF_mapping>
+      </option>
+      <option id="q.2.3.1.1.B">
+        <text>Yes - they are not recommended.</text>
+        <BNF_mapping id="b.17">Users should not create passwords with a character in the set of upper-case letters.</BNF_mapping>
+      </option>
+      <option id="q.2.3.1.1.C">
+        <text>No – upper case letters are allowed.</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.3.1.2" display_when="q.2.3.1.1.C">
+    <text>Is  at least one (1) upper case letter needed?</text>
+    <response type="select one">
+      <option id="q.2.3.1.2.A">
+        <text>Yes</text>
+      </option>
+      <option id="q.2.3.1.2.B">
+        <text>No</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.3.1.2.1" display_when="q.2.3.1.2.A">
+    <response type="cloze">
+      <text type="json">The  policy {"cloze":{"id":"q.2.3.1.2.1.a" , "type":"select one" , "options":["requires" , "recommends"]}} that at least {"cloze":{"id":"q.2.3.1.2.1.b" , "type":"numerical" , "validation":{"min":"1" , "max":"9", "title":"Please check your answer"}}} characters in the password are upper case letters. </text>
+    </response>
+    <BNF_mapping id="b.18" type="json">Users {"ident":{"cref":"q.2.3.1.2.1.a" , "option_text":"requires" , "bnf_text":"must"}} create passwords with {"insert":{"cref":"q.2.3.1.2.1.b"}} or more characters in the set of upper-case letters. </BNF_mapping>
+    <BNF_mapping id="b.19" type="json">Users {"ident":{"cref":"q.2.3.1.2.1.a" , "option_text":"recommends" , "bnf_text":"should"}} create passwords with {"insert":{"cref":"q.2.3.1.2.1.b"}} or more characters in the set of upper-case letters. </BNF_mapping>
+  </question>
+
+  <question id="q.2.3.1.3" display_when="q.2.3.1.1.C">
+    <text>Is there a limit to how many upper case letters can be used in a password? </text>
+    <response type="select one">
+      <option id="q.2.3.1.3.A">
+        <text>Yes</text>
+      </option>
+      <option id="q.2.3.1.3.B">
+        <text>No</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.3.1.3.1" display_when="q.2.3.1.3.A">
+    <response type="cloze">
+      <text type="json">The  policy {"cloze":{"id":"q.2.3.1.3.1.a" , "type":"select one" , "options":["requires" , "recommends"]}} that no more than {"cloze":{"id":"q.2.3.1.3.1.b", "type":"numerical" , "validation":{"min":"1", "max":"9", "title":"please check your answer"}}} characters in the password are upper case letters. </text>
+    </response>
+    <BNF_mapping id="b.20" type="json">Users {"ident":{"cref":"q.2.3.1.3.1.a", "option_text":"requires" , "bnf_text":"must"}} not create passwords with {"insert":{"cref":"q.2.3.1.3.1.b"}} or more characters in the set of upper-case letters. </BNF_mapping>
+    <BNF_mapping id="b.21" type="json">Users {"ident":{"cref":"q.2.3.1.3.1.a", "option_text":"recommends" , "bnf_text":"should"}} not create passwords with {"insert":{"cref":"q.2.3.1.3.1.b"}} or more characters in the set of upper-case letters. </BNF_mapping>
+  </question>
+
+  <question id="q.2.3.2">
+    <title>Lower-Case Letters</title>
+    <response type="true/false">
+      <text>&lt;b&gt;Lower case letters&lt;/b&gt; are mentioned in the policy.</text>
+    </response>
+  </question>
+
+  <question id="q.2.3.2.1" display_when="q.2.3.2">
+    <text>Does the policy prohibit (or recommend against) using lower case letters?</text>
+    <response type="select one">
+      <option id="q.2.3.2.1.A">
+        <text>Yes - they are prohibited.</text>
+        <BNF_mapping id="b.116">Users must not create passwords with a character in the set of lower-case letters.</BNF_mapping>
+      </option>
+      <option id="q.2.3.2.1.B">
+        <text>Yes - they are not recommended.</text>
+        <BNF_mapping id="b.117">Users should not create passwords with a character in the set of lower-case letters.</BNF_mapping>
+      </option>
+      <option id="q.2.3.2.1.C">
+        <text>No – lower case letters are allowed.</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.3.2.2" display_when="q.2.3.2.1.C">
+    <text>Is  at least one (1) lower case letter needed?</text>
+    <response type="select one">
+      <option id="q.2.3.2.2.A">
+        <text>Yes</text>
+      </option>
+      <option id="q.2.3.2.2.B">
+        <text>No</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.3.2.2.1" display_when="q.2.3.2.2.A">
+    <response type="cloze">
+      <text type="json">The  policy {"cloze":{"id":"q.2.3.2.2.1.a" , "type":"select one" , "options":["requires" , "recommends"]}} that at least {"cloze":{"id":"q.2.3.2.2.1.b" , "type":"numerical" , "validation":{"min":"1" , "max":"9"}}} characters in the password are lower case letters. </text>
+    </response>
+    <BNF_mapping id="b.1018" type="json">Users {"ident":{"cref":"q.2.3.2.2.1.a" , "option_text":"requires" , "bnf_text":"must"}} create passwords with {"insert":{"cref":"q.2.3.2.2.1.b"}} or more characters in the set of lower-case letters. </BNF_mapping>
+    <BNF_mapping id="b.1019" type="json">Users {"ident":{"cref":"q.2.3.2.2.1.a" , "option_text":"recommends" , "bnf_text":"should"}} create passwords with {"insert":{"cref":"q.2.3.2.2.1.b"}} or more characters in the set of lower-case letters. </BNF_mapping>
+  </question>
+
+  <question id="q.2.3.2.3" display_when="q.2.3.2.1.C">
+    <text>Is there a limit to how many lower case letters can be used in a password? </text>
+    <response type="select one">
+      <option id="q.2.3.2.3.A">
+        <text>Yes</text>
+      </option>
+      <option id="q.2.3.2.3.B">
+        <text>No</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.3.2.3.1" display_when="q.2.3.2.3.A">
+    <response type="cloze">
+      <text type="json">The  policy {"cloze":{"id":"q.2.3.2.3.1.a" , "type":"select one" , "options":["requires" , "recommends"]}} that no more than {"cloze":{"id":"q.2.3.2.3.1.b" , "type":"numerical" , "validation":{"min":"1" , "max":"9"}}} characters in the password are lower case letters.</text>
+    </response>
+    <BNF_mapping id="b.2020" type="json">Users {"ident":{"cref":"q.2.3.2.3.1.a" , "option_text":"requires" , "bnf_text":"must"}} not create passwords with {"insert":{"cref":"q.2.3.2.3.1.b"}} or more characters in the set of lower-case letters. </BNF_mapping>
+    <BNF_mapping id="b.2021" type="json">Users {"ident":{"cref":"q.2.3.2.3.1.a" , "option_text":"recommends" , "bnf_text":"should"}} not create passwords with {"insert":{"cref":"q.2.3.2.3.1.b"}} or more characters in the set of lower-case letters. </BNF_mapping>
+  </question>
+
+  <question id="q.2.3.7">
+    <title>Required Characters</title>
+    <response type="true/false">
+      <text>&lt;b&gt;&lt;i&gt;Individually-Identified characters&lt;/i&gt;&lt;/b&gt; that are &lt;b&gt;&lt;u&gt;required&lt;/u&gt;&lt;/b&gt;.</text>
+    </response>
+  </question>
+
+  <question id="q.2.3.7.1" display_when="q.2.3.7">
+    <text>The policy identifies the following characters and &lt;b&gt;requires&lt;/b&gt; that one (1) or more be used in passwords:</text>
+    <response type="cloze"><!-- may not work yet -->
+      <text type="json">{"cloze":{"id":"q.2.3.7.1.a" , "type":"textbox" , "validation":{"pattern":"[^ ]*", "title":"Please do not include spaces between characters"}}}</text>
+    </response>
+    <note>(Do not put spaces between characters—“whitespace” is addressed later)</note>
+  </question>
+
+  <question id="q.2.3.7.2" display_when="q.2.3.7">
+    <response type="cloze">
+      <text type="json">The policy requires that at least {"cloze":{"id":"q.2.3.7.2.a" , "type":"numerical", "validation":{"min":0}}} characters in the password are from this group.</text>
+    </response>
+    <BNF_mapping id="b.22" type="json">Users must create passwords with {"insert":{"cref":"q.2.3.7.2.a"}} or more characters in the set of these special characters: {"insert":{"cref":"q.2.3.7.1.a"}}. </BNF_mapping>
+  </question>
+
+  <question id="q.2.3.7.3" display_when="q.2.3.7">
+    <text>Is there a limit to how many of a password’s characters can be from this group? </text>
+    <response type="select one">
+      <option id="q.2.3.7.3.A">
+        <text>Yes</text>
+      </option>
+      <option id="q.2.3.7.3.B">
+        <text>No</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.3.7.3.1" display_when="q.2.3.7.3.A">
+    <response type="cloze">
+      <text type="json">The  policy {"cloze":{"id":"q.2.3.7.3.1.a" , "type":"select one" , "options":["requires", "recommends"]}} that no more than {"cloze":{"id":"q.2.3.7.3.1.b" , "type":"numerical" , "validation":{"min":1 , "max":"9"}}} characters in the password are from this group. </text>
+    </response>
+    <BNF_mapping id="b.23" type="json">Users {"ident":{"cref":"q.2.3.7.3.1.a" , "option_text":"recommends" , "bnf_text":"should"}} not create passwords with {"insert":{"cref":"q.2.3.7.3.1.b"}} or more characters in the set of these special characters: {"insert":{"cref":"q.2.3.7.1.a"}}. </BNF_mapping>
+    <BNF_mapping id="b.24" type="json">Users {"ident":{"cref":"q.2.3.7.3.1.a" , "option_text":"requires" , "bnf_text":"must"}} not create passwords with {"insert":{"cref":"q.2.3.7.3.1.b"}} or more characters in the set of these special characters: {"insert":{"cref":"q.2.3.7.1.a"}}. </BNF_mapping>
+  </question>
+
+  <question id="q.2.3.8">
+    <title>Recommended Characters</title>
+    <response type="true/false">
+      <text type="json">&lt;b&gt;&lt;i&gt;Individually-Identified characters&lt;/i&gt;&lt;/b&gt; that are &lt;b&gt;&lt;u&gt;required&lt;/u&gt;&lt;/b&gt;.</text>
+    </response>
+  </question>
+
+  <question id="q.2.3.8.1" display_when="q.2.3.8">
+    <text>The policy identifies the following characters and &lt;b&gt;recommends&lt;/b&gt; that one (1) or more be used in passwords:</text>
+    <response type="cloze">
+      <text type="json">The policy identifies the following characters and &lt;b&gt;recommends&lt;/b&gt; that one (1) or more be used in passwords: {"cloze":{"id":"q.2.3.8.1.a" , "type":"textbox" , "validation":{"pattern":"[^ ]*", "title":"Please do not include spaces between characters"}}}</text>
+    </response>
+    <note>(Do not put spaces between characters—“whitespace” is addressed later)</note>
+  </question>
+
+  <question id="q.2.3.8.2" display_when="q.2.3.8">
+    <response type="cloze">
+      <text type="json">The policy requires that at least {"cloze":{"id":"q.2.3.8.2.a" , "type":"numerical" , "validation":{"min":"1" , "max":"9"}}} characters in the password are from this group.</text>
+    </response>
+    <BNF_mapping id="b.122" type="json">Users must create passwords with {"insert":{"cref":"q.2.3.8.2.a"}} or more characters in the set of these special characters: {"insert":{"cref":"q.2.3.8.1.a"}}. </BNF_mapping>
+  </question>
+
+  <question id="q.2.3.8.3" display_when="q.2.3.8">
+    <text>Is there a limit to how many of a password’s characters can be from this group? </text>
+    <response type="select one">
+      <option id="q.2.3.8.3.A">
+        <text>Yes</text>
+      </option>
+      <option id="q.2.3.8.3.B">
+        <text>No</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.3.8.3.1" display_when="q.2.3.8.3.A">
+    <response type="cloze">
+      <text type="json">The  policy {"cloze":{"id":"q.2.3.8.3.1.a" , "type":"select one" , "options":["requires", "recommends"]}} that no more than {"cloze":{"id":"q.2.3.8.3.1.b" , "type":"numerical" , "validation":{"min":1 , "max":"9"}}} characters in the password are from this group. </text>
+    </response>
+    <BNF_mapping id="b.123" type="json">Users {"ident":{"cref":"q.2.3.8.3.1.a" , "option_text":"recommends" , "bnf_text":"should"}} not create passwords with {"insert":{"cref":"q.2.3.8.3.1.b"}} or more characters in the set of these special characters: {"insert":{"cref":"q.2.3.8.1.a"}}. </BNF_mapping>
+    <BNF_mapping id="b.124" type="json">Users {"ident":{"cref":"q.2.3.8.3.1.a" , "option_text":"requires" , "bnf_text":"must"}} not create passwords with {"insert":{"cref":"q.2.3.8.3.1.b"}} or more characters in the set of these special characters: {"insert":{"cref":"q.2.3.8.1.a"}}. </BNF_mapping>
+  </question>
+
+  <question id="q.2.7.1">
+    <title>First Character</title>
+    <text>Does the policy state whether the first character of a password can or cannot be a specific type of character (e.g., upper case letter, number, special character, etc.)? </text>
+    <response type="select one">
+      <option id="q.2.7.1.A">
+        <text>Yes</text>
+      </option>
+      <option id="q.2.7.1.B">
+        <text>No</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.7.1.1" display_when="q.2.7.1.A">
+    <response type="cloze">
+      <text type="json">For the first character of a password, {"cloze":{"id":"q.2.7.1.1.a" , "type":"select multi" , "options":["upper case letters" , "lower case letters" , "letters (unspecified case)" , "numbers" , "special characters (unspecified)" , "punctuation" , "control characters or non-printable characters" , "whitespace" , "all other characters (unspecified)"]}} are {"cloze":{"id":"q.2.7.1.1.b" , "type":"select one" , "options":["prohibited" , "not recommended" , "recommended" , "required"]}}</text>
+    </response>
+    <BNF_mapping id="b.25" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"prohibited" , "bnf_text":"must not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"upper case letters"}}.</BNF_mapping>
+    <BNF_mapping id="b.26" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"prohibited" , "bnf_text":"must not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"lower case letters"}}.</BNF_mapping>
+    <BNF_mapping id="b.27" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"prohibited" , "bnf_text":"must not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"letters (unspecified case)" , "bnf_text":"letters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.28" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"prohibited" , "bnf_text":"must not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"numbers"}}.</BNF_mapping>
+    <BNF_mapping id="b.29" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"prohibited" , "bnf_text":"must not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"special characters (unspecified)" , "bnf_text":"special characters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.30" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"prohibited" , "bnf_text":"must not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"punctuation"}}.</BNF_mapping>
+    <BNF_mapping id="b.31" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"prohibited" , "bnf_text":"must not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"control characters or non-printable characters"}}.</BNF_mapping>
+    <BNF_mapping id="b.32" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"prohibited" , "bnf_text":"must not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"whitespace"}}.</BNF_mapping>
+    <BNF_mapping id="b.33" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"prohibited" , "bnf_text":"must not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"all other characters (unspecified)" , "bnf_text":"all other characters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.34" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"not recommended" , "bnf_text":"should not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"upper case letters"}}.</BNF_mapping>
+    <BNF_mapping id="b.35" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"not recommended" , "bnf_text":"should not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"lower case letters"}}.</BNF_mapping>
+    <BNF_mapping id="b.36" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"not recommended" , "bnf_text":"should not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"letters (unspecified case)" , "bnf_text":"letters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.37" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"not recommended" , "bnf_text":"should not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"numbers"}}.</BNF_mapping>
+    <BNF_mapping id="b.38" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"not recommended" , "bnf_text":"should not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"special characters (unspecified)" , "bnf_text":"special characters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.39" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"not recommended" , "bnf_text":"should not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"punctuation"}}.</BNF_mapping>
+    <BNF_mapping id="b.40" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"not recommended" , "bnf_text":"should not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"control characters or non-printable characters"}}.</BNF_mapping>
+    <BNF_mapping id="b.41" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"not recommended" , "bnf_text":"should not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"whitespace"}}.</BNF_mapping>
+    <BNF_mapping id="b.42" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"not recommended" , "bnf_text":"should not"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"all other characters (unspecified)" , "bnf_text":"all other characters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.43" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"recommended" , "bnf_text":"should"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"upper case letters"}}.</BNF_mapping>
+    <BNF_mapping id="b.44" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"recommended" , "bnf_text":"should"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"lower case letters"}}.</BNF_mapping>
+    <BNF_mapping id="b.45" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"recommended" , "bnf_text":"should"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"letters (unspecified case)" , "bnf_text":"letters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.46" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"recommended" , "bnf_text":"should"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"numbers"}}.</BNF_mapping>
+    <BNF_mapping id="b.47" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"recommended" , "bnf_text":"should"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"special characters (unspecified)" , "bnf_text":"special characters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.48" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"recommended" , "bnf_text":"should"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"punctuation"}}.</BNF_mapping>
+    <BNF_mapping id="b.49" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"recommended" , "bnf_text":"should"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"control characters or non-printable characters"}}.</BNF_mapping>
+    <BNF_mapping id="b.1050" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"recommended" , "bnf_text":"should"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"whitespace"}}.</BNF_mapping>
+    <BNF_mapping id="b.51" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"recommended" , "bnf_text":"should"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"all other characters (unspecified)" , "bnf_text":"all other characters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.52" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"required" , "bnf_text":"must"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"upper case letters"}}.</BNF_mapping>
+    <BNF_mapping id="b.53" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"required" , "bnf_text":"must"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"lower case letters"}}.</BNF_mapping>
+    <BNF_mapping id="b.54" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"required" , "bnf_text":"must"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"letters (unspecified case)" , "bnf_text":"letters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.55" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"required" , "bnf_text":"must"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"numbers"}}.</BNF_mapping>
+    <BNF_mapping id="b.56" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"required" , "bnf_text":"must"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"special characters (unspecified)" , "bnf_text":"special characters (unspec)"}}.</BNF_mapping>
+    <BNF_mapping id="b.57" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"required" , "bnf_text":"must"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"punctuation"}}.</BNF_mapping>
+    <BNF_mapping id="b.58" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"required" , "bnf_text":"must"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"control characters or non-printable characters"}}.</BNF_mapping>
+    <BNF_mapping id="b.59" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"required" , "bnf_text":"must"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"whitespace"}}.</BNF_mapping>
+    <BNF_mapping id="b.60" type="json">Users {"ident":{"cref":"q.2.7.1.1.b" , "option_text":"required" , "bnf_text":"must"}} create passwords with the first character in the set of {"ident":{"cref":"q.2.7.1.1.a" , "option_text":"all other characters (unspecified)" , "bnf_text":"all other characters (unspec)"}}.</BNF_mapping>
+  </question>
+
+  <question id="q.2.7.1.1.1" display_when="q.2.7.1.A">
+    <text>Does the policy make another statement about character types in the password’s first character position?</text>
+    <response type="select one">
+      <option id="q.2.7.1.1.1.A" clone="q.2.7.1.1,q.2.7.1.1.1">
+        <text>Yes</text>
+      </option>
+      <option id="q.2.7.1.1.1.B">
+        <text>No</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.2.20"><!-- purposely numbered wrong and out of order -->
+    <title>Passwords with all characters from specific character sets</title>
+    <text>Does the policy state whether all of a password’s characters must come from specific character sets (e.g., “Password characters must consist of only letters and numbers.”)?</text>
+    <response type="select one">
+      <option id="q.2.20.A">
+        <text> Yes – the policy requires that all password characters come from the character sets identified below (check all that apply).</text>
+	<BNF_mapping id="b.61" type="json">
+          Users must create passwords with all characters in the set of {"insert":{"qref":"q.2.20.1" , "separator":", ", "mod":{"option_ref":"2.20.1.J", "bnf_text":"these special characters:"}}} {"insert":{"cref":"q.2.20.1.J.a", "mod":{"option_ref":"2.20.1.E", "bnf_text":"special characters (unspec)"}}}.
+	</BNF_mapping>
+      </option>
+      <option id="q.2.20.B">
+        <text>Yes – the policy recommends that all password characters come from the character sets identified below (check all that apply).</text>
+	<BNF_mapping id="b.62" type="json">
+          Users should create passwords with all characters in the set of {"insert":{"qref":"q.2.20.1" , "separator":", ", "mod":{"option_ref":"1.20.1.J" , "bnf_text":"these special characters:"}}} {"insert":{"cref":"q.2.20.1.J.a", "mod":{"option_ref":"2.20.2.E", "bnf_text":"special characters (unspec)"}}}.
+	</BNF_mapping>
+      </option>
+      <option id="q.2.20.C">
+        <text>No.</text>
+      </option>
+      <!-- problem with question = you may have a policy that both requires and recommends, but this only allows you to select one or the other -->
+    </response>
+  </question>
+
+  <question id="q.2.20.1" display_where="q.2.20.A">
+    <response type="select multi">
+      <option id="q.2.20.1.A">
+        <text>upper case letters</text>
+      </option>
+      <option id="q.2.20.1.B">
+        <text>lower case letters</text>
+      </option>
+      <option id="q.2.20.1.C">
+        <text>letters (unspecified case)</text>
+      </option>
+      <option id="q.2.20.1.D">
+        <text>numbers</text>
+      </option>
+      <option id="q.2.20.1.E">
+        <text>"special characters" (unspecified)</text>
+      </option>
+      <option id="q.2.20.1.F">
+        <text>punctuation</text>
+      </option>
+      <option id="q.2.20.1.G">
+        <text>control characters or non-printable characters</text>
+      </option>
+      <option id="q.2.20.1.H">
+        <text>whitespace</text>
+      </option>
+      <option id="q.2.20.1.I">
+        <text>all other (unspecified) characters</text>
+      </option>
+      <option id="q.2.20.1.J">
+        <text type="json">a list of individually-identified special characters (please list them): {"cloze":{"id":"q.2.20.1.J.a", "type":"textbox", "validation":{"pattern":"[^ ]*"}}}</text>
+      </option>
+      <validation>>0 options</validation>
+    </response>
+    <!-- This is too complex, but don't know how else to do it. -->
+  </question>
+
+  <question id="q.3.13">
+    <title>Incorrect password entry</title>
+    <text>Does the policy indicate the number of incorrect passwords that will trigger a user lockout?</text>
+    <response type="select one">
+      <option id="q.3.13.A">
+        <text>Yes. The policy states that users will be locked out when:</text>
+      </option>
+      <option id="q.3.13.B">
+        <text>No  the policy does not address user lockout at all.</text>
+      </option>
+      <option id="q.3.13.C">
+        <text>No  the policy states that a user can be locked out, but it does not indicate the number of incorrect passwords that will trigger a lockout.</text>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.3.13.1" display_where="q.3.13.A">
+    <text>The policy states that users will be locked out when:</text>
+    <response type="select one">
+      <option id="q.3.13.1.A">
+        <text type="json">They enter { "cloze":{"id":"q.3.13.1.A.a" , "type":"numerical" , "validation":{"min":"1" , "max":"500" }}} incorrect passwords.</text>
+      </option>
+      <option id="q.3.13.1.B">
+        <text type="json">They enter { "cloze":{"id":"q.3.13.1.B.a" , "type":"numerical" , "validation":{"min":"1" , "max":"500" }}} incorrect passwords in { "cloze":{"id":"q.3.13.1.B.b" , "type":"numerical" , "validation":{"min":"1" , "max":"59"} , "default":"Amount of Time" }} {"cloze": {"id":"q.3.13.1.B.c" , "type":"select one" , "options":["second(s)" , "minute(s)" , "hour(s)"] , "default":"select one" }}.</text>
+        <!-- uses different format for validation to see if the min/max has to be within the type field -->
+      </option>
+    </response>
+  </question>
+
+  <question id="q.3.14">
+    <title>Lockout Duration and Recovery.</title>
+    <text>For the type of authentication failure selected in the previous question, identify the associated lockout duration and/or recovery method.</text>
+  </question>
+
+  <question id="q.3.14.1" display_when="q.3.13.1.A">
+    <text type="json">When a user enters {"insert": {"cref":"q.3.13.1.A.a"}} incorrect passwords:</text>
+    <response type="select one">
+      <option id="q.3.14.1.A">
+        <text>the lockout lasts for an unspecified period of time.</text>
+        <BNF_mapping id="b.63" type="json">Users must not fail to authenticate {"insert":{"cref":"q.3.13.1.A.a"}} times to avoid a lockout of unspecified duration</BNF_mapping>
+      </option>
+      <option id="q.3.14.1.B">
+        <text type="json">the lockout lasts for {"cloze":{"id":"q.3.14.1.B.a", "type":"numerical", "validation":{"min":"1" , "max":"500"}}} {"cloze":{"id":"q.3.14.1.B.b", "type":"select one", "options":["second(s)" , "minute(s)" , "hour(s)"] , "validation":"required" }}</text>
+        <BNF_mapping id="b.1063" type="json">Users must not fail to authenticate {"insert":{"cref":"q.3.13.1.A.a"}} times to avoid a {"insert":{"cref":"q.3.14.1.B.a"}} {"insert":{"cref":"q.3.14.1.B.b" , "mod":{"option_text":"second(s)" , "bnf_text":"second"} , "mod":{"option_text":"minute(s)" , "bnf_text":"minute"} , "mod":{"option_text":"hour(s)" , "bnf_text":"hour"}}} lockout.</BNF_mapping>
+      </option>
+      <option id="q.3.14.1.C">
+        <text>an administrator must unlock the account.</text>
+        <BNF_mapping id="b.1064">Users must not fail to authenticate {"insert":{"cref":"q.3.13.1.A.a"}} times to avoid administrative unlock.</BNF_mapping>
+      </option>
+    </response>
+  </question>
+
+  <question id="q.3.14.2" display_when="q.3.13.1.B">
+    <text type="json">When a user enters {"insert":{ "cref":"3.13.1.B.a"}} incorrect passwords in {"insert":{"cref":"q.3.13.1.B.b"}} {"insert":{"cref":"q.3.13.1.B.c"}}:</text>
+    <response type="select one">
+      <option id="q.3.14.2.A">
+        <text>the lockout lasts for an unspecified period of time.</text>
+        <BNF_mapping id="b.64" type="json">Users must not fail to authenticate {"insert":{"cref":"q.3.13.1.B.a"}} times in a {"insert":{"cref":"q.3.13.1.B.b"}} {"insert":{"cref":"q.3.13.1.B.c"  , "mod":{"option_text":"second(s)" , "bnf_text":"second"} , "mod":{"option_text":"minute(s)" , "bnf_text":"minute"} , "mod":{"option_text":"hour(s)" , "bnf_text":"hour"}}} interval to avoid a lockout of unspecified duration.</BNF_mapping>
+      </option>
+      <option id="q.3.14.2.B">
+        <text type="json">the lockout lasts for {"cloze":{"id":"q.3.14.2.B.a" , "type":"numerical", "validation": {"min":"1" , "max":"500"}}} {"cloze":{"id":"q.3.14.2.B.b" , "type":"select one" , "options":["second(s)" , "minute(s)" , "hour(s)"] , "validation":"required" }}</text>
+        <BNF_mapping id="b.65" type="json">Users must not fail to authenticate {"insert":{"cref":"q.3.13.1.B.a"}} times in a {"insert":{"cref":"q.3.13.1.B.b"}} {"insert":{"cref":"q.3.13.1.B.c" , "mod":{"option_text":"second(s)" , "bnf_text":"second"} , "mod":{"option_text":"minute(s)" , "bnf_text":"minute"} , "mod":{"option_text":"hour(s)" , "bnf_text":"hour"}}} interval to avoid a {"insert":{"cref":"q.3.14.2.B.a"}} {"insert":{"cref":"q.3.14.2.B.b" , "mod":{"option_text":"second(s)" , "bnf_text":"second"} , "mod":{"option_text":"minute(s)" , "bnf_text":"minute"} , "mod":{"option_text":"hour(s)" , "bnf_text":"hour"}}} lockout.</BNF_mapping>
+      </option>
+      <option id="q.3.14.2.C">
+        <text>an administrator must unlock the account.</text>
+        <BNF_mapping id="b.66" type="json">Users must not fail to authenticate {"insert":{"cref":"q.3.13.1.B.a"}} times in a {"insert":{"cref":"q.3.13.1.B.b"}} {"insert":{"cref":"q.3.13.1.B.c"}} interval to avoid administrative unlock.</BNF_mapping>
+      </option>
+      <option id="q.3.14.2.D">
+        <text type="json">either an administrator must unlock the account OR the lockout lasts for {"cloze":{"id":"q.3.14.2.D.a" , "type":"numerical" , "validation":{"min":"1" , "max":"500"}}} {"cloze":{"id":"q.3.14.2.D.b" , "type":"select one" , "options":["second(s)" , "minute(s)" , "hour(s)"]  , "validation":"required" }}.</text>
+        <BNF_mapping type="json" id="b.67">Users must not fail to authenticate {"insert":{"cref":"q.3.13.1.B.a"}} times in a {"insert":{"cref":"q.3.13.1.B.b"}} {"insert":{"cref":"q.3.13.1.B.c" , "mod":{"option_text":"second(s)" , "bnf_text":"second"} , "mod":{"option_text":"minute(s)" , "bnf_text":"minute"} , "mod":{"option_text":"hour(s)" , "bnf_text":"hour"}}} interval to avoid administrative unlock or a {"insert":{ "cref":"3.14.2.D.a"}} {"insert":{ "cref":"3.14.2.D.b"}} lockout.</BNF_mapping>
+      </option>
+    </response>
+  </question>
+
+</questions>
+
+<!-- additional comments -->
+
+<additional_comments>
+
+  <!-- this one uses cloze instead of "user entry" -->
+  <comments id="c.1"><!-- not in Jim's, so made up for testing purposes -->
+    <text>I'm having trouble answering a question</text>
+    <response type="select multi">
+      <option id="c.1.A">
+        <text>I cant determine if the policy makes a statement about communicating passwords.</text>
+      </option>
+      <option id="c.1.B">
+        <text type="json">The choices above dont let me show what is stated in the policy. (If selected, please explain:) {"cloze":{"id":"c.1.B.a", "type":"memo"}}</text>
+      </option>
+    </response>
+  </comments>
+
+  <!-- this one uses two response tags; may not work -->
+  <comments id="c.1.1">
+    <text>I'm having trouble answering a question</text>
+    <response type="select one">
+      <option id="c.1.1.A">
+        <text>I cant determine if this policy makes a statement about the persons with whom passwords can or cannot be communicated.</text>
+      </option>
+      <option id="c.1.1.B">
+        <text>The choices above dont let me show what is stated in the policy. (If selected, please explain:) </text>
+      </option>
+    </response>
+    <response type="memo"></response>
+  </comments>
+
+  <comments id="c.1.2"><!-- not in Jim's, so made up for testing purposes -->
+    <text>I'm having trouble answering a question</text>
+    <response type="select multi">
+      <option id="c.1.2.A">
+        <text>I cant determine if the policy makes a statement about the methods used to communicate passwords.</text>
+      </option>
+      <option id="c.1.2.B">
+        <text>The choices above dont let me show what is stated in the policy. (If selected, please explain:) </text>
+      </option>
+    </response>
+    <response type="memo"></response>
+  </comments>
+
+  <comments id="c.1.2.1">
+    <response type="select one">
+      <option id="c.1.2.1.A">
+        <text>I can’t determine if this policy makes a general statement about communicating or sharing passwords “by any method.”</text>
+      </option>
+      <option id="c.1.2.1.B">
+        <text type="json">The choices above don’t let me show what is stated in the policy. (If selected, please explain:) {"cloze":{"id":"c.1.2.B.a", "type":"memo"}}</text>
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.1.2.2.1">
+    <response type="select one">
+      <option id="c.1.2.2.1.A">
+        <text> I can’t determine if this policy makes a statement about communicating or sharing passwords on any network.</text>
+      </option>
+      <option id="c.1.2.2.1.B">
+        <text type="json">The choices above don’t let me show what is stated in the policy. (If selected, please explain:) {"cloze":{"id":"c.1.2.2.1.B.a" , "type":"memo"}}</text>
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.1.2.2.2">
+    <response type="select one">
+      <option id="c.1.2.2.2.A">
+        <text> I can’t determine if this policy makes a statement about communicating or sharing passwords on Internet or Wide-Area Network(WAN).</text>
+      </option>
+      <option id="c.1.2.2.2.B">
+        <text type="json">The choices above don’t let me show what is stated in the policy. (If selected, please explain:) {"cloze":{"id":"q.c.1.2.2.2.B.a" , "type":"memo"}}</text>
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.1.2.3">
+    <response type="select one">
+      <option id="c.1.2.3.A">
+        <text> I can’t determine if this policy makes a statement about communicating or sharing passwords in an emergency.</text>
+      </option>
+      <option id="c.1.2.3.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+    <response type="memo"></response>
+  </comments>
+
+  <comments id="c.2">
+    <response type="select one">
+      <option id="c.2.A">
+        <text> I can’t determine if this policy makes a statement about creating passwords.</text>
+      </option>
+      <option id="c.2.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+    <response type="memo"></response>
+  </comments>
+
+  <comments id="c.2.1">
+    <response type="select one">
+      <option id="c.2.1.A">
+        <text> I can’t determine if this policy makes a statement about minimum password length.</text>
+      </option>
+      <option id="c.2.1.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+    <response type="memo"></response>
+  </comments>
+
+  <comments id="c.2.2">
+    <response type="select one">
+      <option id="c.2.2.A">
+        <text> I can’t determine if this policy makes a statement about maximum password length.</text>
+      </option>
+      <option id="c.2.2.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+    <response type="memo"></response>
+  </comments>
+
+  <comments id="c.2.3">
+    <response type="select one">
+      <option id="c.2.3.A">
+        <text> I can’t determine if this policy makes a statement about password composition.</text>
+      </option>
+      <option id="c.2.3.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+    <response type="memo"></response>
+  </comments>
+
+  <comments id="c.2.4">
+    <response type="select one">
+      <option id="c.2.4.A">
+        <text> I can’t determine if this policy makes a statement about password characters.</text>
+      </option>
+      <option id="c.2.4.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+    <response type="memo"></response>
+  </comments>
+
+  <comments id="c.2.5">
+    <response type="select one">
+      <option id="c.2.5.A">
+        <text> I can’t determine if this policy makes a statement about Character Occurrence.</text>
+      </option>
+      <option id="c.2.5.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+  </comments>
+  <comments id="c.2.5.m" display_when="c.2.5.B">
+    <response type="memo"></response>
+  </comments>
+
+  <comments id="c.2.6">
+    <response type="select one">
+      <option id="c.2.6.A">
+        <text> I can’t determine if this policy makes a statement about Alphanumeric Characters.</text>
+      </option>
+      <option id="c.2.6.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+  </comments>
+  <comments id="c.2.6.m" display_when="c.2.6.B">
+    <response type="memo"></response>
+  </comments>
+
+  <comments id="c.2.3.1">
+    <response type="select one">
+      <option id="c.2.3.1.A">
+        <text> I can’t determine if this policy makes a statement about upper-case letters.</text>
+      </option>
+      <option id="c.2.3.1.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.2.7">
+    <response type="select one">
+      <option id="c.2.7.A">
+        <text> I can’t determine if this policy makes a statement about Individually-Identified Characters.</text>
+      </option>
+      <option id="c.2.7.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.2.3.7">
+    <response type="select one">
+      <option id="c.2.3.7.A">
+        <text> I can’t determine if this policy makes a statement about Individually-Identified Characters that are required.</text>
+      </option>
+      <option id="c.2.3.7.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.2.3.8">
+    <response type="select one">
+      <option id="c.2.3.8.A">
+        <text> I can’t determine if this policy makes a statement about Individually-Identified Characters that are recommended.</text>
+      </option>
+      <option id="c.2.3.8.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.2.20">
+    <response type="select one">
+      <option id="c.2.20.A">
+        <text> I can’t determine if this policy makes a statement about all characters from a set.</text>
+      </option>
+      <option id="c.2.20.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.5.2.7">
+    <response type="select one">
+      <option id="c.5.2.7.A">
+        <text> I can’t determine if this policy makes a statement about character position.</text>
+      </option>
+      <option id="c.5.2.7.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.2.7.1">
+    <response type="select one">
+      <option id="c.2.7.1.A">
+        <text> I can’t determine if this policy makes a statement about the first character in a password.</text>
+      </option>
+      <option id="c.2.7.1.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.3">
+    <response type="select one">
+      <option id="c.3.A">
+        <text> I can’t determine if this policy makes a statement about failing to authenticate.</text>
+      </option>
+      <option id="c.3.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.3.1">
+    <response type="select one">
+      <option id="c.3.1.A">
+        <text> I can’t determine if this policy makes a statement about user lockout.</text>
+      </option>
+      <option id="c.3.1.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+
+      </option>
+    </response>
+  </comments>
+
+  <comments id="c.3.2">
+    <response type="select one">
+      <option id="c.3.2.A">
+        <text> I can’t determine if this policy makes a statement about user lockout.</text>
+      </option>
+      <option id="c.3.2.B">
+        <text>The choices above don’t let me show what is stated in the policy. (If selected, please explain:)</text>
+
+      </option>
+    </response>
+  </comments>
+
+</additional_comments>
+
+
+
+<!-- Static Text MUCH OF THIS IS NOT RENDERED CURRENTLY-->
+
+<static_text>
+  <enable_flashed_messages>True</enable_flashed_messages> <!-- leave blank to disable -->
+  <enable_logged_in_message>True</enable_logged_in_message> <!-- leave blank to disable -->
+  <enable_question_ids>True</enable_question_ids> <!-- leave blank to disable -->
+  <title>Password Policy Study</title>
+
+  <help_text>lorum ipsom</help_text>
+
+  <nojs_message> <![CDATA[ <p> You <b> really </b> ought to enable javascript.</p> ]]> </nojs_message>
+
+  <sign_in>
+    <pgtitle>Sign in to the Password Policy Formalization Study</pgtitle>
+    <username>Username:</username>
+    <no_account> <![CDATA[ Don't have a username? <a href="/signup">Create a new account.</a> ]]></no_account>
+    <intro_text>Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah</intro_text>
+    <instructions>Please sign in to your account</instructions>
+    <error_text>That username does not exist. Please re-enter your username.</error_text>
+  </sign_in>
+
+  <sign_up>
+    <pgtitle>Sign up for the Password Policy Formalization Study</pgtitle>
+    <has_account>Already have an account?</has_account>
+    <name_taken>This name is reserved for internal usage - please choose a different name.</name_taken>
+    <intro_text>Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah</intro_text>
+    <instructions><![CDATA[ Please enter a user name. <br>It must consist of only letters and numbers. If you forget this user name, your account cannot be recovered. Only a scrambled version of this name is ever stored in order to protect your identity. ]]></instructions>
+    <success>New user created successfully</success>
+  </sign_up>
+
+  <policies_for_review>
+    <pgtitle> Policies </pgtitle>
+    <instructions>
+      Select a policy - you will be taken to the policy questionnaire, and a pdf of the policy will open in a separate window. Your responses are automatically saved at all times.
+    </instructions>
+    <new_and_draft_text>
+      Policies For Review
+    </new_and_draft_text>
+    <new_text>
+      New
+    </new_text>
+    <draft_text>
+      Drafts
+    </draft_text>
+    <completed_text>
+      Completed
+    </completed_text>
+  </policies_for_review>
+
+  <questionnaire>
+    <back_text> Back to Policies For Review (all progress saved) </back_text> <!-- No HTML... full text is a link back -->
+  </questionnaire>
+
+  <help>
+    <pgtitle> Help! </pgtitle>
+    <html>
+      <![CDATA[
+	       <p> I <b> need help!</b> </p>
+	       <br/>
+	       <br/>
+	       <ul>
+	       <li> Help me 1</li>
+	       <li> Help me 2</li>
+	       <li> Link to comments <a href="/general_comments"> Comment? </a> </li>
+	       <a onclick="history.back(-1)" href="javascript:void(0);"> Go Back </a>
+	       </ul>
+      ]]>
+    </html>
+  </help>
+
+  <!-- <user_home> -->
+  <!--   <pgtitle>Password Policy Home</pgtitle> -->
+  <!--   <intro_text>Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah</intro_text> -->
+  <!--   <instructions>Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah</instructions> -->
+  <!--   <sub_section> -->
+  <!--     <section_title>Policies for Review</section_title> -->
+  <!--     <section_text>Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah</section_text> -->
+  <!--   </sub_section> -->
+  <!--   <sub_section> -->
+  <!--     <section_title>Drafts for Completion</section_title> -->
+  <!--     <section_text>Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah</section_text> -->
+  <!--   </sub_section> -->
+  <!--   <sub_section> -->
+  <!--     <section_title>Completed</section_title> -->
+  <!--     <section_text>Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah</section_text> -->
+  <!--   </sub_section> -->
+  <!--   <general_comment_link>Confused?</general_comment_link> -->
+  <!--   <general_comment_text>Send a comment or submit feedback</general_comment_text> -->
+  <!-- </user_home> -->
+
+  <!-- <contact> -->
+  <!--   <pgtitle>Contact</pgtitle> -->
+  <!--   <intro_text>Contact a member of the project team</intro_text> -->
+  <!--   <note>last updated 02/25/2014</note> -->
+  <!--   <admin> -->
+  <!--     <name>Julius Caesar</name> -->
+  <!--     <email>deademperor@rome.gov</email> -->
+  <!--     <telephone>123-456-7890</telephone> -->
+  <!--   </admin> -->
+  <!--   <admin> -->
+  <!--     <name>Mary Theofanos</name> -->
+  <!--     <email>mary.theofanos@nist.gov</email> -->
+  <!--     <telephone>(301) 975-5889</telephone> -->
+  <!--   </admin> -->
+  <!--   <admin> -->
+  <!--     <name>Michelle Steves</name> -->
+  <!--     <email>michelle.steves@nist.gov</email> -->
+  <!--     <telephone>(301) 975-3537</telephone> -->
+  <!--   </admin> -->
+  <!-- </contact> -->
+
+  <demographics_survey>
+    <pgtitle>Survey!</pgtitle>
+    <instructions><![CDATA[
+    These are instructions for the demogrpahic survey. <br/>
+    HTML is supported.
+    <br/>
+    <br/>
+    ]]></instructions>
+    <submit_text><![CDATA[
+    <p style="width:200px;color:red;margin-left:200px;">
+    Please fill out as much as your comfortable with before submitting!
+    </p>
+    ]]>
+    </submit_text>
+  </demographics_survey>
+
+  <admin_configure>
+    <pgtitle>Configure Study</pgtitle>
+  </admin_configure>
+
+  <admin_testing_setup>
+    <pgtitle> Testing Setup </pgtitle>
+  </admin_testing_setup>
+
+  <admin_reporting>
+    <pgtitle>Reporting</pgtitle>
+  </admin_reporting>
+
+  <general_comments>
+    <pgtitle> Comments </pgtitle>
+    <intro_text><![CDATA[
+    <b> Feel free to leave a comment! </b>
+    ]]>
+    </intro_text>
+    <nature_text><![CDATA[
+    <p> What is the nature of your comment? </p>
+    ]]>
+    </nature_text>
+    <describe_text><![CDATA[
+    <p> Please describe: </p>
+    ]]>
+    </describe_text>
+
+  </general_comments>
+
+  <completion_page>
+    <pgtitle> Complete Study? </pgtitle>
+    <description> If you click 'Complete' you will no longer be able to edit your responses to this questionnaire. Click 'Go Back' to return to the questionnaire. </description>
+    <invalid_text> You have not completed every question in the study - you are free to submit the questionnaire without completing it, but please do try to complete all questions. The questions you have missed are highlighted in the sidebar of the study. </invalid_text>
+    <complete_text> Complete </complete_text>
+    <go_back_text> Go Back </go_back_text>
+  </completion_page>
+</static_text>
+
+
+<!-- general comments page NOT CURRENTLY RENDERED-->
+
+<general_comments>
+  <pgtitle>General Comment</pgtitle>
+  <intro_text>Send us a Comment</intro_text>
+  <question id="g.1">
+    <text>What is the nature of your comment</text>
+    <note>Please submit separate comments for each issue</note>
+    <instructions>Select One:</instructions>
+    <response type="select one">
+      <validation type="json">{"validation":">0 options" , "text":"please select one"}}></validation>
+      <option id="g.1.A">
+        <text>Question</text>
+      </option>
+      <option id="g.1.B">
+        <text>Feedback</text>
+      </option>
+      <option id="g.1.C">
+        <text>Technical Problem</text>
+      </option>
+    </response>
+  </question>
+  <question id="g.1.1" display_when="g.1.A">
+    <text>What is your question?</text>
+    <response type="memo"></response>
+  </question>
+  <question id="g.1.2" display_when="g.1.B">
+    <response type="memo"></response>
+  </question>
+  <question id="g.1.3" display_when="g.1.C">
+    <text>Please describe the problem:</text>
+    <response type="memo"></response>
+  </question>
+</general_comments>
+
+<!-- demographics survey NOT CURRENTLY RENDERED-->
+
+<demographics_survey>
+  <pgtitle>Demographic information</pgtitle>
+  <intro_text>This information is for demographic purposes only</intro_text>
+  <instructions>This survey will only be shown once - please fill out all information you are comfortable giving.</instructions>
+  <submit_text>Submit</submit_text>
+  <question id="d.1">
+    <text>gender</text>
+    <response type="select one">
+      <option id="d.1.A">
+        <text>>male</text>
+      </option>
+      <option id="d.1.B">
+        <text>female</text>
+      </option>
+      <option id="d.1.C">
+        <text>prefer not to answer</text>
+      </option>
+      <option id="d.1.D">
+        <text>other</text>
+      </option>
+    </response>
+  </question>
+  <question id="d.2">
+    <text>age</text>
+    <response type="select one">
+      <option id="d.2.A">
+      <text>less than 20</text></option>
+      <option id="d.2.B">
+        <text>20-29</text>
+      </option>
+      <option id="d.2.C">
+        <text>30-39</text>
+      </option>
+      <option id="d.2.D">
+        <text>40-49</text>
+      </option>
+      <option id="d.2.E">
+        <text>...</text>
+      </option>
+    </response>
+  </question>
+</demographics_survey>
+
+
+</questionnaire>

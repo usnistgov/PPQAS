@@ -1,0 +1,78 @@
+{% extends "common.html" %}
+{% block pg_subtitle %}
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}" ></script>
+  <script src="{{ url_for('static', filename='jquery.validate.js')}}"></script>
+  <script src="{{ url_for('static', filename='additional-methods.js') }}"></script>
+  <script src="{{ url_for('static', filename='number-polyfill.min.js') }}"></script>
+{% endblock %}
+
+{% from 'macros.html' import render_instructions, gra, render_question, render_select_one, render_select_multi, render_cloze, render_mixed_text_json, get_text, render_response, render_page, render_comment, render_select_one_cloze, render_numerical_cloze, render_textbox_cloze, render_select_multi_cloze, render_memo_cloze, render_insert with context %}
+
+{% block page %}
+
+<script>
+ var API_URL = "{{ url_for('demosurvey_response') }}";
+ var POLICY_NAME = "demosurvey";
+ var INSERT_URL = "{{ url_for('resolve_insert', policy_name='demosurvey') }}";
+ var CLEAR_RESPONSES_URL = "{{ url_for('clear_responses') }}";
+ var submit_text = "{{ submit_text }}"
+ var submit_text_title = "{{ submit_text_title }}";
+ var pols_for_review = "{{ url_for('detailedInstructions') }}";
+ var COMPLETE_URL = "{{ url_for('demosurvey_complete') }}";
+ var CONTINUE_LABEL = "{{ submit_continue }}";
+ var CANCEL_LABEL = "{{ submit_cancel }}";
+</script>
+
+<script type="text/javascript">
+
+  // Original JavaScript code by Chirp Internet: www.chirp.com.au
+  // Please acknowledge use of this code by including this header.
+
+  function getCookie(name)
+  {
+    var re = new RegExp(name + "=([^;]+)");
+    var value = re.exec(document.cookie);
+    return (value != null) ? unescape(value[1]) : null;
+  }
+
+</script>
+
+<script>
+  function openRelevantSettings() {
+  var username = getCookie("username");
+  var warningTitle = "Username Information"
+  var warningText1 = "Your username is: "
+  var warningText2 = warningText1.concat(username)
+  var warningText3 = "<br />Be sure to remember your username. It cannot be recovered if lost.";
+  var warningText4 = warningText2.concat(warningText3);
+  alertify.defaults.glossary.ok = 'I Understand';
+  alertify.alert(warningTitle, warningText4, function(){});
+  }
+  
+  
+</script>
+
+
+  <body onload="openRelevantSettings()"> 
+  <div id="demosurvey">
+    <form id="theform">
+      {{ render_page(page) }}
+		
+      <br>
+	  <button class="float_right" type="button" onclick="demo_survey_finish(pols_for_review, submit_text)">
+	Submit
+      </button>
+    </form>
+  </div>
+
+
+
+{% endblock %}
+
+
+{% block endscripts %}
+
+  <script type="text/javascript" src="{{ url_for('static', filename='demosurvey_page.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "common.html" %}
+{% block pg_subtitle %}
+{% endblock %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}" ></script>
+  <script src="{{ url_for('static', filename='jquery.validate.js')}}"></script>
+  <script src="{{ url_for('static', filename='additional-methods.js') }}"></script>
+  <script src="{{ url_for('static', filename='number-polyfill.min.js') }}"></script>
+{% endblock %}
+
+{% from 'macros.html' import render_instructions, gra, render_question, render_select_one, render_select_multi, render_cloze, render_mixed_text_json, get_text, render_response, render_page, render_comment, render_select_one_cloze, render_numerical_cloze, render_textbox_cloze, render_select_multi_cloze, render_memo_cloze, render_insert with context %}
+
+{% block page %}
+
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+
+<script type='text/javascript'>
+  var POLICY_NAME = "general_comments";
+  var API_URL = "{{ url_for('general_comments_response') }}";
+  var INSERT_URL = "{{ url_for('resolve_insert', policy_name='general_comments') }}";
+  var CLEAR_RESPONSES_URL = "{{ url_for('clear_responses') }}";
+</script>
+
+<div id="generalcomments">
+  
+  <form id="theform" style="padding-right: 0px; display: block;" class="gcform" method="post">
+    {{ render_page(page) }}
+	<input id="gcsubmit" class="float_right" type="submit" value="Submit"/>
+  </form>
+  <form  id="backform" action="{{ request.args.next }}" method="GET">
+    <input class="float_right" form="backform"  type="submit" value="Cancel" id="gcback">
+  </form>
+
+  <script type="text/javascript">
+   var f = $("#backform")[0];
+   var next_index = f.action.indexOf("next=");
+   var amp_index = f.action.indexOf("&", next_index);
+   if (amp_index == -1) {
+	    var arg_url = f.action.slice(next_index+5);
+   }
+   else {
+	 var arg_url = f.action.slice(next_index+5, amp_index);
+   }
+   if (next_index != -1) {
+	 $("#backform").append("<input type='hidden' name='next' value='" + decodeURIComponent(arg_url) + "'>");
+   }
+  </script>
+
+
+
+</div>
+
+{% endblock %}

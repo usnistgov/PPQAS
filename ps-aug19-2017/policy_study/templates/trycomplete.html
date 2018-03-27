@@ -1,0 +1,66 @@
+{% extends "questionnaire_base.html" %}
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}" ></script>
+{% endblock %}
+
+{% from 'macros.html' import render_instructions, gra, render_question, render_select_one, render_select_multi, render_cloze, render_mixed_text_json, get_text, render_response, render_page, render_comment, render_select_one_cloze, render_numerical_cloze, render_textbox_cloze, render_select_multi_cloze, render_memo_cloze, render_insert, render_comments_of_page with context %}
+
+
+{% block questionnaire_content %}
+
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+
+<body onload="openRelevantSettings()"> 
+
+<div id="trycomplete" class="centered">
+  <div class="qpage_title"> Review and Submit </div>
+  <div class="q_title"> Review </div>
+  <div>
+	{% if not invalid_qids %}
+	  {{ review_all_completed|safe }}
+	{% else %}
+	  {{ review_need_responses|safe }}
+	{% endif %}
+  </div>
+
+  <div class="q_title"> Submit </div>
+  <div>
+	{% if not invalid_qids %}
+	  {{ submit_all_completed|safe }}
+	{% else %}
+	  {{ submit_need_responses|safe }}
+	{% endif %}
+  </div>
+
+  <div class="error"> {% if invalid_qids %} {{ invalid_text|safe }} {% endif %} </div>
+  {% if elements.enable_flashed_messages %}
+    <br/>
+    <div class="error">
+      {% if invalid_qids %}
+		{{ invalid_qids }}
+      {% endif %}
+    </div>
+  {% endif %}
+  <br/>
+
+  <form id="complete" action="{{ url_for('policy_complete', policy_name=name) }}">
+    <input class=TCInput type="submit" value="{{ complete_text|safe }}">
+  </form>
+
+
+  <form id="goback" action="{{ url_for('first_error_page', policy_name=name) }}">
+    <input class=TCInput type="submit" value="{{ go_back_text }}">
+  </form>
+
+</div>
+
+<script>
+function openRelevantSettings(){
+	document.getElementById("finishButton").style.fontWeight = "bold";
+}
+</script>
+
+{% endblock %}

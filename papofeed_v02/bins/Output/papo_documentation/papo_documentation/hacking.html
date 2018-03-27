@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hacking &mdash; papofeed 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="papofeed 0.1 documentation" href="index.html" />
+    <link rel="prev" title="Writing the docx questionnaire" href="docx_format.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="docx_format.html" title="Writing the docx questionnaire"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">papofeed 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="hacking">
+<h1>Hacking<a class="headerlink" href="#hacking" title="Permalink to this headline">¶</a></h1>
+<p>After installing papo, you can run the test suite by running &#8216;python setup.py test&#8217;.</p>
+<p>The test suite is also compatible with pytest and can also run with the py.test &#8216;command&#8217;.</p>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<p>The papofeed directory is the main package for the software, containing the following modules:</p>
+<div class="section" id="elements">
+<h3>elements<a class="headerlink" href="#elements" title="Permalink to this headline">¶</a></h3>
+<p>Structures for all the xml elements understood by the Password Policy Taxonomy Software.</p>
+</div>
+<div class="section" id="extractor">
+<h3>extractor<a class="headerlink" href="#extractor" title="Permalink to this headline">¶</a></h3>
+<p>Module to extract data from docx files</p>
+</div>
+<div class="section" id="feed">
+<h3>feed<a class="headerlink" href="#feed" title="Permalink to this headline">¶</a></h3>
+<p>Uses data obtained by the extractor module to create objects for the classes in the &#8216;elements&#8217; module.</p>
+</div>
+<div class="section" id="toxml">
+<h3>toxml<a class="headerlink" href="#toxml" title="Permalink to this headline">¶</a></h3>
+<p>Generates the xml output file based in all the &#8216;elements&#8217; objects in memory.</p>
+</div>
+</div>
+<div class="section" id="testing">
+<h2>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h2>
+<p>Whenever possible, write tests for your changes in the &#8216;test&#8217; sub-package.</p>
+</div>
+<div class="section" id="all-the-development-was-based-in-the-following-files">
+<h2>All the development was based in the following files<a class="headerlink" href="#all-the-development-was-based-in-the-following-files" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference download internal" href="_downloads/questionnaire_tag_description.docx"><tt class="xref download docutils literal"><span class="pre">questionnaire</span> <span class="pre">tag</span> <span class="pre">description</span></tt></a> by Celia Paulsen in 03/27/2014, which is outdated.</p>
+<p><a class="reference download internal" href="_downloads/password_policy_template.xsd"><tt class="xref download docutils literal"><span class="pre">password</span> <span class="pre">policy</span> <span class="pre">template</span></tt></a> by Celia Paulsen in 03/18/2014, which is outdated.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Hacking</a><ul>
+<li><a class="reference internal" href="#modules">Modules</a><ul>
+<li><a class="reference internal" href="#elements">elements</a></li>
+<li><a class="reference internal" href="#extractor">extractor</a></li>
+<li><a class="reference internal" href="#feed">feed</a></li>
+<li><a class="reference internal" href="#toxml">toxml</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#testing">Testing</a></li>
+<li><a class="reference internal" href="#all-the-development-was-based-in-the-following-files">All the development was based in the following files</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="docx_format.html"
+                        title="previous chapter">Writing the docx questionnaire</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/hacking.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="docx_format.html" title="Writing the docx questionnaire"
+             >previous</a> |</li>
+        <li><a href="index.html">papofeed 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Athos Ribeiro.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

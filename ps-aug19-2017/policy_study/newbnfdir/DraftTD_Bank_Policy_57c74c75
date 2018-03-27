@@ -1,0 +1,128 @@
+# {u'_id': ObjectId('57c74c750fada62431de57f5'),
+#  u'bnf_statements': [u'BNF for option q.2.1.A',
+#                      u'4.4.6.1.1.2 - selected YES (opt A)',
+#                      u'Simple bnf statement to test cloned statements',
+#                      u'BNF text when options q.3.1.1.1.B and q.3.1.1.2.A are selected',
+#                      u'BNF for option q.1.2.B',
+#                      u'4.4.6.1.2.1 - selected YES (opt A)',
+#                      u'4.4.7.1.1.2 - selected NO (opt B)',
+#                      u'Simple bnf statement for non-cloned question',
+#                      u'Question 4.4.7.1, the following were checked: Box 1, Box 8',
+#                      u'Q.4.4.7.1.1 - BNF for Box 1-option B',
+#                      u'BNF for 4.4.3.1, option selected: option 2',
+#                      u'Q.4.4.6.1.1 - BNF for Box 1-option B',
+#                      u"Question 4.4.6.1, the following were checked: Box 1, Let's see this question again",
+#                      u'Question 4.4.5.1, the following were checked: Box 2',
+#                      u'bnf for integer check: 4!',
+#                      u'BNF for option q.2.2; insert textbox text: hey',
+#                      u'Q.4.4.5.1.2 - BNF for Box 2-option A',
+#                      u'BNF for 4.4.3.1, option selected: option 1',
+#                      u'BNF for q.1.1: mod for B!!!',
+#                      u'BNF for option q.1.3; insert textbox text contents: derp!!',
+#                      u'BNF for option q.1.5; insert cloze: A(numeral): 3; B(text): gigabyte; C(select_one):option 1; D(select_multi):option 1, option 2 E(memo):who the f gonna mess with me',
+#                      u'BNF for option q.1.4; insert memo text: derp 2!!',
+#                      u'BNF for option q.1.7; insert cloze: A(numeral): 3; B(text): heygina; C(select_one):option C; D(select_multi):option B, option A; E(memo):girl loves me',
+#                      u'q.1.6: No, to another. For this one: A(numeral): 3; B(text): gigabyte; C(select_one):option 1; D(select_multi):option 1, option 2 E(memo):who the f gonna mess with me!',
+#                      u'BNF for question q.3.1.3.1 with math: 0',
+#                      u'BNF for question q.3.1.3.3 with math: -5',
+#                      u'BNF for question q.3.1.3.2 with mod - 1 count:1.',
+#                      u'BNF mapping for question q.3.1.2.1 - count how many from question q.3.1.2.2: 1;; then insert and modify the options selected in q.3.1.1.2.2: more text.',
+#                      u'Q.4.4.6.1.2 - BNF for Box 2-option A',
+#                      u"q.4.10.7: 'Yes' to another; this one: Lowercase Letters",
+#                      u"q.4.10.5: 'Yes' to another; this one: Lowercase Letters, Letters",
+#                      u'Question 4.4.6.1, the following were checked: Box 2'],
+#  u'policy_name': u'TD Bank Policy',
+#  u'questions': {u'c.41': u'c.41.B',
+#                 u'q.1.1': u'q.1.1.B',
+#                 u'q.1.2': [u'q.1.2.B'],
+#                 u'q.1.3': u'derp',
+#                 u'q.1.4': u'derp 2',
+#                 u'q.1.5>q.1.5.a': u'3',
+#                 u'q.1.5>q.1.5.b': u'gigabyte',
+#                 u'q.1.5>q.1.5.c': u'option 1',
+#                 u'q.1.5>q.1.5.d': [u'option 2', u'option 1'],
+#                 u'q.1.5>q.1.5.e': u'who the f gonna mess with me',
+#                 u'q.1.6': u'q.1.6.A',
+#                 u'q.1.7>q.1.7.a': u'3',
+#                 u'q.1.7>q.1.7.b': u'heygina',
+#                 u'q.1.7>q.1.7.c': u'option 3',
+#                 u'q.1.7>q.1.7.d': [u'option 1', u'option 2'],
+#                 u'q.1.7>q.1.7.e': u'girl loves me',
+#                 u'q.1.8': u'q.1.8.A',
+#                 u'q.2.1': [u'q.2.1.A'],
+#                 u'q.2.2': u'hey',
+#                 u'q.2.3>q.2.3.a': u'4.55',
+#                 u'q.2.3>q.2.3.b': u'$',
+#                 u'q.2.5>q.2.5.a': u'4',
+#                 u'q.3.1.1.1': u'q.3.1.1.1.B',
+#                 u'q.3.1.1.2': u'q.3.1.1.2.A',
+#                 u'q.3.1.2.1>q.3.1.2.1.a': u'hey gine',
+#                 u'q.3.1.2.2': [u'q.3.1.2.2.A'],
+#                 u'q.3.1.3.1>q.3.1.3.1.a': u'2',
+#                 u'q.3.1.3.2>q.3.1.3.2.a': [u'option 1'],
+#                 u'q.3.1.3.3>q.3.1.3.3.a': u'-3',
+#                 u'q.4.1.1': u'q.4.1.1.A',
+#                 u'q.4.1.1.1': u'q.4.1.1.1.B',
+#                 u'q.4.10.3': u'q.4.10.3.C',
+#                 u'q.4.10.4': [u'q.4.10.4.C', u'q.4.10.4.B'],
+#                 u'q.4.10.5': u'q.4.10.5.A',
+#                 u'q.4.10.6': u'q.4.10.6.B',
+#                 u'q.4.10.7': u'q.4.10.7.A',
+#                 u'q.4.4.1': u'q.4.4.1.A',
+#                 u'q.4.4.1.1': u'q.4.4.1.1.A',
+#                 u'q.4.4.2': u'q.4.4.2.A',
+#                 u'q.4.4.2clone1': u'q.4.4.2.Bclone1',
+#                 u'q.4.4.3': u'q.4.4.3.A',
+#                 u'q.4.4.3.1': [u'q.4.4.3.1.A'],
+#                 u'q.4.4.3.1clone1': [u'q.4.4.3.1.Bclone1'],
+#                 u'q.4.4.3.2': u'q.4.4.3.2.A',
+#                 u'q.4.4.3.2clone1': u'q.4.4.3.2.Bclone1',
+#                 u'q.4.4.5.1': [u'q.4.4.5.1.B'],
+#                 u'q.4.4.5.1.2': u'q.4.4.5.1.2.A',
+#                 u'q.4.4.6': u'q.4.4.6.A',
+#                 u'q.4.4.6.1': [u'q.4.4.6.1.A', u'q.4.4.6.1.E'],
+#                 u'q.4.4.6.1.1': u'q.4.4.6.1.1.B',
+#                 u'q.4.4.6.1.1.2': u'q.4.4.6.1.1.2.A',
+#                 u'q.4.4.6.1.2.1clone1': u'q.4.4.6.1.2.1.Aclone1',
+#                 u'q.4.4.6.1.2clone1': u'q.4.4.6.1.2.Aclone1',
+#                 u'q.4.4.6.1clone1': [u'q.4.4.6.1.Bclone1'],
+#                 u'q.4.4.7': u'q.4.4.7.A',
+#                 u'q.4.4.7.1': [u'q.4.4.7.1.A', u'q.4.4.7.1.H'],
+#                 u'q.4.4.7.1.1': u'q.4.4.7.1.1.B',
+#                 u'q.4.4.7.1.1.2': u'q.4.4.7.1.1.2.B',
+#                 u'q.4.4.7.2': u'q.4.4.7.2.A'},
+#  u'state': u'draft',
+#  u'tried_to_complete': True,
+#  u'username': u'e3c0921411ef75027dd552786c9424e9ae2122029cf9c8a20dbb7058670b8055000747eb084f6738a67e70fc32748275bdc23ea009666f59a55b02dedd6cdea1'}
+BNF for option q.2.1.A
+4.4.6.1.1.2 - selected YES (opt A)
+Simple bnf statement to test cloned statements
+BNF text when options q.3.1.1.1.B and q.3.1.1.2.A are selected
+BNF for option q.1.2.B
+4.4.6.1.2.1 - selected YES (opt A)
+4.4.7.1.1.2 - selected NO (opt B)
+Simple bnf statement for non-cloned question
+Question 4.4.7.1, the following were checked: Box 1, Box 8
+Q.4.4.7.1.1 - BNF for Box 1-option B
+BNF for 4.4.3.1, option selected: option 2
+Q.4.4.6.1.1 - BNF for Box 1-option B
+Question 4.4.6.1, the following were checked: Box 1, Let's see this question again
+Question 4.4.5.1, the following were checked: Box 2
+bnf for integer check: 4!
+BNF for option q.2.2; insert textbox text: hey
+Q.4.4.5.1.2 - BNF for Box 2-option A
+BNF for 4.4.3.1, option selected: option 1
+BNF for q.1.1: mod for B!!!
+BNF for option q.1.3; insert textbox text contents: derp!!
+BNF for option q.1.5; insert cloze: A(numeral): 3; B(text): gigabyte; C(select_one):option 1; D(select_multi):option 1, option 2 E(memo):who the f gonna mess with me
+BNF for option q.1.4; insert memo text: derp 2!!
+BNF for option q.1.7; insert cloze: A(numeral): 3; B(text): heygina; C(select_one):option C; D(select_multi):option B, option A; E(memo):girl loves me
+q.1.6: No, to another. For this one: A(numeral): 3; B(text): gigabyte; C(select_one):option 1; D(select_multi):option 1, option 2 E(memo):who the f gonna mess with me!
+BNF for question q.3.1.3.1 with math: 0
+BNF for question q.3.1.3.3 with math: -5
+BNF for question q.3.1.3.2 with mod - 1 count:1.
+BNF mapping for question q.3.1.2.1 - count how many from question q.3.1.2.2: 1;; then insert and modify the options selected in q.3.1.1.2.2: more text.
+Q.4.4.6.1.2 - BNF for Box 2-option A
+q.4.10.7: 'Yes' to another; this one: Lowercase Letters
+q.4.10.5: 'Yes' to another; this one: Lowercase Letters, Letters
+Question 4.4.6.1, the following were checked: Box 2

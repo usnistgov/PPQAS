@@ -1,0 +1,95 @@
+{% extends "common.html" %}
+{% block scripts %}
+  <script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}" ></script>
+  <script src="{{ url_for('static', filename='jquery.validate.js')}}"></script>
+  <script src="{{ url_for('static', filename='additional-methods.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename="questionnaire.js") }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename="questionnaire_page.js") }}"></script>
+{% endblock %}
+
+
+{% block page %}
+
+  {% block above_qnav %} {% endblock %}
+  {% block questionnaire_nav %}
+
+	<div class="policies_link">
+	</div>
+	<div id="pdfmessage" style="display:none;">
+      Looks like your browser didn't open the policy pdf. Disable pop up blocking, or navigate to
+      <a href="{{ url_for('serve_pdf', filename=name) }}"> {{ url_for('serve_pdf', filename=name) }} </a> in a separate window.
+	</div>
+	<div class="sidebar" id="sidebar">
+      <ol>
+		<li>
+		  <a href="{{ url_for('policies_for_review') }} " >
+			{{ back_text }}
+		  </a>
+		  <hr>
+		</li>
+		{%- for key, value in index.iteritems() recursive %}
+		  {% set outer_loop = loop %}
+		  {% if key == "page" %}
+			{% if value is mapping %}
+			  <li> <a class="page-link {% if section == item['@title'] %}sidebar-selected{% endif %} {# TODO no item here? #}
+							  {%- if index_contains_any_qid(item, invalid_qids) %}
+								error
+							  {%- endif %}"
+							  href="{{ url_for('policy_questionnaire', policy_name=policy_id, section=value['@title']) }}">
+							  {{ value["@title"] }}
+			  </a></li>
+			{% else %}
+			  {% for item in value %}
+				<li > <a class="page-link {% if section == item['@title'] %}sidebar-selected{% endif %}
+							   {%- if index_contains_any_qid(item, invalid_qids) %}
+								 error
+							   {%- endif %}"
+							   href="{{ url_for('policy_questionnaire', policy_name=policy_id, section=item['@title']) }}">
+							   {{ item["@title"] }}
+				</a> </li>
+			  {% endfor %}
+			{% endif %}
+		  {% elif key == "group" %}
+			{% for item in value %}
+			  {% if item["@level"] <= level %}
+				<li> <a class="{%- if item['@title'] not in pages %}
+							   sbnp
+							 {%- endif %}
+							 {%- if section == item['@title'] %}
+							   sidebar-selected
+							 {%- endif %}
+							 {%- if index_contains_any_qid(item, invalid_qids) %}
+							   error
+							 {%- endif %}"
+							 href="{{ url_for('policy_questionnaire', policy_name=policy_id, section=item['@title']) }}">
+							 {{ item["@title"] }}
+				  </a>
+				  <ol style="font-size:12px;{% if item['@title'] not in display %}display: none;{% endif %}">
+					{% if item["@level"] < level and not "page" in item or level == "page" %}
+					  {{ outer_loop(item.iteritems()) }}
+					{% endif %}
+										   </ol>
+				</li>
+			  {% endif %}
+			  {% if item["@level"] == "1" %}
+			  {% endif %}
+			{% endfor %}
+		  {% endif %}
+		{%- endfor %}
+		<li> <hr> <a id="finishButton" href="{{ url_for('trycomplete', policy_name=policy_id, section=section) }}" > {{ finish_text }} </a> </li>
+      </ol>
+	</div>
+  {% endblock %}
+	<div class="qpage_content">
+	<div class="breadcrumbsPolicy">{{ name + ':' }}</div>
+	<div class="breadcrumbs">  {{ breadcrumbs }} </div>
+	<br>
+      <!--<div id="qpgtitle" class="pgtitle">
+		{{ '|Policy you are reviewing: ' + name }}
+      </div>-->
+	  {% block questionnaire_content %}
+
+	  {% endblock %}
+	</div>
+
+{% endblock %}

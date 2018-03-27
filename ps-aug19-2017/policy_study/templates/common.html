@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+  <head>
+	  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='ionicons.css') }}"/>
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='alertify.css') }}" />
+      <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='default.css') }}" />
+	  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='number-polyfill.css') }}" />
+      <title> {% block title %} {{ elements["title"] }} {% endblock %} </title>
+	<style type="text/css">
+      .hidden {
+        display: none;
+      }
+	  .rightNavButton{
+		padding-right:10px;
+	  }
+    </style>
+  </head>
+  <body>
+    {% block scripts %}
+      <!-- placeholder -->
+    {% endblock %}
+    {% block body %}
+      {% block containerdef %}
+		<div id="container">
+      {% endblock %}
+	  {% block header %}
+		<div class="header">
+	      <img src="{{ url_for('static', filename='ppf_header1.jpg') }}" alt="Policy visualization logo with NIST Password Policy Formalization as title and National Institute of Standards and Technology, U.S. Department of Commerce in the bottom corner"/>
+		</div>
+		{% block navbar %}
+	      {% if current_user.get_id() %}
+			{% if current_user.get_id()|length < 128 %}
+			  <div class=navbar>
+				<a href="{{ url_for('admin_accounts') }}"> Accounts </a>
+				<a href="{{ url_for('admin_configure') }}"> Configure </a>
+				<a href="{{ url_for('admin_reporting') }}"> Reporting </a>
+				<a class="selected" href="{{ url_for('admin_testing') }}"> Testing </a>
+				<a href="{{ url_for('admin_testing_setup') }}"> Testing Setup </a>
+				<a href="{{ url_for('admin_about') }}"> About </a>
+			  </div>
+			{% endif %}
+	      {% endif %}
+		{% endblock %}
+		{% block flashed_messages %}
+		  {% with messages = get_flashed_messages() %}
+			{% if elements.enable_flashed_messages and messages %}
+			  <div class="flashes">
+				{% for message in messages %}
+				  {{ message }}<br>
+				{% endfor %}
+			  </div>
+			{% endif %}
+		  {% endwith %}
+		{% endblock %}
+		<script type="text/javascript">
+		  var GENERAL_COMMENTS_EMAIL = null;
+		  {% if session.general_comments_email %}
+			GENERAL_COMMENTS_EMAIL = "{{ reset_general_comments(session) }}";
+			var email_sent_text = "{{ elements["email_sent_text"] }}";
+			var email_error_text = "{{ elements["email_error_text"] }}";
+			var email_ok = "{{ elements["email_ok"] }}";
+			var email_title = "{{ elements["email_title"] }}";
+		  {% endif %}
+		</script>
+		<div class="toplinks">
+	      {% if current_user.get_id() and (current_user.is_admin() or elements.enable_logged_in_message) %}
+			<div class="logged_in"> Logged in as {{current_user.get_id()|truncate(10,True)}}</div>
+	      {% endif %}
+		  <!--{% block instructions %}
+			<a href="{{ url_for('popupInstructions', next=request.url) }}">
+			Instructions
+			<span> <img height="16px" src="{{ url_for('static', filename='comment-edit-icon.jpg') }}" alt="comments logo - blue speech bubble with pencil"/> </span>
+			</a>
+		  {% endblock %} -->
+		  {% block helplink %}
+			<a href="{{ url_for('help', next=request.url) }}">
+			  <span> Help </span>
+			  <span> <img src="{{ url_for('static', filename='helpIconSmall.gif') }}" alt="question mark logo"/> </span>
+			</a>
+		  {% endblock %}
+		  <a href="{{ url_for('general_comments', next=request.url) }}">
+			<span> General Comment </span>
+			<span> <img src="{{ url_for('static', filename='comment-edit-icon.jpg') }}" alt="comments logo - blue speech bubble with pencil"/> </span>
+		  </a>
+	      {% if current_user.get_id() %}
+			{% block logoutlink %}
+			  <a href="{{ url_for('logout') }}">
+				<span> Logout </span>
+				<span> <img class=rightNavButton height="16px" src="{{ url_for('static', filename='logout.jpg') }}" alt="logout logo - green circle with arrow pointing out"/></a>
+			  {% endblock %}
+			{% endif %}
+
+		</div>
+	  {% endblock %}
+	  {% block content %}
+		<div id="content">
+	      <div class="pgtitle">
+			{% block pgtitle %} {{ pgtitle }} {% endblock %}
+	      </div>
+	      <div class="pg_subtitle">
+			{% block pg_subtitle %} {{ pg_subtitle }} {% endblock %}
+	      </div>
+	      <noscript>
+			{% if "nojs_message" in elements %}
+			  {{ elements["nojs_message"]|safe }}
+			{% endif %}
+	      </noscript>
+	      <div id="nopopup" style="display: none;">
+			{{ elements["nopopups_message"]|safe }}
+	      </div>
+	      {% block page %}
+			<!-- placeholder -->
+	      {% endblock %}
+		</div>
+	  {% endblock %}
+	  <div class="clear"> </div>
+		</div>
+      {% endblock %}
+      <script type="text/javascript">
+	    exclam_url = "{{ url_for('static', filename='exclam.png') }}"
+      </script>
+      <script src="{{ url_for('static', filename='alertify.js') }}"></script>
+      <script src="{{ url_for('static', filename='common.js') }}"></script>
+      {% block endscripts %}
+      {% endblock %}
+  </body>
+</html>

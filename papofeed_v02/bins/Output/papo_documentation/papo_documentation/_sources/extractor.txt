@@ -1,0 +1,6 @@
+papofeed.extractor
+*********************************************************
+
+.. automodule:: papofeed.extractor
+   :members:
+

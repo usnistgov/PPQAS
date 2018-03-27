@@ -1,0 +1,100 @@
+{% extends "common.html" %}
+{% block pg_subtitle %}
+{% endblock %}
+
+
+{% from 'macros.html' import render_instructions, gra, render_question, render_select_one, render_select_multi, render_cloze, render_mixed_text_json, get_text, render_response, render_page, render_comment, render_select_one_cloze, render_numerical_cloze, render_textbox_cloze, render_select_multi_cloze, render_memo_cloze, render_insert with context %}
+
+{% block page %}
+<head>
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+</head>
+
+
+
+<br>
+<p class=DIpageTitle>Using this Tool to Review Password Policies</p>
+<!--Tip box-->
+<div class=DItipBox> 
+	<p class=DItipsHeader>Tips</p>
+	<ul class=DIulSquare>
+		<li class="DI">Remember your User ID and keep it safe. If you forget it, you cannot recover it and you cannot go back to your previous answers. To review any policies, you'll have to create a new account and start all over again.</li>
+		<li class="DI">The tool tracks and saves your responses as you go. As long as you don't submit your responses, you can go back and change them, if you want.</li>
+		<li class="DI">Confused about a question or topic? Tell us in the comments at the end of each page. </li>
+		<li class="DI">To tell us about a more general concern, at the top of the page, click General Comment.</li>
+	</ul>
+</div>
+
+<!--Rest of the page-->
+<div class=DItextWidth>
+<ul class=DIulfonts>
+	<li class="DI"><span class=DIbold>The tool will show you 3 policies to review.</span> Pick one to begin. You should probably work through them one at a time; but, you don’t have to submit your answers on one review before you start another.</li>
+	<li class="DI"><span class=DIbold>This is not a memory test.</span> The policy is always available.</li>
+</ul>
+
+<br>
+<p class=DIusingHeader>What's your job?</p>
+<ul class=DIulfonts>
+	<li class="DI"><span class=DIbold>Tell us what the policy says about passwords for general-user accounts – only about passwords, nothing else. </span> Match the specific rules in the policy to the generalized responses in the questions.<br><p style="margin-top: 5px;">We are studying rules for non-privileged accounts for general users only, not for administrators or privileged accounts. We did not include passphrases and SSH keys.<p></li>
+	<li class="DI"><span class=DIbold>Policy rules are sometimes difficult to uncover.</span> But, typically, they have common characteristics. Generally, rules fall into one of these categories:
+	<br>
+	<ul class=DIulSquare style="font-size:14px;">
+		<li class="DI">The user <span class=DIbold>must…</span></li>
+		<li class="DI">The user <span class=DIbold>should…</span></li>
+		<li class="DI">The user <span class=DIbold>must not…</span></li>
+		<li class="DI">The user <span class=DIbold>should not…</span></li>
+	</ul>
+	Vague statements such as, "Passwords should be memorable," are not covered because they are not rules. 
+	</li>
+	<li class="DI"><span class=DIbold>Policies vary.</span> The policies you review may not have all the categories we ask about, so don't worry. Just tell us that the category isn't mentioned and move on.</li>
+</ul>
+<br>
+</div>
+<div class=DItextWidth2>
+<p class=DIusingHeader>What else do you need to know?</p>
+<ul class=DIulfonts>
+	<li class="DI"><span class=DIbold>You don’t have to answer every question,</span> but we ask you to answer as much as you can. Write in comments if you want; we like details.</li>
+	<li class="DI"><span class=DIbold>At the end of a page, when you click Next, if you have missed a question or entered an invalid response, you’ll see <img class=DIexclamationPointImage src="/static/exclam.png" alt="Instructions Exclam Image" />.</span> You may choose to answer the question, change your response, or move on.</li>
+	<li class="DI"><span class=DIbold>When you get to the end of all of the questions, the tool will <div class=DIhighlightText>highlight</div> the questions you haven’t answered.</span> It will suggest that you go back and complete them. At this point, you can either choose to go back or submit.</li>
+	<li class="DI"><span class=DIbold>Once you submit, the tool marks your answers as complete and you cannot return to that policy.</span></li>
+</ul>
+</div>
+<p class=DItoStartText>To start</p>
+<ul class=DIulfonts>
+	<li class="DI">Pick a policy to review.</li>
+	<img class=DItoStartImage src="/static/policyFocusPicture.jpg" alt="Policy Focus Picture" />
+	<br><br>
+	<div class=DItextWidth2><li class="DI">You'll see two windows: At first, the policy will be on top and the tool beneath it. You can reposition them (as we did here) and go back and forth. </li></div>
+	<img class=DItoStartImage src="/static/policyAndTool.jpg" alt="Policy and Tool Picture" />
+	<br><br>
+	<div class=DItextWidth2><li class="DI">Begin answering questions, using the policy as your reference. Remember, the tool will save your responses, so you don't have to. </li></div>
+	<br>
+</ul>
+
+{% block scripts %}
+  <script src="{{ url_for('static', filename='jquery-1.11.1.min.js') }}" ></script>
+  <script src="{{ url_for('static', filename='jquery.validate.js')}}"></script>
+  <script src="{{ url_for('static', filename='additional-methods.js') }}"></script>
+  <script src="{{ url_for('static', filename='number-polyfill.min.js') }}"></script>
+  <script type="text/javascript" src="{{ url_for('static', filename= "questionnaire.js") }}"></script>
+{% endblock %}
+
+
+<script>
+ var API_URL = "{{ url_for('demosurvey_response') }}";
+ var POLICY_NAME = "demosurvey";
+ var INSERT_URL = "{{ url_for('resolve_insert', policy_name='demosurvey') }}";
+ var submit_text = "{{ submit_text }}"
+ var pols_for_review = "{{ url_for('policies_for_review') }}";
+ var COMPLETE_URL = "{{ url_for('demosurvey_complete') }}";
+</script>
+
+  <div id="detailedInstructions" class=DIpageSubmitButton>
+    <form id="theform" action=policies>
+      <!--{{ render_page(page) }}
+	  {{render_page(image)}}-->
+	  <button type="submit" value="Submit">Continue</button>
+
+    </form>
+  </div>
+{% endblock %}

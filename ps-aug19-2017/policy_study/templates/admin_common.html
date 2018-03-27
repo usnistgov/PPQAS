@@ -1,0 +1,15 @@
+{% extends "common.html" %}
+
+{% block helplink %}
+{% endblock %}
+
+{% block navbar %}
+<div class="navbar">
+  <a class="{{ sel.admin_accounts }}" href="{{ url_for('admin_accounts') }}"> Accounts </a>
+  <a class="{{ sel.admin_configure }}" href="{{ url_for('admin_configure') }}"> Configure </a>
+  <a class="{{ sel.admin_reporting }}" href="{{ url_for('admin_reporting') }}"> Reporting </a>
+  <a href="{{ url_for('admin_testing') }}"> Testing </a>
+  <a class="{{ sel.admin_testing_setup }}" href="{{ url_for('admin_testing_setup') }}"> Testing Setup </a>
+  <a class="{{ sel.admin_about }}" href="{{ url_for('admin_about') }}"> About </a>
+</div>
+{% endblock %}

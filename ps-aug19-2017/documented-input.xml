@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- encoded html tags or cdata tag may be used in the "instructions" or any text-type element-->
+<questionnaire xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	       xsi:schemaLocation="ppt password%20policy%20template%20031814.xsd"
+	       xmlns="ppt">
+  <xmlversion>031114</xmlversion> <!-- format TBD -->
+  <qaversion>30oct2013v1</qaversion> <!-- the question/answer version name -->
+  <BNFversion>kevinV1</BNFversion> <!-- version of the BNF used – format TBD -->
+  <!--version numbering system to be sorted out later-->
+  <indent_px>20</indent_px>
+  <!-- questions will be indented by this many pixels multiplied by the number on their indent attribute (default 0) -->
+
+  <!-- text tags like <instructions> <text> <note> can have type=json and take { "insert": } clauses -->
+
+
+  <!-- Index-->
+  <index grouping="page" interweave_next_level="true">
+    <!-- To display the order of questions and page breaks. Navigation should be based on this.
+	 Attribute: grouping - can be “page” or “1”, “2”, “3”, etc.
+	 Attribute: interweave_next_level - when this is true and the grouping is an integer, pages will be rendered with the instructions element from the next group down interwoven among the questions.
+    -->
+    <group level="1" title="Communicate" comment_ref="c.1">
+      <!-- The index contains an arbitrary number of groups, and any group can contain an arbitrary number of groups
+	   Groups may also contain an arbitrary number of pages, although no group can contain both a group and page. If the index violates this rule, an exception will be thrown when the application starts which prints information about which group is to blame.
+	   Attribute: level - always an integer if this number is equal to the grouping attribute from index, then all questions contained within this group will be rendered on a single page of the survey.
+	   Attribute: title - title of the survey page associated with this group - unique identification to be used in navigation/breadcrumbs as well as at the top of the group webpage where the page title goes.
+	   Attribute: comment_ref - refers to the id of a comment element defined later in the document. If this level of grouping is selected, the comment that this references will be rendered at the bottom of the page.
+      -->
+      <instructions>These are the instructions for this group</instructions>
+      <!-- Instructions are rendered when this level of grouping is selected, or when one level up (lower number) is selected, and the interweave_next_level attribute is true.
+      -->
+      <text>this text should not flow down and only be visible when this level of grouping is desired</text>
+      <!-- Text is only shown at the top of the page when this level of grouping is selected -->
+      <group level="2" title="Who" comment_ref="c.1.2">
+	<!-- example of a group within a group -->
+	<page title="Who" comment_ref="c.1.1">
+	  <!-- pages contain the questions for a survey, their attributes are the same as groups, except without the level, and are only used when grouping=page -->
+	  <instructions> Instructions for the page titled 'Who' </instructions>
+	  <text>Text for the page titled 'Who'</text>
+	  <!-- Instructions and text work the same for pages as for groups except that neither is ever shown unless grouping=page -->
+          <include qref="q.1.1"></include>
+	  <!-- include tags have a qref attribute which refers to the id of a question element later in the document -->
+          <include qref="q.1.1.1"></include>
+	</page>
+	<!-- this group could contain many more page elements, but no group elements -->
+      </group>
+      <!-- this group could contain many more group elements, but no page elements -->
+    </group>
+    <!-- The index can contain any number of level=1 grouping elements -->
+  </index>
+
+
+  <questions>
+    <!-- The questions tag contains any number of question objects -->
+    <question id="q.1.1" display_when="q.2.3.1.1.C" indent="2">
+      <!-- question elements define the questions which are referenced by include tags in the index
+	   Attribute: id - referenced by include@qref
+	   Attribute: display_when - the display when attribute indicates that this question will only be displayed if the option id referenced (q.2.3.1.1.C in this case) is selected.
+	   Attribute: display_where - like a display_when, but the question will be placed directly after the referenced option
+	   Attribute: indent - optional indent attribute. question will be indented by this number times the "indent_px"
+      -->
+      <title>Question Title</title>
+      <!-- First part of the question which is rendered in bold -->
+      <text>Does the policy identify people with whom users &lt;b&gt;may not&lt;/b&gt; communicate or share passwords?</text>
+      <!-- Main question text rendered in blue -->
+      <note>(Do not put spaces between characters—“whitespace” is addressed later)</note>
+      <!-- Additional information about the question, rendered just before the response section, slightly indented -->
+      <response type="select one">
+	<!-- response element contains information describing how the question should be answered
+	     Attribute: type. Types include:
+	       Select One: This is a "select one" type response which means it contains a list of options to choose from. Rendered as radio buttons in the survey.
+	       Select Multi: User can select multiple answers. Represented as check boxes
+	       Cloze: Cloze questions are text with intermingled json objects which represent inline questions. The json portion of clozes is discussed at the bottom of the questions section.
+	       Memo: A large text input area.
+	-->
+	<option id="q.1.1.A">
+	  <!-- option for a selection type of response - the id is used to store which answer was selected in the data store -->
+          <text>Yes</text>
+	  <!-- Text to be displayed by the UI element which represents this option
+	       Attribute: type - type can be 'json' which means that there may be json objects intermingled with the text representing various things. Option text supports cloze, and insert which are described at the end of the questions section.
+	  -->
+	      <note type="json"> A note {"insert": {"cref": "q.1.2.a"}} </note>
+		  <!-- Options inside select multi and select one responses may have a note inside. This note will be rendered just above the option and indented to the same level as the checkbox or radio button. It supports the optional type attribute which can be used to signify that inline json (such as an "insert" object) is present. -->
+          <BNF_mapping when="someid,someid2" id="a.1">Users must not communicate passwords to anyone.</BNF_mapping>
+	  <!-- BNF statement that may be generated when this option is selected
+	       BNF mappings can include inline json objects in the same way that text can. They support ident and insert objects which are described at the end of the questions section.
+		   The id attribute is the id of the bnf mapping object itself.
+		   The when attribute is optional, and contains a comma separated list of option ids. At least one of these option ids must be present for the BNF statement to be generated.
+	  -->
+	</option>
+	<option id="q.1.1.B">
+          <text>Maybe</text>
+	</option>
+      </response>
+    </question>
+
+    <question id="q.2.3.7.3.1" display_when="q.2.3.7.3.A">
+      <response type="cloze">
+	<text type="json">The  policy {"cloze":{"id":"q.2.3.7.3.1.a" , "type":"select one" , "options":["requires", "recommends"]}} that no more than {"cloze":{"id":"q.2.3.7.3.1.b" , "type":"numerical" , "validation":{"min":1 , "max":"9", "invalid_text": "Must be between one and nine!"}}} characters in the password are from this group. </text>
+      </response>
+      <BNF_mapping id="b.23" type="json">Users {"ident":{"cref":"q.2.3.7.3.1.a" , "option_text":"recommends" , "bnf_text":"should"}} not create passwords with {"insert":{"cref":"q.2.3.7.3.1.b"}} or more characters in the set of these special characters: {"insert":{"cref":"q.2.3.7.1.a"}}. </BNF_mapping>
+      <BNF_mapping id="b.24" type="json">Users {"ident":{"cref":"q.2.3.7.3.1.a" , "option_text":"requires" , "bnf_text":"must"}} not create passwords with {"insert":{"cref":"q.2.3.7.3.1.b"}} or more characters in the set of these special characters: {"insert":{"cref":"q.2.3.7.1.a"}}. </BNF_mapping>
+    </question>
+
+    <question id="q.2.20.1" display_where="q.2.20.A">
+      <response type="select multi">
+	<option id="q.2.20.1.A">
+          <text>upper case letters</text>
+	</option>
+	<option id="q.2.20.1.B">
+          <text>lower case letters</text>
+	</option>
+	<option id="q.2.20.1.C">
+          <text>letters (unspecified case)</text>
+	</option>
+	<option id="q.2.20.1.D">
+          <text>numbers</text>
+	</option>
+	<option id="q.2.20.1.E">
+          <text>"special characters" (unspecified)</text>
+	</option>
+	<option id="q.2.20.1.F">
+          <text>punctuation</text>
+	</option>
+	<option id="q.2.20.1.G">
+          <text>control characters or non-printable characters</text>
+	</option>
+	<option id="q.2.20.1.H">
+          <text>whitespace</text>
+	</option>
+	<option id="q.2.20.1.I">
+          <text>all other (unspecified) characters</text>
+	</option>
+	<option id="q.2.20.1.J">
+          <text type="json">a list of individually-identified special characters (please list them): {"cloze":{"id":"q.2.20.1.J.a", "type":"textbox", "validation":{"pattern":"[^ ]*"}}}</text>
+	</option>
+	<validation>
+	  <required>required</required>
+	<!-- To be considered answered (for the completion page), at least one answer needs to be checked in this select multi -->
+	  <invalid_text>This text will be shown as mouseover on the warning icon when this question is invalid</invalid_text>
+	</validation>
+	<!-- all validation options are passed directly to the html5 element representing this response, with the exception of invalid_text which is treated specially -->
+      </response>
+    </question>
+
+    <!-- Summary of JSON options
+     {"cloze":{ ...}} - For when there is a question within the text of an option. Uses JSON format
+       id – format = id of the question/option plus a lower-case letter period in between
+       type – the type of input
+         numerical
+	 select one
+	 select multiple
+	 text = small text box
+	 memo = big text box
+       default - the default option or text to show (there may be text here which is not listed as an option)
+       validation – an object which contains validation information which will be passed directly to html5 elements on the page. See this documentation https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Forms_in_HTML If the validation object contains a key "invalid_text", it will be used as mouseover text for the invalid icon, and not passed directly to the object
+       option – an array of options for the user to select from (for use with either "select one" or "select multiple")
+
+     {"insert":{ …}} – For when user input needs to be inserted into the text of a question, option, or BNF mapping.
+       cref – the ID of the cloze from which this text derives.
+       math - value can be any positive or negative integer - gets added to the inserted number
+       count - If this key is present, cref must reference a select_multi question, and the number inserted or used in any math statement will be the number of selected options in the select multi
+       qref – the ID of the question from which this text derives (e.g. when we want to insert text from a multi-choice question)
+       "mod":{… – if an the option wording needs to be changed to match the bnf.
+           The value of "mod" is a mapping from either cloze text or option id, to the text which should replace it. i.e. { "second (s)": "second", "minute (s)": "minute"}
+       separator – when multiple options are selected, this is the text in the bnf that should separate the options.
+
+     {"ident":[ …]} – You can use ident to swap out the answer to a question with different text. If the answer to the referenced question is equal to the option_text, then the bnf_text will be used. Also if the answer to the referenced questions is a list of things, and the option text is in the list, the bnf_text will be used.
+
+       for when a user choice (e.g. multiple choice option) should be searched for to create a bnf phrase
+       cref– the ID of the cloze from which this text derives.
+       option_text – the option in the cloze that the user selects
+       "option_ref" –reference number of a question’s option
+       bnf_text – the text to be inserted into the bnf phrase when the before conditions are met if the bnf text is different from the option text (if no "text", then should insert the option as is)
+
+     {"validation":…} - should not require user to answer a certain way, but only warn them. Can apply to any response, option, cloze statement, etc.
+       html5 validation
+       Extensions to HTML5 validation:
+           gt, lt, gte, lte, eq: These options stand for "greater than", "less than", "greater than or equal", "less than or equal", and "equal" respectively. The value of any is the id of a question with an integer answer. This question will only validate if it satisfies the relationship with the referenced question. i.e. {"validation": { "gte": "q.3.2.a"}} means that this question will be valid only if its answer is greater than or equal to the answer to question 3.2.a.
+
+    -->
+  </questions>
+
+  <additional_comments>
+    <!-- The additional_comments tag contains all of the comments referenced in the index. -->
+    <comments id="c.1">
+      <!-- Each comment can contain the same things as a question, but
+           can have multiple response sections. When there are
+           multiple responses, they need to each have an id. This is
+           because the id is used as a key for where the response is
+           stored in the data store. Any response without an id will
+           inherit the comments id.
+      -->
+      <text>I'm having trouble answering a question</text>
+      <response type="select multi">
+	<option id="c.1.A">
+          <text>I cant determine if the policy makes a statement about communicating passwords.</text>
+	</option>
+	<option id="c.1.B">
+          <text type="json">The choices above dont let me show what is stated in the policy. (If selected, please explain:) {"cloze":{"id":"c.1.B.a", "type":"memo"}}</text>
+	</option>
+      </response>
+      <response id="c.1_2" type="memo"></response>
+      <!-- Note the second response as an id different from the comments id -->
+    </comments>
+  </additional_comments>
+
+
+
+  <static_text>
+    <!-- The static text section has several top level sections that apply to multiple pages, and then a section for each page in the study. It is a way to pass in text for various pieces of the study, such as titles of pages, login prompts, etc. -->
+    <enable_flashed_messages>True</enable_flashed_messages>
+    <!-- Whether or not to display status messages on the page on login/logout, wrong password, and other events. Leave blank to disable -->
+    <enable_logged_in_message>True</enable_logged_in_message>
+    <!-- Whether or not to display a "Logged in as ...." message at the top of each page. Leave blank to disable -->
+    <enable_question_ids>True</enable_question_ids>
+    <!-- Whether or not to display the id of each question under the title. Leave blank to disable -->
+    <title> The Title </title>
+    <!-- Title of the web page (usually appears in the browser tab, or at the top of the browser) -->
+    <nojs_message> <![CDATA[ <p> You <b> really </b> ought to enable javascript.</p> ]]> </nojs_message>
+    <!-- Message to display if the user does not have javascript enabled -->
+    <nopopups_message> <![CDATA[ <p> You <b> really </b> ought to enable popups.</p> ]]> </nopopups_message>
+    <!-- Message to display if the user is blocking popups for this page -->
+
+    <sign_in>
+      <!-- Static text pieces for the sign in page -->
+      <pgtitle>Sign in to the Password Policy Formalization Study</pgtitle>
+      <username>Username:</username>
+      <!-- text for spot users enter their user name-->
+      <no_account> <![CDATA[ Don't have a username? <a href="/signup">Create a new account.</a> ]]></no_account>
+      <!-- text for button / link if the user doesn’t have an account. -->
+      <intro_text>Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah</intro_text>
+      <!-- if additional information is wanted -->
+      <instructions>Please sign in to your account</instructions>
+      <error_text>That username does not exist. Please re-enter your username.</error_text>
+      <!-- text to pop up if the user-name doesn’t exist -->
+      <error_title_text>Nonexistent!</error_title_text>
+      <!-- title for error_text pop up -->
+    </sign_in>
+
+    <sign_up>
+      <!-- Static text pieces for the sign up page -->
+      <pgtitle>Sign up for the Password Policy Formalization Study</pgtitle>
+      <has_account>Already have an account?</has_account>
+      <!-- text for button / link if the user already has an account -->
+      <name_taken>This name is reserved for internal usage - please choose a different name.</name_taken>
+      <!-- text to pop up if the user-name already exists (e.g. "That user name is reserved. Please try a different user name") -->
+      <name_taken_title>Name is taken!</name_taken_title>
+      <!-- title for name_taken popup box -->
+      <name_invalid>Name must be only letters and numbers</name_invalid>
+      <!-- text to pop up if the user-name is invalid -->
+      <name_invalid_title>Name is invalid!</name_invalid_title>
+      <!-- title for name_invalid popup box -->
+      <intro_text>Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah Lorem Ipsum blah</intro_text>
+      <instructions><![CDATA[ Please enter a user name. <br>It must consist of only letters and numbers. If you forget this user name, your account cannot be recovered. Only a scrambled version of this name is ever stored in order to protect your identity. ]]></instructions>
+      <success>New user created successfully</success>
+      <!-- text for when creation is successful -->
+    </sign_up>
+
+    <policies_for_review>
+      <!-- Static text pieces for the policies for review page -->
+      <pgtitle> Policies </pgtitle>
+      <instructions>
+	Select a policy - you will be taken to the policy questionnaire, and a pdf of the policy will open in a separate window. Your responses are automatically saved at all times.
+      </instructions>
+      <new_and_draft_text>
+	Policies For Review
+      </new_and_draft_text>
+      <new_text>
+	New
+      </new_text>
+      <draft_text>
+	Drafts
+      </draft_text>
+      <completed_text>
+	Completed
+      </completed_text>
+      <!-- _text tags are headers for each section on the policies for review page -->
+    </policies_for_review>
+
+    <questionnaire>
+      <!-- Static text pieces for the questionnaire page -->
+      <back_text> Back to Policies For Review (all progress saved) </back_text>
+      <!-- No HTML... full text is a link back. This text will be used for the top of the sidebar
+	   as well as the link at the bottom of the page when on the first page of the study-->
+      <finish_text> Finish Study </finish_text>
+      <!-- Text for sidebar and bottom of page links -->
+      <continue_label> Continue </continue_label>
+      <!-- Text for button on pop up menu that allows the user to continue without validly answering all questions -->
+      <cancel_label> Go Back </cancel_label>
+      <!-- Text for button on pop up menu that allows the user to go back to the page they were on to fix problems -->
+      <invalid_popup_title>Not Valid!</invalid_popup_title>
+      <!-- Title text for popup window when questions are invalid -->
+
+      <invalid_popup_text> some text </invalid_popup_text>
+      <!-- Text for popup window when questions are invalid -->
+
+	  <default_insert_text> DEPENDS ON USER INPUT </default_insert_text>
+	  <!-- If the question targeted by an insert has not been answered, this text will be shown -->
+
+    </questionnaire>
+
+    <help>
+      <!-- Static text pieces for the help page. This one is basically the title, then all the html for the page -->
+      <pgtitle> Help! </pgtitle>
+      <html>
+	<![CDATA[
+		 <p> I <b> need help!</b> </p>
+		 <br/>
+		 <br/>
+		 <ul>
+		 <li> Help me 1</li>
+		 <li> Help me 2</li>
+		 <li> Link to comments <a href="/general_comments"> Comment? </a> </li>
+		 <a onclick="history.back(-1)" href="javascript:void(0);"> Go Back </a>
+		 </ul>
+	]]>
+      </html>
+    </help>
+
+
+    <demographics_survey>
+      <!-- Static text pieces for the demographics survey page -->
+
+      <submit_text>Please fill out all fields you are comfortable with - to return click cancel, to proceed to the study click OK</submit_text>
+      <!-- Text to display in the js pop up box when the user submits the survey -->
+      <submit_text_title>Careful!</submit_text_title>
+      <!-- Title for pop up box -->
+      <indent_px>2</indent_px>
+      <!-- Number of pixels to multiply the question indent attribute by for this page -->
+    </demographics_survey>
+
+    <admin_configure>
+      <!-- Static text pieces for the admin configuration page -->
+      <pgtitle>Configure Study</pgtitle>
+    </admin_configure>
+
+    <admin_testing_setup>
+      <!-- Static text pieces for the admin testing setup page -->
+      <pgtitle> Testing Setup </pgtitle>
+    </admin_testing_setup>
+
+    <admin_reporting>
+      <!-- Static text pieces for the admin reporting page -->
+      <pgtitle>Reporting</pgtitle>
+    </admin_reporting>
+
+    <general_comments>
+      <!-- Static text pieces for the general comments page -->
+      <pgtitle> Comments </pgtitle>
+      <indent_px>2</indent_px>
+      <!-- Number of pixels to multiply the question indent attribute by for this page -->
+    </general_comments>
+
+    <completion_page>
+      <!-- Static text pieces for the completion page -->
+      <pgtitle> Complete Study? </pgtitle>
+      <description> If you click 'Complete' you will no longer be able to edit your responses to this questionnaire. Click 'Go Back' to return to the questionnaire. </description>
+      <!-- Main text for completion page -->
+      <invalid_text> You have not completed every question in the study - you are free to submit the questionnaire without completing it, but please do try to complete all questions. The questions you have missed are highlighted in the sidebar of the study. </invalid_text>
+      <!-- Text to be displayed if there are unfinished questions -->
+      <complete_text> Complete </complete_text>
+      <!-- Text for the complete link -->
+      <go_back_text> Go Back </go_back_text>
+      <!-- Text for the go back link -->
+    </completion_page>
+  </static_text>
+
+
+
+  <general_comments>
+    <!-- questions for the general comments page. Rendered the same way as the questionnaire, but with a submit button at the bottom -->
+    <!-- Any items that are not part of a question will be rendered as is, in the order they appear -->
+    <intro_text>Send us a Comment</intro_text>
+    <question id="g.1">
+      <text>What is the nature of your comment</text>
+      <note>Please submit separate comments for each issue</note>
+      <instructions>Select One:</instructions>
+      <response type="select one">
+	<validation type="json">{"validation":{"required":"required"}}, "text":"please select one"}}></validation>
+	<option id="g.1.A">
+          <text>Question</text>
+	</option>
+	<option id="g.1.B">
+          <text>Feedback</text>
+	</option>
+	<option id="g.1.C">
+          <text>Technical Problem</text>
+	</option>
+      </response>
+    </question>
+    <question id="g.1.1" display_when="g.1.A">
+      <text>What is your question?</text>
+      <response type="memo"></response>
+    </question>
+    <question id="g.1.2" display_when="g.1.B">
+      <response type="memo"></response>
+    </question>
+    <question id="g.1.3" display_when="g.1.C">
+      <text>Please describe the problem:</text>
+      <response type="memo"></response>
+    </question>
+  </general_comments>
+
+
+  <demographics_survey>
+    <!-- questions for the demographic survey page. Rendered the same way as the questionnaire. -->
+    <!-- Any items that are not part of a question will be rendered as is, in the order they appear -->
+    <pgtitle>Demographic information</pgtitle>
+    <intro_text>This information is for demographic purposes only</intro_text>
+    <instructions>This survey will only be shown once - please fill out all information you are comfortable giving.</instructions>
+    <question id="d.1">
+      <text>gender</text>
+      <response type="select one">
+	<option id="d.1.A">
+          <text>male</text>
+	</option>
+	<option id="d.1.B">
+          <text>female</text>
+	</option>
+	<option id="d.1.C">
+          <text>prefer not to answer</text>
+	</option>
+	<option id="d.1.D">
+          <text>other</text>
+	</option>
+      </response>
+    </question>
+    <question id="d.2">
+      <text>age</text>
+      <response type="select one">
+	<option id="d.2.A">
+	<text>less than 20</text></option>
+	<option id="d.2.B">
+          <text>20-29</text>
+	</option>
+	<option id="d.2.C">
+          <text>30-39</text>
+	</option>
+	<option id="d.2.D">
+          <text>40-49</text>
+	</option>
+	<option id="d.2.E">
+          <text>...</text>
+	</option>
+      </response>
+    </question>
+  </demographics_survey>
+
+</questionnaire>

@@ -1,0 +1,1313 @@
+/**************************
+**************************
+Common Styles
+**************************
+***************************/
+
+body {
+    font-family: Helvetica;
+    font-size: 0.8em;
+	
+}
+
+a {
+    text-decoration: none;
+}
+
+img {text-decoration: none; border: 0px}
+
+.error {
+/*    color: #FF9090 (or #6A014B); */
+    color: #61014B !important;
+    font-weight: bold;
+}
+
+.errors {
+    color: #900;
+    padding-left: 0;
+}
+
+.errors li {
+     list-style: none;
+}
+
+.attn {
+     color: #900;
+}
+
+mark {
+     background-color: white;
+     color: #61014B;
+}
+
+.wrap {
+    display: inline-block;
+}
+
+.clozehangingindent {
+	text-indent: -20px;
+	padding-left: 15px;
+}
+
+.hangingindent {
+	text-indent: -27px;
+	padding-left: 22px;
+	padding-bottom: 3px;
+}
+
+.bounding-container {
+    padding: 6px;
+    background: #DDD;
+    width: 60%;
+    margin: 0 auto;
+}
+
+.clear {
+    clear:both;
+    line-height:0;
+}
+
+/* The main frame containing all other frames*/
+#container {
+    margin: 0 auto;
+    max-width: 1080px;
+    min-width: 760px;
+	background: #FFF;
+    border: 30px solid #457BA1;
+    padding-bottom: 30px;
+	/* For resizing based on browser window size*/
+	/*max-width: 100%;
+    height: auto;
+    width: auto\9;*/
+}
+
+/*Container that holds navigation bar + page contents*/
+#content {
+    padding-left: 25px;
+	padding-right: 25px;
+}
+
+.center-container {
+    position: relative;
+    height: 100px;
+}
+
+.centered {
+    margin: auto;
+	
+}
+
+#popupimg {
+    position: absolute;
+    top: 45%;
+    left: 16px;
+}
+
+.right {
+    margin-left: 250px;
+}
+
+.float_right {
+    float: right;
+}
+
+/*Banner image + background color*/
+.header {
+    background: #CBE8D6;
+    text-align: left;
+    height: 90px;
+    width: 100%;
+    border-bottom: 2px solid #204B78;
+}
+
+.header img {
+    height: 90px;
+}
+
+.header > h1 {
+    padding-top: .1em;
+    font-size: 4.1em;
+    margin: 0px;
+}
+
+.logged_in {
+    display: table-cell;
+}
+
+.pgtitle {
+    text-align: left;
+	/*padding-left: 5px;*/
+    font-size: 2em;
+    color: #457BA1;
+    margin: 10px 0px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.pg_subtitle {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.flashes {
+    color: red;
+    list-style: none;
+    margin: 0px 8px;
+    float: left;
+    margin-top: 8px;
+}
+
+
+/* sign up page intro text */
+.introtext {
+    font-size: 1.0em;
+    margin-bottom: 0px;
+}
+
+/* sign up page instructions */
+.instructions {
+    margin-top: 0px;
+}
+
+.label {
+    font-weight: bold;
+    float: left;
+    min-width: 120px;
+    max-width: 260px;
+    margin-right: 10px;
+}
+
+.toplinks {
+    display: table;
+    padding: 4px;
+    padding-top: 8px;
+    float: right;
+}
+
+.toplinks > a {
+    padding: 6px;
+}
+
+.toplinks img {
+    position: relative;
+    top: 2px;
+}
+
+
+label.errClass {
+	float: right;
+    display: inline-block;
+    position: relative;
+    height: 18px;
+    min-width: 20px;
+    max-width: 80px;
+    background: url('exclam.png') no-repeat;
+    background-size: contain;
+    text-indent: -9999px;
+    white-space: nowrap;
+}
+
+/**************************
+**************************
+Admin Related Styles
+**************************
+***************************/
+.navbar {
+    display: table;
+    width: 100%;
+}
+
+.navbar a {
+    display: table-cell;
+    height: 30px;
+    background: #EEE;
+    text-align: center;
+    border: 1px solid black;
+    border-top: 0px;
+    border-bottom: 2px solid black;
+    text-decoration: none;
+    line-height: 30px;
+    vertical-align: middle;
+    width: 16.6%;
+}
+
+.navbar a.selected {
+    background-color: #AAA;
+}
+
+.navbar :last-child {
+    border-right: 2px solid black;
+}
+
+.navbar :first-child {
+    border-left: 2px solid black;
+}
+.navbar a:hover {
+    background: #DDD;
+}
+
+.navbar a:active {
+    background: #CCC;
+}
+
+.side {
+    position: relative;
+    width: 50%;
+    float: left;
+}
+
+.account_list select {
+    width: 50%;
+}
+
+#accdelsubmit {
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.vert-group {
+    margin: 20px auto;
+    margin-right: auto;
+    margin-left: auto;
+    background: #DDD;
+    display: table;
+    padding: 4px;
+}
+
+
+
+/**************************
+**************************
+Demographics Page
+**************************
+***************************/
+
+#demosurvey {
+    display: inline-block;
+}
+
+#demosurvey .question {
+    margin-left: 30px;
+}
+
+.demosurvey {
+}
+
+.demosurvey  ul {
+    margin: 0;
+    padding: 0;
+}
+
+.demosurvey  ul  li {
+    text-decoration: none;
+    list-style: none;
+}
+
+.demosurvey .answer {
+    margin-bottom: 18px;
+    padding: 0px;
+    padding-left: 200px;
+}
+
+/**************************
+**************************
+Nested Lists
+**************************
+***************************/
+.collapsibleList{
+	list-style: circle url("/static/closed.png");
+	cursor : pointer;
+}
+
+.collapsibleList li{
+	margin-left:-17px;
+}
+
+.collapsibleListOpen{
+	list-style: circle url("/static/opened.png");
+	cursor : pointer;
+}
+
+.collapsibleListClosed{
+	list-style: circle url("/static/closed.png");
+	cursor : pointer;
+}
+		
+.lastChild{
+	list-style: circle url("/static/closedLastChild.png");
+	cursor : auto;
+}
+
+.orderedOverride li{
+	list-style: decimal;
+	margin-left:-17px;
+	cursor : auto;
+}
+/**************************
+**************************
+Detailed Instructions Page
+**************************
+***************************/
+.DIpageTitle{
+	margin-top: 0px;
+	font-size: 2em;
+	font-weight: bold;
+	line-height: .72em;
+	color: rgb(23, 54, 93);
+}
+
+.DIexclamationPointImage{
+	max-width: 100%;
+    height: auto;
+    width: 15px;
+}
+
+.DItoStartImage{
+	max-width: 100%;
+    height: auto;
+    width: 75%;
+	padding-left:2px;
+}
+
+.DIulSquare{
+	list-style: circle;
+}
+
+.DIulfonts{
+	list-style-type: disc;
+	font-size:14px;
+}
+
+li.DI{
+	color: black;
+	max-width:800px;
+	margin: 5px 0;
+}
+
+.DIusingHeader{
+	font-size:18px; 
+	padding-left:18px; 
+	line-height: 50%; 
+	margin: 5px 0; 
+	color: rgb(23, 54, 93);
+}
+
+.DItipsHeader{
+	font-size:18px; 
+	padding-left:18px; 
+	line-height: 50%; 
+	margin: 5px 0; 
+	color: rgb(23, 54, 93);
+}
+
+.DItextWidth{
+	max-width: 700px;
+}
+
+.DItextWidth2{
+	max-width: 776px;
+}
+
+.DItipBox{
+	font-size:14px; 
+	float:right; 
+	padding-top:10px; 
+	padding-right: 20px;
+	width: 280px; 
+	margin: 10px; 
+	border: 1px solid rgb(23, 54, 93)
+}
+
+.DIbold{
+	font-weight:bold;
+}
+
+.DIhighlightText{
+	display: inline; 
+	color:#61014B;
+}
+
+.DItoStartText{
+	font-size:25px; 
+	margin-bottom: -10px;
+	color: rgb(23, 54, 93);
+}
+
+.DIpageSubmitButton{
+	float: right; 
+	padding-right:197px;
+}
+/**************************
+**************************
+General Comments Page
+**************************
+***************************/
+
+#generalcomments {
+    display: inline-block;
+	padding: 0px;
+	margin: 0px;
+}
+
+.gcform {
+	padding: 0px;
+	margin: 0px;
+}
+
+#gcback {
+	width: 70px;
+	height: 25px;
+	position: relative;
+	margin-right: 20px;
+	padding: 1px 2px;
+}
+
+#gcsubmit {
+	width: 70px;
+	height: 25px;
+	position: relative;
+	margin-right: 20px;
+	padding: 1px 2px;
+}
+
+
+
+/**************************
+**************************
+Questionnaire Page Sidebar
+**************************
+***************************/
+
+
+.sidebar {
+    float: left;
+    background: #D7F4E2;
+    box-shadow:  1px 1px 1px 0px rgba(0, 0, 0, 0.6);
+    border: 2px solid #2364A0;
+    margin-top: 17px;
+    width: 240px;
+    padding: 4px;
+}
+
+#sidebar {
+    font-size: 1.1em;
+}
+
+#sidebar-title {
+    font-size: 1.5em;
+    padding: 4px;
+    padding-left: 8px;
+}
+
+.sidebar ol {
+    margin-top: 0px;
+    font-weight: normal;
+    padding-left: 10px;
+	padding-right: 10px;
+    padding-top: 3px;
+	margin-bottom: 1px;
+}
+
+
+li.sidebar-not-page {
+    margin-bottom: 5px;
+}
+
+.sidebar ol li {
+    margin-top: 2px;
+    list-style: none;
+    padding-bottom: 3px;
+}
+
+.sidebar li a {
+    color: black;
+}
+
+.sidebar-selected {
+    font-weight: bold;
+//	background: white !important;
+//    background: #AFDEFE !important;
+//    padding: 2px 4px !important;
+//    border-radius: 2px;
+}
+
+.sbnp {
+    color: black;
+//    font-weight: bold;
+//    padding: 2px 4px;
+    border-radius: 2px;
+}
+
+.page-link:hover {
+    background: #4FAECE !important;
+}
+
+.sbnp:hover {
+    background: #DDD;
+}
+
+.sidebar-not-page {
+    color: black;
+    background: CCC;
+    border-radius: 6px;
+    padding: 10px 15px;
+    border: solid 1px #CCE;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+.sidebar-not-page:hover {
+    background: #AAA;
+    border: solid 1px #AAC;
+}
+
+.sidebar-not-page:active {
+    background: #888;
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    border: solid 1px #99A;
+}
+
+
+/**************************
+**************************
+Questionnaire Page Main
+**************************
+***************************/
+/*Question Page Container*/
+.qpage_content {
+    width: calc(100% - 272px);
+    margin-right: -240px;
+    float: left;
+    padding: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.breadcrumbs {
+    font-size: 0.9em;
+	color: #4d5e7a;
+    position: relative;
+    top: -22px;
+	display: inline;
+}
+
+.breadcrumbsPolicy {
+    font-size: 1.2em;
+	color: #457BA1;
+    position: relative;
+    top: -22px;
+	display: inline;
+	font-weight:bold;
+}
+
+#emptypagemessage {
+	font-weight: bold;
+	font-size: 2em;
+	min-height: 100px;
+
+}
+
+.text {
+    margin-top: 10px;
+    margin-bottom: 6px;
+	font-size: 14px;
+}
+
+.qpage_title {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.question {
+    margin-top: 6px;
+
+}
+
+.qpage_instructions {
+    margin-top: 10px;
+    margin-bottom: 6px;
+}
+
+
+/* Question Title */
+.q_title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #5D5B5B;
+    margin-bottom: 2px;
+    margin-top: 20px;
+}
+
+/* Question page Comment title */
+.q_comment_title {
+    font-size: 1.2em;
+    font-weight: bold;
+	color: #5D5B5B;
+    margin-bottom: 2px;
+    margin-top: 40px;
+}
+
+/* Question Note */
+.q_note {
+/*    margin-left: 12px; */
+    font-style: italic;
+}
+
+/* Question Text */
+.q_text {
+/*    margin: 4px;*/
+    color: #457BA1;
+    font-weight: bold;
+}
+
+/* Question page Comment text */
+.q_comment_text {
+    color: #457BA1;
+    margin-top: 4px;
+}
+/* Question Response */
+.q_response {
+    margin-left: 17px;
+}
+
+.cloze {
+    display: inline-block;
+}
+
+.qpage_next a {
+    text-align: right;
+    float: right;
+    text-decoration: none;
+	margin-right: 8px;
+}
+
+.qpage_previous a {
+    text-align: left;
+    float: left;
+    text-decoration: none;
+}
+
+.inline {
+    display: inline!important;
+    margin: 0;
+    padding: 0;
+}
+
+#theform {
+    display: inline-block;
+    padding-right: 50px;
+}
+
+.selector-label {
+	padding: 3px;
+	padding-right: 1px;
+}
+
+.qselectone {
+	vertical-align: middle;
+	margin-top: 0;
+}
+.qresplist {
+	vertical-align: middle;
+}
+
+#commentform {
+	margin-bottom: 20px;
+}
+
+/**************************
+**************************
+Policies For Review
+**************************
+***************************/
+.policy-links h1 {
+    font-size: 16px;
+}
+
+.policy-links h2 {
+    font-size: 14px;
+    color: black;
+	font-weight:bold;
+	margin: .1cm;
+}
+
+.policy-links a {
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.policy-links span {
+    font-size: 18px;
+    margin-bottom: 3px;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+textarea {
+	width: 80%;
+    height: 85px;
+}
+
+.PFRInstructionsLineHeight{
+	line-height: 20px;
+}
+
+.PFRTextSafe{
+	font-size:1em; 
+	padding-left:20px;
+}
+
+.PFRPolicyLinks{
+	font-size:1em; 
+	padding-left:40px;
+}
+
+.PFRNoNewPoliciesText{
+	font-size:1em; 
+	padding-left:40px;
+}
+
+.PFRCompletedPoliciesHeader{
+	margin: .1cm;
+}
+
+.PFRCompletedPolicies{
+	padding-left: 5px; 
+	font-size:1em;
+}
+
+/**************************
+**************************
+Completion Page
+**************************
+***************************/
+#trycomplete a {
+    text-decoration: none;
+    font-size: 18;
+    text-align: center;
+}
+
+#trycomplete {
+		display: inline-block;
+}
+
+#goback a {
+    text-align: center;
+}
+
+#goback {
+    float: right;
+    margin-right: 20px;
+}
+
+.button {
+    text-align: center;
+    background: #DCE7FB;
+    padding: 4px 8px;
+   -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    border: solid 1px;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.4);
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.2);
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+.button:hover {
+    background: #ECF7FF !important;
+    border: solid 1px #2A4E77;
+    text-decoration: none;
+}
+
+.button:active {
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    -moz-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.6);
+    background: #EFFAFF;
+    border: solid 1px black;
+}
+
+
+#complete {
+    float: right
+}
+
+.TCInput{
+	padding:5px; 
+	padding-left:10px; 
+	padding-right:10px;
+}
+
+/**************************
+**************************
+Login Page
+**************************
+***************************/
+#login-intro {
+    margin-bottom: 10px;
+}
+
+#login-instructions {
+    margin-bottom: 10px;
+}
+
+noscript {
+    color: #900;
+}
+
+#nopopup {
+    color : #900;
+}
+
+LIpageTitle{
+	color: rgb(48, 84, 150);
+	font-weight: bold;
+	font-size: 165%;
+}
+
+.LITd{
+    vertical-align: top;
+}
+
+.LICategoryTitle{
+	font-weight: bold;
+	color:rgb(48, 84, 150);
+	font-size: 130%;
+}
+
+.LICategoryRow{
+	padding-top: 5px;
+}
+
+.LILogInTitle{
+	font-weight: bold;
+	font-size:130%;
+	color:rgb(48, 84, 150);
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top:20px;
+	padding-bottom:20px;
+	vertical-align: top;
+}
+
+.LIInputTable{
+	border: solid .5px gray;
+	box-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+	display: inline-table;
+	width: 250px;
+}
+
+.LIInputForms1{
+	box-shadow: inset 3px 3px 2px rgba(0,0,0,0.3);
+	display: inline-table;
+}
+
+.LIInputForms2{
+	box-shadow: inset 3px 3px 2px rgba(0,0,0,0.3);
+	display: inline-table;
+}
+
+.LIUnorderedList{
+	margin-top:4px;
+	padding-left:25px;
+}
+
+.LIListItem{
+	line-height: 20px;
+}
+
+.LIFormEncapsulation{
+	white-space: nowrap; 
+	padding-left: 240px;
+}
+
+#LIFormBox{
+	padding-left:10px; 
+	padding-right:10px
+}
+
+.LIInputFormPadding{
+	padding-left:173px;
+}
+
+.LIInputButton{
+	font-size:12px; 
+	width:55px;
+}
+
+.LIInstructionsUNR{
+	padding-left: 240px; 
+	font-size: 10px; 
+	display: inline;
+}
+
+.LIInstructionsFUS{
+	padding-left: 65px; 
+	font-size: 10px; 
+	display: inline;
+}
+
+.LIDetectBrowserText{
+	display: none;
+	color: red;
+	font-size: 18px;
+}
+
+/**************************
+**************************
+Polices for Review Page
+**************************
+***************************/
+.PFRInstructionsLineHeight{
+	line-height: 20px;
+}
+
+#PFRTextSafe{
+	font-size:1em; 
+	padding-left:20px;
+}
+
+#PFRPolicyLinks{
+	font-size:1em; 
+	padding-left:40px;
+}
+
+#PFRNoNewPoliciesText{
+	font-size:1em; 
+	padding-left:40px;
+}
+
+#PFRCompletedPoliciesHeader{
+	margin: .1cm;
+}
+
+#PFRCompletedPolicies{
+	padding-left: 5px; 
+	font-size:1em;
+}
+
+/**************************
+**************************
+Help Page
+**************************
+***************************/
+.HelpAsText{
+	background:none;
+    border:none;
+    padding-top:8px;
+	padding-bottom:5px;
+}
+
+.HelpAsTextInner{
+	background:none;
+    border:none;
+    padding:5px;
+	padding-left:15px; 
+}
+
+.HelpFrames{
+	padding-left: 260px;
+}
+
+.HelpImage{
+	max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */;
+}
+
+.HelpLi{
+	color: black;
+	max-width:800px;
+	margin: 5px 0;
+}
+
+.HelpOl{
+	margin-top: -4px;
+	font-size: 14px;
+	text-indent: 3px;
+}
+
+.HelpUlSquare{
+	list-style: circle;
+}
+
+.HelpUlfonts{
+	list-style-type: disc;
+	font-size:14px;
+}
+
+.HelpLiTitles{
+	color: rgb(23, 54, 93);
+	font-size:16px;
+	font-weight:bold;
+}
+
+.HelpLiSubTitles{
+	color: rgb(23, 54, 93);
+	font-size:14px;
+	font-weight:bold;
+}
+
+.HelpLiText{
+	font-size:14px;
+	text-indent:-10px;
+}
+
+.HelpSection:hover {
+    background: #EEF3F8;
+}
+
+.HelpUsingHeader{
+	font-size:18px; 
+	padding-left:18px; 
+	line-height: 50%; 
+	margin: 5px 0; 
+	color: rgb(23, 54, 93);
+}
+
+.HelpTipsHeader{
+	font-size:18px; 
+	padding-left:18px; 
+	line-height: 50%; 
+	margin: 5px 0; 
+	color: rgb(23, 54, 93);
+}
+
+.HelpPageTitle{
+	text-align: left;
+    font-size: 2em;
+    color: #457BA1;
+    margin: 10px 0px;
+    margin-top: 20px;
+    font-weight: bold;
+	padding-top: 5px;
+}
+
+.HelpSidebarTitle{
+	font-size:18px;
+	color:rgb(23, 54, 93);
+	padding-left:5px;
+	font-weight:bold;
+}
+
+.HelpTextWidth{
+	max-width: 580px;
+}
+
+.HelpSidebar{
+    float: left;
+    background: #D7F4E2;
+    box-shadow:  1px 1px 1px 0px rgba(0, 0, 0, 0.6);
+    border: 2px solid #2364A0;
+    margin-top:10px;
+    width:220px;
+    padding: 4px;
+}
+
+.HelpSideBarButtons{
+	padding-top: 5px; 
+	padding-left:20px; 
+	display:none;
+}
+
+.HelpInstructionsText{
+	display:none;
+}
+
+.HelpCreateAccountText{
+	padding-left:10px;
+	padding-right: 143px;
+	display:none;
+}
+
+.HelpBrowserSettingsText{
+	padding-left:10px; 
+	display:none;
+}
+
+.HelpSelectCategoryText{
+	font-size:16px; 
+	padding-top:8px;
+}
+
+.HelpBackButton{
+	font-size: 14px; 
+	cursor: pointer;
+}
+
+.HelpJavaScriptText{
+	text-indent: 15px;
+}
+
+.HelpFireFoxJavaScriptText{
+	padding-top:5px;
+}
+
+.HelpFireFoxJavaScriptText.hover{
+	background: #EEF3F8;
+}
+
+.HelpChromeJavaScriptText.hover{
+	background: #EEF3F8;
+}
+
+.HelpBold{
+	font-weight:bold;
+}
+
+.HelpJavascriptFireFoxImage{
+	border-style: solid; 
+	border-width: 1px; 
+	width: 80%;
+	max-width: 100%;
+    height: auto;
+}
+
+.HelpJavascriptChromeImg1{
+	max-width: 100%;
+    height: auto;
+	border-style: solid; 
+	border-width: 1px; 
+	width: 80%;"
+}
+
+.HelpJavascriptChromeImg2{
+	max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */;
+	border-style: solid; 
+	border-width: 1px;
+}
+
+.HelpChromeSettingsImage{
+	max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */;
+	border-style: solid;
+    border-width: 1px;
+}
+
+.HelpPopupText{
+	text-indent: 15px;
+}
+
+.HelpFireFoxPopupText{
+	padding-top:5px;
+}
+
+.HelpFireFoxPopupText:hover {
+    background: #EEF3F8;
+}
+
+.HelpChromePopupText:hover {
+    background: #EEF3F8;
+}
+
+.HelpPopupFireFoxImage{
+	max-width: 100%;
+    height: auto;
+	border-style: solid; 
+	border-width: 1px; 
+	width: 80%;
+}
+
+.HelpPopupChromeImage{
+	max-width: 100%;
+    height: auto;
+	width: auto\9; /* ie8 */;
+	border-style: solid; 
+	border-width: 1px;
+}
+
+.HelpDemographicsText{
+	padding-left:10px;
+	padding-right: 143px;
+	display:none;
+}
+
+.HelpUsingText{
+	display:none;
+}
+
+.HelpUsingTextTipBox{
+	font-size:14px; 
+	float:right; 
+	padding-top:10px; 
+	padding-right: 20px;
+	width: 280px; 
+	margin: 10px; 
+	border: 1px solid rgb(23, 54, 93);
+}
+
+.HelpUsingTextTipBoxContents{
+	font-size:14px;
+	list-style: square;
+}
+
+.HelpMiscSpacing{
+	margin-top: 5px;
+}
+
+.HelpJobInstructions{
+	list-style: circle;
+	font-size:14px;
+	margin-left:-12px;
+}
+
+.HelpHighlight{
+	display: inline; 
+	color:#61014B;
+}
+
+.HelpLookRulesList{
+	margin-left:-10px;
+}
+
+.HelpLookRulesList li{
+	margin: 5px 0;
+}
+
+/**************************
+**************************
+Popup Instructions
+**************************
+***************************/
+pageTitle{
+	color: dodgerblue;
+	font-weight: bold;
+	font-size: 300%;
+}
+instructionTitle{
+	color: dodgerblue;
+	font-weight: bold;
+	font-size: 150%;
+}
+img{
+	max-width: 100%;
+    height: auto;
+    width: auto\9; /* ie8 */
+}

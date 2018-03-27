@@ -1,0 +1,620 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!-- encoded html tags or cdata tag may be used in the "instructions" or any text-type element-->
+
+<questionnaire xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="ppt password%20policy%20template%20031814.xsd"
+    xmlns="ppt">
+    <title>Password Policy Questionnaire</title>
+    <xmlversion>031114</xmlversion>
+    <qaversion>Nov2014v1</qaversion>
+    <BNFversion>kevinV1</BNFversion>
+    <!--version numbering system to be sorted out later-->
+    <indent_px>20</indent_px>
+	<default_insert_text> DEPENDS ON USER INPUT </default_insert_text>
+
+
+<!-- Index, questions and in-page questions-->
+
+
+    <!-- Index-->
+
+    <index grouping="4" interweave_next_level="false">
+
+    {% include xml_output %}
+
+<!-- static text -->
+
+    <static_text>
+        <enable_flashed_messages></enable_flashed_messages> <!-- leave blank to disable, otherwise 'True' -->
+        <enable_logged_in_message></enable_logged_in_message> <!-- leave blank to disable -->
+        <enable_question_ids></enable_question_ids> <!-- leave blank to disable, otherwise 'Yes' -->
+        <email_sent_text> The comment was successfully sent </email_sent_text>
+        <email_error_text> Sending the message failed! Call Micky!</email_error_text>
+        <email_ok> OK </email_ok>
+        <email_title> Notice! </email_title>
+        
+      <title>Password Policy Formalization Study</title>
+        <!-- Title of the web page (usually appears in the browser tab, or at the top of the browser) -->
+
+        <help_text>help text</help_text>
+
+        <nojs_message> <![CDATA[ <p> Please enable javascript to use this application. (See your browser settings or go to Help)</p> ]]> </nojs_message>
+        <nopopups_message> <![CDATA[ <p> Please enable pop-ups to use this application. (See your browser settings or go to Help)</p> ]]> </nopopups_message>
+
+        <sign_in>
+          <pgtitle></pgtitle>
+            <username>User ID:</username>
+            <no_account> <![CDATA[ Please enter your username below. If you are a new user, please <b><a href="/signup">create a new account.</a></b> ]]></no_account>
+            <intro_text></intro_text>
+            <instructions></instructions>
+          <error_text>That username does not exist. Please re-enter your username.</error_text>
+          <error_title_text>Nonexistent!</error_title_text>
+        </sign_in>
+
+        <sign_up>
+          <pgtitle>Create Account</pgtitle>
+          <has_account>Already have an account?</has_account>
+          <name_taken>This name is not available - please choose a different name.</name_taken>
+          <name_taken_title>Name is taken!</name_taken_title>
+          <name_invalid>Name must be only letters and numbers</name_invalid>
+          <name_invalid_title>Name is invalid!</name_invalid_title>
+          <intro_text><![CDATA[ <b>Account information</b>]]></intro_text>
+          <instructions><![CDATA[ A username must consist of <b>only</b> letters and numbers. <br>If you forget this username, your account and any saved responses cannot be recovered. Only a scrambled version is ever stored in order to protect your identity.<br>This application does not use passwords.  ]]></instructions>
+          <success>New user created successfully</success>
+          <user_created_text> Your user id can NOT be recovered if you forget or lose it. Please keep it safe. </user_created_text>
+          <user_created_ok> I understand </user_created_ok>
+          <user_created_title> Attention! </user_created_title>
+        </sign_up>
+
+        <policies_for_review>
+          <pgtitle> Password Policies</pgtitle>
+  <!--          <preinstructions>
+                <![CDATA[ <h1>Introduction</h1> 
+                <b>About the Application</b>
+                <br>The Password Policy Formalization application provides a way for users to provide password policy researchers with their interpretation of the rules contained in real-world password policies using a question-answer format. 
+                <p> Because any one policy may contain a variety of rules, the set of questions asked during each policy review covers the entire password policy rule set identified by the research team. Some statements that direct user behavior are advice rather than rules. The statement, "Passwords should be memorable," is a good example of this and the questions do not cover topics such as advice. However, ample opportunity is given throughout the policy review process for users to relate any policy statements they see in the policy being reviewed.   More information on rule scope is provided in Help (found in the upper right corner of each page).
+                <p> The application will present the user with a set of polices to review and will help the user track what has been reviewed. All responses to questions and comments are automatically saved, even partial responses.
+                <p><b>Your Role as a User</b>
+                <br>For each policy that you review, the application will present you with a copy of the policy in one browser window and the questions in another browser window. The language used in the questions and responses has been generalized to represent concepts found in multiple policies. Your task is to match the specific rules in the real world policy with the generalized responses in the question set. 
+                <p><b>Required Questions</b>
+                <br>Although none of the questions are required, please select all of the appropriate matches whenever possible to provide a complete representation of the policy&#39;s rules. If you are confused or don&#39;t think that the available answers are sufficient, then let us know through the optiona comment area provided on each page. There is also a general comment link (top right of each page) for any feedback or comments you may want to provide.
+                <br><br>
+                ]]> 
+            </preinstructions> -->
+            <instructions> <![CDATA[ <div style="line-height:160%;">When you begin, the questionnaire opens in this window. The policy you pick opens in another window. <br>  Your task: Tell us what the policy says. If you don't know or can't find an answer, that's okay. Just tell us about it.<br>Your responses are automatically saved.</div> <br>Pick a policy: ]]>
+            </instructions>
+            <new_and_draft_text>
+                Policies to Review
+            </new_and_draft_text>
+            <new_text>
+                To Review
+            </new_text>
+            <draft_text>
+                In Progress
+            </draft_text>
+            <completed_text>
+                Completed
+            </completed_text>
+        </policies_for_review>
+
+        <questionnaire>
+          <back_text> Policies to Review </back_text> <!-- No HTML... full text is a link back -->
+            <finish_text> Review and Submit </finish_text> <!-- Text for sidebar and bottom of page links -->
+            <continue_label> Move on </continue_label>
+            <cancel_label> Fix </cancel_label>
+
+			<invalid_popup_title>Missing responses</invalid_popup_title>
+			<invalid_popup_text>Complete responses now? Select 'Fix' to complete your responses. Select 'Move on' to leave this page.</invalid_popup_text>
+			<logout_title>Logout</logout_title>
+			<logout_text>Confirm logout?</logout_text>
+			<logout_continue>Logout</logout_continue>
+			<logout_cancel>Cancel</logout_cancel>
+			<clone_warning_title>Warning</clone_warning_title>
+			<clone_warning_text>The option you just selected will remove all subsequent repeated statements with associated responses. Are you sure you want to remove these?</clone_warning_text>
+			<clone_warning_continue>Remove</clone_warning_continue>
+			<clone_warning_cancel>Cancel</clone_warning_cancel>
+
+			<empty_page_message> Congratulations... you don't have to answer any questions on this page! </empty_page_message>
+
+        </questionnaire>
+
+        <help>
+            <pgtitle></pgtitle>
+            <html>
+                <![CDATA[
+<b style=""><span
+ style="font-size: 16pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: rgb(63, 142, 190);"><o:p></o:p></span></b>Help
+is provided in the form of potential questions that users may ask.
+Select a link from the <span style="font-weight: bold;">Help
+Topics on This Page</span> to view that topic. To leave a comment
+concerning help or to request that someone contact you, please use the <a
+ href="#" onclick="follow_link_with_next('/general_comments')">General
+Comment</a> function.
+<p><b style=""><span
+ style="font-size: 12pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><a
+ name="top"></a></span></b><span
+ style="font-weight: bold;">Help
+Topics on This Page</span></p>
+
+<ul>
+  <li><a href="#function">Function of Password
+Policy
+Formalization application</a></li>
+  <li><a href="#what">What is a Policy Statement</a></li>
+  <li><a href="#role">What is my Role as a User</a></li>
+  <li><a href="#outofscope">In Scope &amp;
+Out-of-scope topics</a></li>
+   <li><a href="#browsers">Supported Browsers</a></li>
+   <li><a
+ href="Password%20Policy%20Formalization%20Help.html#popups">Pop-ups
+and Java script</a> </li>
+  <li><a href="#required">Required Fields and
+Questions</a></li>
+<li><a href="#reporting">Reporting Issues,
+Problems, Observations</a></li>
+  <li><a href="#userid">Your UserID<span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: rgb(50, 41, 243);"><br>
+    </span></a></li>
+</ul>
+<HR WIDTH="75%" COLOR="#3F8EBE" SIZE="3">
+<b style=""><span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><a
+ name="function"></a></span></b><span
+ style="font-weight: bold;">Function of Password Policy
+Formalization application</span><br>
+
+NIST will compile participants' responses and use them to determine how
+users interpret password policy statements. By analyzing the responses
+of numerous participants, NIST intends to identify policy statement
+wording that is clear and unambiguous and ones that are not. NIST
+intends to use the results to develop a password 'grammar' that
+organizations could use to write clearer password policies. Further,
+single and combinations of policy statements can then be isolated and
+analyzed for usability and security characteristics. The result is to
+provide policy developers with guidelines to reduce user frustration
+and confusion and improve compliance while improving system security.
+<HR WIDTH="75%" COLOR="#3F8EBE" SIZE="3">
+
+<b style=""><span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><a
+ name="what"></a></span></b><span
+ style="font-weight: bold;">What is Policy Statement</span><br>
+Password policy statements typically refer to directions to users about
+creating, communicating, storing, and changing passwords; as well the
+consequences of failing to authenticate. There are typically four types
+of statements that direct the user how to comply with the policy:
+<br>
+<ul>
+<li>What the user "must" do</li>
+<li>What the user "must not" do</li>
+<li>What the user "should" do</li>
+<li>What the user "should not" do</li>
+</ul>
+<HR WIDTH="75%" COLOR="#3F8EBE" SIZE="3">
+
+<b style=""><span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><a
+ name="role"></a></span></b><span style="font-weight: bold;">Role
+as a User</span></br>
+When you use the application, you will choose a real-world password policy
+from the list of policies. Once a policy is selected for review, you will be asked a series of questions about the rules contained in that policy. You should select the responses that
+closely reflect your understanding of what the policy states. Some questions
+may not be applicable to the policy you selected, but an response option should be available to indicate that situation. <br>
+
+<HR WIDTH="75%" COLOR="#3F8EBE" SIZE="3">
+
+<b style=""><span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><a
+ name="outofscope"></a></span></b>
+<span style="font-weight: bold;">In-Scope &amp; Out-of-Scope Topics</span><br>
+
+<span style="font-weight: bold; padding-left:10px;">In-Scope</span>
+<div style="margin-left:+10px;">The scope for this project is password policy statements that pertain to general, non-privileged accounts.
+As opposed to policy statements regarding a privileged account such as one that would be a system
+administrator. </div><br>
+<span style="font-weight: bold; padding-left:10px;">Out-of-Scope</span>
+<br>
+<div style="margin-left:+10px;">This
+effort is directed towards password policy statements for general user
+accounts, i.e., non-privileged accounts. There are a number of topics
+that are out-of-scope for this
+effort and questions about these topics are not included in the password
+policy questions. These topics include:</div>
+<ul>
+  <li>Passphrases and SSH keys</li>
+  <li>Password guidelines for administrators, privileged
+accounts, and super users</li>
+  <li>Vague statements, such as "Passwords should be memorable",
+are out of scope in this effort.&nbsp;</li>
+</ul>
+<a style="color: rgb(51, 51, 255);" href="#top">Back
+to Top</a><br>
+<HR WIDTH="75%" COLOR="#3F8EBE" SIZE="3">
+<b style=""><span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><a
+ name="browsers"></a></span></b><span
+ style="text-decoration: underline;"></span><span
+ style="font-weight: bold;">Supported Browsers</span><br>
+The application is platform independent and works with the following
+browsers:<br>
+<ul>
+  <li>Firefox versions 34 and above</li>
+  <li>Chrome version 39.X and above</li>
+</ul>
+Please report any technical issues through the <a
+ href="#" onclick="follow_link_with_next('/general_comments')">General
+Comment</a> page. <br>
+<br>
+Note that Internet Explorer and Safari do *not* work with the
+application. Please avoid their use for this application.
+<br>
+<HR WIDTH="75%" COLOR="#3F8EBE" SIZE="3">
+<b
+ style=""><span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><a
+ name="popups"></a></span></b><span
+ style="font-weight: bold;">Pop-Ups &amp; Java Script</span><br>
+For
+the application to function correctly, you will need to enable both pop-ups and Java script in your browser. Directions for enabling pop-ups
+in your selected browser are below:<br>
+<br>
+&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;">
+Enabling Pop-ups </span><br>
+<br>
+&nbsp;&nbsp;&nbsp;<span style="font-weight: bold;">
+Mozilla Firefox</span><br>
+<ol>
+  <li>Select the Menu button (upper right hand corner)</li>
+  <li>Choose options</li>
+  <li>Select the Content panel</li>
+  <li>Block pop-up windows check box by checking the box or
+uncheck to unblock&nbsp;&nbsp;&nbsp;&nbsp; </li>
+</ol>
+&nbsp;&nbsp;&nbsp; <span style="font-weight: bold;">Chrome</span><br>
+<ol>
+  <li>In the top right corner of the browser, click the Chrome
+menu icon</li>
+  <li>Select Settings</li>
+  <li>Click show advanced settings (link at the bottom of the
+page)</li>
+  <li>Under "Privacy", click the Content settings button&nbsp;</li>
+  <li>Under "Pop-ups", select the Allow all sites to show pop-ups
+or click Manage exceptions&nbsp;</li>
+</ol>
+<p><a href="#Top">Back to top</a>
+<HR WIDTH="75%" COLOR="#3F8EBE" SIZE="3">
+<b style=""><span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><a
+ name="required"></a></span></b><span
+ style="font-weight: bold;">Required Fields and Questions </span><br>
+You
+are not required to answer any of the questions - there are no
+required fields. &nbsp;However, we request you provide
+answers
+to each question presented to you if possible. If you are confused or do not think that
+ the available answers are appropriate, then please let us know in the 
+Optional Comment section at the bottom of the question page. We have also provided a
+general comment link (located at the top right hand corner of the
+page) for any feedback, comments, or problems. <br>
+<HR WIDTH="75%" COLOR="#3F8EBE" SIZE="3">
+<span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><o:p></o:p></span><b
+ style=""><span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><a
+ name="reporting"></a></span></b><span
+ style="font-weight: bold;">Reporting Issues, Comments,
+Observations</span><br>
+If
+you see any issues, have any observations of, or comments about a
+policy or policy questions, please use the comment area below the
+questions to report these issues, observations, or comments.
+Additionally, if there are insufficient choices for any question or
+comment, please let us know!<br>
+<br>
+Please use the <a
+ href="#" onclick="follow_link_with_next('/general_comments')">General Comment</a>
+option located at the top right hand corner on any page to enter any
+comments about the application, other observations, or technical
+issues. <br>
+<HR WIDTH="75%" COLOR="#3F8EBE" SIZE="3">
+<b style=""><span
+ style="font-size: 10pt; line-height: 107%; font-family: &quot;Verdana&quot;,sans-serif; color: black;"><a
+ name="userid"></a></span></b><span
+ style="font-weight: bold;">Your UserId</span><br>
+Please keep your UserId safe. If you forget your userid, we <span
+ style="font-weight: bold; font-style: italic;">cannot</span>
+recover it for you. We are only allowed to store a scrambled version to
+preserve your anonymity and protect your identity. Unfortunately, if you cannot
+remember your UserId, you will need to create a new one for continued use of the application. Since each policy review is associated with an individual UserId, any previous review effort continues to be assoicated with your former UserId and you will
+lose access to it. Please keep your UserId safe.<br>
+<br>
+	]]>
+            </html>
+        </help>
+
+
+        <demographics_survey>
+          <submit_text>To fill out all the data, select 'Go Back.'</submit_text>
+            <submit_text_title>Incomplete entry</submit_text_title>
+            <submit_continue>OK</submit_continue>
+            <submit_cancel>Go Back</submit_cancel>
+            <indent_px>11</indent_px>
+        </demographics_survey>
+		<detailed_instructions>
+			<submit_text>Please fill out all the data - to make changes, select 'Go Back', to proceed to the study click OK</submit_text>
+		</detailed_instructions>
+		<popup_instructions>
+			<submit_text>Please fill out all the data - to make changes, select 'Go Back', to proceed to the study click OK</submit_text>
+		</popup_instructions>
+        <admin_configure>
+            <pgtitle>Configure Study</pgtitle>
+        </admin_configure>
+
+        <admin_testing_setup>
+            <pgtitle> Testing Setup </pgtitle>
+        </admin_testing_setup>
+
+        <admin_reporting>
+            <pgtitle>Reporting</pgtitle>
+        </admin_reporting>
+
+        <general_comments>
+            <pgtitle>General Comments</pgtitle>
+        </general_comments>
+
+        <completion_page>
+ <!--           <pgtitle> Complete Study? </pgtitle>
+            <description> If you click 'Complete' you will no longer be able to edit your responses to this questionnaire. Click 'Go Back' to return to the questionnaire. </description>
+            <invalid_text> <![CDATA[ <p> You have not completed every question in the study - you are free to submit the questionnaire without completing it, but please do try to complete all questions. <p> The questions that are incomplete will be highlighted in the sidebar of the study to aid in locating them. <p> If you leave the questionnaire before completing it, you can re-produce the highlights for missing responses by re-visiting this page. ]]></invalid_text>
+ -->
+            <complete_text> Submit </complete_text>
+            <go_back_text> Review </go_back_text>
+            <review_all_completed> <![CDATA[ You have completed all of the questions. <br> You may review and edit any responses, including any comments before submission. <br>Use the 'Go Back' button or the menu to return to the questions. ]]></review_all_completed>
+            <submit_all_completed> <![CDATA[ Once submitted you will no longer be able to edit or modify your responses. <br> You may submit your answers about this policy at any time.</p> ]]></submit_all_completed>
+            <review_need_responses> <![CDATA[ You <b><mark> have not completed every question</mark></b>. <br> Was that your intention? <p> You may choose to complete those questions. Either press the 'Go Back' button or the <b><mark>highlighted</mark></b> headings in the menu. ]]></review_need_responses>
+            <submit_need_responses> <![CDATA[ Once submitted you will no longer be able to edit or modify your responses. <br> You may submit your answers about this policy at any time. <p></p> ]]></submit_need_responses>
+        </completion_page>
+    </static_text>
+	<detailed_instructions>
+		<pgtitle> Instructions </pgtitle>
+		<instructions>
+			<![CDATA[
+			<br><br>
+			<instructionTitle>About the Application</instructionTitle>
+			<p>Welcome to the Password Policy Formalization application. This tool provides a way for users to provide password policy researchers with their interpretation of the rules contained in real-world password policies using a question-answer format. <br><br>
+			On the following page are the password policies that you are tasked to review. Clicking on one of the links will bring you to the first page of the evaluation, with the policy displayed in a pop-up window.  Once the survey is successfully submitted, the application will bring you back to the policy selection screen. All answers are saved automatically, whether or not you submit the survey. In-progress surveys are noted on the policy selection page, along finished policies and those that still need to be started. <br><br>
+			Because any one policy may contain a variety of rules, the set of questions asked during each policy review covers the entire password policy rule set identified by the research team. Some statements found within the policies are advice that direct user behavior rather than strict rules. The statement, "Passwords should be memorable," is a good example of this. Questions will only cover definitive rules outlined in the password requirements. However, ample opportunity is given throughout the policy review process for users to relate any policy statements they see in the policy being reviewed. More information on rule scope is provided in Help (found in the upper right corner of each page). <br><br>
+			</p>
+			<instructionTitle>Navigation</instructionTitle>
+			<p>Page to page navigation is done two ways: the navigation buttons on the bottom of each page or the sidebar. For the navigation buttons, clicking on them will bring you to either the next or the previous page. Once finished with the last page of questions, the next page button will bring you to the submission page, where you can decide to submit or to go back. The go back button will bring you back to the first page.<br> <br>
+			Each page is held within its own group of pages, and you can skip directly to the desired group or page by using the sidebar. Either click on the relevant page title in the current group, or select a new top level group to show the pages held within.<br><br>
+			<center>
+			<span> <img width=75% src="/static/Navigational Buttons.png" alt="Instructions Navigation Image"/> </span>	</center>  
+			</p><br>
+			<instructionTitle>The Policy</instructionTitle>
+			<p>Once a policy is selected and the evaluation begins, the policy will be shown in a pop-up window. If no pop up appears, either contact your administrator directly or disable any ad/pop-up blockers that may be in use. If you accidentally close out of the policy before the evaluation is complete, simply move onto the next page and the policy will pop up once more.<br><br>
+			</p>
+			<instructionTitle>Questions</instructionTitle>
+			<p>Each page will have numerous questions with types such as multiple choice, check-box, drop-down selection, and open ended comment boxes. Researchers are free to mix and match response types within a question, so some complex examples may have multiple response forms to fill out.  In certain situations, selecting a particular answer can trigger a new selection of sub-questions.<br><br>
+			Most questions will require a response in order to be marked as valid. Whether it be a missing radio button answer or a blank textbox, trying to move onto the next page with an unanswered question will result in a warning message popping up. "Fix" returns you to the page with the error, while "Move On" goes onto the next page. In addition, warning icons in the form of yellow triangles <img width=6px src="/static/exclam.png" alt="Instructions Exclam Image" /> </span> will appear alongside the relevant questions. An evaluation that has missing responses can still be submitted, but the corresponding questions will be marked as incomplete. In certain cases, some questions and response sections do not require an answer and will not trigger a warning when moving onto the next page.<br><br>
+			<center><span> <img width=75% src="/static/Warning.png" alt="Instructions Warning Image" /> </span> </center>
+			</p><br>
+			<instructionTitle>Need Help?</instructionTitle>
+			<p>Located in the top right hand corner is the "Need Help?" button. This button navigates you to the help form, where common questions and answers to them are found. These questions are divided into various topics at the top of the form, which can be clicked to jump down to that section. If your question is not answered by this form or by this instructions page, use the General Comment page to comment concerning help or to request that someone contact you.<br><br>
+			<center><span> <img width=75% src="/static/Misc. Button Location.png" alt="Instructions Warning Image" /> </span> </center>
+			</p><br>
+			<instructionTitle>General Comments</instructionTitle>
+			<p>If you need to contact a researcher with a question about the application, feedback, or technical support, use the "General Comments" form found in the upper right hand corner. Within this form, select the category that best fits the issue and enter your detailed response in the textbox provided. If you need a response from the researchers, add your contact information at the end of your response. Selecting "Go Back" will return you to the page you were on last. <br><br>
+			<center><span> <img width=75% src="/static/General Comment Form.png" alt="Instructions Warning Image" /> </span> </center>
+			</p><br>
+			<instructionTitle>Logout</instructionTitle>
+			<p>Once your tasks are completed, press the "Log Out" button located in the top right hand corner. This will return you to the login splash page. <br><br>
+			</p>
+			<instructionTitle>View Instructions Again</instructionTitle>
+			<p>If you need to reference these instructions again, press the "Instructions" button near the top right hand corner of the screen.<br><br>
+			</p>
+            ]]>
+        </instructions>
+	</detailed_instructions>
+	<popup_instructions>
+		<pgtitle> Instructions </pgtitle>
+		<instructions>
+			<![CDATA[
+			<br><br>
+			<instructionTitle>About the Application</instructionTitle>
+			<p>Welcome to the Password Policy Formalization application. This tool provides a way for users to provide password policy researchers with their interpretation of the 	rules contained in real-world password policies using a question-answer format. <br><br>
+			On the following page are the password policies that you are tasked to review. Clicking on one of the links will bring you to the first page of the evaluation, with the policy displayed in a pop-up window.  Once the survey is successfully submitted, the application will bring you back to the policy selection screen. All answers are saved automatically, whether or not you submit the survey. In-progress surveys are noted on the policy selection page, along finished policies and those that still need to be started. <br><br>
+			Because any one policy may contain a variety of rules, the set of questions asked during each policy review covers the entire password policy rule set identified by the research team. Some statements found within the policies are advice that direct user behavior rather than strict rules. The statement, "Passwords should be memorable," is a good example of this. Questions will only cover definitive rules outlined in the password requirements. However, ample opportunity is given throughout the policy review process for users to relate any policy statements they see in the policy being reviewed. More information on rule scope is provided in Help (found in the upper right corner of each page). <br><br>
+			</p>
+			<instructionTitle>Navigation</instructionTitle>
+			<p>Page to page navigation is done two ways: the navigation buttons on the bottom of each page or the sidebar. For the navigation buttons, clicking on them will bring you to either the next or the previous page. Once finished with the last page of questions, the next page button will bring you to the submission page, where you can decide to submit or to go back. The go back button will bring you back to the first page.<br> <br>
+			Each page is held within its own group of pages, and you can skip directly to the desired group or page by using the sidebar. Either click on the relevant page title in the current group, or select a new top level group to show the pages held within.<br><br>
+			<center>
+			<span> <img width=75% src="/static/Navigational Buttons.png" alt="Instructions Navigation Image"/> </span>	</center>  
+			</p><br>
+			<instructionTitle>The Policy</instructionTitle>
+			<p>Once a policy is selected and the evaluation begins, the policy will be shown in a pop-up window. If no pop up appears, either contact your administrator directly or disable any ad/pop-up blockers that may be in use. If you accidentally close out of the policy before the evaluation is complete, simply move onto the next page and the policy will pop up once more.<br><br>
+			</p>
+			<instructionTitle>Questions</instructionTitle>
+			<p>Each page will have numerous questions with types such as multiple choice, check-box, drop-down selection, and open ended comment boxes. Researchers are free to mix and match response types within a question, so some complex examples may have multiple response forms to fill out.  In certain situations, selecting a particular answer can trigger a new selection of sub-questions.<br><br>
+			Most questions will require a response in order to be marked as valid. Whether it be a missing radio button answer or a blank textbox, trying to move onto the next page with an unanswered question will result in a warning message popping up. "Fix" returns you to the page with the error, while "Move On" goes onto the next page. In addition, warning icons in the form of yellow triangles <img width=6px src="/static/exclam.png" alt="Instructions Exclam Image" /> </span> will appear alongside the relevant questions. An evaluation that has missing responses can still be submitted, but the corresponding questions will be marked as incomplete. In certain cases, some questions and response sections do not require an answer and will not trigger a warning when moving onto the next page.<br><br>
+			<center><span> <img width=75% src="/static/Warning.png" alt="Instructions Warning Image" /> </span> </center>
+			</p><br>
+			<instructionTitle>Need Help?</instructionTitle>
+			<p>Located in the top right hand corner is the "Need Help?" button. This button navigates you to the help form, where common questions and answers to them are found. These questions are divided into various topics at the top of the form, which can be clicked to jump down to that section. If your question is not answered by this form or by this instructions page, use the General Comment page to comment concerning help or to request that someone contact you.<br><br>
+			<center><span> <img width=75% src="/static/Misc. Button Location.png" alt="Instructions Warning Image" /> </span> </center>
+			</p><br>
+			<instructionTitle>General Comments</instructionTitle>
+			<p>If you need to contact a researcher with a question about the application, feedback, or technical support, use the "General Comments" form found in the upper right hand corner. Within this form, select the category that best fits the issue and enter your detailed response in the textbox provided. If you need a response from the researchers, add your contact information at the end of your response. Selecting "Go Back" will return you to the page you were on last. <br><br>
+			<center><span> <img width=75% src="/static/General Comment Form.png" alt="Instructions Warning Image" /> </span> </center>
+			</p><br>
+			<instructionTitle>Logout</instructionTitle>
+			<p>Once your tasks are completed, press the "Log Out" button located in the top right hand corner. This will return you to the login splash page. <br><br>
+			</p>
+			<instructionTitle>View Instructions Again</instructionTitle>
+			<p>If you need to reference these instructions again, press the "Instructions" button near the top right hand corner of the screen.<br><br>
+			</p>
+            ]]>
+        </instructions>
+	</popup_instructions>
+    <general_comments>
+        <intro_text></intro_text>
+        <question id="g.1">
+          <text>What is the nature of your comment?</text>
+          <note>Please submit separate comments for each issue</note>
+          <instructions><![CDATA[ Your comment will be emailed to a memeber of this research project. <p> Your comments are anonymous unless you choose to identify yourself. If you want someone to contact you, please provide your contact information. <p> ]]></instructions>
+            <response type="select one">
+                <validation>
+                    <invalid_text>Please select an option or Go Back</invalid_text>
+                </validation>
+                <option id="g.1.A">
+                    <text>Question</text>
+                </option>
+                <option id="g.1.B">
+                    <text>Feedback</text>
+                </option>
+                <option id="g.1.C">
+                    <text>Technical Problem</text>
+                </option>
+            </response>
+        </question>
+        <question id="g.1.1" display_when="g.1.A" indent="2">
+            <text>What is your question?</text>
+            <response type="memo">
+                <validation>
+                    <invalid_text>Please provide a description or Go Back</invalid_text>
+                </validation>
+            </response>
+        </question>
+        <question id="g.1.2" display_when="g.1.B" indent="2">
+            <text>Your feedback:</text>
+            <response type="memo">
+                <validation>
+                    <invalid_text>Please provide a description or Go Back</invalid_text>
+                </validation>
+            </response>
+        </question>
+        <question id="g.1.3" display_when="g.1.C" indent="2">
+            <text>Description of the technical problem:</text>
+            <response type="memo">
+                <validation>
+                    <invalid_text>Please provide a description or Go Back</invalid_text>
+                </validation>
+            </response>
+        </question>
+ <!--       <question id="g.2" indent="4">
+            <response type="cloze">
+                <text type="json">dummy question to test display_where.. option response for option A should fall after this question placeholder</text>
+            </response>
+        </question>
+ -->       
+    </general_comments>
+
+    <demographics_survey>
+        <pgtitle>Tell Us About Yourself</pgtitle>
+        <intro_text>We collect this information for demographic purposes only.</intro_text>
+        <instructions></instructions>
+        <question id="d.1">
+            <text type="json">What is your gender?</text>
+            <response type="select one">
+                <validation>
+                    <invalid_text>Select a response</invalid_text>
+                </validation>
+                <option id="d.1.A">
+                    <text>Male</text>
+                </option>
+                <option id="d.1.B">
+                    <text>Female</text>
+                </option>
+                <option id="d.1.C">
+                    <text>Other identification</text>
+                </option>
+                <option id="d.1.D">
+                    <text>Prefer not to answer</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.2">
+            <text>How old are you?</text>
+            <response type="select one">
+                <validation>
+                    <invalid_text>Select a response</invalid_text>
+                </validation>
+                <option id="d.2.A">
+                    <text>Younger than 20</text></option>
+                <option id="d.2.B">
+                    <text>20-29</text>
+                </option>
+                <option id="d.2.C">
+                    <text>30-39</text>
+                </option>
+                <option id="d.2.D">
+                    <text>40-49</text>
+                </option>
+                <option id="d.2.E">
+                    <text>50-59</text>
+                </option><option id="d.2.F">
+                    <text>60-69</text>
+                </option>
+                <option id="d.2.G">
+                    <text>70+</text>
+                </option>
+                <option id="d.2.H">
+                    <text>Prefer not to answer</text>
+                </option>
+            </response>
+        </question>
+        <question id="d.3">
+            <text>What is your highest completed level of education?</text>
+            <response type="select one">
+                <validation>
+                    <invalid_text>Select a response</invalid_text>
+                </validation>
+                <option id="d.3.A">
+                    <text>High school/GED</text>
+                </option>
+                <option id="d.3.B">
+                    <text>Associate's degree</text>
+                </option>
+                <option id="d.3.C">
+                    <text>Bachelor's degree</text>
+                </option>
+                <option id="d.3.D">
+                    <text>Master's degree</text>
+                </option>
+                <option id="d.3.E">
+                    <text>Doctorate degree</text>
+                </option>
+                <option id="d.3.F">
+                    <text>Prefer not to answer</text>
+                </option>
+                <option id="d.3.G">
+                    <text type="json">Other. Describe: <![CDATA[<br>]]>{"cloze":{"id":"d.3.G.a", "type":"memo", "validation": {"required": "required", "invalid_text": "Please describe"}}}</text>
+                    <!-- <text>Other, please describe</text>   -->
+                </option>
+            </response>
+        </question>
+       <!-- <question id="d.3.5" display_when="d.3.G" indent="4">
+            <response type="memo"> 
+            </response>
+        </question>    -->
+        <question id="d.4">
+            <text>What is your job title?</text>
+            <response type="select one">
+                <validation>
+                    <invalid_text>Select a response</invalid_text>
+                </validation>
+                <option id="d.4.A">
+                    <text>Prefer not to answer</text>
+                </option>
+                <option id="d.4.B">
+                    <text type="json">Title: {"cloze":{"id":"d.4.B.a", "type":"textbox", "validation": {"required": "required", "invalid_text": "Tell us your job title"}}}</text>
+                </option>
+            </response>
+        </question>
+    </demographics_survey>
+
+
+</questionnaire>

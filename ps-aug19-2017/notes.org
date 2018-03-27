@@ -1,0 +1,128 @@
+* xml doc
+remove quotes inside element_ref
+select_one must have options, default is blank
+numerical validation is a dict, min and max
+change true/false to "select one"
+
+ids must be unique
+comments have option with user_text inside ... refactor to another response
+comment response options must have ids
+clone inside option needs a comma separated list of every question to clone
+
+response 1.A does not exist changed to q.1.1.A line 154
+2.3.1.1.C -> q.2.3.1.1.C line 335
+same deal 335
+same deal 347
+same 367
+same 399
+
+
+* database docs
+** user
+{
+"isadmin": boolean,
+"date_created": isoformat date,
+"done_demographic_survey: boolean,
+"name": string,
+"hash_name": string describing hash func for username if not admin and pass if admin,
+"password_hash": string,
+"policies": list of policies for this user,
+"demographic_survey": {"field": "value, ....},
+}
+
+** config
+{
+"policies_per_user": int,
+"comments_emails": list
+"policies": list [["title", "file"], ["title2", "file"]],
+"policies_used": {"title": int, "title2": int },
+}
+
+** questionnaire
+{
+"username": string,
+"policy_name": string,
+"date_created": isoformat date,
+"state": string ["new"|"draft"|"completed"]
+"questions": {
+  "1": "1.A",
+  "20.1": ["20.1.A", 20.1.G"],
+  "13.1.A.a": 22,
+  "13.1.B.c": "second(s)",
+}
+}
+
+* database management
+back up database $ mongodump policydb
+clear database $ pymongo.MongoClient().drop_database("policydb")
+
+* todo
+- shouldn't be able to go into completed study
+- help page, email sending
+- reporting, do other use cases
+- demo survey 'are you sure' text
+
+- BNF
+- admin about page could use some love
+- show valid/invalid
+- memo
+- clone responses vs normal responses, pre-filled in values
+- ordering of policies
+
+- implement completion (move from draft to completed) - generate BNF
+- display or not questions on page load
+- handle cloning
+- demo survey
+- implement comments
+- implement admin_testing_setup and admin_testing pgs
+- next and back buttons on questionnaire pages
+- implement groups
+- close pdf at appropriate times
+- implement response types and clozes
+- implement inserts
+- implement display_when
+- icon for policies
+- style policies page - flesh out content
+
+{
+"isadmin": true,
+"name": "admin",
+"password_hash": "c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec",
+"policies": []
+}
+
+
+* cloning
+cloning is a bit problematic, here's how it is going to be handled
+
+view will look at data in database, determine how many clones there
+are and add them to the page. js on the page will auto reload whenever
+a clone question is answered, after api call has submitted data. In
+that way, the view function will be called again and the page will be
+regenerated properly.
+
+* logging
+Metadata
+- all versions
+- ts
+
+* BNF
+BNF_mapping are child of option or question, there can be multiple,
+when they are children of questions, they will ref a cloze
+** Option > String
+   Direct mapping from an option to a fixed string - if the option is chosen, that string is output as a BNF statement.
+*** Example
+    <option id="q.1.2.1.A">
+      <text>Yes - the policy &lt;b&gt;prohibits&lt;/b&gt; communicating or sharing passwords &lt;b&gt;by any method&lt;/b&gt;.</text>
+      <BNF_mapping id="b.5">Users must not communicate passwords by any means</BNF_mapping>
+    </option>
+
+** Option > String with json
+*** ident
+references a cloze (cref)
+if the specified "option_text" is selected in the cloze, then the "bnf_text" should be inserted here
+
+*** insert
+insert the referenced cloze value here, or it can be a qref referencing a select_multi, and it wants to insert all of the selected options
+** Question >
+either a cloze or a <when ref='id'>

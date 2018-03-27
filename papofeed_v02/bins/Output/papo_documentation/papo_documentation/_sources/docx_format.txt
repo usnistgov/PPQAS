@@ -1,0 +1,187 @@
+Writing the docx questionnaire
+******************************
+
+GENERAL INFORMATION
+===================
+
+This file describes how the docx file should be written in order to be parsed by
+papo to generate a proper xml file for the Password Policy Taxonomy software.
+
+The structure must always nest questions inside pages, which should be inside
+groups.
+
+All the IDs should always be unique. Not following this will not cause an
+interruption nor a warning in papo, but will lead the Web based software to
+interruption.
+
+ID must be a number optionally followed by a point and another
+number and so on ('2', '2.1', '2.1.1.1.1', '100.123.1000.1')
+
+The parser is not sensitive to the number sequence, so IDs can appear in any
+order, as long as they are unique.
+
+Each line in the following descriptions should be a paragraph(new line) in the
+docx file. Spaces and tabs in the beginning of a line will be ignored.
+
+Bold, italics and underlines will always be directly translated into their HTML
+forms, this may cause problems in some cases (e.g. page titles are translated
+into links localhost/<b>page_1</b>.html).
+
+The parser is, for now, extremely sensitive to the format.
+
+Comments and any other kind of text in the document should not affect
+the parser.
+
+Tables insert new paragraphs between all lines and columns in the
+document, which can affect the parser if used to format the question.
+
+
+
+HOW TO BUILD GROUPS
+===================
+
+Use docx heading styles.
+
+A docx heading level n will be translated into a level n group.
+
+The text in the Heading is the Group Title.
+
+Optionally, a line following the Heading (Group title) may be present and its
+content will be the current group instructions.
+
+HOW TO BUILD PAGES
+==================
+
+Use docx Strong style (do not use the Bold font attribute--only the Strong style
+must be used here).
+
+The text in the Strong style is the Page Title.
+
+
+
+HOW TO BUILD QUESTIONS
+======================
+
+A question starts with a line beginning with 'ID:' and ends with a blank line.
+
+format:
+-------
+ID: <question id>
+
+TITLE: <question title>
+
+TEXT: <question text>
+
+NOTE: <question notes>
+
+DISPLAY_WHEN: <display_when attribute>
+
+DISPLAY_WHERE: <display_where attribute>
+
+OPTION or TEXT (this line can be repeated as many times as wanted)
+
+COMMENT: <additional comment question text>
+
+OPTION or TEXT (this line can be repeated as many times as wanted)
+
+<Blank line> #Marks end of question
+
+NOTES ABOUT BUILDING QUESTIONS
+==============================
+
+DISPLAY_WHEN is used if the current question is to be displayed only when a
+particular OPTION has been selected in another question. Indicate the ID of that
+other question and its OPTION, using the SPECIAL FIELDS IDs described below.
+
+COMMENT only applies for the last question of a page, otherwise, this label
+should not be present.
+
+OPTION and TEXT
+===============
+
+OPTION must always start with () meaning it is a radio button or [] meaning it
+is a select box (multiple selections).
+
+TEXT and the text on an option line following the () or [] may be anything in
+the utf-8 range but the reserved strings and cannot be line breaks. MS Word
+understands a line break every time you press <ENTER> or start a new paragraph,
+it means that whenever your text reaches the end of the page and skips to the
+next line, there are no line breaks.
+
+HOW TO BUILD BNF MAPPINGS
+=========================
+
+Optionally, each OPTION line may be followed by a line:
+-------------------------------------------------------
+
+BNF: <bnf mapping statement>
+
+This BNF will be associated to the OPTION.
+
+Optionally, each TEXT line may be followed by a line:
+-----------------------------------------------------
+
+BNF: <bnf mapping statement>
+
+this BNF will be associated to the current question.
+
+SPECIAL FIELDS
+==============
+
+In the OPTION and TEXT lines, the following notation is accepted:
+-----------------------------------------------------------------
+
+[BIG_TEXT_FIELD]
+
+Translated in text fields.
+
+
+[SMALL_TEXT_FIELD]
+
+Translated in input fields.
+
+
+[NUMERICAL_FIELD]
+
+Translated in numerical input fields.
+
+
+[\|option_1\|option_2\|option_3\|]
+
+Translated in drop down menus, accepts any number of options.
+
+
+Numerical fields may optionally be followed by brackets with validations:
+
+[NUMERICAL_FIELD]{<validations>}
+
+
+Each validation must be separated by ';' and should be key value pairs
+separated by ':'
+
+[NUMERICAL_FIELD]{min:1}
+
+[NUMERICAL_FIELD]{min:1;max:10}
+
+The accepted validations are: min, max, text, list, length.
+
+In the BNF lines, the following notation is accepted:
+-----------------------------------------------------
+
+[REF: <field_id>]
+
+{[REF: <field_id>]+1}
+
+This would add 1 to a user input in a numerical field.
+
+Field_id is the ID of any special field described above
+
+Ex: Users must not create passwords with more than [REF: 2.1.A.a] characters.
+
+About SPECIAL FIELDS IDs
+========================
+
+Each option receives an ID, which is the question ID followed by '.' and a capital letter starting with A.
+
+Each Special field receives an ID which is its option ID followed by '.' and a lower case letter starting with a.
+

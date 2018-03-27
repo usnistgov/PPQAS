@@ -1,0 +1,439 @@
+{% macro render_instructions(instruction, rendered_before) %}
+  {% if not rendered_before %}
+{#     <div class="q_title"> Instructions </div> #}
+  {% endif %}
+    <div class="qpage_instructions">
+      {{ get_text(instruction, "FAKE_QID") }}
+    </div>
+{% endmacro %}
+
+{% macro render_pText(text, rendered_before) %}
+  {% if not rendered_before %}
+{#     <div class="q_title"> Text </div> #}
+  {% endif %}
+    <div class="text">
+      {{ get_text(text, "FAKE_QID") }}
+    </div>
+{% endmacro %}
+
+{% macro gra(q, att) %} {# guarded render attribute #}
+  {% if att in q %}
+    <div class="q_{{ att }}">{{ q[att]|safe }}</div>
+  {% endif %}
+{% endmacro %}
+
+{% macro gra_json(q, att) %}
+  {% if att in q %}
+    <div class="q_{{ att }}">{{ get_text(q[att], "FAKE_QID") }}</div>
+  {% endif %}
+{% endmacro %}
+
+{% macro render_page(page) %}
+  {% set instructions_rendered = False %}
+  {% set text_rendered = False %}
+  {% for item in page %}
+    {% if item[0] == "title" %}
+      <div class="qpage_title"> {{ item[1] }} </div>
+    {% elif item[0] == "instructions" %}
+      {{ render_instructions(item[1], instructions_rendered) }}
+      {% set instructions_rendered = True %}
+	{% elif item[0] == "text" %}
+      {{ render_pText(item[1], text_rendered) }}
+      {% set instructions_rendered = True %}
+    {% elif item[0] == "question" %}
+      {% if "@display_where" not in item[1] %} {# Don't render display_where questions in the normal flow #}
+	{{ render_question(item[1]) }}
+      {% endif %}
+    {% elif item[0] == "comment_ref" %}
+    {% else %}
+      <div class="{{ item[0] }}">
+	{{ item[1] }}
+      </div>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+
+{% macro render_question(q) %}
+<!--<span> rendering question...{{ indent_px }} {{ q  }}</span>-->
+  {% if not indent_px is defined %}
+<!--<span >indent_px was not set</span>-->
+    {% set indent_px = 0 %}
+  {% endif %}
+  <div class="question"
+       id="{{ q["@id"] }}"
+       {%- for dwqid in q["@display_when"] %}
+		 {%- if dwqid in  responses %}
+		   style="display: block;margin-left:{{ q.get('@indent', 0)|int * indent_px|int }}px;"
+		 {%- endif %}
+       {%- endfor %}
+       {% if "@display_when" in q %}
+		 style="display: none;margin-left:{{ q.get('@indent', 0)|int * indent_px|int }}px;"
+       {%- elif "@display_where" in q %}
+		 {%- if q["@display_where"] not in responses %}
+		   style="display: none;margin-left:{{ q.get('@indent', 0)|int * indent_px|int }}px;"
+		 {%- else %}
+	   style="margin-left:{{ q.get('@indent', 0)|int * indent_px|int }}px;"
+	 {%- endif %}
+   {% else %}
+	 style="margin-left:{{ q.get('@indent', 0)|int * indent_px|int }}px;"
+   {%- endif %}>
+   {{ gra(q, "title") }}
+   {%- if elements.enable_question_ids %}
+	 {{ q["@id"] }}
+   {%- endif  %}
+   {{ gra_json(q, "instructions") }}
+   <div class="q_text">
+	 {{ get_text(q, q["@id"]) }}
+   </div>
+   {{ gra_json(q, "note") }}
+   {% if "response" in q %}
+	 {{ render_response(q["response"], q["@id"], q) }}
+   {% endif %}
+  </div>
+{% endmacro %}
+
+{% macro get_text(tag, qid) %}
+  {% if tag is string %}
+	{{ tag|safe }}
+  {%- elif tag["@type"] == "json" %}
+    {{ render_mixed_text_json(tag, qid) }}
+  {%- elif tag is mapping and "text" in tag %}
+    {%- if tag.text["@type"] == "json" %}
+      {{ render_mixed_text_json(tag.text, qid) }}
+    {% else %}
+      {{ tag["text"]|safe }}
+    {% endif %}
+  {%- elif "#text" in tag %}
+    {{ tag["#text"]|safe }}
+  {% endif %}
+{% endmacro %}
+
+{% macro render_select_one(r, qid, q) %}
+  <div style="height:3px;"></div>
+  {% for opt in r["option"] %}
+	{{ gra_json(opt, "note") }}
+
+	<div class="hangingindent">
+	  <label class="selector-label">
+	  <input class="q qselectone
+	       {%- if q['@hasclones'] %} hasclones {%- endif %}"
+	       type="radio"
+		   {%- if "@clone" in opt %}clone="{{ opt["@clone"] }}"{%- endif %}
+	       optionvalidate="param"
+	       displayq="{{ opt.get("displayq", [])|join(',') }}"
+	       make_space="{{ opt.get("make_space", [])|join(',') }}"
+	       id="{{ opt['@id'] }}"
+	       name="{{ qid }}"
+	       {%- if opt['@id'] in questions[qid] %} checked='checked' {% endif %}
+	       {{ add_validation(r.validation) }}
+	       value="{{ opt['@id'] }}"/>
+	  </label>
+
+		   {{ get_text(opt, qid) }}
+	</div>
+	{% if loop.index == 1 %}
+	  <label for={{ qid }} class="errClass valid" title="{{ invalid_text(r.validation) }}">
+	  </label>
+	{% endif %}
+	  {# select this option if it has been answered before #}
+	  {%- if questions[qid] == opt['@id'] %}
+	    <script>
+	      $(escape_dots("#{{ opt['@id']}}")).prop('checked', 'checked');
+	    </script>
+	  {% endif %}
+
+	  {# render display_where questions #}
+	  {% for dispqid in opt["make_space"] %}
+	    {{ render_question(idmap[dispqid]) }}
+	  {% endfor %}
+
+      {% endfor %}
+{% endmacro %}
+
+{% macro render_select_multi(r, qid, q) %}
+  <div style="height:3px;"></div>
+  {% for opt in r["option"] %}
+	{{ gra_json(opt, "note") }}
+	<div class="hangingindent">
+	<label class="selector-label">
+	  <input type="checkbox"
+	       class="q qresplist
+	       {%- if q['@hasclones'] %} hasclones {%- endif %}"
+	       name="{{ qid }}"
+		   {%- if "@clone" in opt %}clone="{{ opt["@clone"] }}"{%- endif %}
+	       id="{{ opt['@id'] }}"
+	       displayq="{{ opt.get("displayq", [])|join(',') }}"
+	       make_space="{{ opt.get("make_space", [])|join(',') }}"
+	       value="{{ opt['@id'] }}"
+	       {{ add_validation(r.validation) }}
+	       title=" " {# disable default validation message #}
+	       {%- if opt['@id'] in questions[qid] %} checked='checked' {% endif %}/>	</label>
+
+		   {{ get_text(opt, qid) }}
+	</div>
+	{% if loop.index == 1 %}
+	  <label for={{ qid }} class="errClass valid" title="{{ invalid_text(r.validation) }}">
+	  </label>
+	{% endif %}
+	  {# select this option if it has been answered before #}
+	  {%- if questions[qid] == opt['@id'] %}
+	    <script>
+	      $(escape_dots("#{{ opt['@id']}}")).prop('checked', 'checked');
+	    </script>
+	  {% endif %}
+
+	  {# render display_where questions #}
+	  {% for dispqid in opt["make_space"] %}
+  {# <script> #}
+  {#  alert('{{ dispqid }} ') #}
+ {# </script> #}
+	    {{ render_question(idmap[dispqid]) }}
+	  {% endfor %}
+
+  {% endfor %}
+{% endmacro %}
+
+{% macro render_memo(r, qid) %}
+  <br/>
+    <textarea class="q qresp"
+	      name="{{ qid }}"
+	      title=" "
+	      {{ add_validation(r.validation) }}
+	      >{{ questions[qid] }}</textarea>
+      <label for="{{ qid }}" class="errClass valid" title="{{ invalid_text(r.validation) }}">
+      </label>
+{% endmacro %}
+
+{% macro render_textbox(r, qid) %}
+  <input type="text"
+	 class="q qresp"
+	 name="{{ qid }}"
+	 value="{{ questions[qid] }}"
+	 {{ add_validation(r.validation) }}
+	 title=" "></input> {# disables jquery validation default text #}
+  <label for={{ qid }} class="errClass valid" title="{{ invalid_text(r.validation) }}">
+  </label>
+{% endmacro %}
+
+{% macro add_validation(validation) %}
+  {%- if validation is mapping %}
+    {%- for k,v in validation.items() %}
+      {%- if k == "invalid_text" %}
+      {%- elif k == "required" %}
+	cRequired="{{ v }}"
+      {%- else %}
+	{{ k }}="{{ v }}"
+      {%- endif %}
+    {%- endfor %}
+  {%- elif validation == "no space" %}
+    pattern="[^\s]*"
+  {%- endif %}
+{% endmacro %}
+
+{% macro invalid_text(validation) %}
+  {%- if validation %}{{ validation.invalid_text }}{%- endif %}
+{% endmacro %}
+
+{% macro render_cloze(item, qid) %}
+  {% set opt_id = opt_id_from(item["id"]) %}
+  {%- if item["type"] == "select one" %}
+    {{ render_select_one_cloze(item, qid, opt_id) }}
+  {%- elif item["type"] == "numerical" %}
+    {{ render_numerical_cloze(item, qid, opt_id) }}
+  {%- elif item["type"] == "textbox" %}
+    {{ render_textbox_cloze(item, qid, opt_id) }}
+  {%- elif item["type"] == "select multi" %}
+    {{ render_select_multi_cloze(item, qid, opt_id) }}
+  {%- elif item["type"] == "memo" %}
+    {{ render_memo_cloze(item, qid, opt_id) }}
+  {%- else %}
+    ((Don't know how to render CLOZE {{ item }}))
+  {%- endif %}
+{% endmacro %}
+
+{%- macro render_select_one_cloze(item, qid, opt_id) %}
+  <select name="{{ qid }}>{{ item["id"] }}"
+	  class="q cloze qresp"
+	  optid="{{ opt_id }}"
+	  {{ add_validation(item.validation) }}
+	  title=" ">
+    <option value="">
+	    {{ item.default }}
+    </option>
+    {%- for opt in item["options"] %}
+      <option value="{{ opt }}"
+	      displayq=""
+	      make_space=""
+	      {%- if questions[qid + '>' + item.id] == opt %} selected="selected" {%- endif %}>
+	      {{ opt }}
+      </option>
+    {%- endfor %}
+  </select>
+  <label for='{{ qid }}>{{ item["id"] }}' class="errClass valid" title="{{ invalid_text(item.validation) }}">
+  </label>
+{%- endmacro %}
+
+{%- macro render_numerical_cloze(item, qid, opt_id) %}
+  <input type="number"
+	 style="width:38px;"
+	 optid="{{ opt_id }}"
+	 maxlength = "3"
+	 min = "1"
+	 max = "999" 
+	 oninput="maxLengthCheck(this)"
+	 class="q qresp cloze"
+	 name="{{ qid }}>{{ item["id"] }}"
+	 {{ add_validation(item.validation) }}
+	 title=" "
+	 value="{{ questions[qid + ">" + item.id] }}">
+  </input>
+  
+  <script>
+  // Forcefully limits numerical boxes to 3 or fewer characters. Not natively supported in HTML5
+  function maxLengthCheck(object)
+  {
+    if (object.value.length > object.maxLength)
+      object.value = object.value.slice(0, object.maxLength)
+  }
+  </script>
+  
+  <label for="{{ qid }}>{{ item["id"] }}" class="errClass valid" title="{{ invalid_text(item.validation) }}">
+  </label>
+{%- endmacro %}
+
+{%- macro render_textbox_cloze(item, qid, opt_id) %}
+  <input type="text"
+	 class="q qresp cloze"
+	 optid="{{ opt_id }}"
+	 name="{{ qid }}>{{ item["id"] }}"
+	 value="{{ questions[qid + '>' + item.id] }}"
+	 {{ add_validation(item.validation) }}
+  </input>
+  <label for="{{ qid }}>{{ item["id"] }}" class="errClass valid" title="{{ invalid_text(item.validation) }}">
+  </label>
+{%- endmacro %}
+
+{%- macro render_select_multi_cloze(item, qid, opt_id) %}
+  {% for opt in item["options"] %}
+	<div class="clozehangingindent">
+	  	<label class="selector-label">
+		<input type="checkbox"
+			   class="q qresplist cloze"
+			   optid="{{ opt_id }}"
+			   name="{{ qid }}>{{ item["id"] }}"
+			   {%- if opt in questions[qid + '>' + item.id] %}
+				  checked='checked'
+			   {%- endif %}
+			   {{ add_validation(item.validation) }}
+			   title=" " {# disables jquery validation's default text #}
+			   value="{{ opt }}"/></label>
+			   {{ opt }}</div>
+      {%  if loop.index == 1 %}
+	<label for="{{ qid }}>{{ item["id"] }}" class="errClass valid" title="{{ invalid_text(item.validation) }}">
+	</label>
+      {% endif %}
+    {% endfor %}
+    <br/>
+{%- endmacro %}
+
+{%- macro render_memo_cloze(item, qid, opt_id) %}
+  <br/>
+    <textarea class="q qresp cloze"
+	      name="{{ qid }}>{{ item["id"] }}"
+	      {{ add_validation(item.validation) }}
+	      optid="{{ opt_id }}"
+	      >{{ questions[qid + '>' + item.id] }}</textarea>
+    <label for="{{ qid }}>{{ item["id"] }}" class="errClass valid" title="{{ invalid_text(item.validation) }}">
+    </label>
+
+{%- endmacro %}
+
+{% macro render_mixed_text_json(r, qid) %}
+
+{% strip %}
+  {% if "#text" in r %}
+    {% set text = r["#text"] %}
+  {% elif "text" in r %}
+    {% set text = r["text"]["#text"] %}
+  {% else %}
+    {% set text = ["ERROR: NO TEXT FOUND IN RESPONSE"] %}
+  {% endif %}
+    {% for item in text %}
+      {%- if item is mapping %}
+	{%- if "cloze" in item %}
+	  {{ render_cloze(item["cloze"], qid) }}
+	{%- elif "insert" in item %}
+	  {{ render_insert(item["insert"]) }}
+	{% endif %}
+      {%- else %}
+		{{ item|safe }}
+      {%- endif %}
+    {% endfor %}
+
+{% endstrip %}
+{% endmacro %}
+
+ {%- macro render_insert(ins) %}
+   {% set ans = resolve_insert(ins, questions, idmap) %}
+{% strip %}
+   <span class="insert" insert="{{ json_dump(ins) }}">
+	 {%- if ans == None %}
+	   {{ default_insert_text }}
+	 {%- else %}
+	   {{ ans }}
+	 {%- endif %}
+   </span>
+{% endstrip %}
+ {%- endmacro %}
+
+
+
+{% macro render_response(r, qid, q) %}
+  <div class="q_response">
+  {% if r["@type"] == "select one" %}
+    {{ render_select_one(r, qid, q) }}
+  {% elif r["@type"] == "select multi" %}
+    {{ render_select_multi(r, qid, q) }}
+  {% elif r["@type"] == "cloze" %}
+    {{ render_mixed_text_json(r, qid) }}
+  {% elif r["@type"] == "memo" %}
+    {{ render_memo(r, qid) }}
+  {% elif r["@type"] == "textbox" %}
+    {{ render_textbox(r, qid) }}
+  {% else %}
+      !!!!!!!!!!!!!!!!!!! Unknown response type {{ r }}
+  {% endif %}
+  </div>
+{% endmacro %}
+
+
+{% macro render_comments_of_page(page) %}
+  {% for item in page %}
+    {% if item[0] == "comment_ref" %}
+      {% if item[1] in idmap %}
+	{{ render_comment(idmap[item[1]]) }}
+      {% else %}
+	!!!!!!!!!! Comment with id {{ item[1] }} does not exist !!!!!!!!!!
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+
+{% macro render_comment(comment) %}
+  <div class="comments">
+    <div class="q_comment_title"> Optional comments for this page</div>
+	{{ gra_json(comment, "instructions") }}
+	<div class="q_comment_text">
+      {{ get_text(comment) }}
+	</div>
+	{{ gra_json(comment, "note") }}
+    {% for r in listify(comment["response"]) %}
+      {% if "@id" in r %}
+		{{ render_response(r, r["@id"], comment) }}
+      {% else %}
+		{{ render_response(r, comment["@id"], comment) }}
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endmacro %}

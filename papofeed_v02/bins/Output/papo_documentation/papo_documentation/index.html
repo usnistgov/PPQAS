@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>PaPo - PAssword POlicy Feed &mdash; papofeed 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="papofeed 0.1 documentation" href="#" />
+    <link rel="next" title="Writing the docx questionnaire" href="docx_format.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="docx_format.html" title="Writing the docx questionnaire"
+             accesskey="N">next</a> |</li>
+        <li><a href="#">papofeed 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="toctree-wrapper compound">
+</div>
+<div class="section" id="papo-password-policy-feed">
+<h1>PaPo - PAssword POlicy Feed<a class="headerlink" href="#papo-password-policy-feed" title="Permalink to this headline">¶</a></h1>
+<p>Receives a MS docx file and outputs a XML file to feed the Password Policy Taxonomy software.</p>
+<p>See <a class="reference internal" href="hacking.html"><em>HACKING</em></a> for development information.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Python 2.7</li>
+<li>Python setuptools package installed</li>
+</ul>
+<div class="section" id="linux">
+<h4>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h4>
+<p>Inside the PaPo directory run: &#8216;python setup.py install &#8211;user&#8217;</p>
+</div>
+<div class="section" id="windows">
+<h4>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h4>
+<p>Double click papo-01.win32 and follow the instructions.</p>
+</div>
+</div>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>The input file must be a MS Word docx file named questionnaire.docx</li>
+<li>Place the input file in the same path as the papo.py script shipped with the code.</li>
+<li>Run papo.py</li>
+</ol>
+<ul class="simple">
+<li><strong>Linux:</strong> &#8216;python papo.py&#8217;</li>
+<li><strong>windows:</strong> double click papo.py</li>
+</ul>
+<ol class="arabic simple" start="4">
+<li>the output file, papo.xml, will be saved in the same path where papo.py is located.</li>
+</ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The input file MUST follow a specific format described below.</p>
+</div>
+</div>
+<div class="section" id="docx-file-format">
+<h2>docx file format<a class="headerlink" href="#docx-file-format" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div>See <a class="reference internal" href="docx_format.html"><em>docx format</em></a> for the structure description
+and <a class="reference download internal" href="_downloads/docx_sample.docx"><tt class="xref download docutils literal"><span class="pre">docx_sample.docx</span></tt></a> for an example wrote by Jim Foti on 06/02/2014</div></blockquote>
+</div>
+<div class="section" id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>papo was mostly developed by Athos Ribeiro.</p>
+<p><a class="reference external" href="mailto:athos&#46;ribeiro&#37;&#52;&#48;nist&#46;gov">athos<span>&#46;</span>ribeiro<span>&#64;</span>nist<span>&#46;</span>gov</a></p>
+<p>x6145</p>
+</div></blockquote>
+</div>
+<div class="section" id="indices-and-tables">
+<h2>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
+<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
+<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">PaPo - PAssword POlicy Feed</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a><ul>
+<li><a class="reference internal" href="#linux">Linux</a></li>
+<li><a class="reference internal" href="#windows">Windows</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#docx-file-format">docx file format</a></li>
+<li><a class="reference internal" href="#authors">Authors</a></li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="docx_format.html"
+                        title="next chapter">Writing the docx questionnaire</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="docx_format.html" title="Writing the docx questionnaire"
+             >next</a> |</li>
+        <li><a href="#">papofeed 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Athos Ribeiro.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

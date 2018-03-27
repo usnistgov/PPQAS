@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>papofeed.elements &mdash; papofeed 0.1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="papofeed 0.1 documentation" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">papofeed 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-papofeed.elements">
+<span id="papofeed-elements"></span><h1>papofeed.elements<a class="headerlink" href="#module-papofeed.elements" title="Permalink to this headline">¶</a></h1>
+<p>Module with XML elements class representations.</p>
+<dl class="class">
+<dt id="papofeed.elements.BnfMapping">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">BnfMapping</tt><big>(</big><em>id_attr</em>, <em>content=None</em>, <em>type_attr=None</em>, <em>when_elements=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.BnfMapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML BNF_mapping element</p>
+<p>id_attr: BNF ID
+content: content of the tag.
+type_attr: element&#8217;s type attribute
+When elements are just strings with options IDs</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Comment">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Comment</tt><big>(</big><em>id_attr</em>, <em>display_when_attr=None</em>, <em>display_where_attr=None</em>, <em>text_elements=None</em>, <em>note_elements=None</em>, <em>instructions_elements=None</em>, <em>response_elements=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Comment" title="Permalink to this definition">¶</a></dt>
+<dd><p>additional_comments question</p>
+<p>id_attr: the comment id. must be a &#8216;c&#8217; followed by a sequence of digits and
+dots &#8216;.&#8217;, always ending with a digit.
+display_when_attr: a Question id or an option id.
+display_where_attr: [TODO: ASK CELIA]
+text_elements: Text object list
+note_elements: Note object list
+instructions_elements: instructions object list
+response_elements: Response object list</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Group">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Group</tt><big>(</big><em>level_attr</em>, <em>title_attr=None</em>, <em>comment_ref_attr=None</em>, <em>next_attr=None</em>, <em>back_attr=None</em>, <em>instructions_elements=None</em>, <em>text_elements=None</em>, <em>page_elements=None</em>, <em>group_elements=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Group" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML group element</p>
+<p>level_attr: XML Group level attribute
+title_attr: XML Group title attribute
+comment_ref_attr: XML Group comment_ref attribute
+next_attr: XML Group next attribute
+back_attr: XML Group back attribute
+instructions_elements: instructions object list
+text_elements: Text object list
+page_elements: Page object list
+group_elements: Group object list</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Include">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Include</tt><big>(</big><em>qref_attr=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Include" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML include element</p>
+<p>qref_attr: XML include qref attribute</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Instructions">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Instructions</tt><big>(</big><em>content</em>, <em>type_attr=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Instructions" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML instructions element</p>
+<p>content: content of the tag.
+type_attr: element&#8217;s type attribute.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Note">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Note</tt><big>(</big><em>content</em>, <em>type_attr=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Note" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML note element</p>
+<p>content: content of the tag.
+type_attr: element&#8217;s type attribute.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Option">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Option</tt><big>(</big><em>id_attr</em>, <em>clone_attr=None</em>, <em>text_element=None</em>, <em>bnf_mapping_elements=None</em>, <em>note_element=None</em>, <em>validation_element=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Option" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML option element</p>
+<p>id_attr: the option id. must be a question id followed by a &#8216;.&#8217; and a upper
+case letter.
+clone_attr: element&#8217;s clone attribute
+text_elements: Text object list
+bnf_mapping_elements: BNF_mapping object list
+validation_element: Validation object</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Page">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Page</tt><big>(</big><em>title_attr=None</em>, <em>comment_ref_attr=None</em>, <em>next_attr=None</em>, <em>back_attr=None</em>, <em>instructions_elements=None</em>, <em>text_elements=None</em>, <em>include_elements=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Page" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML page element</p>
+<p>title_attr: XML Page title attribute
+comment_ref_attr: XML Page comment_ref attribute
+next_attr: XML Page next attribute
+back_attr: XML Page back attribute
+instructions_elements: instructions object list
+text_elements: Text object list
+include_elements: include object list</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Question">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Question</tt><big>(</big><em>id_attr</em>, <em>display_when_attr=None</em>, <em>display_where_attr=None</em>, <em>title_element=None</em>, <em>text_elements=None</em>, <em>note_elements=None</em>, <em>bnf_mapping_elements=None</em>, <em>instructions_elements=None</em>, <em>response_elements=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Question" title="Permalink to this definition">¶</a></dt>
+<dd><p>Single Questionaire Question</p>
+<p>id_attr: the question id. must be a &#8216;q&#8217; followed by a sequence of digits and
+dots &#8216;.&#8217;, always ending with a digit.
+display_when_attr: a Question id or an option id.
+display_where_attr: [TODO: ASK CELIA]
+title_element: string
+text_elements: Text object list
+note_elements: Note object list
+bnf_mapping_elements: BNF_mapping object list
+instructions_elements: instructions object list
+response_elements: Response object list</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Response">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Response</tt><big>(</big><em>type_attr=None</em>, <em>text_elements=None</em>, <em>validation_elements=None</em>, <em>bnf_mapping_elements=None</em>, <em>note_elements=None</em>, <em>option_elements=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Response" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML response element</p>
+<p>type_attr: element&#8217;s type attribute.
+text_elements: Text object list
+validation_elements: Validation object list
+bnf_mapping_elements: BNF_mapping object list
+note_elements: Note object list
+option_elements: Option object list</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Text">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Text</tt><big>(</big><em>content</em>, <em>type_attr=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Text" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML text element</p>
+<p>content: content of the tag.
+type_attr: element&#8217;s type attribute.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="papofeed.elements.Validation">
+<em class="property">class </em><tt class="descclassname">papofeed.elements.</tt><tt class="descname">Validation</tt><big>(</big><em>type_attr=None</em>, <em>content=None</em><big>)</big><a class="headerlink" href="#papofeed.elements.Validation" title="Permalink to this definition">¶</a></dt>
+<dd><p>XML validation element</p>
+<p>content: content of the tag.
+type_attr: element&#8217;s type attribute.</p>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/elements.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="index.html">papofeed 0.1 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, Athos Ribeiro.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
