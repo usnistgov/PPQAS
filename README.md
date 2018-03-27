@@ -13,15 +13,6 @@ Some Markdown References:
 
 ### Purpose
 
-This space is intended for development of Virtual Reality solutions for the Public Safety sector.
-
-No additional metadata at this time.
-
-No current textual interface to the repository for search engines.
-
-No current installation instructions
-
-No current data decompression instructions
 
 ### Project Contact Information
  - Micky Steves <michelle.steves@nist.gov>
